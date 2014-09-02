@@ -1,3 +1,11 @@
 .Rproj.user
 .Rhistory
 .RData
+*.snm
+*.toc
+*.nav
+*.synctex.gz
+*.vrb
+*.log
+*.out
+*.aux
