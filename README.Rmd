@@ -1,0 +1,10 @@
+---
+title: "README"
+author: "Albert Y. Kim"
+date: "September 2, 2014"
+output:
+  html_document:
+    keep_md: yes
+---
+
+Lecture slides for Reed College MATH 141 Introduction to Probability and Statistics.
