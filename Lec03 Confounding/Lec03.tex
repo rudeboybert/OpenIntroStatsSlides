@@ -1,0 +1,675 @@
+\documentclass[slides]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\mode<presentation>
+{
+  %\usetheme[secheader]{Boadilla}
+	%\usecolortheme[rgb={.835, .102,.169}]{structure}  
+	\usetheme[width= 0cm]{Goettingen}
+	%\setbeamercovered{transparent}
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{blue2}{rgb}{0.278,0.278,0.729} 
+\newcommand{\blue}[1]{\textcolor{blue2}{#1}}
+
+\usepackage{hyperref}
+
+\title{Lecture 1.3: Observational Studies + Randomized Experiments + Confounding + Simpsons's Paradox}
+\author{Chapter 1.4}
+\date{2014/01/31}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+\begin{document}
+%------------------------------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Annoucement}
+
+\begin{center}
+\includegraphics[height=0.9\textheight]{Alexis_Flyer}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Goals for Today}
+
+\begin{itemize}
+\item We illustrate the difference between
+\begin{itemize}
+  \item an \blue{observational study}
+  \item a \blue{randomized experiment}, where the treatment is assigned at random.
+\end{itemize}
+\pause\item Introduce the notion of confounding AKA lurking variables
+\pause\item Address the question ``Does sleeping with your shoes on cause you to wake up with a headache?''
+\pause\item Discuss \blue{Simpson's Paradox} (not in textbook).
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Going Back to Previous Example}
+
+Going back to the study on 
+\begin{center}
+\includegraphics[width=0.3\textwidth]{shoes.jpg}
+\hspace{1cm}
+$\Longrightarrow$
+\hspace{1cm}
+\includegraphics[width=0.3\textwidth]{headache.jpg}
+\end{center}
+
+\begin{itemize}
+\item The (hypothesized) explanatory variable was: sleeping with your shoes on
+\item The (hypothesized) response variable was: waking up with a headache
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Confounding Variable}
+
+This is an example of \blue{confounding}.  A confounding variable (AKA a \blue{lurking variable}) is a variable that affects both the explanatory and response variable.  So if:
+\begin{itemize}
+\pause\item $x$ is the explanatory variable
+\pause\item $y$ is the response variable
+\pause\item $z$ is the confounding variable
+\end{itemize}
+we have:
+\vspace{3cm}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Controlling for Potential Confounding}
+
+One way to \blue{control for} (i.e. take into account) confounding is to do an exhaustive search for all such variables.  This is not always practical.
+
+\vspace{0.25cm}
+
+\pause Another way is via an experiment where we randomly assign individuals to a \blue{treatment} or a \blue{control} group.
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Back to Shoes and Headaches}
+
+So imagine we do the following:  We recruit 10,000 people for our study, and \blue{randomly assign} 5000 people to each of the two groups:
+
+\pause\begin{itemize}
+\item Treatment: sleep with shoes \blue{on}
+\item Control: sleep with shoes \blue{off}
+\end{itemize}
+
+\pause Looking at this table
+\begin{center}
+	\begin{tabular}{c|cc}
+		Group & $n$ & \# with headache\\
+		\hline	
+		Treatment & 5000 & $n_1$\\
+		Control & 5000 & $n_2$\\
+		\hline
+		Total & 10,000 & $n_1 + n_2$\\
+  \end{tabular}
+\end{center}
+\pause what do you think $n_1$ and $n_2$ will look like?  \pause Not very different.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Observational Studies vs Randomized Experiments}
+The key word from the study design above was \blue{randomly assign}.
+
+\begin{itemize}
+  \pause\item \blue{Observational studies}: a study where researchers have \blue{no control} over which study participants receive the treatment
+  \pause\item \blue{Randomized experiments}: a study where researchers not only have control over which study participants receive the treatment, but also make the assignments \blue{at random}.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Observational Studies vs Randomized Experiments}
+So the study introduced at the end of the last lecture is an \blue{observational study}.
+
+\vspace{0.5cm}
+
+\pause\blue{Conclusion}:  Based on that study, we cannot conclude that wearing shoes when you sleep \blue{causes} you wake up with a headache.
+
+\vspace{0.5cm}
+
+\pause\blue{Mantra in Statistics}:  \blue{Correlation is not causation!}  Just because two variables appear to be associated/correlated, does not mean that one is \blue{causing the other}.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Statistics in Society: Civil Rights Act}
+%
+%From an \href{http://www.theguardian.com/commentisfree/2013/aug/28/republicans-party-of-civil-rights}{\blue{article}} in The Guardian on 2013/8/13 ``Were Republicans really the party of civil rights in the 1960s?''
+%
+%\begin{quotation}
+%Some like to point out that the (Republican) party has a long history of standing up for civil rights compared to Democrats. Democrats, for example, were less likely to vote for the civil rights bills of the 1950s and 1960s. Democrats were more likely to filibuster...
+%
+%\vspace{0.25cm}
+%
+%Let's use the 1964 Civil Rights Act as our focal point. It was arguably the most important of the many civil rights bills passed in the middle part of the 20th century. It outlawed many types of racial and sexual discrimination, including access to hotels, restaurants, and theaters. In the words of Vice President Biden, it was a big ``f-ing deal''.
+%\end{quotation}
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Statistics in Society: Civil Rights Act}
+%
+%Let's investigate the Republican claim using the vote breakdown in the House of Representatives, split by both the representative's
+%\begin{itemize}
+%\item party affiliation: Repub or Dem
+%\item home state: whether or not it was part of the Union or the Confederacy during the American Civil War
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Civil Rights Act Vote Breakdown}
+%
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%     \hline
+%     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+%	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+%    \hline
+%     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+%  \end{tabular}
+%\end{center}
+%
+%We observe that 
+%\begin{enumerate}
+%\item \textcolor{red}{91/(91 + 152) = 37\%} of Democrats
+%\item \textcolor{red}{11/(11+161) = 6\%} of Republicans
+%\end{enumerate}
+%were from former confederate states.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Confederate vs Union States}
+%
+%This is not a fair comparison between Dems and Repubs!  Why?
+%
+%\vspace{0.25cm}
+%
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{\includegraphics[height=0.4cm]{conf}}  & \multicolumn{3}{c}{\includegraphics[height=0.4cm]{union}} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%    \hline
+%     Total & 8 & 102 & 8\% & 281 & 313 & \blue{90\%} \\ 
+%     \multicolumn{7}{c}{}
+%  \end{tabular}
+%\end{center}
+%
+%\vspace{0.1cm}
+%
+%There is an enormous difference in support for the Civil Rights Act between Confederate and Union states!
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Not a Fair Comparison}
+%So...
+%
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%     \hline
+%     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+%	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+%    \hline
+%     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+%  \end{tabular}
+%\end{center}
+%is not an apples to apples comparison!  We need to level the playing field.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Leveling the Playing Field}
+%\begin{small}
+%So let's imagine a hypothetical world of Repubs where
+%\begin{enumerate}
+%\item we have the same number of Repubs (172)
+%\item the Repub voting percentages stay the same (0\% and 85\%)
+%\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+%\end{enumerate}
+%\end{small}
+%
+%
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%     \hline
+%     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & 64 & 0\% \\ 
+%	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 92 & 108 & 85\% \\ 
+%    \hline
+%     Total & 152 & 243 & \blue{62\%} & 92 & 172 & 53\% \\ 
+%  \end{tabular}
+%\end{center}
+%
+%\begin{enumerate}
+%\item 37\% $\times$ 172 = 64
+%\item 172 - 64 = 108
+%\item 64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92
+%\item 92/(92+172) = 53\%
+%\end{enumerate}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Summary}
+%
+%\blue{Real data}: different Confederate/Union proportions between Dems/Repubs
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%     \hline
+%     Confederate & 8 & 91 & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+%	 Union & 144 & 152 & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+%    \hline
+%     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+%  \end{tabular}
+%\end{center}
+%
+%\blue{Hypothetical data}: same Confederate/Union proportions between Dems/Repubs
+%\begin{center}
+%	\begin{tabular}{c|ccc|ccc}
+%     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+%     & Pro & Total & \% & Pro & Total & \% \\ 
+%     \hline
+%     Confederate & 8 & 91 & \blue{8\%} & 0 & \textcolor{red}{64} & 0\% \\ 
+%	 Union & 144 & 152 & \blue{95\%} & 92 & \textcolor{red}{108} & 85\% \\ 
+%    \hline
+%     Total & 152 & 243 & \blue{62\%} & 92 & 172 & 53\% \\      
+%  \end{tabular}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Well-Known Example of Confounding}
+
+One of the best-known real-life examples of an unaccounted for confounding variable having serious repercussions was when the University of California Berkeley was sued in 1973 for bias against women who had applied for admission to graduate schools there. 
+
+\vskip 0.5cm
+
+\pause Let's consider the $n=4526$ people who applied to the 6 largest departments.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Of the $n=4526$ applicants:}
+
+\begin{center}
+\includegraphics[height=\textheight]{overall.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Split the counts by gender:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{gender-accpt-count.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Look at proportions instead of counts:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{gender-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{What was the ``competitiveness'' of departments?}
+
+\begin{center}
+\includegraphics[width=\textwidth]{dept-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Where were the women applying?}
+
+\begin{center}
+\includegraphics[width=\textwidth]{dept-gender.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{So while in aggregate things looked like this:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{gender-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{You need to account for department!}
+
+\begin{center}
+\includegraphics[width=\textwidth]{split-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Explanation}
+
+There was the presence of a confounding variable: \blue{competitiveness} of applying to the department, which is a function
+\begin{itemize}
+\item number of applicants
+\item number of available slots
+\end{itemize}
+
+\vskip 0.5cm
+
+\pause So it wasn't that departments were discriminating against women, rather:
+\begin{itemize}
+\pause \item women tended to apply to departments with high competition and hence lower admission rates, primarily the humanities.
+\pause \item men tended to apply to departments with low competition and hence higher admission rates, primarily the sciences.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Explanation}
+
+In fact, Bickel et al. found that ``If the data are properly \blue{pooled}...there is a small but statistically significant bias in \blue{favor of women}.''
+
+\vskip 0.5cm
+
+\pause This was the exact \blue{opposite} claim of the lawsuit.  This is known as \blue{Simpson's Paradox}.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Simpson's Paradox}
+
+(From Wikipedia) Simpson's paradox is a paradox in which a trend that appears in different groups of data disappears when these groups are combined, and the \blue{reverse trend} appears for the aggregate data.  This is due to a confounding variable.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+Say we have the following points: \textcolor{white}{lorem ipsum lorem ipsum lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{simpsons1.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+Overall, the explanatory variable $x$ is \blue{negatively} related with the outcome variable $y$:
+\begin{center}
+\includegraphics[width=10cm]{simpsons2.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+But say we consider a \blue{confounding} variable, in this case \blue{color}: \textcolor{white}{lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{simpsons3.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+The subgroups now exhibit a \blue{positive} relationship! \textcolor{white}{lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{simpsons4.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+i.e. the trend in aggregate is the \blue{reverse} of the trend in the subgroups.
+\begin{center}
+\includegraphics[width=10cm]{simpsons5.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Conclusion}
+
+\pause ``The bias in the aggregated data stems \blue{not from any pattern of discrimination on the part of admissions committees}, which seem quite fair on the whole, but apparently from \blue{prior screening at earlier levels of the educational system}.''
+
+\vspace{0.5cm}
+
+\pause ``Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.''
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Next time}
+
+We will discuss 
+\begin{itemize}
+\item Specific types of sampling beyond just \blue{simple random sampling}, as this is not always feasible
+\pause\item Experimental design:  some key principles to keep in mind when evaluating the efficacy of treatments. 
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

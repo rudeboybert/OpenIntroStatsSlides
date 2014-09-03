@@ -1,0 +1,497 @@
+\documentclass[slides]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\mode<presentation>
+{
+  %\usetheme[secheader]{Boadilla}
+	%\usecolortheme[rgb={.835, .102,.169}]{structure}  
+	\usetheme[width= 0cm]{Goettingen}
+	%\setbeamercovered{transparent}
+}
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{blue2}{rgb}{0.278,0.278,0.729} 
+\newcommand{\blue}[1]{\textcolor{blue2}{#1}}
+
+\usepackage{hyperref}
+
+
+
+
+\begin{document}
+
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Civil Rights Act Vote Breakdown}
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & 91 & 8\% & 0 & 11 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & 152 & 95\% & 137 & 161 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 137 & 172 & 80\% \\ 
+  \end{tabular}
+\end{center}
+
+\textcolor{white}{We observe that} 
+\begin{enumerate}
+\item[] \textcolor{white}{91/(91 + 152) = 37\% of Democrats}
+\item[] \textcolor{white}{11/(11+161) = 6\% of Republicans}
+\end{enumerate}
+\textcolor{white}{were from former confederate states.}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Civil Rights Act Vote Breakdown}
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & 91 & \blue{8\%} & 0 & 11 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & 152 & \blue{95\%} & 137 & 161 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+  \end{tabular}
+\end{center}
+
+\textcolor{white}{We observe that} 
+\begin{enumerate}
+\item[] \textcolor{white}{91/(91 + 152) = 37\% of Democrats}
+\item[] \textcolor{white}{11/(11+161) = 6\% of Republicans}
+\end{enumerate}
+\textcolor{white}{were from former confederate states.}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Civil Rights Act Vote Breakdown}
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+  \end{tabular}
+\end{center}
+
+We observe that 
+\begin{enumerate}
+\item \textcolor{red}{91/(91 + 152) = 37\%} of Democrats
+\item \textcolor{red}{11/(11+161) = 6\%} of Republicans
+\end{enumerate}
+were from former confederate states.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Confederate vs Union States}
+
+This is not a fair comparison between Dems and Repubs!  Why?\pause
+
+\vspace{0.25cm}
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{\includegraphics[height=0.4cm]{conf}}  & \multicolumn{3}{c}{\includegraphics[height=0.4cm]{union}} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+    \hline
+     Total & 8 & 102 & 8\% & 281 & 313 & \blue{90\%} \\ 
+     \multicolumn{7}{c}{}
+  \end{tabular}
+\end{center}
+
+\vspace{0.1cm}
+
+There is an enormous difference in support for the Civil Rights Act between Confederate and Union states!
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Not a Fair Comparison}
+So...
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+  \end{tabular}
+\end{center}
+is not an apples to apples comparison!  We need to level the playing field.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where \pause
+\begin{enumerate}
+\item we have the same number of Repubs (172) \pause
+\item the Repub voting percentages stay the same (0\% and 85\%) \pause
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) \pause
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & 8\% &  &  & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & 95\% &  &  & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & & 172 & \blue{} \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item[] \textcolor{white}{91/(91 + 152) = 37\% $\times$ 172 = 64}
+\item[] \textcolor{white}{172 - 64 = 108}
+\item[] \textcolor{white}{64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92}
+\item[] \textcolor{white}{92/(92+172) = 53\%}
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where
+\begin{enumerate}
+\item we have the same number of Repubs (172)
+\item the Repub voting percentages stay the same (0\% and 85\%)
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & 8\% &  & 64 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & 95\% &  &  & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & & 172 & \blue{} \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item 37\% $\times$ 172 = 64
+\item[] \textcolor{white}{172 - 64 = 108}
+\item[] \textcolor{white}{64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92}
+\item[] \textcolor{white}{92/(92+172) = 53\%}
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where
+\begin{enumerate}
+\item we have the same number of Repubs (172)
+\item the Repub voting percentages stay the same (0\% and 85\%)
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & 8\% &  & 64 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & 95\% &  & 108 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & & 172 & \blue{} \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item 37\% $\times$ 172 = 64
+\item 172 - 64 = 108
+\item[] \textcolor{white}{64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92}
+\item[] \textcolor{white}{92/(92+172) = 53\%}
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where
+\begin{enumerate}
+\item we have the same number of Repubs (172)
+\item the Repub voting percentages stay the same (0\% and 85\%)
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & 8\% & 0 & 64 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & 95\% & 92 & 108 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 92 & 172 & \blue{} \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item 37\% $\times$ 172 = 64
+\item 172 - 64 = 108
+\item 64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92
+\item[] \textcolor{white}{92/(92+172) = 53\%}
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where
+\begin{enumerate}
+\item we have the same number of Repubs (172)
+\item the Repub voting percentages stay the same (0\% and 85\%)
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & 8\% & 0 & 64 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & 95\% & 92 & 108 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 92 & 172 & 53\% \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item 37\% $\times$ 172 = 64
+\item 172 - 64 = 108
+\item 64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92
+\item 92/(92+172) = 53\%
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Leveling the Playing Field}
+\begin{small}
+So let's imagine a hypothetical world of Repubs where
+\begin{enumerate}
+\item we have the same number of Repubs (172)
+\item the Repub voting percentages stay the same (0\% and 85\%)
+\item CRUCIAL: the Confederate/Union mix is the same as with the Dems (\textcolor{red}{91 vs 152} i.e. 37\% vs 63\%) 
+\end{enumerate}
+\end{small}
+
+
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     \includegraphics[height=0.4cm]{conf} & 8 & \textcolor{red}{91} & \blue{8\%} & 0 & 64 & 0\% \\ 
+	 \includegraphics[height=0.4cm]{union} & 144 & \textcolor{red}{152} & \blue{95\%} & 92 & 108 & 85\% \\ 
+    \hline
+     Total & 152 & 243 & \blue{62\%} & 92 & 172 & 53\% \\ 
+  \end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item 37\% $\times$ 172 = 64
+\item 172 - 64 = 108
+\item 64 $\times$ 0\% = 0 and 108 $\times$ 85\% = 92
+\item 92/(92+172) = 53\%
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Summary}
+
+\blue{Real data}: different Confederate/Union proportions between Dems/Repubs
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     Confederate & 8 & 91 & \blue{8\%} & 0 & \textcolor{red}{11} & 0\% \\ 
+	 Union & 144 & 152 & \blue{95\%} & 137 & \textcolor{red}{161} & 85\% \\ 
+    \hline
+     Total & 152 & 243 & 62\% & 137 & 172 & \blue{80\%} \\ 
+  \end{tabular}
+\end{center}
+\pause
+\blue{Hypothetical data}: same Confederate/Union proportions between Dems/Repubs
+\begin{center}
+	\begin{tabular}{c|ccc|ccc}
+     & \multicolumn{3}{c|}{Democrats}  & \multicolumn{3}{c}{Republicans} \\ 
+     & Pro & Total & \% & Pro & Total & \% \\ 
+     \hline
+     Confederate & 8 & 91 & \blue{8\%} & 0 & \textcolor{red}{64} & 0\% \\ 
+	 Union & 144 & 152 & \blue{95\%} & 92 & \textcolor{red}{108} & 85\% \\ 
+    \hline
+     Total & 152 & 243 & \blue{62\%} & 92 & 172 & 53\% \\      
+  \end{tabular}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

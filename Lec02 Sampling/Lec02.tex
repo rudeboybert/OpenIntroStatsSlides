@@ -1,0 +1,312 @@
+% Uncomment this to make slides with overlays:
+\documentclass[handout]{beamer}
+
+% Uncomment these (but comment the above \documentclass line) to make handouts:
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+
+\usepackage[]{graphicx, color, hyperref}
+
+\mode<presentation>
+{
+	%\usetheme[secheader]{Boadilla}
+	%\usecolortheme[rgb={.835, .102,.169}]{structure}  
+	\usetheme[width= 0cm]{Goettingen}
+	%\setbeamercovered{transparent}
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{blue2}{rgb}{0.278,0.278,0.729} 
+\newcommand{\blue}[1]{\textcolor{blue2}{#1}}
+\newcommand{\white}[1]{\textcolor{white}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\phat}{\widehat{p}}
+\newcommand{\prob}{\mbox{Pr}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mbox{Var}}
+\newcommand{\cp}{\oplus}
+\newcommand{\cm}{\circleddash}
+
+
+\title{Lecture 2: Data Collection + Sampling}
+\author{Chapter 1.3}
+\date{}
+
+
+\begin{document}
+%------------------------------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Goals for Today}
+\begin{itemize}
+  \item Understand important considerations about data collection, in particular \blue{sampling}.
+  \item Food for thought about the next lecture: establishing \blue{causality}
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Populations and Samples}
+We want to study and make statements about some aspect of a \blue{study/target population}.  
+
+\begin{enumerate}
+\pause\item What proportion of Oregonians smoke?
+\pause\item What proportion of televisions in Afghanistan were tuned into President Obama's state of the union address yesterday?
+\pause\item What is the average mercury content in swordfish in the Atlantic Ocean?
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Populations and Samples}
+
+However, it is often really unrealistic/inconvenient/expensive to collect data for every case in the population.  Therefore, we take a \blue{sample} of cases.
+
+\begin{center}
+\pause\includegraphics[width=3in]{./figure/target-population.jpg} 
+\end{center}
+
+
+\pause If the sample is representative of the desired population then our results will generalize. This is called \blue{generalizability}.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Populations and Samples}
+So say we take a representative sample of 1000 Oregonians and poll their smoking habits.  We can then generalize the results to the \blue{entire} population of Oregon.
+
+\vspace{0.5cm}
+
+\pause One example of a non-representative sample is a \blue{biased sample}.
+
+\vspace{0.5cm}
+
+\pause \blue{How do we take a representative sample}?  In its simplest form, the way for your sample to be representative is to \blue{randomly} sample from the population.  But this is easier said than done (more later).
+
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Comment on the Representativeness of These Samples:}
+
+\begin{small}
+\begin{enumerate}
+\item The Royal Air Force wants to study how resistant their airplanes are to bullets. They study the bullet holes on all the airplanes on the tarmac after an air battle against the Luftwaffe (German Air Force).
+\item I want to know the average income of Reed graduates in the last 10 years.  So I get the records of 10 randomly chosen Reedies.  They all answer and I take the average.
+\item Imagine it's 1993 i.e. almost all households have landlines.  You want to know the average number of people in each household in Portland.  You randomly pick out 500 phone numbers from the phone book and conduct a phone survey.
+\item You want to know the prevalence of illegal downloading of TV shows among Reed students.  You get the emails of 100 randomly chosen Reedies and ask them ``How many times did you download a pirated TV show last week?''
+\end{enumerate}
+\end{small}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Alfred Kinsey}
+In the mid 20th century, biologist/sexologist Alfred Kinsey wanted to study human sexuality.  
+
+\begin{center}
+\pause \includegraphics[width=0.4\textwidth]{./figure/alfred-kinsey.jpg}
+\end{center}
+
+\pause At the time sexuality was an extremely taboo subject, very little research had been conducted at that point and Kinsey was astonished at the public's general ignorance about sexual matters.  
+
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Kinsey's Questions/Research Problem}
+What type of questions was Kinsey interested in?  Using his 300 question survey, he hoped to address...
+
+\begin{enumerate}
+\pause \item What percentage of Americans engaged in premarital and extramarital sex?
+\pause \item What were the homosexual tendencies of American males?
+\pause \item How common were oral sex and masturbation?
+\item $\ldots$
+\end{enumerate}
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Kinsey Reports}
+The results were published two books on human sexual behavior known as the ``Kinsey Reports'': Sexual Behavior in the Human Male (1948) and Sexual Behavior in the Human Female (1953).  
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{./figure/kinsey_male.jpg}
+\includegraphics[width=0.4\textwidth]{./figure/kinsey_female.jpg}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Conclusions of Kinsey Reports}
+
+Kinsey claimed, among other things
+\begin{enumerate}
+	\pause \item 85\% of white men had had premarital sex, 50\% had had extra-marital sex
+	\pause \item Kinsey wrote in 1948 that \blue{one in ten} white men were more or less, exclusively homosexual for at least three years between the ages of 16 and 55.
+	\pause \item Kinsey reported that oral sex was very common (70\% of couples did it), masturbation was very common (almost 63\%/92\% of women/men did it)
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Reaction to Kinsey Reports}
+Needless to say, people were taken quite aback.  
+\begin{center}
+\includegraphics[height=4cm]{./figure/kinsey_report1.jpg}
+\hspace{0.5cm}
+\includegraphics[height=4cm]{./figure/kinsey_report2.png}
+\end{center}
+There was also a huge conservative backlash against the reports.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Statistics in Society: Kinsey's Methods}
+BUT WAIT!  What were his data collection methods?  How did he sample his data? Focusing on the male report, my understanding is that 
+
+\begin{enumerate}
+\pause \item He did in fact base his conclusions on a very large sample size of 5300 males.
+\pause \item He sought out \blue{volunteers} to answer his 300 question survey.
+\pause \item He gathered \blue{convenience samples} of people who knew each other.  This led to a large proportion of his sample to include prison populations and male prostitutes.  
+\end{enumerate}
+
+\pause \blue{What could be some issues?}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Response of the American Statistical Association}
+The American Statistical Association criticized the sampling procedure.  In particular, John Tukey, one of the most eminent statisticians of the time, said
+
+\vspace{0.5cm}
+
+\begin{quotation}
+\pause \blue{``A random selection of three people would have been better than a group of 300 chosen by Mr. Kinsey.''}
+\end{quotation}
+
+\vspace{0.5cm}
+
+\pause Even though the Kinsey Report was groundbreaking and contributed much to the field of sexology by bringing many topics to the forefront, Kinsey's statements, for instance his ``one in ten'' statement, were not generalizable to the general public.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Moral of the Story}
+For you:
+\begin{enumerate}
+\pause \item \blue{the consumer of statistics}: before trusting any conclusions of studies making statements about a population based on a sample, you should ask:  What was the study design?  What was the sampling scheme?
+\pause \item \blue{the producer of statistics AKA the researcher}:  put a lot of thought into \blue{how} you will collect your data beforehand. If you want your results to generalize \blue{beyond} just your sample to your study population, your sampling scheme has to as representative as feasible.  Consult a statistician if you're not sure!
+\end{enumerate}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Different Types of Bias:}
+
+\begin{small}
+\begin{enumerate}
+\item Volunteer bias:  individuals who are more willing to participate have a higher chance of being sampled.
+\item Convenience sample bias:  individuals who are easily accessible are more likely to be included.
+\item Survival bias:  large segments of the population who ``died'' are not sampled.
+\item Selection bias:  some individuals are more likely to be selected for study than others.
+\end{enumerate}
+\end{small}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Explanatory and Response Variables}
+Example: A medical doctor pours over some his patients' medical records and observes:
+
+\begin{center}
+\includegraphics[width=0.3\textwidth]{./figure/shoes.jpg}
+\hspace{1cm}
+$\Longrightarrow$
+\hspace{1cm}
+\includegraphics[width=0.3\textwidth]{./figure/headache.jpg}
+\end{center}
+
+\pause He then posits the following \blue{causal} relationship:
+\begin{itemize}
+  \pause \item \blue{Explanatory variable}: sleeping with shoes on 
+  \pause \item \blue{Response variable}: waking up with headaches
+\end{itemize}
+
+\pause What's wrong with hypotheses?
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+\end{document}
+
