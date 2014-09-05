@@ -34,7 +34,7 @@
 \newcommand{\cm}{\circleddash}
 
 
-\title{Lecture 2: Data Collection + Sampling}
+\title{Lecture 2: Sampling and Bias}
 \author{Chapter 1.3}
 \date{}
 
@@ -52,7 +52,7 @@
 \frametitle{Goals for Today}
 \begin{itemize}
   \item Understand important considerations about data collection, in particular \blue{sampling}.
-  \item Food for thought about the next lecture: establishing \blue{causality}
+  \item Food for thought about the next lecture: explanatory/response variables and causality.  
 \end{itemize}
 
 \end{frame}
@@ -62,12 +62,13 @@
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Populations and Samples}
-We want to study and make statements about some aspect of a \blue{study/target population}.  
+We want to make statements about some aspect of a \blue{study/target population}.  
 
 \begin{enumerate}
-\pause\item What proportion of Oregonians smoke?
-\pause\item What proportion of televisions in Afghanistan were tuned into President Obama's state of the union address yesterday?
-\pause\item What is the average mercury content in swordfish in the Atlantic Ocean?
+\item What proportion of Oregonians smoke?
+\item What are the sexual behaviors of males and female Americans in 1948?
+\item What proportion of the Reed community believes they have personally 
+experienced offensive, hostile, or intimidating conduct on campus?
 \end{enumerate}
 
 \end{frame}
@@ -78,14 +79,14 @@ We want to study and make statements about some aspect of a \blue{study/target p
 \begin{frame}
 \frametitle{Populations and Samples}
 
-However, it is often really unrealistic/inconvenient/expensive to collect data for every case in the population.  Therefore, we take a \blue{sample} of cases.
+It is often not feasible to collect data for every case in the population.  If so, we take a \blue{sample} of cases.
 
 \begin{center}
 \pause\includegraphics[width=3in]{./figure/target-population.jpg} 
 \end{center}
 
 
-\pause If the sample is representative of the desired population then our results will generalize. This is called \blue{generalizability}.  
+\pause If the sample is \blue{representative} of the desired population then our results will be \blue{generalizabile}.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -104,7 +105,7 @@ So say we take a representative sample of 1000 Oregonians and poll their smoking
 
 \vspace{0.5cm}
 
-\pause \blue{How do we take a representative sample}?  In its simplest form, the way for your sample to be representative is to \blue{randomly} sample from the population.  But this is easier said than done (more later).
+\pause \blue{How do we take a representative sample}?  In its simplest form, you need to \blue{randomly} sample from the entire population.  But this is easier said than done.
 
 
 
@@ -137,12 +138,10 @@ So say we take a representative sample of 1000 Oregonians and poll their smoking
 In the mid 20th century, biologist/sexologist Alfred Kinsey wanted to study human sexuality.  
 
 \begin{center}
-\pause \includegraphics[width=0.4\textwidth]{./figure/alfred-kinsey.jpg}
+\includegraphics[width=0.4\textwidth]{./figure/alfred-kinsey.jpg}
 \end{center}
 
-\pause At the time sexuality was an extremely taboo subject, very little research had been conducted at that point and Kinsey was astonished at the public's general ignorance about sexual matters.  
-
-
+\pause At the time sexuality was an extremely taboo subject, very little research had been conducted at that point and Kinsey was astonished at the public's general ignorance.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -168,7 +167,7 @@ What type of questions was Kinsey interested in?  Using his 300 question survey,
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Statistics in Society: Kinsey Reports}
-The results were published two books on human sexual behavior known as the ``Kinsey Reports'': Sexual Behavior in the Human Male (1948) and Sexual Behavior in the Human Female (1953).  
+The results were published two books on human sexual behavior known as the ``Kinsey Reports'': Sexual Behavior in the Human Male (1948) and Female (1953).  
 
 \begin{center}
 \includegraphics[width=0.4\textwidth]{./figure/kinsey_male.jpg}
@@ -215,19 +214,18 @@ There was also a huge conservative backlash against the reports.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Statistics in Society: Kinsey's Methods}
-BUT WAIT!  What were his data collection methods?  How did he sample his data? Focusing on the male report, my understanding is that 
+What were his data collection methods?  How did he sample his data? Focusing on the male report, my understanding is that 
 
 \begin{enumerate}
 \pause \item He did in fact base his conclusions on a very large sample size of 5300 males.
-\pause \item He sought out \blue{volunteers} to answer his 300 question survey.
-\pause \item He gathered \blue{convenience samples} of people who knew each other.  This led to a large proportion of his sample to include prison populations and male prostitutes.  
+\pause \item He sought out volunteers to answer his 300 question survey.
+\pause \item He recruited new people by asking previous respondents if they knew other people.  This led to a large proportion of his sample to include prison populations and male prostitutes.  
 \end{enumerate}
 
 \pause \blue{What could be some issues?}
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -243,7 +241,37 @@ The American Statistical Association criticized the sampling procedure.  In part
 
 \vspace{0.5cm}
 
-\pause Even though the Kinsey Report was groundbreaking and contributed much to the field of sexology by bringing many topics to the forefront, Kinsey's statements, for instance his ``one in ten'' statement, were not generalizable to the general public.  
+\pause Even though the Kinsey Report was groundbreaking and contributed much to the field of sexology by bringing many topics to the forefront, Kinsey's statements were not generalizable to the general public.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Reed Campus Climate Survey}
+
+During the 2012-2013 academic year Reed contracted Rankin \& Associates Consulting to conduct the Campus Climate Survey to ``examine the learning, living, and working environment at Reed College.''
+
+\vspace{0.5cm}
+
+\pause On page v and iii of the Executive Summary: \blue{\href{http://www.reed.edu/institutional\_diversity/campus\_climate.html}{http://www.reed.edu/institutional\_diversity/campus\_climate.html}}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Examples of Different Types of Bias:}
+
+%\begin{enumerate}
+%\item \blue{Volunteer bias}:  individuals who are more willing to participate have a higher chance of being sampled.
+%\item \blue{Survival bias}:  large segments of the population who ``died'' are not sampled.
+%\item \blue{Selection bias}:  some individuals are more likely to be selected for study than others.
+%\item \blue{Convenience sample bias}:  individuals who are easily accessible are more likely to be included.
+%\end{enumerate}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -255,27 +283,13 @@ The American Statistical Association criticized the sampling procedure.  In part
 \frametitle{Moral of the Story}
 For you:
 \begin{enumerate}
-\pause \item \blue{the consumer of statistics}: before trusting any conclusions of studies making statements about a population based on a sample, you should ask:  What was the study design?  What was the sampling scheme?
-\pause \item \blue{the producer of statistics AKA the researcher}:  put a lot of thought into \blue{how} you will collect your data beforehand. If you want your results to generalize \blue{beyond} just your sample to your study population, your sampling scheme has to as representative as feasible.  Consult a statistician if you're not sure!
+\pause \item \blue{the consumer of statistics}: Ask yourself what was the study design?
+\begin{itemize}
+\item Who is the study population?
+\item Who are the respondents and how were they selected?
+\end{itemize}
+\pause \item \blue{the producer of statistics}:  think about \blue{how} you will collect your data beforehand. If you want your results to generalize \blue{beyond} just your sample to your study population, your sampling scheme has to as representative as feasible.
 \end{enumerate}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Different Types of Bias:}
-
-\begin{small}
-\begin{enumerate}
-\item Volunteer bias:  individuals who are more willing to participate have a higher chance of being sampled.
-\item Convenience sample bias:  individuals who are easily accessible are more likely to be included.
-\item Survival bias:  large segments of the population who ``died'' are not sampled.
-\item Selection bias:  some individuals are more likely to be selected for study than others.
-\end{enumerate}
-\end{small}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -309,4 +323,7 @@ $\Longrightarrow$
 
 
 \end{document}
+
+
+
 
