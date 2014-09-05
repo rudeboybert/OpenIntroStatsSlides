@@ -1,11 +1,10 @@
+# Change directory
 setwd("./Lec02 Sampling/figure/")
 
 # Install these packages first
 library(ggplot2)
 library(dplyr)
 library(scales)
-
-
 
 
 #-------------------------------------------------------------------------------
