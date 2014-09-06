@@ -60,60 +60,97 @@ dev.off()
 # Load UC Berkeley admissions data
 data(UCBAdmissions)
 UCB <- as.data.frame(UCBAdmissions)
-
+UCB
 
 #---------------------------------------------------------------
 # Plot overall acceptance rate
 #---------------------------------------------------------------
-overall.accpt <-
+accpt <-
   group_by(UCB, Admit) %>%
   summarize(Freq=sum(Freq))
+accpt
+
+plot <-
+  ggplot(accpt, aes(x=factor(""), y=Freq, fill = Admit)) +
+  ggtitle("Overall Acceptance Rate") +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_bar(stat = "identity") +
+  xlab("") + ylab("# of Applicants")
+plot
 
 pdf("overall.pdf", width=4, height=4)
-ggplot(overall.accpt, aes(x=factor(""), y=Freq, fill = Admit)) +
-  ggtitle("Overall Acceptance Rate") +
-  guides(fill = guide_legend(reverse = TRUE)) + geom_bar(stat = "identity") +
-  xlab("") + ylab("# of Applicants")
+plot
 dev.off()
 
 
 #---------------------------------------------------------------
 # Plot acceptance rate split by gender
 #---------------------------------------------------------------
+gender <-
+  group_by(UCB, Gender) %>%
+  summarize(Total=sum(Freq))
+gender
+
 gender.accpt <-
   group_by(UCB, Admit, Gender) %>%
-  summarize(Freq=sum(Freq))
+  summarize(Freq=sum(Freq)) %>%
+  inner_join(gender) %>%
+  mutate(Prop=Freq/Total)
+gender.accpt
 
-gender.accpt.plot <- ggplot(gender.accpt, aes(x=Gender, y=Freq, fill = Admit)) +
+# Counts
+plot <-
+  ggplot(gender.accpt, aes(x=Gender, y=Freq, fill = Admit)) +
   ggtitle("Acceptance Rate Split by Gender") +
   guides(fill = guide_legend(reverse = TRUE)) +
-  ylab("# of Applicants")
+  geom_bar(stat = "identity") +
+  xlab("Gender") + ylab("# of Applicants")
+plot
 
 pdf("gender-accpt-count.pdf", width=8, height=4)
-gender.accpt.plot + geom_bar(stat = "identity")
+plot
 dev.off()
 
+# Proportions
+plot <- ggplot(gender.accpt, aes(x=Gender, y=Prop, fill = Admit)) +
+  ggtitle("Acceptance Rate Split by Gender") +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_bar(stat = "identity") +
+  xlab("Gender") + ylab("Proportion of Applicants") +
+  scale_y_continuous(labels = percent_format())
+plot
+
 pdf("gender-accpt.pdf", width=8, height=4)
-gender.accpt.plot + geom_bar(position = "fill") + scale_y_continuous(labels = percent_format())
+plot
 dev.off()
 
 
 #---------------------------------------------------------------
 # Plot acceptance rate split by department
 #---------------------------------------------------------------
+dept <-
+  group_by(UCB, Dept) %>%
+  summarize(Total=sum(Freq))
+dept
+
 dept.accpt <-
   group_by(UCB, Admit, Dept) %>%
-  summarize(Freq=sum(Freq))
+  summarize(Freq=sum(Freq)) %>%
+  inner_join(dept) %>%
+  mutate(Prop=Freq/Total)
+dept.accpt
 
-dept.accpt.plot <-
-  ggplot(dept.accpt, aes(x=Dept, y=Freq, fill = Admit)) +
+plot <-
+  ggplot(dept.accpt, aes(x=Dept, y=Prop, fill = Admit)) +
   ggtitle("Acceptance Rate Split by Department") +
-  guides(fill = guide_legend(reverse = TRUE)) + xlab("Department")
-#dept.accpt + geom_bar(stat = "identity") + ylab("# of Applicants")
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_bar(stat = "identity") +
+  xlab("Department") + ylab("Proportion of Applicants")+
+  scale_y_continuous(labels = percent_format())
+plot
 
 pdf("dept-accpt.pdf", width=10, height=5)
-dept.accpt.plot + geom_bar(position = "fill") + ylab("% of Applicants") +
-  scale_y_continuous(labels = percent_format())
+plot
 dev.off()
 
 
@@ -122,30 +159,47 @@ dev.off()
 #---------------------------------------------------------------
 dept.gender <-
   group_by(UCB, Gender, Dept) %>%
-  summarize(Freq=sum(Freq))
+  summarize(Freq=sum(Freq)) %>%
+  inner_join(dept) %>%
+  mutate(Prop=Freq/Total)
+dept.gender
 
-dept.gender.plot <-
-  ggplot(dept.gender, aes(x=Dept, y=Freq, fill = Gender, order = -as.numeric(Gender))
-) + ggtitle("Applicant's Gender Split by Department") + xlab("Department")
-#dept.gender + geom_bar(stat = "identity") + ylab("# of Applicants")
+plot <-
+  ggplot(dept.gender, aes(x=Dept, y=Prop, fill = Gender, order = -as.numeric(Gender))) +
+  ggtitle("Applicant's Gender Split by Department") +
+  geom_bar(stat = "identity") +
+  xlab("Department") + ylab("% of Applicants") +
+  scale_y_continuous(labels = percent_format())
+plot
 
 pdf("dept-gender.pdf", width=10, height=5)
-dept.gender + geom_bar(position = "fill") + ylab("% of Applicants") +
-  scale_y_continuous(labels = percent_format())
+plot
 dev.off()
 
 
 #---------------------------------------------------------------
 # Plot acceptance rate split by gender x department
 #---------------------------------------------------------------
-split.accpt <-
-  ggplot(UCB, aes(x=Gender, y=Freq, fill = Admit)) +
+UCB.totals <- group_by(UCB, Gender, Dept) %>%
+  summarise(Total=sum(Freq))
+UCB.totals
+
+UCB <- inner_join(UCB, UCB.totals) %>%
+  mutate(Prop=Freq/Total)
+UCB
+
+plot <-
+  ggplot(UCB, aes(x=Gender, y=Prop, fill = Admit)) +
   ggtitle("Acceptance Rate Split by Gender & Department") +
   facet_wrap(~ Dept, nrow = 2) +
-  guides(fill = guide_legend(reverse = TRUE))
-# split.accpt + geom_bar(stat = "identity") + ylab("# of Applicants")
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_bar(stat = "identity") +
+  xlab("Gender") + ylab("% of Applicants") +
+  scale_y_continuous(labels = percent_format())
+plot
+
 
 pdf("split-accpt.pdf", width=10, height=7)
-split.accpt + geom_bar(position = "fill") + ylab("% of Applicants") +
-  scale_y_continuous(labels = percent_format())
+plot
 dev.off()
+
