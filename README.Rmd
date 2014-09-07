@@ -12,6 +12,6 @@ This repository contains the LaTeX and other files needed to create Beamer lectu
 ![blah](http://ecx.images-amazon.com/images/I/41y7PO%2BzSCL._SX258_BO1,204,203,200_.jpg)
 
 ## Usage
-If you are unfamiliar with git forks, you can download all the files by clicking the "Download ZIP" icon in the right-hand side menu.
+If you are unfamiliar with git forks, you can download all the files by clicking the "Download ZIP" icon in the right-hand side menu.  The file `All_Lectures.pdf` contains all slides combined.
 
 
