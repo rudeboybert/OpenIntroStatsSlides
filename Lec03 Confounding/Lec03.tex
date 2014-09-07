@@ -59,7 +59,6 @@
   \item a \blue{randomized experiment}, where the treatment is assigned at random.
 \end{itemize}
 \pause\item Introduce the notion of confounding AKA lurking variables
-\pause\item Address the question ``Does sleeping with your shoes on cause you to wake up with a headache?''
 \pause\item Discuss \blue{Simpson's Paradox} (not in textbook).
 \end{itemize}
 
@@ -81,8 +80,9 @@ $\Longrightarrow$
 \end{center}
 
 \begin{itemize}
-\item The (hypothesized) explanatory variable was: sleeping with your shoes on
-\item The (hypothesized) response variable was: waking up with a headache
+\item The explanatory variable was: sleeping with your shoes on
+\item The response variable was: waking up with a headache
+\item The doctor hypothesized a \blue{causal} relationship
 \end{itemize}
 
 \end{frame}
@@ -91,16 +91,16 @@ $\Longrightarrow$
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Confounding Variable}
+\frametitle{Confounding Variable AKA Lurking Variable}
 
-This is an example of \blue{confounding}.  A confounding variable (AKA a \blue{lurking variable}) is a variable that affects both the explanatory and response variable.  So if:
-\begin{itemize}
-\pause\item $x$ is the explanatory variable
-\pause\item $y$ is the response variable
-\pause\item $z$ is the confounding variable
-\end{itemize}
-we have:
-\vspace{3cm}
+This is an example of \blue{confounding}.  A confounding variable affects both the explanatory and response variable.  So if:
+%\begin{itemize}
+%\pause\item $x$ is the explanatory variable
+%\pause\item $y$ is the response variable
+%\pause\item $z$ is the confounding variable
+%\end{itemize}
+%we have:
+\vspace{6cm}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -112,9 +112,9 @@ we have:
 
 One way to \blue{control for} (i.e. take into account) confounding is to do an exhaustive search for all such variables.  This is not always practical.
 
-\vspace{0.25cm}
+\vspace{0.25in}
 
-\pause Another way is via an experiment where we randomly assign individuals to a \blue{treatment} or a \blue{control} group.
+\pause Another way is via an experiment where we randomly assign individuals to a \blue{treatment} or a \blue{control} group in a \blue{randomized experiment}.
 
 
 \end{frame}
@@ -125,14 +125,14 @@ One way to \blue{control for} (i.e. take into account) confounding is to do an e
 \begin{frame}
 \frametitle{Back to Shoes and Headaches}
 
-So imagine we do the following:  We recruit 10,000 people for our study, and \blue{randomly assign} 5000 people to each of the two groups:
+So imagine we recruit 10,000 people for our study and \blue{randomly assign} 5000 people to each of:
 
-\pause\begin{itemize}
+\begin{itemize}
 \item Treatment: sleep with shoes \blue{on}
 \item Control: sleep with shoes \blue{off}
 \end{itemize}
 
-\pause Looking at this table
+\pause In this table
 \begin{center}
 	\begin{tabular}{c|cc}
 		Group & $n$ & \# with headache\\
@@ -143,7 +143,7 @@ So imagine we do the following:  We recruit 10,000 people for our study, and \bl
 		Total & 10,000 & $n_1 + n_2$\\
   \end{tabular}
 \end{center}
-\pause what do you think $n_1$ and $n_2$ will look like?  \pause Not very different.
+\pause $n_1$ and $n_2$ won't be very different.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -155,8 +155,8 @@ So imagine we do the following:  We recruit 10,000 people for our study, and \bl
 The key word from the study design above was \blue{randomly assign}.
 
 \begin{itemize}
-  \pause\item \blue{Observational studies}: a study where researchers have \blue{no control} over which study participants receive the treatment
-  \pause\item \blue{Randomized experiments}: a study where researchers not only have control over which study participants receive the treatment, but also make the assignments \blue{at random}.
+  \pause\item \blue{Observational studies}: a study where researchers have \blue{no control} over who receives the treatment
+  \pause\item \blue{Randomized experiments}: a study where researchers not only have control over who receives the treatment, but also make the assignments \blue{at random}.
 \end{itemize}
 
 \end{frame}
@@ -166,19 +166,285 @@ The key word from the study design above was \blue{randomly assign}.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Observational Studies vs Randomized Experiments}
-So the study introduced at the end of the last lecture is an \blue{observational study}.
 
-\vspace{0.5cm}
+\blue{Conclusion}:  The study introduced at the end of the last lecture is an \blue{observational study}, so we cannot conclude that wearing shoes when you sleep \blue{causes} you wake up with a headache.
 
-\pause\blue{Conclusion}:  Based on that study, we cannot conclude that wearing shoes when you sleep \blue{causes} you wake up with a headache.
+\vspace{0.25in}
 
-\vspace{0.5cm}
+\pause\blue{Mantra}:  \blue{Correlation is not causation}  Just because two variables appear to be associated/correlated, does not mean that one is \blue{causing the other}.
 
-\pause\blue{Mantra in Statistics}:  \blue{Correlation is not causation!}  Just because two variables appear to be associated/correlated, does not mean that one is \blue{causing the other}.
+\vspace{0.25in}
+
+\begin{itemize}
+\item Spurious correlations:  \blue{\href{http://www.tylervigen.com/view\_correlation?id=1582}{http://www.tylervigen.com/}}
+\item Saturday Morning Breakfast Cereal:  \blue{\href{http://www.smbc-comics.com/?id=3129}{http://www.smbc-comics.com/?id=3129}}
+\end{itemize}
+
+
 
 \end{frame}
 %------------------------------------------------------------------------------
 
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Well-Known Example of Confounding}
+
+A famous example of an unaccounted for confounding variable having serious repercussions was when the UC Berkeley was sued in 1973 for bias against women who had applied for admission to graduate schools. 
+
+\vskip 0.5cm
+
+\pause Let's consider the $n=4526$ people who applied to the 6 largest departments.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Of the $n=4526$ applicants:}
+
+\begin{center}
+\includegraphics[height=\textheight]{figure/overall.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Split the counts by gender:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/gender-accpt-count.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Look at proportions instead of counts:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/gender-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{What was the ``competitiveness'' of departments?}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/dept-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Where were the women applying?}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/dept-gender.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{So while in aggregate things looked like this:}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/gender-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{You need to account for department!}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/split-accpt.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Explanation}
+
+There was the presence of a confounding variable: \blue{competitiveness} of applying to the department, which is a function
+\begin{itemize}
+\item number of applicants
+\item number of available slots
+\end{itemize}
+
+\vskip 0.5cm
+
+\pause So it wasn't that departments were discriminating against women, rather:
+\begin{itemize}
+\pause \item women tended to apply to departments with high competition and hence lower admission rates, primarily the humanities.
+\pause \item men tended to apply to departments with low competition and hence higher admission rates, primarily the sciences.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Explanation}
+
+In fact, Bickel et al. found that ``If the data are properly \blue{pooled}...there is a small but statistically significant bias in \blue{favor of women}.''
+
+\vskip 0.5cm
+
+\pause This was the exact \blue{opposite} claim of the lawsuit.  This is known as \blue{Simpson's Paradox}.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Simpson's Paradox}
+
+(From Wikipedia) Simpson's paradox occurs when a trend that appears in different groups of data disappears when these groups are combined, and the \blue{reverse trend} appears for the aggregate data.  
+
+\vspace{0.25in}
+
+\pause This is due to a confounding variable.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+Say we have the following points: \textcolor{white}{lorem ipsum lorem ipsum lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{figure/simpsons1.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+Overall, if we fit a single line, the explanatory variable $x$ is \blue{negatively} related with the outcome variable $y$:
+\begin{center}
+\includegraphics[width=10cm]{figure/simpsons2.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+But say we consider a \blue{confounding} variable, in this case \blue{color}, and fit two separate lines for each group: \textcolor{white}{lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{figure/simpsons3.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+The subgroups now exhibit a \blue{positive} relationship! \textcolor{white}{lorem ipsum lorem ipsum}
+\begin{center}
+\includegraphics[width=10cm]{figure/simpsons4.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{A Graphical Illustration of Simpson's Paradox}
+i.e. the trend in aggregate is the \blue{reverse} of the trend in the subgroups (teal \& purple).
+\begin{center}
+\includegraphics[width=10cm]{figure/simpsons5.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Bickel et al.'s (1975) Conclusion}
+
+``The bias in the aggregated data stems \blue{not from any pattern of discrimination on the part of admissions committees}, which seem quite fair on the whole, \pause but apparently from \blue{prior screening at earlier levels of the educational system}.''
+
+\vspace{0.25in}
+
+\pause ``Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.''
+
+\vspace{0.25in}
+
+The original paper can be found \blue{\href{http://www.unc.edu/~nielsen/soci708/cdocs/Berkeley\_admissions\_bias.pdf}{here}}.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Next time}
+
+We will discuss 
+\begin{itemize}
+\item Specific types of sampling beyond just \blue{simple random sampling}, as this is not always feasible
+\pause\item Experimental design:  some key principles to keep in mind when evaluating the efficacy of treatments. 
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+\end{document}
 
 
 
@@ -360,262 +626,6 @@ So the study introduced at the end of the last lecture is an \blue{observational
 %
 %\end{frame}
 %%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Well-Known Example of Confounding}
-
-One of the best-known real-life examples of an unaccounted for confounding variable having serious repercussions was when the University of California Berkeley was sued in 1973 for bias against women who had applied for admission to graduate schools there. 
-
-\vskip 0.5cm
-
-\pause Let's consider the $n=4526$ people who applied to the 6 largest departments.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Of the $n=4526$ applicants:}
-
-\begin{center}
-\includegraphics[height=\textheight]{figure/overall.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Split the counts by gender:}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/gender-accpt-count.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Look at proportions instead of counts:}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/gender-accpt.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{What was the ``competitiveness'' of departments?}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/dept-accpt.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Where were the women applying?}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/dept-gender.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{So while in aggregate things looked like this:}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/gender-accpt.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{You need to account for department!}
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/split-accpt.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Bickel et al.'s (1975) Explanation}
-
-There was the presence of a confounding variable: \blue{competitiveness} of applying to the department, which is a function
-\begin{itemize}
-\item number of applicants
-\item number of available slots
-\end{itemize}
-
-\vskip 0.5cm
-
-\pause So it wasn't that departments were discriminating against women, rather:
-\begin{itemize}
-\pause \item women tended to apply to departments with high competition and hence lower admission rates, primarily the humanities.
-\pause \item men tended to apply to departments with low competition and hence higher admission rates, primarily the sciences.
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Bickel et al.'s (1975) Explanation}
-
-In fact, Bickel et al. found that ``If the data are properly \blue{pooled}...there is a small but statistically significant bias in \blue{favor of women}.''
-
-\vskip 0.5cm
-
-\pause This was the exact \blue{opposite} claim of the lawsuit.  This is known as \blue{Simpson's Paradox}.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Simpson's Paradox}
-
-(From Wikipedia) Simpson's paradox is a paradox in which a trend that appears in different groups of data disappears when these groups are combined, and the \blue{reverse trend} appears for the aggregate data.  This is due to a confounding variable.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{A Graphical Illustration of Simpson's Paradox}
-Say we have the following points: \textcolor{white}{lorem ipsum lorem ipsum lorem ipsum lorem ipsum}
-\begin{center}
-\includegraphics[width=10cm]{figure/simpsons1.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{A Graphical Illustration of Simpson's Paradox}
-Overall, the explanatory variable $x$ is \blue{negatively} related with the outcome variable $y$:
-\begin{center}
-\includegraphics[width=10cm]{figure/simpsons2.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{A Graphical Illustration of Simpson's Paradox}
-But say we consider a \blue{confounding} variable, in this case \blue{color}: \textcolor{white}{lorem ipsum lorem ipsum}
-\begin{center}
-\includegraphics[width=10cm]{figure/simpsons3.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{A Graphical Illustration of Simpson's Paradox}
-The subgroups now exhibit a \blue{positive} relationship! \textcolor{white}{lorem ipsum lorem ipsum}
-\begin{center}
-\includegraphics[width=10cm]{figure/simpsons4.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{A Graphical Illustration of Simpson's Paradox}
-i.e. the trend in aggregate is the \blue{reverse} of the trend in the subgroups.
-\begin{center}
-\includegraphics[width=10cm]{figure/simpsons5.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Bickel et al.'s (1975) Conclusion}
-
-\pause ``The bias in the aggregated data stems \blue{not from any pattern of discrimination on the part of admissions committees}, which seem quite fair on the whole, but apparently from \blue{prior screening at earlier levels of the educational system}.''
-
-\vspace{0.5cm}
-
-\pause ``Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.''
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Next time}
-
-We will discuss 
-\begin{itemize}
-\item Specific types of sampling beyond just \blue{simple random sampling}, as this is not always feasible
-\pause\item Experimental design:  some key principles to keep in mind when evaluating the efficacy of treatments. 
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-
-
-
-\end{document}
-
 
 
 

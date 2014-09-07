@@ -1,7 +1,14 @@
 # Change directory
-setwd("./Lec02 Sampling/figure/")
+setwd("./Lec03 Confounding/figure/")
 
-# Install these packages first
+# Install these packages first:
+# -ggplot2
+# -dplyr
+# -scales
+# by goign to the Files Panel of RStudio -> Packages Tab -> Install ->
+# Lookup package name -> Install
+
+# Load the packages
 library(ggplot2)
 library(dplyr)
 library(scales)
@@ -20,6 +27,7 @@ color <- c(rep("lightseagreen", 4), rep("purple", 4))
 fig.width <- 6
 fig.height <- 4
 
+# Save all plots as pdf files.
 pdf("simpsons1.pdf", width=fig.width, height=fig.height)
 plot(x, y, pch=19, cex=2, xlim=c(0, 12), ylim=c(0, 10))
 dev.off()
@@ -54,13 +62,15 @@ dev.off()
 #-------------------------------------------------------------------------------
 #
 # ADVANCED:  Illustrate Simpsons Paradox via the UC Berkeley Admissions Data
-# We make use of the ggplot2 and dplyr packages
+# We make use of the ggplot2 and dplyr packages.  To learn more about
+# -ggplot: http://www.r-bloggers.com/basic-introduction-to-ggplot2/
+# -dplyr: http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
 #
 #-------------------------------------------------------------------------------
-# Load UC Berkeley admissions data
+# Load UC Berkeley admissions data and rename elements in Admit variable
 data(UCBAdmissions)
 UCB <- as.data.frame(UCBAdmissions)
-UCB
+UCB <- mutate(UCB, Admit = ifelse(Admit =="Admitted", "Accepted", "Rejected"))
 
 #---------------------------------------------------------------
 # Plot overall acceptance rate
