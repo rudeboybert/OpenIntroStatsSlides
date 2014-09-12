@@ -56,12 +56,12 @@ print(GeoStates, "chart")
 
 I think this is a pretty good start to visualizing the geographic distribution of Reed"s 2013 matriculation data. Figure 1 clearly shows us that California accounts for the most matriculants, but then it quickly becomes difficult to distinguish between the shading of the other states.  According to Table 1, Reed enrolled 87 students from California in 2013.  The next highest state level enrollment was 28 from Oregon.  Given that three-times as many students enrolled from California than from any other state, the color gradient in the map is correctly placing substantial emphasis on California. 
  
-However, we may be interested in learning more about the variation in matriculants across all states rather than identifying the states that account for the greatest number of matriculants. One way to approach this task is to map the log of matriculants or to take the log transformation of the variable of interest. Log transforming a variable that contains exceptionally large values (i.e. a right skewed variable) pulls those large values closer to the mean and yields a more symmetrically distributed variable.  As for the map, log transforming the number of matriculants increases the variation in the color gradient across states and enables us to better visualize the distribution of Reed"s matriculants across the entire country (as you can see in Figure 2 below).  
+However, we may be interested in learning more about the variation in matriculants across all states rather than identifying the states that account for the greatest number of matriculants. One way to approach this task is to map the log of matriculants or to take the log transformation of the variable of interest. Log transforming a variable that contains exceptionally large values (i.e. a right skewed variable) pulls those large values closer to the mean and yields a more symmetrically distributed variable.  As for the map, log transforming the number of matriculants increases the variation in the color gradient across states and enables us to better visualize the distribution of Reed"s matriculants across the entire country (as you can see in Figure 2 below).  We will use log base 10 so that the numbers reflect powers of 10 i.e. $\log(100)=\log(10^2)=2$.
 
 
 ```{r results="asis", echo = FALSE}
-state$log_yr_2013 <- log(ifelse(state$yr_2013 == 0, 1, state$yr_2013))
-hist(state$log_yr_2013, xlab="# of students", main="log of # of students from each state")
+state$log_yr_2013 <- log10(ifelse(state$yr_2013 == 0, 1, state$yr_2013))
+hist(state$log_yr_2013, xlab="log10(# of students)", main="log_10 of # of students from each state")
 ```
 
 
