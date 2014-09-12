@@ -35,7 +35,7 @@
 \newcommand{\cp}{\oplus}
 \newcommand{\cm}{\circleddash}
 
-\title{Lecture 5: Examining/Visualizing Numerical Data}
+\title{Lecture 5: Visualizing Numerical Data}
 \author{Chapter 1.6 + 1.7}
 \date{}
 
@@ -53,9 +53,10 @@
 \frametitle{Goals for Today}
 
 \begin{itemize}
-\item Examples of Data Visualization
+\item Visualizing numerical data
 \begin{itemize}
 \item Two famous historical examples of data visualization
+\item Reed's 2013 entering class
 \end{itemize}
 \item Histograms
 \item Measures of Central Tendency: Mean, Median, and Mode
@@ -115,14 +116,16 @@ Why is this visualization big deal?
 \vspace{0.5cm}
 
 On a two-dimensional page, it displays 6 variables (in others words, 6 \blue{dimensions} of information) at once:
-\begin{enumerate}
-\pause \item Size of the army (width of bars)
-\pause \item Latitude
-\pause \item Longitude
-\pause \item Direction of the army:  advance (brown) or retreat (black)
-\pause \item Date
-\pause \item Temperature (on the bottom)
-\end{enumerate}
+%\begin{enumerate}
+%\pause \item Size of the army (width of bars)
+%\pause \item Latitude
+%\pause \item Longitude
+%\pause \item Direction of the army:  advance (brown) or retreat (black)
+%\pause \item Date
+%\pause \item Temperature (on the bottom)
+%\end{enumerate}
+
+\vspace{5cm}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -181,18 +184,7 @@ He identified the source of the outbreak as water from the \blue{Broad Street Pu
 \includegraphics[height=4cm]{figure/king_cholera.jpg}
 \end{center}
 
-\pause This led to the discovery that the disease was transmitted by food and water being contaminated by fecal matter (chiefly due to poor sanitation) and not via the air.  This was a watershed moment in the emerging field of \blue{epidemiology}.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{More Recent and Relevant to You: Where do Reedies go?}
-
-\blue{\url{http://www.reed.edu/reed_magazine/september2013/articles/features/reed_degree.html}}
+\pause This led to discovering that cholera was transmitted by food and water being contaminated by fecal matter and not via the air.  This was a watershed moment in the emerging field of \blue{epidemiology}.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -201,7 +193,7 @@ He identified the source of the outbreak as water from the \blue{Broad Street Pu
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Histograms}
-In the {\tt openintro} package, there is the {\tt email50} dataset which is a random sample of 50 emails, in which researchers attempted to identify emails as spam or not.  One variables is the \# of characters:
+In the {\tt openintro} package, the {\tt email50} dataset contains a random sample of 50 emails, in which researchers try to identify emails as spam.  One variable is the \# of characters:
 
 \vspace{0.25cm}
 
@@ -216,7 +208,7 @@ Count      |   19    12      6      2      3      5      0      0      2  ...   
 
 \vspace{0.25cm}
 
-\pause So we can think of each of the intervals 0-5, 5-10, 10-15, etc. as \blue{buckets/bins} and we want to count the number of emails in each bucket/bin.  Let's show this visually...
+\pause So each of the intervals 0-5, 5-10, 10-15, etc. are \blue{buckets/bins} and we count the number of emails in each bucket/bin.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -241,13 +233,13 @@ Histograms provide a description of the shape of the \blue{distribution} of data
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Skew and Long Tail}
-Also in the {\tt openintro} package is MLB salary data.  If we plot a histogram:
+Also in the {\tt openintro} package is MLB salary data in 2010.  If we plot a histogram:
 
 \begin{center}
 \includegraphics[height=5.5cm]{figure/MLB.pdf}
 \end{center}
 
-\pause We see that the data has a \blue{long tail} to the right.  Then we say the data is \blue{right-skewed}.  i.e. we have a small number of players who make a VERY large amount of money.  
+\pause The data has a \blue{long tail} to the right: data is \blue{right-skewed}.  i.e. a small number of players who make a VERY large amount of money.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -267,6 +259,20 @@ Also in the {\tt openintro} package is MLB salary data.  If we plot a histogram:
 \pause\includegraphics[width=10cm]{figure/skew.png}
 \end{center}
 
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Reed's 2013 US-Originating Entering Class}
+What can we do about skewed data?  
+
+\vspace{1cm}
+
+\blue{\url{http://rpubs.com/rudeboybert/reed2013}}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -315,12 +321,11 @@ The \blue{median}, however, is the \blue{middle number}.
 
 \begin{itemize}
 \item Say at company $X$, there 5 employees:  the CEO and everyone else.  
-\pause\item The CEO earns \$1000 an hour, while the other employees earn \$20, \$21, \$30, and \$40 an hour. 
+\pause\item The CEO earns \$1000 an hour, while the others earn \$20, \$21, \$30, and \$40 an hour. 
 \pause\item The employees complain that they are paid too little.  
 \pause\item The CEO counters that the mean hourly salary is $\overline{x}=\frac{20+21+30+40+1000}{5} = 222.20$ an hour, which is really high.
 \end{itemize}
 
-\pause Why could you critique this argument?
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -328,16 +333,15 @@ The \blue{median}, however, is the \blue{middle number}.
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Mean vs Median: Imaginary Scenario}
-The CEO's extreme salary is inflating the mean!  A more appropriate measure in this case would be the median hourly salary of $30$.
+The CEO's extreme salary is inflating the mean.  A more appropriate measure is the median hourly salary of $30$.
 
 \vspace{0.5cm}
 
-\pause Medians are much less sensitive to \blue{outliers} than the mean.\\
-i.e. values that are  too extremely high or low values.
+\pause Medians are less sensitive to (i.e. more \blue{robust} to) \blue{outliers} than the mean.
 
 \vspace{0.5cm}
 
-\pause Hence, when reporting on house prices the ``median home price'' is typically  used, because it isn't as sensitive as the mean to the few houses that are extremely expensive.
+\pause Ex: the ``median home price'' is typically used, because it isn't as sensitive as the mean to the few very expensive houses.
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -357,7 +361,7 @@ i.e. values that are  too extremely high or low values.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Mode}
-The final of the 3 M's is the \blue{mode}.  A mode is the value that appears the most often in a data set.  So out of (1, 3, 3, 5, 6), the mode is 3.  
+A \blue{mode} is the value that appears the most often in a data set.  So out of (1, 3, 3, 5, 6), the modal value is 3.  
 
 \vspace{0.25cm}
 
@@ -365,7 +369,7 @@ The final of the 3 M's is the \blue{mode}.  A mode is the value that appears the
 
 \vspace{0.25cm}
 
-\pause A distribution (of data) can be \blue{unimodal} (single prominent peak), \blue{bimodal} (two prominent peaks) and \blue{multimodal} (two or more prominent peaks):
+\pause A distribution can be \blue{unimodal}, \blue{bimodal}, or \blue{multimodal}:
 
 \begin{center}
 \includegraphics[height=3cm]{figure/modes.png}
@@ -380,7 +384,7 @@ The final of the 3 M's is the \blue{mode}.  A mode is the value that appears the
 \begin{frame}[fragile]
 \frametitle{Measure of Spread}
 
-Consider the following two histograms:  Both have mean of about 20.  What is the difference between them?
+Next, consider the following two histograms:  Both have mean of about 20.  What is the difference between them?
 
 \begin{center}
 \pause \includegraphics[width=\textwidth]{figure/spread.pdf}
@@ -394,7 +398,7 @@ Consider the following two histograms:  Both have mean of about 20.  What is the
 \begin{frame}[fragile]
 \frametitle{Measure of Spread}
 
-We need a measure of \blue{spread/variability}.  The \blue{sample variance $s^2$} is roughly the average squared distance from the mean.  
+We need a measure of \blue{spread/variability}.  The \blue{sample variance $s^2$} is roughly the average squared distance from the mean.
 
 \vspace{0.5cm}
 
@@ -434,7 +438,7 @@ Read section 1.6.4.  The formula really doesn't make much intuitive sense, but i
 \frametitle{Next Time}
 
 \begin{itemize}
-\item Another simple data visualization tool: box plots
+\item Another simple data visualization tool: boxplots
 \item Examining/Visualizing \blue{Categorical} Data
 \end{itemize}
 
