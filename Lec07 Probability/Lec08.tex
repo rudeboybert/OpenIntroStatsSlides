@@ -1,0 +1,555 @@
+\documentclass[slides]{beamer}
+\usepackage[]{graphicx, color}
+
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+
+
+\mode<presentation>
+{
+	%\usetheme[secheader]{Boadilla}
+	%\usecolortheme[rgb={.835, .102,.169}]{structure}  
+	\usetheme[width= 0cm]{Goettingen}
+	%\setbeamercovered{transparent}
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{blue2}{rgb}{0.278,0.278,0.729} 
+\newcommand{\blue}[1]{\textcolor{blue2}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\usepackage{hyperref}
+
+\title{Lecture 3.3: Probability}
+\author{Chapter 2.x}
+\date{2014/02/13}
+
+
+\begin{document}
+%------------------------------------------------------------------------------
+\begin{frame}
+\titlepage
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Switching Gears... Probability}
+
+Chapter 2 of the book is ``Probability (special topic)''.    Probability theory forms the mathematical foundation of statistics.  
+
+%\vspace{0.5cm}
+%
+%However, given that
+%\begin{itemize}
+%\item Chapters 3 through 8 do not necessitate a complete understanding of Chapter 2, 
+%\item this is a 14 week semester class where time is tight,
+%\item and we have bigger fish to fry
+%\end{itemize}
+%we only make a brief pass over this chapter.  
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Outcomes}
+We use probability to build tools to describe and understand randomness.  We often frame probability in terms of a \blue{random process} giving rise to an \blue{outcome}.  
+
+\vspace{0.5cm}
+
+\pause Typical examples of random processes
+\begin{itemize}
+\pause \item Dice: 1, 2, 3, 4, 5, or 6 (6 possible outcomes)
+\pause \item Coin Flip: head or tail (2 possible outcomes)
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Disjoint AKA Mutually Exclusive Outcomes}
+Two outcomes are \blue{disjoint (also called mutually exclusive)} if they cannot both occur at the same time.  
+
+\vspace{0.5cm}
+
+\pause Back to examples:
+\begin{itemize}
+\pause\item Dice: Rolling a 1 and a 2 are disjoint.  
+\pause\item Coin Flip: Getting a head and a tail are disjoint.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\pause But rolling a 1 and rolling ``an odd number'' are not disjoint, since they can both occur simultaneously.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Addition Rule of Probability}
+If $A_1$ and $A_2$ represent two disjoint outcomes, then the probability that one of them occurs is
+\[
+P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
+\]
+
+\vspace{0.5cm}
+
+\pause Back to dice, rolling a 1 and a 2 are disjoint, so:
+\[
+P(\mbox{rolling a 1 or a 2}) = P(\mbox{rolling a 1}) + P(\mbox{rolling a 2}) = \frac{1}{6} + \frac{1}{6}
+\]
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{General Addition Rule of Probability}
+If $A_1$ and $A_2$ represent two outcomes (not necessarily disjoint), then the probability that one of them occurs is
+\[
+P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2) - \blue{P(A_1 \mbox{ and } A_2)}
+\]
+Venn diagram:
+\vspace{4cm}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{General Addition Rule of Probability}
+Events are just combinations of outcomes.  \pause So for example let
+\begin{itemize}
+\item $A_1$ be the event that we draw a diamond
+\item $A_2$ be the event that we draw a face card
+\end{itemize}
+
+\pause These two events are not disjoint, as there are 3 diamond face cards.
+Venn diagram:
+\vspace{3cm}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{General Addition Rule of Probability}
+
+\begin{eqnarray*}
+P(A_1 \mbox{ or } A_2) &=& P(\mbox{diamond or a face card})\\
+&=& P(\mbox{diamond}) + P(\mbox{face card}) - \\
+&&P(\mbox{diamond AND face card})\\
+&=& \frac{13}{52} + \frac{3 \times 4}{52} - \frac{3}{52} = \frac{22}{52} = 42.3\%
+\end{eqnarray*}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Next Time}
+
+More probability.  Specifically
+\begin{itemize}
+\item The complement of events
+\item Independence and the multiplication rule
+\item Conditional Probability
+\end{itemize}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Previously... Probability}
+
+\blue{The general addition rule of probability}: If $A_1$ and $A_2$ represent two outcomes (not necessarily disjoint), then the probability that one of them occurs is
+\[
+P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2) - P(A_1 \mbox{ and } A_2)
+\]
+
+\pause If $A_1$ and $A_2$ are disjoint, then they cannot both occur, so 
+\[
+P(A_1 \mbox{ and } A_2)=0
+\]
+\pause and hence
+\[
+P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
+\]
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Goals for Today}
+\begin{itemize}
+\item The complement of events
+\item Independence and the multiplication rule
+\item Conditional Probability
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Sample Space and the Complement of Events}
+Rolling a die has 6 possible outcomes.  The \blue{sample space} is the set of all possible outcomes $S = \{1, 2, \ldots, 6\}$.  
+
+\pause \vspace{0.75cm}
+Say event $D$ is the event of rolling an even number i.e $D=\{2, 4, 6\}$.  The \blue{complement of event} D is $D^c=\{1, 3, 5\}$ i.e. getting an odd number.  $A$ and $A^c$ are disjoint.  
+
+\pause \vspace{0.75cm}
+So then for any event $A$ and its complement $A^c$
+\[
+P(A) + P(A^c) = 1
+\]
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Independence}
+Two processes are \blue{independent} if knowing the outcome of one provides no useful information about the outcome of the other.  Otherwise we say they are dependent.
+
+\vspace{0.5cm}
+
+\pause Consider:
+\begin{enumerate}
+\pause \item You roll a die once, and then you roll it again.
+\pause \item You get a movie recommendation from your friend Robin, but then their significant other Sam also recommends it.  
+\pause \item You compare test scores from two Grade 9 students in the same class.  Then same school.  Then same school district.  Then same city.  Then same state.
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Independence}
+We say that events $A$ and $B$ are \blue{independent} if
+\[
+P(A \mbox{ and } B) = P(A) \times P(B)
+\]
+
+\vspace{0.5cm}
+
+\pause Ex: Dice rolls are independent, so say you roll twice:
+\begin{eqnarray*}
+<<<<<<< HEAD
+P(\mbox{rolling a 1 and then a 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{rolling a 6})\\
+=======
+P(\mbox{rolling a 1 and then ea 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{rolling a 6})\\
+>>>>>>> 5d028c7434fb3c66835ea8e44b204948e4bd21f5
+&=& \frac{1}{6}\times\frac{1}{6} = \frac{1}{36}
+\end{eqnarray*}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Example Demonstrating You Already Know Cond. Prob.}
+
+Let's suppose I take a random sample of 100 Reed students to study their smoking habits.
+\begin{center}
+  \begin{tabular}{r|cc|c}
+	&Smoker&Not Smoker&Total\\
+	\hline
+Male&19&41&60\\
+Female&12&28&40\\
+\hline
+Total&31&69&100\\
+\end{tabular}
+\end{center}
+
+\begin{small}
+\begin{itemize}
+\pause \item What is the probability of a randomly selected male smoking?
+\vspace{1cm}
+\pause \item What is the probability that a randomly selected smoker is female?
+\end{itemize}
+\end{small}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Conditional Probability}
+The \blue{conditional probability} of an event $A$ given the event $B$, is defined by
+\[
+P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)}
+\]  
+
+\vspace{0.5cm}
+
+This is read as ``the probability of A \blue{given} B'' or ``the probability of A \blue{conditional on} B.''
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Back to Example}
+\begin{center}
+  \begin{tabular}{r|cc|c}
+	&Smoker&Not Smoker&Total\\
+	\hline
+Male&19&41&60\\
+Female&12&28&40\\
+\hline
+Total&31&69&100\\
+\end{tabular}
+\end{center}
+
+\begin{small}
+\begin{itemize}
+\item What is the probability of a randomly selected male smoking?
+\[
+P(S|M) = \frac{P(S \mbox{ and } M)}{P(M)} = \frac{19/100}{60/100} = \frac{19}{60}
+\]
+\item What is the probability that a randomly selected smoker is female?
+\[
+P(F|S) = \frac{P(F \mbox{ and } S)}{P(S)} = \frac{12/100}{31/100} = \frac{12}{31}
+\]
+\end{itemize}
+\end{small}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Put It Together!  Independence and Conditional Prob.}
+If $A$ and $B$ are independent events, then
+\[
+P(A \mbox{ and } B) = P(A)\times P(B)
+\]
+
+\pause then
+
+\[
+P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)} = \frac{P(A)\times P(B)}{P(B)} = P(A)
+\]  
+
+\vspace{0.5cm}
+
+\pause i.e. $P(A|B) = P(A)$: the event $B$ occurring has no bearing on the probability of $A$
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Independence Assumption}
+For almost \blue{all} the statistical tools we will use in this class, we need the assumption of independence\footnote{proven in MATH 391/392}.  The issue is when we draw samples from a population.  
+
+\vspace{0.5cm}
+\pause
+Once we've sampled someone/something, we don't typically \blue{put them back} into the pool of potential samples.\\
+i.e. we cross them off the list.  
+
+\vspace{0.5cm}
+\pause
+This is the concept from probability theory of \blue{sampling with replacement} vs \blue{sampling without replacement}. 
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Independence Assumption}
+
+Say we are interested in the probability of sampling Wayne and Mario.  For independence to hold we need
+\[
+P(\mbox{ Wayne \& Mario }) = P(\mbox{ Wayne }) \times P(\mbox{ Mario })
+\]
+\pause
+Compare $N=4$ \& $N=10000$ and assume we pick Mario first.  By conditional probability:
+\begin{eqnarray*}
+\pause P(\mbox{ Wayne \& Mario }) &=& P(\mbox{ Mario }) \times P(\mbox{ Wayne }|\mbox{ Mario }) \\
+\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{4}\times\frac{1}{3} \ \pause \red{\neq} \  \frac{1}{4}\times\frac{1}{4}\\
+\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{10000}\times\frac{1}{9999} \ \pause \red{\approx} \ \frac{1}{10000}\times\frac{1}{10000}
+\end{eqnarray*}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Independence Assumption}
+
+\blue{Moral of the story}:  when sampling without replacement, as the size of the sample $n$ grows to be a larger and larger proportion of the total study population $N$, the independence assumption breaks down.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Gambler's Fallacy: Roulette}
+\begin{center}
+   \includegraphics[width=3in]{Roulette_wheel.jpg} 
+\end{center}
+
+You can bet on individual numbers, sets of numbers, or \blue{red vs black}.  Let's assume no 0 or 00, so that $P(\mbox{red}) = P(\mbox{black}) = \frac{1}{2}$.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Gambler's Fallacy: Roulette}
+One of the biggest cons in casinos: \blue{spin history boards}.
+\begin{center}
+   \includegraphics[height=2in]{roulette.jpg} 
+\end{center}
+Let's ignore the numbers and just focus on what color occurred. Note: the white values on the left are \blue{black} spins.
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Gambler's Fallacy: Roulette}
+Let's say you look at the board and see that the last 4 spins were \textcolor{red}{red}.\\
+
+\vspace{0.25cm}
+
+\pause You will always hear people say \blue{``Black is due!''}\\
+
+\pause \vspace{0.25cm}
+
+Ex. on the 5th spin people think:
+\begin{eqnarray*}
+P(\mbox{black}_5 &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) > \\
+P(\textcolor{red}{\mbox{red}_5} &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4})
+\end{eqnarray*}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Gambler's Fallacy: Roulette}
+But assuming the wheel is not rigged, spins are independent i.e. $P(A|B) = P(A)$.  So:
+
+\pause \begin{eqnarray*}
+P(\mbox{black}_5 | \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) = P(\mbox{black}_5) &=& \frac{1}{2} \\
+P(\textcolor{red}{\mbox{red}_5} | \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) = P(\textcolor{red}{\mbox{red}_5}) &=& \frac{1}{2}
+\end{eqnarray*}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Food for Thought: How People Perceive Randomness}
+Compare the following streaks on a non-rigged wheel:
+\begin{eqnarray*}
+\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R} \mbox{ vs. } \textcolor{red}{R}B\textcolor{red}{R}\textcolor{red}{R}BBB
+\end{eqnarray*}
+
+\pause Both have the exact same probability $\left(\frac{1}{2}\right)^{7}$ of occurring, but people tend to somehow give different credence to the randomness of the pattern on the left vs right.
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Next Week's Lab}
+%
+%Basketball players who make several baskets in succession are described as having a ``hot hand.''  This refutes the assumption that each shot is \blue{independent} of the next. 
+%
+%\vspace{0.5cm}
+%
+%We are going to investigate this claim with data from a particular basketball player: Kobe Bryant of the Los Angeles
+%Lakers. His performance in the 2009 NBA finals earned him the title ``Most Valuable Player'' and many spectators commented on how he appeared to show a hot hand.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Next Time}
+
+Discuss the Normal Distribution
+
+\begin{center}
+   \includegraphics[width=2.5in]{standard_normal.pdf} 
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

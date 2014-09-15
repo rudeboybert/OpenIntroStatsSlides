@@ -1,0 +1,114 @@
+---
+title: "Spring 2014 Faculty Evaluations"
+author: "Albert Y. Kim"
+date: "September 15, 2014"
+output: ioslides_presentation
+---
+
+```{r, echo=FALSE, results='hide', fi}
+# Load my scores
+
+# Load Reed scores
+Overall <- read.csv("Overall.csv", header=TRUE)
+Arts <- read.csv("Arts.csv", header=TRUE)
+HSS <- read.csv("HSS.csv", header=TRUE)
+LL <- read.csv("LL.csv", header=TRUE)
+MNS <- read.csv("MNS.csv", header=TRUE)
+PRPL <- read.csv("PRPL.csv", header=TRUE)
+
+# Create plot titles
+questions <- 
+  c("Preparation", "Clarity of Explanation & Preparation",
+    "Usefulness of Homework", "Usefulness of Text", "Papers Returned on Time",
+    "Usefulness of Comments and Responses to My Work", 
+    "Respect For and Fairness Toward Students", 
+    "Availability for Consultation and Help", 
+    "Effectiveness in Stimulating my Thinking",
+    "Overall Quality of Teaching")
+titles <- paste("Q", 1:10, ": ", questions, sep="")
+
+# Function
+plot.scores <- function(i, plot.my.score=FALSE) {
+  # Create empty boxplots with bogus data
+  bx.p <- boxplot(split(rep(0, 120), gl(6, 20)), plot=FALSE)
+  bx.p$names <- c("PRPL", "MNS", "LL", "HSS", "Arts", "Overall")
+  bx.p$out <- numeric(0)
+  bx.p$group <- numeric(0)
+
+  # Change quartiles
+  bx.p$stats[2:4, 1] <- as.numeric(PRPL[i, 2:4])
+  bx.p$stats[2:4, 2] <- as.numeric(MNS[i, 2:4])
+  bx.p$stats[2:4, 3] <- as.numeric(LL[i, 2:4])
+  bx.p$stats[2:4, 4] <- as.numeric(HSS[i, 2:4])
+  bx.p$stats[2:4, 5] <- as.numeric(Arts[i, 2:4])
+  bx.p$stats[2:4, 6] <- as.numeric(Overall[i, 2:4])
+  
+  # Plot new boxplots
+  bxp(bx.p, ylim=c(3, 4), horizontal=TRUE, whiskcol="white", staplecol="white",
+      main=titles[i])
+  abline(h=5.5, col="red", lwd=2)
+  abline(v=c(3, 4), lty=2, col="grey")
+  
+  # Depending on argument, plot my score
+  if (plot.my.score) {
+    points(evals.392[i], 2, pch=4, cex=1.2, lwd=2, col="blue")
+    }
+}
+```
+
+## Details
+We consider faculty evaluations for the Spring 2014 semester:
+
+* For each question, we're only provided with quartiles so we can't plot any of the whiskers.
+* The red line separates the Reed overall scores from the divisional scores.
+* When the solid lines is at the left edge of a box, it means the first quartiles is equal to the median.  
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(1)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(2)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(3)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(4)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(5)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(6)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(7)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(8)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(9)
+```
+
+## 
+```{r, echo=FALSE, fig.height=6, fig.width=8}
+plot.scores(10)
+```
