@@ -1,12 +1,16 @@
-\documentclass[slides]{beamer}
-\usepackage[]{graphicx, color}
+% Uncomment this to make slides with overlays:
+%\documentclass[slides]{beamer}
 
+% Uncomment these (but comment the above \documentclass line) to make handouts:
+\documentclass[handout]{beamer}
 
+% Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[border shrink=5mm]
 %\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
 %\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
+\usepackage[]{graphicx, color, hyperref}
 
 \mode<presentation>
 {
@@ -20,14 +24,20 @@
 
 \definecolor{blue2}{rgb}{0.278,0.278,0.729} 
 \newcommand{\blue}[1]{\textcolor{blue2}{#1}}
+\newcommand{\white}[1]{\textcolor{white}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\phat}{\widehat{p}}
+\newcommand{\prob}{\mbox{Pr}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mbox{Var}}
+\newcommand{\cp}{\oplus}
+\newcommand{\cm}{\circleddash}
 
-
-\usepackage{hyperref}
-
-\title{Lecture 3.3: Probability}
+\title{Lecture 7: Probability}
 \author{Chapter 2.x}
-\date{2014/02/13}
+\date{}
 
 
 \begin{document}
@@ -40,37 +50,19 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Switching Gears... Probability}
-
-Chapter 2 of the book is ``Probability (special topic)''.    Probability theory forms the mathematical foundation of statistics.  
-
-%\vspace{0.5cm}
-%
-%However, given that
-%\begin{itemize}
-%\item Chapters 3 through 8 do not necessitate a complete understanding of Chapter 2, 
-%\item this is a 14 week semester class where time is tight,
-%\item and we have bigger fish to fry
-%\end{itemize}
-%we only make a brief pass over this chapter.  
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
 \frametitle{Outcomes}
-We use probability to build tools to describe and understand randomness.  We often frame probability in terms of a \blue{random process} giving rise to an \blue{outcome}.  
+Probability theory forms the mathematical foundation of statistics.  We use probability to build tools to describe and understand randomness.
 
-\vspace{0.5cm}
+\vspace{0.25cm}
+
+We often frame probability in terms of a \blue{random process} giving rise to an \blue{outcome}.  
+
+\vspace{0.25cm}
 
 \pause Typical examples of random processes
 \begin{itemize}
-\pause \item Dice: 1, 2, 3, 4, 5, or 6 (6 possible outcomes)
-\pause \item Coin Flip: head or tail (2 possible outcomes)
+\pause \item Dice: 6 possible outcomes
+\pause \item Coin Flip: 2 possible outcomes
 \end{itemize}
 
 \end{frame}
@@ -116,7 +108,6 @@ P(\mbox{rolling a 1 or a 2}) = P(\mbox{rolling a 1}) + P(\mbox{rolling a 2}) = \
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -166,23 +157,6 @@ P(A_1 \mbox{ or } A_2) &=& P(\mbox{diamond or a face card})\\
 %------------------------------------------------------------------------------
 
 
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-More probability.  Specifically
-\begin{itemize}
-\item The complement of events
-\item Independence and the multiplication rule
-\item Conditional Probability
-\end{itemize}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Previously... Probability}
@@ -203,20 +177,6 @@ P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Goals for Today}
-\begin{itemize}
-\item The complement of events
-\item Independence and the multiplication rule
-\item Conditional Probability
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -267,17 +227,12 @@ P(A \mbox{ and } B) = P(A) \times P(B)
 
 \pause Ex: Dice rolls are independent, so say you roll twice:
 \begin{eqnarray*}
-<<<<<<< HEAD
 P(\mbox{rolling a 1 and then a 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{rolling a 6})\\
-=======
-P(\mbox{rolling a 1 and then ea 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{rolling a 6})\\
->>>>>>> 5d028c7434fb3c66835ea8e44b204948e4bd21f5
 &=& \frac{1}{6}\times\frac{1}{6} = \frac{1}{36}
 \end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -377,9 +332,6 @@ P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)} = \frac{P(A)\times P(B)}{P(B)} = P(A)
 %------------------------------------------------------------------------------
 
 
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Independence Assumption}
@@ -414,7 +366,6 @@ Compare $N=4$ \& $N=10000$ and assume we pick Mario first.  By conditional proba
 \pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{10000}\times\frac{1}{9999} \ \pause \red{\approx} \ \frac{1}{10000}\times\frac{1}{10000}
 \end{eqnarray*}
 
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -429,12 +380,11 @@ Compare $N=4$ \& $N=10000$ and assume we pick Mario first.  By conditional proba
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Gambler's Fallacy: Roulette}
 \begin{center}
-   \includegraphics[width=3in]{Roulette_wheel.jpg} 
+   \includegraphics[width=3in]{figure/Roulette_wheel.jpg} 
 \end{center}
 
 You can bet on individual numbers, sets of numbers, or \blue{red vs black}.  Let's assume no 0 or 00, so that $P(\mbox{red}) = P(\mbox{black}) = \frac{1}{2}$.  
@@ -443,18 +393,16 @@ You can bet on individual numbers, sets of numbers, or \blue{red vs black}.  Let
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Gambler's Fallacy: Roulette}
 One of the biggest cons in casinos: \blue{spin history boards}.
 \begin{center}
-   \includegraphics[height=2in]{roulette.jpg} 
+   \includegraphics[height=2in]{figure/roulette.jpg} 
 \end{center}
 Let's ignore the numbers and just focus on what color occurred. Note: the white values on the left are \blue{black} spins.
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -478,7 +426,6 @@ P(\textcolor{red}{\mbox{red}_5} &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Gambler's Fallacy: Roulette}
@@ -494,7 +441,6 @@ P(\textcolor{red}{\mbox{red}_5} | \textcolor{red}{\mbox{red}_1} \mbox{ and } \te
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Food for Thought: How People Perceive Randomness}
@@ -508,19 +454,18 @@ Compare the following streaks on a non-rigged wheel:
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Next Week's Lab}
-%
-%Basketball players who make several baskets in succession are described as having a ``hot hand.''  This refutes the assumption that each shot is \blue{independent} of the next. 
-%
-%\vspace{0.5cm}
-%
-%We are going to investigate this claim with data from a particular basketball player: Kobe Bryant of the Los Angeles
-%Lakers. His performance in the 2009 NBA finals earned him the title ``Most Valuable Player'' and many spectators commented on how he appeared to show a hot hand.
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Next Week's Lab}
+
+Basketball players who make several baskets in succession are described as having a ``hot hand.''  This refutes the assumption that each shot is \blue{independent} of the next. 
+
+\vspace{0.5cm}
+
+We are going to investigate this claim with data from a particular basketball player: Kobe Bryant of the Los Angeles Lakers in the 2009 NBA finals.
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -530,16 +475,11 @@ Compare the following streaks on a non-rigged wheel:
 Discuss the Normal Distribution
 
 \begin{center}
-   \includegraphics[width=2.5in]{standard_normal.pdf} 
+   \includegraphics[width=2.5in]{figure/standard_normal.pdf} 
 \end{center}
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
-
-
 
 
 \end{document}
