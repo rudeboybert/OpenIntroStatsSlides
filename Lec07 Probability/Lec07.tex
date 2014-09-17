@@ -51,7 +51,7 @@
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Outcomes}
-Probability theory forms the mathematical foundation of statistics.  We use probability to build tools to describe and understand randomness.
+Probability forms the theoretical backbone of statistics.  We use probability to characterize randomness.  
 
 \vspace{0.25cm}
 
@@ -59,10 +59,10 @@ We often frame probability in terms of a \blue{random process} giving rise to an
 
 \vspace{0.25cm}
 
-\pause Typical examples of random processes
+\pause Typical examples
 \begin{itemize}
-\pause \item Dice: 6 possible outcomes
-\pause \item Coin Flip: 2 possible outcomes
+\pause \item Die roll: 6 outcomes
+\pause \item Coin Flip: 2 outcomes
 \end{itemize}
 
 \end{frame}
@@ -72,19 +72,16 @@ We often frame probability in terms of a \blue{random process} giving rise to an
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Disjoint AKA Mutually Exclusive Outcomes}
-Two outcomes are \blue{disjoint (also called mutually exclusive)} if they cannot both occur at the same time.  
+Two outcomes are \blue{disjoint (AKA mutually exclusive)} if they cannot both occur at the same time.  
 
 \vspace{0.5cm}
 
-\pause Back to examples:
+\pause Die example:
 \begin{itemize}
-\pause\item Dice: Rolling a 1 and a 2 are disjoint.  
-\pause\item Coin Flip: Getting a head and a tail are disjoint.
+\pause\item Rolling a 1 and a 2 are disjoint.  
+\pause\item Rolling a 1 and rolling ``an odd number'' are not disjoint.
 \end{itemize}
 
-\vspace{0.5cm}
-
-\pause But rolling a 1 and rolling ``an odd number'' are not disjoint, since they can both occur simultaneously.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -93,16 +90,16 @@ Two outcomes are \blue{disjoint (also called mutually exclusive)} if they cannot
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Addition Rule of Probability}
-If $A_1$ and $A_2$ represent two disjoint outcomes, then the probability that one of them occurs is
+If $A_1$ and $A_2$ are disjoint outcomes, then
 \[
 P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
 \]
 
 \vspace{0.5cm}
 
-\pause Back to dice, rolling a 1 and a 2 are disjoint, so:
+\pause Ex: Rolling 1 and 2 are disjoint, so:
 \[
-P(\mbox{rolling a 1 or a 2}) = P(\mbox{rolling a 1}) + P(\mbox{rolling a 2}) = \frac{1}{6} + \frac{1}{6}
+P(\mbox{rolling 1 or 2}) = P(\mbox{rolling 1}) + P(\mbox{rolling 2}) = \frac{1}{6} + \frac{1}{6}
 \]
 
 
@@ -113,12 +110,13 @@ P(\mbox{rolling a 1 or a 2}) = P(\mbox{rolling a 1}) + P(\mbox{rolling a 2}) = \
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Addition Rule of Probability}
-If $A_1$ and $A_2$ represent two outcomes (not necessarily disjoint), then the probability that one of them occurs is
+If $A_1$ and $A_2$ are two outcomes (not necessarily disjoint), then
 \[
 P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2) - \blue{P(A_1 \mbox{ and } A_2)}
 \]
+
 Venn diagram:
-\vspace{4cm}
+\vspace{3cm}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -127,10 +125,10 @@ Venn diagram:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Addition Rule of Probability}
-Events are just combinations of outcomes.  \pause So for example let
+\blue{Events} are just combinations of outcomes. Ex: Deck of cards
 \begin{itemize}
-\item $A_1$ be the event that we draw a diamond
-\item $A_2$ be the event that we draw a face card
+\item $A_1 =$ event we draw a diamond
+\item $A_2 =$ event we draw a face card
 \end{itemize}
 
 \pause These two events are not disjoint, as there are 3 diamond face cards.
@@ -159,36 +157,14 @@ P(A_1 \mbox{ or } A_2) &=& P(\mbox{diamond or a face card})\\
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Previously... Probability}
-
-\blue{The general addition rule of probability}: If $A_1$ and $A_2$ represent two outcomes (not necessarily disjoint), then the probability that one of them occurs is
-\[
-P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2) - P(A_1 \mbox{ and } A_2)
-\]
-
-\pause If $A_1$ and $A_2$ are disjoint, then they cannot both occur, so 
-\[
-P(A_1 \mbox{ and } A_2)=0
-\]
-\pause and hence
-\[
-P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
 \frametitle{Sample Space and the Complement of Events}
-Rolling a die has 6 possible outcomes.  The \blue{sample space} is the set of all possible outcomes $S = \{1, 2, \ldots, 6\}$.  
+A die has 6 possible outcomes.  The \blue{sample space} is the set of all possible outcomes $S = \{1, 2, \ldots, 6\}$.  
 
 \pause \vspace{0.75cm}
-Say event $D$ is the event of rolling an even number i.e $D=\{2, 4, 6\}$.  The \blue{complement of event} D is $D^c=\{1, 3, 5\}$ i.e. getting an odd number.  $A$ and $A^c$ are disjoint.  
+Say event $A$ is the event of rolling an even number i.e $A=\{2, 4, 6\}$.  The \blue{complement of event} A is $A^c=\{1, 3, 5\}$ i.e. getting an odd number.  
 
 \pause \vspace{0.75cm}
-So then for any event $A$ and its complement $A^c$
+Thm
 \[
 P(A) + P(A^c) = 1
 \]
@@ -200,13 +176,13 @@ P(A) + P(A^c) = 1
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Independence}
-Two processes are \blue{independent} if knowing the outcome of one provides no useful information about the outcome of the other.  Otherwise we say they are dependent.
+Two processes are \blue{independent} if knowing the outcome of one provides no useful information about the outcome of the other.  Otherwise they are dependent.
 
 \vspace{0.5cm}
 
 \pause Consider:
 \begin{enumerate}
-\pause \item You roll a die once, and then you roll it again.
+\pause \item Die rolls
 \pause \item You get a movie recommendation from your friend Robin, but then their significant other Sam also recommends it.  
 \pause \item You compare test scores from two Grade 9 students in the same class.  Then same school.  Then same school district.  Then same city.  Then same state.
 \end{enumerate}
@@ -223,11 +199,11 @@ We say that events $A$ and $B$ are \blue{independent} if
 P(A \mbox{ and } B) = P(A) \times P(B)
 \]
 
-\vspace{0.5cm}
+\vspace{0.25cm}
 
-\pause Ex: Dice rolls are independent, so say you roll twice:
+\pause Ex: Dice rolls are independent:
 \begin{eqnarray*}
-P(\mbox{rolling a 1 and then a 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{rolling a 6})\\
+P(\mbox{rolling 1 and then 6}) &=& P(\mbox{rolling 1}) \times P(\mbox{rolling 6})\\
 &=& \frac{1}{6}\times\frac{1}{6} = \frac{1}{36}
 \end{eqnarray*}
 
@@ -237,51 +213,21 @@ P(\mbox{rolling a 1 and then a 6}) &=& P(\mbox{rolling a 1}) \times P(\mbox{roll
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Example Demonstrating You Already Know Cond. Prob.}
-
-Let's suppose I take a random sample of 100 Reed students to study their smoking habits.
-\begin{center}
-  \begin{tabular}{r|cc|c}
-	&Smoker&Not Smoker&Total\\
-	\hline
-Male&19&41&60\\
-Female&12&28&40\\
-\hline
-Total&31&69&100\\
-\end{tabular}
-\end{center}
-
-\begin{small}
-\begin{itemize}
-\pause \item What is the probability of a randomly selected male smoking?
-\vspace{1cm}
-\pause \item What is the probability that a randomly selected smoker is female?
-\end{itemize}
-\end{small}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
 \frametitle{Conditional Probability}
-The \blue{conditional probability} of an event $A$ given the event $B$, is defined by
+The \blue{conditional probability} of an event $A$ \blue{given} the event $B$, is defined by
 \[
 P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)}
 \]  
 
-\vspace{0.5cm}
-
-This is read as ``the probability of A \blue{given} B'' or ``the probability of A \blue{conditional on} B.''
-
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Back to Example}
+\frametitle{Example}
+Let's suppose I take a random sample of 100 Reed students to study their smoking habits.
+
 \begin{center}
   \begin{tabular}{r|cc|c}
 	&Smoker&Not Smoker&Total\\
@@ -332,52 +278,52 @@ P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)} = \frac{P(A)\times P(B)}{P(B)} = P(A)
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Independence Assumption}
-For almost \blue{all} the statistical tools we will use in this class, we need the assumption of independence\footnote{proven in MATH 391/392}.  The issue is when we draw samples from a population.  
-
-\vspace{0.5cm}
-\pause
-Once we've sampled someone/something, we don't typically \blue{put them back} into the pool of potential samples.\\
-i.e. we cross them off the list.  
-
-\vspace{0.5cm}
-\pause
-This is the concept from probability theory of \blue{sampling with replacement} vs \blue{sampling without replacement}. 
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Independence Assumption}
-
-Say we are interested in the probability of sampling Wayne and Mario.  For independence to hold we need
-\[
-P(\mbox{ Wayne \& Mario }) = P(\mbox{ Wayne }) \times P(\mbox{ Mario })
-\]
-\pause
-Compare $N=4$ \& $N=10000$ and assume we pick Mario first.  By conditional probability:
-\begin{eqnarray*}
-\pause P(\mbox{ Wayne \& Mario }) &=& P(\mbox{ Mario }) \times P(\mbox{ Wayne }|\mbox{ Mario }) \\
-\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{4}\times\frac{1}{3} \ \pause \red{\neq} \  \frac{1}{4}\times\frac{1}{4}\\
-\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{10000}\times\frac{1}{9999} \ \pause \red{\approx} \ \frac{1}{10000}\times\frac{1}{10000}
-\end{eqnarray*}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Independence Assumption}
-
-\blue{Moral of the story}:  when sampling without replacement, as the size of the sample $n$ grows to be a larger and larger proportion of the total study population $N$, the independence assumption breaks down.  
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Independence Assumption}
+%For almost \blue{all} the statistical tools we will use in this class, we need the assumption of independence\footnote{proven in MATH 391/392}.  The issue is when we draw samples from a population.  
+%
+%\vspace{0.5cm}
+%\pause
+%Once we've sampled someone/something, we don't typically \blue{put them back} into the pool of potential samples.\\
+%i.e. we cross them off the list.  
+%
+%\vspace{0.5cm}
+%\pause
+%This is the concept from probability theory of \blue{sampling with replacement} vs \blue{sampling without replacement}. 
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Independence Assumption}
+%
+%Say we are interested in the probability of sampling Wayne and Mario.  For independence to hold we need
+%\[
+%P(\mbox{ Wayne \& Mario }) = P(\mbox{ Wayne }) \times P(\mbox{ Mario })
+%\]
+%\pause
+%Compare $N=4$ \& $N=10000$ and assume we pick Mario first.  By conditional probability:
+%\begin{eqnarray*}
+%\pause P(\mbox{ Wayne \& Mario }) &=& P(\mbox{ Mario }) \times P(\mbox{ Wayne }|\mbox{ Mario }) \\
+%\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{4}\times\frac{1}{3} \ \pause \red{\neq} \  \frac{1}{4}\times\frac{1}{4}\\
+%\pause P(\mbox{ Wayne \& Mario }) &=& \frac{1}{10000}\times\frac{1}{9999} \ \pause \red{\approx} \ \frac{1}{10000}\times\frac{1}{10000}
+%\end{eqnarray*}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Independence Assumption}
+%
+%\blue{Moral of the story}:  when sampling without replacement, as the size of the sample $n$ grows to be a larger and larger proportion of the total study population $N$, the independence assumption breaks down.  
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -441,17 +387,17 @@ P(\textcolor{red}{\mbox{red}_5} | \textcolor{red}{\mbox{red}_1} \mbox{ and } \te
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Food for Thought: How People Perceive Randomness}
-Compare the following streaks on a non-rigged wheel:
-\begin{eqnarray*}
-\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R} \mbox{ vs. } \textcolor{red}{R}B\textcolor{red}{R}\textcolor{red}{R}BBB
-\end{eqnarray*}
-
-\pause Both have the exact same probability $\left(\frac{1}{2}\right)^{7}$ of occurring, but people tend to somehow give different credence to the randomness of the pattern on the left vs right.
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Food for Thought: How People Perceive Randomness}
+%Compare the following streaks on a non-rigged wheel:
+%\begin{eqnarray*}
+%\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R} \mbox{ vs. } \textcolor{red}{R}B\textcolor{red}{R}\textcolor{red}{R}BBB
+%\end{eqnarray*}
+%
+%\pause Both have the exact same probability $\left(\frac{1}{2}\right)^{7}$ of occurring, but people tend to somehow give different credence to the randomness of the pattern on the left vs right.
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
