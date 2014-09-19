@@ -1,8 +1,8 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
-% Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+%% Uncomment these (but comment the above \documentclass line) to make handouts:
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
@@ -35,7 +35,7 @@
 \newcommand{\cp}{\oplus}
 \newcommand{\cm}{\circleddash}
 
-\title{Lecture 4.1: Normal Distribution}
+\title{Lecture 8: Normal Distribution}
 \author{Chapter 3.1}
 \date{}
 
@@ -46,8 +46,6 @@
 \titlepage
 \end{frame}
 %------------------------------------------------------------------------------
-
-
 
 
 %------------------------------------------------------------------------------
@@ -74,11 +72,14 @@ From text page 118:
 
 Many variables are nearly normal, but none are exactly normal. Thus the normal
 distribution, while not perfect for any single problem, is very useful for a variety
-of problems. We will use it in data exploration and to solve important problems
+of problems.
+
+\vspace{0.5cm}
+
+We will use it in data exploration and to solve important problems
 in statistics.
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -87,8 +88,7 @@ in statistics.
 Normal distributions:
 \begin{enumerate}
 \item are symmetric
-\item are unimodal
-\item are bell-shaped
+\item are unimodal and bell-shaped
 \item have area under the curve 1
 \end{enumerate}
 
@@ -96,12 +96,12 @@ Normal distributions:
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normal Distribution}
 
-A normal distribution can be described exactly by two \blue{parameters}:
+% Comment this
+A normal curve can be described by two \blue{parameters}:
 \begin{itemize}
 \item the \blue{mean $\mu$}. i.e. the center
 \item the \blue{standard deviation (SD) $\sigma$}. i.e. the measure of spread
@@ -116,11 +116,10 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left( -\frac{1}{2\sigma^2}(x-\mu)^2 \righ
 
 \pause\vspace{0.25cm}
 
-Recall from Lecture 3.1, these were the \blue{population mean} and the \blue{population SD}.  No sampling for now...
+Recall these were the \blue{population mean} and the \blue{population SD}.
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -135,7 +134,6 @@ $\mu$ (mean) specifies the center, $\sigma$ (standard deviation) the spread.
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Normal Example}
@@ -146,7 +144,6 @@ $\mu$ (mean) specifies the center, $\sigma$ (standard deviation) the spread.
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -161,7 +158,6 @@ $\mu$ (mean) specifies the center, $\sigma$ (standard deviation) the spread.
 %-------------------------------------------------------------------------------
 
 
-
 %pdf("./4.1 Normal Distribution/standard_normal.pdf", height=5, width=5)
 %x <- seq(-3.5, 3.5, by=0.01)  
 %plot(x,dnorm(x,0,1), type='l', ylab="f(x)", xlab="x")
@@ -170,7 +166,7 @@ $\mu$ (mean) specifies the center, $\sigma$ (standard deviation) the spread.
 \begin{frame}
 \frametitle{Standardized Normal Distribution}
 \setkeys{Gin}{width=0.6\textwidth}
-When $\mu=0$ and $\sigma=1$, we call this the \blue{standard normal distribution}:
+If $\mu=0$ and $\sigma=1$, this is the \blue{standard normal distribution}:
 \begin{center}
 \includegraphics{figure/standard_normal}
 \end{center}
@@ -178,16 +174,16 @@ When $\mu=0$ and $\sigma=1$, we call this the \blue{standard normal distribution
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Back to Lecture 3.1}
-If a distribution is normal, then:  
+\frametitle{Rules of Thumb}
+Recall if a distribution is normal, then:  
 \begin{enumerate}
-\item Approximately $\frac{2}{3}$'s of the data are within 1 standard deviation of the mean (book says 68\%)
-\item Approximately $95\%$ of the data are within 2 standard deviations of the mean
-\item Approximately $99.7\%$ of the data are within 3 standard deviations of the mean
+\item Approx. $\frac{2}{3}$'s of the data are within $\pm 1$ SD of the mean
+\item Approx. $95\%$ of the data are within $\pm 2$ SD of the mean
+\pause\item Also approx. $99.7\%$ of the data are within $\pm 3$ SD of the mean
 \end{enumerate}
+
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -225,11 +221,10 @@ If a distribution is normal, then:
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Motivating Example}
-From text:  Say Ann scores 1800 on the SAT and Tom scores 24 on the ACT.  \pause Say both tests had scores that were normally distributed with:
+From text:  Say Ann scores 1800 on the SAT and Tom scores 24 on the ACT.  \pause Say both tests scores were normally distributed with:
 \begin{small}
 \begin{center}
 \begin{tabular}{l|rr}
@@ -241,62 +236,47 @@ SD $\sigma$ & 300 & 5\\
 \end{center}
 \end{small}
 
+\blue{Question}:  Who did relatively better?  
+
+
+%\vspace{3cm}
+% Comment this
 \begin{center}
 \includegraphics[height=2.5cm]{figure/ann.png}\includegraphics[height=2.5cm]{figure/tom.png}
 \end{center}
 
-\pause\blue{Question}:  How do we numerically compare their relative performance?  
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{z-scores}
-The \blue{z-score} of an observation x is the number of standard deviations it falls above or below the mean. We compute the z-score for an observation x that follows a distribution with mean $\mu$ and SD $\sigma$:
+% Comment this
+The \blue{z-score AKA standardized observation} of an observation x is the number of SD it falls above or below the mean. 
+
+\pause\vspace{0.25cm}
+
+The z-score for an observation x that follows a distribution with mean $\mu$ and SD $\sigma$:
 \[
 z = \frac{x-\mu}{\sigma}
 \]
 
-\vspace{0.5cm}
-
-\pause The z-score is also called the \blue{standardized observation}.
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Motivating Example}
-\begin{center}
-\includegraphics[height=2cm]{figure/ann.png}\includegraphics[height=2cm]{figure/tom.png}
-\end{center}
-\begin{itemize}
-\item Ann scored 1800. $z=\frac{1800-1500}{300} = +1$ standard deviation from the mean
-\item Tom scored 24. $z=\frac{24-21}{5} = +0.6$ standard deviation from the mean
-\end{itemize}
-
-So Ann did relatively better.  
-
-\vspace{0.25cm}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Standardized Variable}
+\frametitle{z-scores}
+% Comment this
 Why is the z-score $z=\frac{x-\mu}{\sigma}$ called the \blue{standardized observation}?  
 
 \begin{enumerate}
-\pause\item The $x$ observations are \blue{centered} at $\mu$.\\
-i.e. Recenter the $x$ observations to 0 by subtracting $\mu$.
-\pause\item The $x$ observations have \blue{spread} $\sigma$.\\
-i.e. Re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$.
+\pause\item The observations are \blue{centered} at $\mu$.\\
+re-center the $x$ observations to 0 by subtracting $\mu$.
+\pause\item The observations have \blue{spread} $\sigma$.\\
+re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$.
 \end{enumerate}
 
 
@@ -309,18 +289,34 @@ i.e. Re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\s
 %-------------------------------------------------------------------------------
 
 
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Back to Example}
+% Comment this
+\begin{itemize}
+\item Ann scored 1800. $z=\frac{1800-1500}{300} = +1$ standard deviation from the mean
+\item Tom scored 24. $z=\frac{24-21}{5} = +0.6$ standard deviation from the mean
+\end{itemize}
+
+So Ann did relatively better.  
+
+\end{frame}
+%-------------------------------------------------------------------------------
+
+
 
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Percentiles}
 
-Recall from Lecture 3.1: A \blue{percentile} (\%'ile) indicates the value below which a given percentage of observations in a group of observations fall.  
+Recall a \blue{percentile} (\%'ile) indicates the value below which a given \%'age of observations fall below.
 
 \vspace{0.5cm}
 
-\pause \blue{Question}: What \%'ile is Ann's SAT score of 1800?\\
-i.e. what is the blue shaded area?  
+\blue{Question}: What \%'ile is Ann's SAT score of 1800?\\
 
+% Comment this
+i.e. what is the blue shaded area?  
 \begin{center}
 \includegraphics[height=3cm]{figure/ann_z.png}
 \end{center}
@@ -343,10 +339,8 @@ Because the total area under the curve is 1, the area to the left of z represent
 \end{center}
 
 \begin{itemize}
-\pause\item The blue shaded area on the left plot will be less than 0.5\\
-i.e. \%'iles less than 50\%  
-\pause\item The blue shaded area on the right plot will be greater than 0.5\\
-i.e. \%'iles greater than 50\%  
+\pause\item The blue shaded area on the left plot will be less than 0.5.  We have \%'iles less than the 50th \%'ile.    
+\pause\item The blue shaded area on the right plot will be greater than 0.5.  We have \%'iles greater than the 50th \%'ile.
 \end{itemize}
 
 \end{frame}
@@ -362,12 +356,12 @@ i.e. \%'iles greater than 50\%
 A \blue{normal probability table} allows you to:
 \begin{itemize}
 \item identify the \%'ile corresponding to a z-score
-\item or vice versa, the z-score corresponding to a \%'ile
+\item or vice versa: the z-score corresponding to a \%'ile
 \end{itemize}
 
 \vspace{0.5cm}
 
-\pause The normal probability tables on page 409 represent z-scores and \%'iles corresponding:
+\pause The normal probability tables on page 409 represent z-scores and \%'iles corresponding to area to the left:
 \begin{center}
 \includegraphics[width=5cm]{figure/area_left.png}
 \end{center}
@@ -383,10 +377,11 @@ A \blue{normal probability table} allows you to:
 \begin{center}
 \includegraphics[width=8cm]{figure/normal_table.png}
 \end{center}
-\pause From textbook:
+
+% Comment this
 \begin{itemize}
-\item \textcolor{red}{Red case}: We are given a z-score of 0.43.  A lookup tells us the area to the left of z=0.43 is 0.6664, i.e. the 66th \%'ile
-\pause\item \textcolor{blue}{Blue case}:  We want the z-score that is the 80th \%'ile.  We do a reverse lookup: the closest value on the table is 0.7995, which corresponds to a z-score of 0.84. 
+\item \textcolor{red}{Red case}: Given a z-score of 0.43.  A lookup tells us the area to the left of z=0.43 is 0.6664, i.e. the 66th \%'ile
+\pause\item \textcolor{blue}{Blue case}:  We want the z-score that is the 80th \%'ile.  Reverse lookup: the closest value on the table is 0.7995, i.e. a z-score of 0.84. 
 \end{itemize}
 
 
@@ -399,6 +394,7 @@ A \blue{normal probability table} allows you to:
 \begin{frame}
 \frametitle{Back to Ann and Tom}
 
+% Comment this
 \begin{itemize}
 \item Since Ann had a z-score of 1.0, her \%'ile is 0.8413. (1.0 row, 0.00 column)\\
 i.e. She did better than 84.13\% of SAT test takers.
@@ -421,8 +417,8 @@ i.e. He did better than 72.57\% of ACT test takers
 Next time we will:
 
 \begin{itemize}
-\item Re-iterate the motivation for doing all this.
-\item Go over an example using z-scores.
+\item Re-iterate the motivation for the normal curve.
+\item Go over examples using z-scores.
 \item Evaluating the normal approximation.
 \end{itemize}
 
