@@ -1,8 +1,8 @@
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 %% Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
@@ -71,13 +71,6 @@ Whenever solving questions of this sort \blue{ALWAYS} draw a rough picture first
 \item The total area under the curve is 1
 \end{enumerate}
 
-\pause\vspace{0.25cm}
-
-Ex: From the table, a z-score of 1 corresponds to a \%'ile/area of 0.84.  What about a z-score of $-1$?
-\vspace{5cm}
-
-
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -87,9 +80,12 @@ Ex: From the table, a z-score of 1 corresponds to a \%'ile/area of 0.84.  What a
 \frametitle{Normal Probability Tables}
 Alternatively, whereas 
 \begin{itemize}
-\item the table on page 409 gives areas to the left of positive values of $z$.
-\item the table on page 408 gives ares to the left of negative values of $z$.
+\item table on P.409 gives areas to the left of positive values of $z$.
+\item table on P.408 gives areas to the left of negative values of $z$.
 \end{itemize}
+
+\vspace{0.5cm}
+I'm only going to give you P.409 table for exams.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -97,7 +93,7 @@ Alternatively, whereas
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Exercise 3.12 on page 151: Speeding on I-5}
+\frametitle{Speeding on I-5}
 The distribution of passenger vehicle speeds traveling on Interstate 5 Freeway (I-5) in California is nearly normal with a mean of 72.6 mph and a standard deviation of 4.78 mph.
 
 \vspace{0.25cm}
@@ -116,7 +112,7 @@ the passenger vehicles travel above the speed limit on this stretch of the I-5.
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Exercise 3.12 on page 151: Speeding on the I-5}
+\frametitle{Speeding on I-5}
 a) What percent of passenger vehicles travel slower than 80 mph?
 
 \vspace{7cm}
@@ -127,7 +123,7 @@ a) What percent of passenger vehicles travel slower than 80 mph?
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Exercise 3.12 on page 151: Speeding on the I-5}
+\frametitle{Speeding on I-5}
 b) What percent of passenger vehicles travel between 60 and 80 mph?
 
 \vspace{7cm}
@@ -138,7 +134,7 @@ b) What percent of passenger vehicles travel between 60 and 80 mph?
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Exercise 3.12 on page 151: Speeding on the I-5}
+\frametitle{Speeding on I-5}
 c) How fast to do the fastest 5\% of passenger vehicles travel?
 
 \vspace{7cm}
@@ -149,7 +145,7 @@ c) How fast to do the fastest 5\% of passenger vehicles travel?
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Exercise 3.12 on page 151: Speeding on the I-5}
+\frametitle{Speeding on I-5}
 d) The speed limit on this stretch of the I-5 is 70 mph. Approximate what percentage of
 the passenger vehicles travel above the speed limit on this stretch of the I-5.
 
@@ -170,21 +166,21 @@ Although we stated that many processes in the physical world look bell-shaped, i
 \pause\blue{Question}: How do we verify normality?
 
 \end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Normal Approximation}
-
-Consider the MLB salary data histogram:
-
-\begin{center}
-\includegraphics[width=7cm]{figure/MLB.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Normal Approximation}
+%
+%Consider the MLB salary data histogram:
+%
+%\begin{center}
+%\includegraphics[width=7cm]{figure/MLB.pdf}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -211,9 +207,9 @@ What about these ones?  How well do the histograms fit to the normal curve?
 \pause The $k^{\mbox{th}}$ \blue{$q-quantile$} is the value such that proportion $\frac{k}{q}$ of the observations fall below it.  So 
 \begin{itemize}
 \pause\item The 4-quantiles are the \blue{quartiles}.\\
-Ex: the $k=2^{\mbox{nd}}$ 4-quantile is just the median.  
+%Ex: the $k=2^{\mbox{nd}}$ 4-quantile is just the median.  
 \pause\item The 100-quantiles are the \blue{percentiles}.\\
-Ex: the $k=76^{\mbox{th}}$ 100-quantile is just the 76th percentile
+%Ex: the $k=76^{\mbox{th}}$ 100-quantile is just the 76th percentile
 \end{itemize}
 
 \end{frame}
@@ -248,42 +244,27 @@ The more ``normal'' the data is, the better the fit.
 %------------------------------------------------------------------------------
 
 
+%%library(openintro)
+%%data(MLB)
+%%pdf("./4.2 Normal Approximation/MLB_qqplot.pdf", width=6, height=6)
+%%qqnorm(MLB$salary)
+%%qqline(MLB$salary, lwd=1.5)
+%%dev.off()
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{MLB Salary Normal Probability Plot}
+%
+%\begin{center}
+%\includegraphics[width=5cm]{figure/MLB_qqplot.pdf}
+%\end{center}
+%\begin{verbatim}
 %library(openintro)
 %data(MLB)
-%pdf("./4.2 Normal Approximation/MLB_qqplot.pdf", width=6, height=6)
 %qqnorm(MLB$salary)
-%qqline(MLB$salary, lwd=1.5)
-%dev.off()
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{MLB Salary Normal Probability Plot}
-
-\begin{center}
-\includegraphics[width=5cm]{figure/MLB_qqplot.pdf}
-\end{center}
-\begin{verbatim}
-library(openintro)
-data(MLB)
-qqnorm(MLB$salary)
-qqline(MLB$salary)
-\end{verbatim}
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Linear Regression}
-Say we have a scatterplot/bivariate plot of height vs weight.  We'll in Chapter 7 that \blue{linear regression} involves finding the \blue{best fitting line} between the two variables:
-
-\begin{center}
-\includegraphics[width=5cm]{figure/lec24-003.pdf}
-\end{center}
-
-\pause For inference from linear regression to be valid, there is a normality assumption, which we will verify with normal probability plots.  
-
-\end{frame}
-%------------------------------------------------------------------------------
+%qqline(MLB$salary)
+%\end{verbatim}
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -291,7 +272,7 @@ Say we have a scatterplot/bivariate plot of height vs weight.  We'll in Chapter 
 \frametitle{Next Time}
 
 \begin{itemize}
-\item Introduce some of the more useful other distributions: Bernoulli, Geometric, and Binomial
+\item Introduce some of the more useful other distributions: Bernoulli, Geometric, Binomial, and Poisson
 \end{itemize}
 
 
