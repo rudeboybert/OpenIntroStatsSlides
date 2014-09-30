@@ -49,124 +49,30 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Previously... Behavior of Point Estimates}
-Say we draw a random sample of size $n=100$ from a large population that has true population mean $\mu=5$ and $\sigma=2$.
-
-\vskip 0.5cm
-
-\begin{center}
-\begin{tabular}{ll}
-Do this for the 1st time & We get, say, $\overline{x}=4.831$\\
-Do this for the 2nd time & We get, say, $\overline{x}=5.104$\\
-Do this for the 3rd time & We get, say, $\overline{x}=4.965$\\
-\ldots & \\
-Do this for the 1000th time & We get, say, $\overline{x}=4.957$
-\end{tabular}
-\end{center}
-
-\vskip 0.5cm
-
-The \blue{sampling distribution of $\xbar$} describes how these different instances $\xbar$ behave!
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Sampling Distribution}
-Each element in this histogram is one of 1000 instances of $\xbar$, where each $\xbar$ is computed from a sample of $n=100$ values.
-\setkeys{Gin}{width=0.7\textwidth}
-\begin{center}
-\includegraphics{figure/lec12-001}
-\end{center}
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Previously... Sampling Distributions}
-
-Intuitively: the \blue{sampling distribution} describes the (random) behavior of point estimates based on samples of fixed size $n$.  
-
-\pause \vspace{0.5cm}
-In the previous slide
-\begin{itemize}
-\pause \item \blue{center}: the mean of the sampling distribution is the true mean $\mu=5$.
-\pause \item \blue{spread}: the standard deviation of the sampling distribution is called the \blue{standard error SE}.  It describes the error associated with the point estimate.  
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Previously... Standard Error of the Sample Mean $\xbar$}
-
-Given $n$ independent observations from a population with standard deviation $\sigma$, the \blue{standard error of the sample mean} is
-\[
-SE = \frac{\sigma}{\sqrt{n}}
-\]
-
-\pause A good way to ensure independence of observations is to draw a simple random sample that's less than 10\% of the population.  
-
-\vspace{0.5cm}
-
-\pause When
-\begin{itemize}
-\item the sample size is at least 30
-\item the population distribution is \blue{not} strongly skewed
-\end{itemize}
-\pause we can use the point estimate of the standard deviation from the sample.  i.e. plug in $s$ in place of $\sigma$:
-\[
-SE = \frac{s}{\sqrt{n}}
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Concept:  Accuracy vs Precision}
-
-\begin{itemize}
-\pause \item \blue{accuracy} has to do with bias:  ``Does $\overline{x}$ on average hit $\mu$?''
-\pause \item \blue{precision} has to to with error:  ``How reliable is $\overline{x}$?''
-\end{itemize}
-
-\vspace{5cm}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
 \frametitle{Goals for Today}
 
 \begin{itemize}
 \item Introduce confidence intervals
-\item Give an informal description of the central limit theorem
 \item Interpretation
+\item Give an informal description of the central limit theorem
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Recap}
+
+\begin{itemize}
+\item \blue{Point estimates} are based on a sample $x_1, \ldots, x_n$ and are used to estimate population parameters.
+\pause \item The \blue{sampling distribution} characterizes the (random) behavior of point estimates.  
+\pause \item The standard deviation of a sampling distribution is the \blue{standard error}: it quantifies the uncertainty/variability of point estimates.  
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -198,8 +104,6 @@ SE = \frac{s}{\sqrt{n}}
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Intuition of a Confidence Interval}
@@ -221,8 +125,6 @@ We observe the sampling distribution
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Intuition of a Confidence Interval}
@@ -237,8 +139,6 @@ A plausible range of values for the population parameter is called a \blue{confi
 \blue{``95\% confident''} that we have captured the true parameter $\mu$.  
 \end{frame}
 %------------------------------------------------------------------------------
-
-
 
 
 %------------------------------------------------------------------------------
@@ -256,29 +156,8 @@ So a \blue{rough} confidence interval is:
 \xbar \pm 2 \frac{s}{\sqrt{n}} &=& \left[\xbar - 2 \frac{s}{\sqrt{n}}, \mbox{  }\xbar + 2 \frac{s}{\sqrt{n}}\right]
 \end{eqnarray*}
 
-
-
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Central Limit Theorem}
-
-\pause \blue{Central Limit Theorem} (informal description, more thorough treatment in Chapter 4.4):\\
-
-\vspace{0.5cm}
-
-\pause If a sample consists of at least 30 independent observations and the data are not
-strongly skewed, then the distribution of the sample mean $\xbar$ is well approximated by
-a \blue{normal model}.
-
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -304,12 +183,8 @@ A 95\% confidence interval for the mean is more precise using $z^* = 1.96$, and 
 \right]
 \]
 
-
 \end{frame}
 %-------------------------------------------------------------------------------
-
-
-
 
 
 %-------------------------------------------------------------------------------
@@ -330,8 +205,6 @@ sample's skew.
 %-------------------------------------------------------------------------------
 
 
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Everyday Example:  Political Polls}
@@ -350,8 +223,6 @@ You look at a news article online and it says:
 %-------------------------------------------------------------------------------
 
 
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Crucial: How to Interpret a Confidence Interval}
@@ -365,7 +236,6 @@ The confidence interval has nothing to say about any particular calculated inter
  
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -389,7 +259,6 @@ At the outset of Chapter 4, there is an example data set of finish times (in min
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{How to Interpret a Confidence Interval}
@@ -400,7 +269,6 @@ At the outset of Chapter 4, there is an example data set of finish times (in min
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -414,7 +282,6 @@ In this case, of the 25 confidence intervals we generated based on 25 samples of
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -435,27 +302,21 @@ What does this mean?
 %-------------------------------------------------------------------------------
 
 
-%%-------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Sidebar: Bayesian Credible Intervals}
-%\blue{Sidebar}:  this wacky interpretation is an unfortunate limitation of the classical \blue{frequentist} paradigm of statistics.  
-%
-%\vspace{0.5cm}
-%
-%Under the \blue{Bayesian} paradigm of statistics, \blue{credible intervals} (Bayesian counterpart to confidence intervals) have the more intuitive interpretation.
-%
-%\vspace{0.5cm}
-%
-%So say we did a Bayesian analysis of the race data and found a 95\% credible interval of $(92.45, 98.77)$ minutes.  
-%
-%\vspace{0.5cm}
-%
-%We can \blue{now} say \textit{there is a 95\% chance/probability that $(92.45, 98.77)$ captures the true population mean $\mu$}.  No notion of ``if we were to repeat this 100 times, then 95 of...''
-%
-%\end{frame}
-%%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Central Limit Theorem}
+
+\pause \blue{Central Limit Theorem} (informal description, more thorough treatment in Chapter 4.4):\\
+
+\vspace{0.5cm}
+
+\pause If a sample consists of at least 30 independent observations and the data are not
+strongly skewed, then the distribution of the sample mean $\xbar$ is well approximated by
+a \blue{normal model}.
 
 
+\end{frame}
+%-------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -475,18 +336,7 @@ Hypothesis Testing:  we can perform \blue{statistical tests} on population param
 %------------------------------------------------------------------------------
 
 
-
-
-
-
-
 \end{document}
-
-
-
-
-
-
 
 
 
