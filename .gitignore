@@ -9,7 +9,6 @@
 *.log
 *.out
 *.aux
-*-handout.pdf
 *-slides.pdf
 Lectures.Rproj
 README.html
