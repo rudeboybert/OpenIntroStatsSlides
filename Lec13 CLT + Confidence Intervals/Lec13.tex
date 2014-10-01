@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -77,7 +77,7 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Illustrative Image}
+\frametitle{Illustrative Image of Sampling Distribution}
 
 \begin{center}
 \includegraphics[width=\textwidth]{figure/Accuracy_and_precision.png}
@@ -146,7 +146,7 @@
 
 \vspace{0.25cm}
 
-\pause\blue{Answer}:  So we can use the Normal table on p.409 of the book to calculate probabilities.  We call this using the \blue{normal model}.
+\pause\blue{Answer}:  So we can use the Normal table on p.409 of the book to calculate areas/percentiles/probabilities!  We call this using the \blue{normal model}.
 
 \vspace{0.25cm}
 
@@ -186,15 +186,15 @@ For a sample $x_1, \ldots, x_n$ of \blue{independent} observations, if $n$ is ``
 \begin{frame}
 \frametitle{Conditions for the Normal Model}
 
-This translates to the following conditions to be able to use the Normal model with $s$ in place of $\sigma$, as stated in the book:
+This translates to the following conditions to verify to be able to use the Normal model with $s$ in place of $\sigma$, as stated in the book:
 
 \begin{enumerate}
 \pause\item $n\leq$ 10\% of the population size.\\
 \pause Comment:  To ensure independence.
 \pause\item $n \geq 30$.\\
-\pause Comment:  This is a \blue{rule of thumb} that works for most cases.  In some situations you might need less, in others more.
+\pause Comment:  This is a \blue{rule of thumb} that works for most cases.  You might need less, you might need more.
 \pause \item The population distribution is not strongly skewed.\\
-Comment: This is related to the $n$ necessary.  The larger the $n$, the more lenient we can be with the skew assumption.
+Comment: This is related \blue{2}.  The larger the $n$, the more lenient we can be with the skew assumption.
 \end{enumerate}
 
 \end{frame}
@@ -218,8 +218,8 @@ Let's say your observations come from the following very skewed \blue{population
 \frametitle{Example of Skew vs $n$}
 For 10000 values of $\xbar$ based on samples of size \blue{$n=2$}, the\\
 sampling distribution is:
-\pause\begin{center}
-\includegraphics[width=0.8\textwidth]{figure/hist2.pdf}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{figure/hist2.pdf}
 \end{center}
 \white{i.e. more normal and more narrow}
 \end{frame}
@@ -231,7 +231,7 @@ sampling distribution is:
 \frametitle{Example of Skew vs $n$}
 For 10000 values of $\xbar$ based on samples of size \blue{$n=10$}, the sampling distribution is:
 \begin{center}
-\includegraphics[width=0.8\textwidth]{figure/hist10.pdf}
+\includegraphics[width=0.7\textwidth]{figure/hist10.pdf}
 \end{center}
 \white{i.e. more normal and more narrow}
 \end{frame}
@@ -243,7 +243,7 @@ For 10000 values of $\xbar$ based on samples of size \blue{$n=10$}, the sampling
 \frametitle{Example of Skew vs $n$}
 For 10000 values of $\xbar$ based on samples of size \blue{$n=30$}, the sampling distribution is:
 \begin{center}
-\includegraphics[width=0.8\textwidth]{figure/hist30.pdf}
+\includegraphics[width=0.7\textwidth]{figure/hist30.pdf}
 \end{center}
 \white{i.e. more normal and more narrow}
 \end{frame}
@@ -255,9 +255,9 @@ For 10000 values of $\xbar$ based on samples of size \blue{$n=30$}, the sampling
 \frametitle{Example of Skew vs $n$}
 For 10000 values of $\xbar$ based on samples of size \blue{$n=75$}, the sampling distribution is:
 \begin{center}
-\includegraphics[width=0.8\textwidth]{figure/hist75.pdf}
+\includegraphics[width=0.7\textwidth]{figure/hist75.pdf}
 \end{center}
-\pause\blue{i.e. more normal and more narrow}
+\blue{i.e. more normal and more narrow}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -266,7 +266,7 @@ For 10000 values of $\xbar$ based on samples of size \blue{$n=75$}, the sampling
 \begin{frame}[fragile]
 \frametitle{Intuition of a Confidence Interval}
 
-\pause\blue{Our Goal}:  we want estimate a population parameter (e.g. $\mu$).  \pause Analogy:  imagine $\mu$ is a fish in a murky river that we want to capture:
+\blue{Our Goal}:  we want estimate a population parameter (e.g. $\mu$).  \pause Analogy:  imagine $\mu$ is a fish in a murky river that we want to capture:
 
 \pause \vspace{0.25cm}
 
@@ -327,7 +327,7 @@ A plausible range of values for the population parameter is called a \blue{confi
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Intuition of a Confidence Interval}
-A 95\% confidence interval is (no more using rule of thumb $2 \times SD$):
+A 95\% confidence interval for $\mu$ is (no more using rule of thumb $2 \times SD$):
 
 \begin{eqnarray*}
 \xbar \pm  1.96 SE &=& \left[\xbar - 1.96 SE, \mbox{  }\xbar + 1.96 SE\right]\\
@@ -347,7 +347,7 @@ A 95\% confidence interval is (no more using rule of thumb $2 \times SD$):
 \begin{frame}
 \frametitle{Confidence Intervals}
 
-In general a confidence interval will be 
+In general a confidence interval for $\mu$ will be 
 \begin{eqnarray*}
 \xbar \pm z^* SE &=& \left[\xbar - z^* SE, \mbox{  }\xbar + z^* SE\right]
 \end{eqnarray*}
