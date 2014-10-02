@@ -6,9 +6,9 @@
 
 % Uncomment these to have more than one slide per page
 \usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -48,43 +48,6 @@
 %------------------------------------------------------------------------------
 
 
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously: Confidence Intervals}
-If we know the sampling distribution of $\xbar$ is Normal with
-\begin{itemize}
-\item mean equal to the true unknown population mean $\mu$
-\item standard error $SE = \frac{s}{\sqrt{n}}$
-\end{itemize}
-then we can use the Normal model build confidence intervals.
-
-\pause\vspace{0.5cm}
-
-i.e.
-\[
-\left[\xbar - z^* SE, \mbox{  }\xbar + z^* SE\right] = 
-\left[\xbar - z^* \frac{s}{\sqrt{n}}, \mbox{  }\xbar + z^* \frac{s}{\sqrt{n}}\right]
-\]
-i.e. where $z^*$ is the value from the normal table that sets the confidence level.  Ex:  $z^*=1.96$ sets a 95\% confidence interval.  
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously: How to Interpret a Confidence Interval}
-
-\begin{center}
-\includegraphics[width=8cm]{figure/CI.png}
-\end{center}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Goals for Today}
@@ -98,7 +61,6 @@ i.e. where $z^*$ is the value from the normal table that sets the confidence lev
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -120,7 +82,6 @@ i.e. the \blue{challenger}.
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Examples}
@@ -138,7 +99,6 @@ i.e. the \blue{challenger}.
 \end{itemize}
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -162,17 +122,14 @@ There are two potential outcomes of a hypothesis test.  Either we
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Analogy:  US Criminal Justice System}
 
-
-In a recent trial, George Zimmerman was found \blue{not guilty} by the jury.  The jury's verdict does NOT make any statement about the defendant being \blue{innocent}, rather that there was not enough evidence to prove beyond a reasonable doubt that they were guilty.
+In the criminal justice system, the jury's verdict does NOT make any statement about the defendant being \blue{innocent}, rather that there was not enough evidence to prove beyond a reasonable doubt that they were guilty.
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -201,7 +158,6 @@ Let's compare criminal trials to hypothesis tests:
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Testing Hypotheses Using Confidence Intervals}
@@ -228,7 +184,6 @@ The average time $\xbar=95.61$, our estimate of $\mu_{2012}$, is greater than 93
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Testing Hypotheses Using Confidence Intervals}
@@ -246,7 +201,6 @@ Recall that a 95\% confidence interval for the population mean $\mu$ based on a 
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Testing Hypotheses Using Confidence Intervals}
@@ -260,7 +214,6 @@ Again, we are NOT saying that the 2006 and 2012 times are the same.  Just that t
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -290,7 +243,6 @@ Hypothesis tests will get things right sometimes and wrong sometimes:
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Decision Errors}
@@ -301,7 +253,6 @@ Hypothesis tests will get things right sometimes and wrong sometimes:
 \end{itemize}
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -327,7 +278,6 @@ Defendants must be proven ``guilty beyond a reasonable doubt''  i.e. \blue{in th
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Example:  Airport Screening}
@@ -344,7 +294,6 @@ H_A: && \mbox{passenger X has a bomb/weapon}
 \pause Hence the long lines at airport security.  
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -364,7 +313,6 @@ Using the procedure to create 95\% confidence intervals earlier, we expect it to
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{p-Values}
@@ -381,7 +329,6 @@ Thought experiment:  Say you flip a coin you think is fair 1000 times.  Thus you
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{p-Value Definition}
@@ -393,7 +340,6 @@ The \blue{p-value} or \blue{observed significance level} is the probability of o
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -414,7 +360,6 @@ A poll found that college students sleep about 7 hours a night.  Researchers sus
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Example:  Exercise 4.28 on Page 177 on Sleep}
@@ -427,7 +372,6 @@ Researchers find that $\xbar = 7.42$ and $s=1.75$.  Before we proceed, we check 
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -451,10 +395,8 @@ z = \frac{x-\mu}{\sigma}
 z = \frac{\xbar - \mu \mbox{ when $H_0$ is true }}{SE} = \frac{\xbar - \mu_0}{SE} = \frac{7.42 - 7}{\frac{1.75}{\sqrt{110}}} = 2.47
 \]
 
-
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -469,7 +411,6 @@ If the null hypothesis were true, then $\xbar$ would have come from the followin
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -488,36 +429,13 @@ Final decision.  Since we set $\alpha=0.05$ \blue{beforehand} and the p-value $0
 \end{frame}
 %-------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Next Time}
 
 \begin{itemize}
 \item More Hypothesis Testing
-\item Central Limit Theorem
 \end{itemize}
-
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -525,10 +443,17 @@ Final decision.  Since we set $\alpha=0.05$ \blue{beforehand} and the p-value $0
 
 
 
-
-
-
 \end{document}
+
+
+
+
+
+
+
+
+
+
 
 
 
