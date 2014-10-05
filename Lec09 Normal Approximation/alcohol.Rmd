@@ -1,0 +1,78 @@
+---
+title: "Alcohol Consumption and Building QQ-Plots"
+output: html_document
+---
+
+We need two packages first:
+
+1. `dplyr`: allows for fast, consistent, and convenient tools for workingwith data frame like objects
+2. `RCurl`: allows R to to compose general HTTP requests and provides convenient functions to fetch URIs, get & post forms, etc. and process the results returned by the Web server.
+
+```{r, echo=FALSE}
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(RCurl))
+```
+
+We download the data used in the article [Where Do People Drink The Most Beer, Wine And Spirits?](http://fivethirtyeight.com/datalab/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) from the [data repository](https://github.com/fivethirtyeight/data):  
+```{r}
+raw.data <- getURL("https://raw.githubusercontent.com/fivethirtyeight/data/master/alcohol-consumption/drinks.csv")
+booze <- read.csv(text = raw.data, header=TRUE)
+```
+
+We look at the top 5 hard liquor, beer, wine, and total alcohol drinking countries.
+
+```{r}
+arrange(booze, desc(spirit_servings)) %>% select(country, spirit_servings) %>% head(n=5)
+arrange(booze, desc(beer_servings)) %>% select(country, beer_servings) %>% head(n=5)
+arrange(booze, desc(wine_servings)) %>% select(country, wine_servings) %>% head(n=5)
+arrange(booze, desc(total_litres_of_pure_alcohol)) %>% select(country, total_litres_of_pure_alcohol) %>% head(n=5)
+```
+
+
+ 
+```{r, fig.width=10, echo=FALSE}
+alcohol <- booze$total_litres_of_pure_alcohol
+xbar <- round(mean(alcohol), 3)
+s <- round(sd(alcohol), 3)
+```
+
+We're going to focus on annual alcohol consumption in litres.  The observed sample mean and sample standard deviation are $\overline{x}$ =  `r xbar` and $s$ = `r s`.  In the plots below, on the left we have the observed histogram of the data, the right is simulated normal data with the same mean $\overline{x}$ and standard deviation $s$ as the observed sample.  The data on the left does not look anything like the data on the right i.e. not normal. 
+```{r, fig.width=10, echo=FALSE}
+par(mfrow=c(1, 2))
+hist(alcohol, xlab="litres of pure alcohol", ylab="# of counties", 
+     main="Observed Annual Alcohol Consumption")
+legend("topright", bty='n', legend=c(paste("mean =", xbar), paste("sd =", s)))
+
+theor.hist <- hist(rnorm(10^6, mean=xbar, sd=s), plot=FALSE, breaks=8)
+theor.hist$counts <- theor.hist$density * length(alcohol)
+plot(theor.hist, xlab="litres of pure alcohol", ylab="# of counties",
+     main="Theoretically Normal Data")
+legend("topright", bty='n', legend=c(paste("mean = ", xbar), paste("sd = ", s)))
+```
+
+We compare the observed quantiles with what the quantiles would look like for theoretically normal data.  Both plots have the same number of points.  
+```{r, fig.width=10, echo=FALSE}
+# A nice function that allows you to plot all
+par(mfrow=c(1,2))
+plot(ecdf(alcohol),
+     xlab="quantiles of litres of pure alcohol", 
+     ylab="proportion less than quantile", main="Observed Quantiles")
+
+plot(ecdf(rnorm(length(alcohol), mean=xbar, sd=s)), 
+     xlab="quantiles litres of pure alcohol", 
+     ylab="proportion less than quantile", main="Theoretical Normal Quantiles")
+```
+
+
+For both the plots above, we take the values on the x-axis and compare them on the same plot; this is a QQ-plot:
+```{r, fig.width=5, echo=FALSE}
+epsilon <- 0.0001
+p <- seq(epsilon, 1-epsilon, length=length(alcohol))
+par(mfrow=c(1, 1))
+plot(qnorm(p, mean=xbar, sd=s), quantile(alcohol, probs = p), pch=19, 
+     xlab="Theoretical Quantiles", ylab="Sample Quantiles",
+     main="Normal Q-Q Plot")
+abline(c(0, 1))
+```
+
+Given the lack of fit, we can confidently say the observed data is not normal.  
