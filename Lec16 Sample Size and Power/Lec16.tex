@@ -48,6 +48,46 @@
 %------------------------------------------------------------------------------
 
 
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Two-Sided Alternative Hypothesis}
+Say instead we had a \blue{two-sided alternative hypothesis}:
+
+\begin{itemize}
+\item $H_0: \mu = 7$
+\item $H_A: \mu \neq 7$
+\end{itemize}
+
+\pause The the p-value would be double: $2 \times 0.007= 0.014$.  Picture:
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/two-sided.png}
+\end{center}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Setting $\alpha$}
+
+Say Dr. Quack is conducting a hypothesis tests.  They start with $\alpha=0.05$.
+
+\pause\vspace{0.5cm}
+
+Say they conduct the test and get a \blue{p-value = 0.09}.  They then publish a paper that says: ``having used an \blue{$\alpha=0.10$}, we reject the null hypothesis and declare our results to be significant.''
+
+\pause\vspace{0.5cm}
+What's not honest about this approach?
+
+\pause\vspace{0.5cm}
+Ronald Fisher, the creator of p-values, never intended for them to be used this way.  Rather he said a small p-value should lead to further investigation.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Goals for Today}
@@ -58,9 +98,9 @@
 \item 10\% sampling rule
 \item Skew condition to check to use the normal model
 \end{itemize}
-\item Central Limit Theorem
 \item How big a sample size do I need?
-\item Statistical Power
+\item Statistical power
+\item Statistical vs practical significance
 \end{itemize}
 
 \end{frame}
@@ -83,7 +123,7 @@
 
 \pause\vspace{0.5cm}
 
-\blue{Explanation}:  Recall our example of sampling Wayne and Mario ($n=2$) \blue{without replacement} from a \blue{finite} population of size $N=4$ vs $N=10000$ and its effect on independence.
+\blue{Explanation}:  Recall from HW5 Q1, sampling from a rooms that are half male and half female but with $N=10$ and $N=10000$.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -94,17 +134,20 @@
 \frametitle{10\% Sampling Rule}
 The \blue{finite population correction (FPC)} to the SE of point estimates accounts for the sampling without replacement:
 \[
-SE = \frac{\sigma}{\sqrt{n}} \pause \times \blue{\sqrt{\frac{N-n}{N-1}}}
+SE = \frac{\sigma}{\sqrt{n}} \pause \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+\frac{\sigma}{\sqrt{n}} \pause \times \blue{FPC}
 \]
-
-\pause So say $N >> n$, $N=10000$ and $n=100$ (i.e. 1\%), then
+Say we have $N=10000$.  
+\begin{itemize}
+\pause\item Let $n=100$ i.e. 1\%, then
 \[
-FPC=\sqrt{\frac{10000-100}{10000-1}} = \sqrt{\frac{9900}{9999}} = 0.995
+FPC=\sqrt{\frac{10000-100}{10000-1}} = 0.995
 \]
-\pause but say $N=10000$ and $n=5000$ (i.e. 50\%), then
+\pause\item Let $n=5000$ i.e. 50\%, then
 \[
-FPC=\sqrt{\frac{10000-5000}{10000-1}} = \sqrt{\frac{5000}{9999}} = 0.707
+FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
 \]
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -113,22 +156,21 @@ FPC=\sqrt{\frac{10000-5000}{10000-1}} = \sqrt{\frac{5000}{9999}} = 0.707
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{10\% Sampling Rule}
-The \blue{finite population correction (FPC)} to the SE of point estimates accounts for the sampling without replacement:
 \[
-SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}}
+SE = \frac{\sigma}{\sqrt{n}} \pause \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+\frac{\sigma}{\sqrt{n}} \pause \times \blue{FPC}
 \]
 
 \vspace{0.25cm}
 \pause
-We've been ignoring the blue part in this class.  So when 
+We've been ignoring the \blue{FPC}.  So when 
 \begin{itemize}
-\pause\item $N >> n$, the correction is close to 1, so not a problem.
-\pause\item As $n$ gets bigger relative to $N$, factor shrinks:  more and more of a problem.  
+\pause\item If $n$ is relatively small, the FPC is close to 1, so not a problem.
+\pause\item If $n$ is relatively large, the FPC goes to 1.  i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.  
 \end{itemize}
 
 \vspace{0.25cm}
-\pause
-Conclusion:  Capping $n$ to be less than 10\% of the population, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
+\pause Conclusion:  By capping $n \leq $ 10\% of $N$, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -145,10 +187,10 @@ We can tie the \blue{conceptual} and \blue{mathematical} notions of sampling:
 \begin{center}
 \pause and
 \end{center}
-\blue{Mathematical}:  If $n=N$, then the $FPC = \sqrt{\frac{N-n}{N-1}} = 0$, hence the \blue{corrected} standard error is $SE = \frac{\sigma}{\sqrt{n}}\times\sqrt{\frac{N-n}{N-1}} = 0$.\\
+\blue{Mathematical}:  If $n=N \Rightarrow FPC = \sqrt{\frac{N-n}{N-1}} = 0$, hence the \blue{corrected} SE is $\frac{\sigma}{\sqrt{n}}\times\sqrt{\frac{N-n}{N-1}} = 0$.\\
 \vspace{0.25cm}
 \pause
-i.e. there is no variability in our sampling procedure.  If we repeat the procedure many times, we get the same value.\\
+i.e. if we repeat the procedure many times (sample everybody), we get the same value each time.\\
 \vspace{0.25cm}
 \pause
 i.e. the sampling distribution is just one point: the true $\mu$.\\
@@ -164,34 +206,31 @@ i.e. the sampling distribution is just one point: the true $\mu$.\\
 
 \pause\vspace{0.5cm}
 
-\blue{Answer}:  If not, our normal model (i.e. $z$-score) based confidence intervals and hypothesis test p-values will be off the mark.
-
-\pause\vspace{0.5cm}
-\blue{Example}:  From MATH392 where we sample $n=40,000$ without replacement from a population of size $N=60,000$
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{10\% Sampling Rule} 
+\blue{Answer}:  If not
 \begin{itemize}
-\item The histogram represents the true sampling distribution
-\item The red curve represents the sampling distribution with the \blue{uncorrected} $SE=\frac{s}{\sqrt{n}}$
+\item the $SE$ in confidence intervals is off
+\item the $z$-scores of $\xbar$ have the wrong denominator
 \end{itemize}
 
-\begin{center}
-\includegraphics[width=0.55\textwidth]{figure/FPC.pdf}
-\end{center}
-
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-
-
-
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{10\% Sampling Rule} 
+%\blue{Example}:  From MATH392 where we sample $n=40,000$ without replacement from a population of size $N=60,000$
+%\begin{itemize}
+%\item The histogram represents the true sampling distribution
+%\item The red curve represents the sampling distribution with the \blue{uncorrected} $SE=\frac{s}{\sqrt{n}}$
+%\end{itemize}
+%
+%\begin{center}
+%\includegraphics[width=0.55\textwidth]{figure/FPC.pdf}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -203,7 +242,7 @@ Throughout the book, they talk about the condition for $\xbar$ being nearly norm
 
 \begin{itemize}
 \pause\item On page 164: the population distribution is not strongly skewed
-\pause\item On page 167: (CLT informal description) the data are not strongly skewed
+\pause\item On page 167: the data are not strongly skewed
 \pause\item On page 168: the distribution of sample observations is not strongly skewed
 \pause\item On page 185: the population data are not strongly skewed
 \end{itemize}
@@ -219,7 +258,7 @@ However, they all mean the same thing:
 
 \begin{enumerate}
 \pause\item The \blue{true population} distribution from which you are drawing your sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
-\pause\item The histogram of the sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
+\pause\item The histogram (visual estimate) of the sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
 \end{enumerate}
 
 \vspace{0.25cm}
@@ -230,34 +269,16 @@ However, they all mean the same thing:
 %------------------------------------------------------------------------------
 
 
-
-
-
-
-%x <- seq(10, 20, by=0.01)
-%y1 <- dnorm(x, 15, 0.25)
-%y2 <- dnorm(x, 15, 2)
-%pdf("./7.2 Sample Size and Power/norm.pdf", width=8*0.8, height=6*0.8)
-%plot(x, y1, type='l', col="red", ylab="", xlab="x", lwd=2)
-%lines(x, y2, col="blue", lwd=2)
-%abline(v=15, lty=2)
-%legend("topleft", 
-%       legend=c(expression(paste(sigma," = 0.25")), 
-%                expression(paste(sigma," = 2"))), 
-%       lty=c(1,1), 
-%       col=c("red", "blue"), bty='n')
-%dev.off()
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Sample Size:  Thought Experiment}
 Say you have two distributions with $\mu=15$ but different $\sigma$.
 \begin{center}
-\includegraphics[width=0.8\textwidth]{figure/norm.pdf}
+\includegraphics[width=0.75\textwidth]{figure/norm.pdf}
 \end{center}
 \pause Which of the two distributions do you think will require a bigger $n$ to estimate $\mu$ ``well''?
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -372,46 +393,63 @@ C occurs \blue{given $H_A$ is true}.
 %-------------------------------------------------------------------------------
 
 
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Practical vs Statistical Significance}
+When rejecting the null hypothesis, we call this a \blue{statistically significant} result.  But statistically significant results aren't always \blue{practically significant}.
 
+\pause\vspace{0.5cm}
 
+Example: say we are comparing the average exam score of men $\mu_M$ and women $\mu_W$.  We can do a two-sample test (Chapter 5):
+
+\begin{itemize}
+\item $H_0: \mu_M - \mu_F = 0$ (same average exam score)
+\item $H_A: \mu_M - \mu_F \neq 0$ (different average exam score)
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Practical vs Statistical Significance}
-When rejecting the null hypothesis, we call this a \blue{statistically significant} result.  Note statistically significant results aren't always practically significant.  
+Say for \blue{very} large $n_M$ \& $n_F$ we observe $\xbar_M = 19.0002$ and $\xbar_F = 19.0001$.
 
 \pause\vspace{0.5cm}
 
-Say we suspect that using cell phones increases the risk of cancer by a multiplicative factor of $\theta$.  We have:
-\begin{itemize}
-\item $H_0: \theta=1$
-\item $H_A: \theta>1$ (increased risk)
-\end{itemize}
-\pause Say we have a large $n$, observe a $\widehat{\theta}=1.000000001$, and reject the null hypothesis.  
+The point estimate of $\mu_M - \mu_F$ is $\xbar_M - \xbar_F = 0.0001$.  This difference is near negligible, it is still possible to ``reject $H_0$ at an $\alpha$-significance level.''  
 
 \pause\vspace{0.5cm}
 
-This tiny increased risk might translate to only one or two additional cases of cancer across the world i.e. not practically significancant.  
+However, the 95\% confidence interval on the difference might look like
+\[
+[0.00005, 0.00015]
+\]
+
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Back to Reed Sleep}
-%Let $\mu$ be the true \blue{population mean} \# of hours Reedies sleep a night.  Then:
-%\begin{itemize}
-%\item $H_0: \mu = 7$ (7 was the national average)
-%\item $H_A: \mu > 7$
-%\end{itemize}
-%
-%\vspace{0.5cm}
-%
-%Based on a sample size $n=110$, $\xbar = 7.42$ and $s=1.75$, we rejected the \blue{null hypothesis} and declared that Reed students sleep more than 7 hours a night at the $\alpha=0.05$ significance level since the p-value was 0.007.
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Practical vs Statistical Significance}
+
+Moral of the story
+
+\pause\begin{itemize}
+\item Hypothesis tests with ``rejections of $H_0$'' focus almost entirely on \blue{statistical significance}.
+\item Confidence intervals allow you to also focus on \blue{practical significance}.  
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+\end{document}
+
+
+
 
 
 %x <- seq(5.7, 8.2, by=0.01)
@@ -537,18 +575,6 @@ This tiny increased risk might translate to only one or two additional cases of 
 %\end{center}
 %\end{frame}
 %%------------------------------------------------------------------------------
-
-
-
-
-
-
-
-\end{document}
-
-
-
-
 
 
 
