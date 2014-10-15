@@ -37,7 +37,7 @@
 
 
 \title{Lecture 17: Paired Data and Difference of Two Means}
-\author{Chapter 5.1-5.2}
+\author{Chapter 5.2, 5.1}
 \date{}
 
 
@@ -49,23 +49,18 @@
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Goals for Today}
 
 \begin{itemize}
-\item Define statistical power
-\item Difference of Means
+\item Difference of means
+\item Paired differences of means
 \item Note on Practical vs Statistical Significance
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
-
 
 
 %-------------------------------------------------------------------------------
@@ -91,11 +86,6 @@ Here are the 8 broad types of questions we can answer with statistical methods (
 %-------------------------------------------------------------------------------
 
 
-
-
-
-
-
 %total <- hist(run10Samp$time)
 %F <- hist(run10Samp$time[run10Samp$gender=="F"])
 %M <- hist(run10Samp$time[run10Samp$gender=="M"])
@@ -115,10 +105,10 @@ Here are the 8 broad types of questions we can answer with statistical methods (
 %dev.off()
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Are the means of two groups $\mu_1$ and $\mu_2$ equal or not?}
+\frametitle{Chapter 5.2: Are the means of 2 groups $\mu_1$ and $\mu_2$ equal?}
 
-Example from Chapter 5.2:  Did men (n=45) run faster than women (n=55)?
-\begin{center}
+Did men (n=45) run faster than women (n=55)?
+\pause\begin{center}
 \includegraphics[width=0.6\textwidth]{figure/race.pdf}
 \end{center}
 
@@ -129,7 +119,7 @@ Example from Chapter 5.2:  Did men (n=45) run faster than women (n=55)?
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Difference in Means}
-We are interested in the difference of two population means $\mu_w - \mu_m$ where
+We are interested in the difference of two population means:
 \pause\begin{itemize}
 \item $\mu_w$ is the mean time for women
 \item $\mu_m$ is the mean time for men
@@ -206,7 +196,6 @@ SE_{\xbar_1 - \xbar_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normality of Sampling Distribution}
@@ -230,8 +219,6 @@ SE_{\xbar_w - \xbar_m} = \sqrt{\frac{15.2^2}{55} + \frac{12.5^2}{45}} = 2.77
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Confidence Interval}
@@ -251,12 +238,6 @@ A 95\% confidence interval for $\mu_1 - \mu_2$ is
 %------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Chapter 5.1: Paired Data}
@@ -274,7 +255,6 @@ Two sets of observations are \blue{paired} if each observation in one set has a 
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %pdf("./7.3 Paired Data + Diff of Two Mean/diff.pdf", width=7, height=5)
@@ -299,13 +279,12 @@ Two sets of observations are \blue{paired} if each observation in one set has a 
 \frametitle{Paired Differences}
 The methodology for paired data remains the same, except our \blue{observations} are the difference in pairs.  Example, for the UCLA Bookstore vs Amazon book price example in the text
 \begin{center}
-\includegraphics[width=0.8\textwidth]{diff.pdf}
+\includegraphics[width=0.8\textwidth]{figure/diff.pdf}
 \end{center}
 
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -313,13 +292,12 @@ The methodology for paired data remains the same, except our \blue{observations}
 \frametitle{Paired Differences}
 The methodology for paired data remains the same, except our \blue{observations} are the difference in pairs.  Example, for the UCLA Bookstore vs Amazon book price example in the text
 \begin{center}
-\includegraphics[width=0.8\textwidth]{diff2.pdf}
+\includegraphics[width=0.8\textwidth]{figure/diff2.pdf}
 \end{center}
 
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
@@ -338,15 +316,11 @@ We have
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Next Time}
 
 \begin{itemize}
-\item Hypothesis test for differences in means
-\item Paired differences
 \item One sample t-test
 \end{itemize}
 
@@ -355,33 +329,7 @@ We have
 %------------------------------------------------------------------------------
 
 
-
-
-
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\end{document}
-
-
-
-
-
 
 
 
