@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -55,8 +55,9 @@
 \frametitle{Goals for Today}
 
 \begin{itemize}
-\item Note on Practical vs Statistical Significance
+\item Define statistical power
 \item Difference of Means
+\item Note on Practical vs Statistical Significance
 \end{itemize}
 
 \end{frame}
@@ -64,68 +65,6 @@
 
 
 
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Terminology Recap (Page 192)}
-
-\begin{itemize}
-\pause\item \blue{Summary statistics} are a single number summarizing a large amount of data.\\
-Ex: sample mean $\xbar=\frac{1}{n}\sum_{i=1}^{n}x_i$
-\pause\item \blue{Point estimates} use observations $x_1,\ldots,x_n$ to guess at the value of an unknown parameter.  \\
-Ex:  the sample mean $\xbar$ estimates the true population mean $\mu$.  
-\pause\item A \blue{test statistic} is a summary statistic used in hypothesis testing or for identifying the p-value.\\
-Ex:  in the Reed sleep example, we used $\xbar$.  Since $\xbar$ is approximately normal by the CLT, we use the z-score of $\xbar$ as the test statistic.  
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Hypothesis Testing Procedure}\label{ht}
-\begin{enumerate}
-\item Construct your hypothesis testing framework:
-\begin{itemize}
-\item Define $H_0$, $H_A$ and if applicable a null value.
-\item Set your significance level $\alpha$
-\end{itemize}
-\item Verify that the conditions hold
-\item Compute your \blue{test statistic}
-\item Compute the p-value
-\begin{itemize}
-\item Identify the appropriate distribution to compare the test statistic to
-\item Depending on $H_A$, determine what constitutes being \blue{more extreme} and compute the p-value using the appropriate probability table.
-\end{itemize}
-\item If the p-value is $< \alpha$, reject $H_0$.  Otherwise do not.
-\end{enumerate}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{In General:  Confidence Intervals}
-
-All confidence intervals have form:
-\begin{eqnarray*}
-&& \left[\mbox{point estimate} - z^* \times SE, \ \mbox{point estimate} + z^* \times SE\right]\\
-&& \mbox{point estimate } \pm \ z^* \times SE\\
-&& \mbox{point estimate } \pm \mbox{ margin of error}
-\end{eqnarray*}
-where $z^*$ determines the confidence level.
-
-\pause\vspace{0.25cm}
-
-The point estimate and $SE$ will change depending on the context.  
-
-\end{frame}
-%------------------------------------------------------------------------------
 
 
 
@@ -144,7 +83,7 @@ Here are the 8 broad types of questions we can answer with statistical methods (
 \pause\item What is the proportion $p$ of ``successes''?
 \pause\item Are the proportions of ``successes'' of two groups $p_1$ and $p_2$ equal or not?
 \pause\item Are the means $\mu_1, \ldots, \mu_k$ of $k$ groups \blue{all} equal or not?
-\pause\item Are we observing what we were expecting?
+\pause\item Are we observing counts that we were expected?
 \pause\item Are two categorical variables independent?
 \end{enumerate}
 
@@ -311,6 +250,92 @@ A 95\% confidence interval for $\mu_1 - \mu_2$ is
 \end{frame}
 %------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Chapter 5.1: Paired Data}
+Two sets of observations are \blue{paired} if each observation in one set has a special correspondence or connection with exactly one observation in the other data set.
+
+\vspace{0.25cm} 
+
+\pause Examples:
+
+\begin{itemize}
+\item Cholesterol levels before and after some intervention
+\pause \item Disease rates amongst pairs of twins
+\pause \item In the text:  price of the same textbook at the UCLA bookstore vs Amazon
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%pdf("./7.3 Paired Data + Diff of Two Mean/diff.pdf", width=7, height=5)
+%plot(textbooks$uclaNew, pch=19, log='y', xlab="Textbook #", ylab="Price",
+%     main="UCLA & Amazon Price for Each Textbook")
+%points(textbooks$amazNew, pch=19, col="red")
+%legend("topleft", legend=c("UCLA","Amazon"), pch=c(19,19), col=c(1,2))
+%dev.off()
+%
+%pdf("./7.3 Paired Data + Diff of Two Mean/diff2.pdf", width=7, height=5)
+%plot(textbooks$uclaNew - textbooks$amazNew, pch=19, 
+%     xlab="Textbook #", ylab="Difference in Price",
+%     main="UCLA Price - Amazon Price")
+%abline(h=0)
+%dev.off()
+%
+%pdf("./7.3 Paired Data + Diff of Two Mean/diff2.pdf", width=7, height=5)
+%boxplot(textbooks$uclaNew - textbooks$amazNew, horizontal=TRUE, xlab="UCLA Price - Amazon Price")
+%dev.off
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Paired Differences}
+The methodology for paired data remains the same, except our \blue{observations} are the difference in pairs.  Example, for the UCLA Bookstore vs Amazon book price example in the text
+\begin{center}
+\includegraphics[width=0.8\textwidth]{diff.pdf}
+\end{center}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Paired Differences}
+The methodology for paired data remains the same, except our \blue{observations} are the difference in pairs.  Example, for the UCLA Bookstore vs Amazon book price example in the text
+\begin{center}
+\includegraphics[width=0.8\textwidth]{diff2.pdf}
+\end{center}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Paired Differences}
+We have
+\begin{itemize}
+\pause \item population parameter is $\mu_{diff}$
+\pause \item point estimate $\xbar_{diff}$ of $\mu_{diff}$
+\pause \item Conditions: not on the original observations, but rather the \blue{differences}:  10\% rule, sample size $n$, and not too skewed \textit{differences}.
+\pause \item If met,  $\xbar_{diff}$ has a normal sampling distribution with mean $\mu_{diff}$ and $SE_{diff} = \frac{s_{diff}}{\sqrt{n_{diff}}}$.  
+\end{itemize}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 
