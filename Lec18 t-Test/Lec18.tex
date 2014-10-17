@@ -1,8 +1,8 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
@@ -49,99 +49,13 @@
 %------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Goals for Today}
 
 \begin{itemize}
-\item Continue difference of means example:  Hypothesis testing
-\item Paired Differences
 \item What do we do when $n$ is small?  
 \end{itemize}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Differences in Means:  Hypothesis Tests}
-Recall the Cherry Run race data.  We test
-\begin{itemize}
-\item $H_0: \mu_w - \mu_m = 0$
-\item $H_A: \mu_w - \mu_m \neq 0$
-\end{itemize}
-at the $\alpha=0.01$ significance level.
-
-\vspace{0.5cm}
-
-\pause We note
-\begin{itemize}
-\item The null states no difference in race times
-\pause \item The two sided alternative is more \blue{conservative} than the one-sided alternative $\mu_w - \mu_m > 0$.
-\end{itemize}
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Hypothesis Testing Procedure}\label{ht}
-We verified the conditions when looking at confidence intervals
-
-\vspace{0.5cm}
-
-\pause The \blue{test statistic} is the z-score of the point estimate $\xbar_1 - \xbar_2$ of $\mu_w - \mu_m$ under the null hypothesis:
-\begin{eqnarray*}
-z &=& \frac{\mbox{point estimate - null value}}{SE} = \frac{\xbar_1 - \xbar_2 - 0}{SE_{\xbar_w - \xbar_m}} = \frac{14.48}{2.77}\\
-&=& 5.227
-\end{eqnarray*}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-
-%pdf("./7.3 Paired Data + Diff of Two Mean/pvalue.pdf", width=8, height=6)
-%x <- seq(-5.5, 5.5, by=0.01)
-%plot(x, dnorm(x), xlab="z", type='l')
-%abline(v=5.227, lwd=2, col="red")
-%abline(v=-5.227, lwd=2, lty=2)
-%legend("topleft",
-%       legend=c("observed z-score", "just as extreme z-score"),
-%       lty=c(1,2), lwd=c(2,2), col=c(2,1), bty="n"
-%)
-%dev.off()
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Hypothesis Tests}
-\begin{center}
-\includegraphics[width=0.7\textwidth]{pvalue.pdf}
-\end{center}
-
-\begin{enumerate}
-\pause \item[4.] Compute the p-value
-\begin{itemize}
-\item Since the sampling distribution is normal, we use the z-table.
-\item Since $H_A:  \mu_w - \mu_m \neq 0$, we have a two-sided p-value $2 \times 0 = 0$
-\end{itemize}
-\pause \item[5.] Since the p-value $0 < \alpha=0.01$, we reject $H_0$ and declare that men and women did not have equal mean finish times.  
-\end{enumerate}
-
-
-
-
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -150,31 +64,29 @@ z &=& \frac{\mbox{point estimate - null value}}{SE} = \frac{\xbar_1 - \xbar_2 - 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Sample Size $n$}
-We need a \blue{large sample size $n$} for two reasons:
+We need a \blue{large $n$} for two reasons:
 
 \begin{enumerate}
-\item Ensure the sampling distribution of $\xbar$ is normal regardless of the true distribution by the Central Limit Theorem. 
-\item ensure $s$ is a good estimate of $\sigma$, which is used in $SE = \frac{\sigma}{\sqrt{n}}$
+\item CLT so sampling distribution of $\xbar$ is normal regardless of the true population distribution. 
+\item ensure $s$ is a good point estimate of $\sigma$, so $SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$
 \end{enumerate}
 
 \pause \vspace{0.5cm}
 
-What do we do when the sample size $n$ is small?  We're stuck, \blue{except} when 
-\begin{itemize}
-\item the observations are normal
+What if $n$ is small?  We're stuck \blue{except when}: 
+\begin{enumerate}
 \item the sample observations are independent
-\end{itemize}
-the sampling distribution of $\xbar$ is nearly normal \blue{regardless} of sample size $n$.
-
+\item the observations are from a population distribution that is normal
+\end{enumerate}
+the sampling distribution of $\xbar$ is nearly normal \blue{regardless} of $n$.
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Verifying Normality}
+\frametitle{Verifying Normality of Population Distribution}
 
 Be cautious when verifying the normality condition for small $n$. It is important to not only examine the data but also think about where the data come from. For example, ask:
 \begin{itemize}
@@ -186,12 +98,11 @@ Be cautious when verifying the normality condition for small $n$. It is importan
 %------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$t$ Distribution}
 
-Let $x_1,\ldots,x_n$ be a random sample from a normal distribution.  \pause Then the standardized variable 
+Let $x_1,\ldots,x_n$ be a random sample from a \blue{normal} population distribution.  \pause Then the standardized variable 
 \[
 t = \frac{\overline{x}-\mu}{SE} = \frac{\overline{x}-\mu}{\frac{s}{\sqrt n}}
 \]
@@ -201,25 +112,6 @@ has probability distribution called a \blue{$t$ distribution with $n-1$ degrees 
 %-------------------------------------------------------------------------------
 
 
-
-%%-------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{$t$ Distribution}
-%Extra info:  Why are they called degrees of freedom?
-%
-%\vspace{0.5cm}
-%
-%The number of degrees of freedom is the number of independent observations in a sample of data that are available to estimate a parameter of the population from which that sample is drawn. 
-%
-%\vspace{0.5cm}
-%
-%For example, if we have $n$ observations, when calculating $\xbar$ we have $n$ independent observations.  However, when calculating $s$, we use $\xbar$.  Given $\xbar$, once we've specified $n-1$ values of $x_i$, there's no more "wiggle room": everything is specified.  So $n-1$ degrees of freedom.  
-%
-%\end{frame}
-%%-------------------------------------------------------------------------------
-
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$t$ Distribution}
@@ -227,7 +119,7 @@ Properties of the $t$ distribution:
 
 \begin{itemize}
 \item a $t$-distribution has only one parameter: the \blue{degrees of freedom} $df$.
-\pause \item It is bell-shaped and centered at 0, like a $z$-curve
+\pause \item It is bell-shaped and centered at 0
 \pause \item Any $t$ curve is more spread out than a $z$ curve.\\
 i.e. it has \blue{fatter tails}
 \pause \item As the $df$ goes to $\infty$, the $t$ curve approaches the $z$ curve.
@@ -242,40 +134,43 @@ i.e. it has \blue{fatter tails}
 \frametitle{$t$ Distribution Examples}
 \setkeys{Gin}{width=0.85\textwidth}
 \begin{center}
-\includegraphics{lec16-001}
+\includegraphics{figure/lec16-001}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
+\addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{$t$ Distribution Examples}
 \setkeys{Gin}{width=0.85\textwidth}
 \begin{center}
-\includegraphics{lec16-002}
+\includegraphics{figure/lec16-002}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
+\addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{$t$ Distribution Examples}
 \setkeys{Gin}{width=0.85\textwidth}
 \begin{center}
-\includegraphics{lec16-003}
+\includegraphics{figure/lec16-003}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
+\addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{$t$ Distribution Examples}
 \setkeys{Gin}{width=0.85\textwidth}
 \begin{center}
-\includegraphics{lec16-004}
+\includegraphics{figure/lec16-004}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -287,20 +182,19 @@ i.e. it has \blue{fatter tails}
 We use the $t$ distribution when you have a \blue{small sample} and
 
 \begin{itemize}
-\pause \item \blue{Independence of observations}:
+\pause \item \blue{Independence}:
 \begin{itemize}
-\item 10\% rule on sample vs population size
+\item $n \leq 10\% $ rule
 \item or if we have an experiment or random process we check that each observation were independent
 \end{itemize}
 \pause \item \blue{Observations come from a nearly normal distribution}:  Difficult to verify with small data sets:
 \begin{itemize}
-\item take a look at a histogram of the data
-\item consider whether any previous experiences alert us that the data may not be nearly normal
+\item Look at a histogram of the data
+\item Consider whether any previous experiences alert us that the data may be normal
 \end{itemize}
 \end{itemize}  	
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -309,48 +203,42 @@ We use the $t$ distribution when you have a \blue{small sample} and
 If $n=19$, we use $df=19-1=18$ and do a look up on the $t$-table on page 410:
 
 \begin{center}
-\includegraphics[width=0.75\textwidth]{t.png}
+\includegraphics[width=0.75\textwidth]{figure/t.png}
 \end{center}
 
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Confidence Intervals}
 
-
 Confidence intervals:  Use $t^*_{df}$ instead of $z^*$
 \[
-\left[\xbar - t_{df}^* SE, \mbox{  }\xbar + t_{df}^* SE\right] = 
+\xbar \pm t_{df}^* SE = 
 \left[
 \overline{x} - t_{df}^* \times\frac{s}{\sqrt n}, \mbox{  }
 \overline{x} + t_{df}^* \times\frac{s}{\sqrt n}
 \right]
 \]
 
-
-So for example, to get a 95\% C.I. based on $n=18 \Rightarrow df=17$, $t_{17}^*=2.11$.
-
+So for example, to get a 95\% C.I. based on
+\begin{eqnarray*}
+n=18 \Rightarrow df=17 \Rightarrow t_{17}^*=2.11
+\end{eqnarray*}
 
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{$t$-Test}
-The $t$-test is the same as the previous test, where instead of finding the $z$-score of $\xbar$, we find the \blue{$t$-statistic/score}.
+\frametitle{$t$-Test Example}
 
-\vspace{0.5cm}
+Example 5.19 on page 252:  NYC is known as the city that never sleeps.  A random sample of 25 New Yorkers were asked how much sleep they get per night. Does the data below provide strong evidence that New Yorkers sleep less than 8 hours a night on average?  Set $\alpha=0.05$
 
-\pause Example 5.19 on page 252:  NYC is known as the city that never sleeps.  A random sample of 25 New Yorkers were asked how much sleep they get per night. Does the data below provide strong evidence that New Yorkers sleep less than 8 hours a night on average?  Set $\alpha=0.05$
-
-\vspace{0.5cm}
+\pause\vspace{0.5cm}
 \begin{center}
 \begin{tabular}{c|c|c|c|c}
 $n$ & $\xbar$ & $s$ & min & max\\
@@ -363,27 +251,18 @@ $n$ & $\xbar$ & $s$ & min & max\\
 %-------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$t$-Test}
-2. Conditions:
+Conditions:
 \begin{itemize}
-\item \blue{Independence}: 25 is obviously less than 10\% of the study population of NYC
-\item What about normality?  Not an exact science.  The halfway point of the min and max is 7.975, which is fairly close to $\xbar=7.73$.  So symmetric enough. 
+\item \blue{Independence}: 25 is obviously less than 10\% of the population of NYC
+\item \blue{Normality}: Not an exact science.  The halfway point of the min and max is 7.975, which is fairly close to $\xbar=7.73$.  So symmetric enough? 
 \end{itemize}
 
 \vspace{0.25cm}
 
-\pause 3. The test statistic is the $t$-statistic:
+The test statistic is the $t$-statistic:
 \[
 t = \frac{\overline{x}-\mbox{null value}}{SE} = \frac{\overline{x}-\mbox{null value}}{\frac{s}{\sqrt n}} = \frac{7.73 - 8}{\frac{0.77}{\sqrt{25}}} = -1.75
 \]
@@ -392,12 +271,11 @@ Since $n=25$, $df=25-1=24$.
 %-------------------------------------------------------------------------------
 
 
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$t$-Test}
 
-4. $p$-Value. We use the $t$ distribution i.e. the $t$-table on page 410:
+$p$-Value. We use the $t$ distribution i.e. the $t$-table on page 410:
 \begin{center}
 \begin{tabular}{c|ccccc}
 \hline
@@ -413,10 +291,9 @@ Since 1.75 is in between one-tail values of 1.71 and 2.06 and by symmetry, the p
 
 \vspace{0.5cm}
 
-\pause 5.  Decision: Since the p-value $< \alpha=0.05$, we reject the null hypothesis that NY'ers sleep 8 hours a night at the $\alpha=0.05$ significance level.  
+Decision: Since the p-value $< \alpha=0.05$, we reject $H_0$ that NY'ers sleep 8 hours a night at the $\alpha=0.05$ significance level in favor of the hypothesis they sleep more.
 \end{frame}
 %-------------------------------------------------------------------------------
-
 
 
 %-------------------------------------------------------------------------------
@@ -424,7 +301,7 @@ Since 1.75 is in between one-tail values of 1.71 and 2.06 and by symmetry, the p
 \frametitle{History of $t$ Distribution}
 The $t$ distribution was derived by William Sealy Gosset in 1908, a chemist/statistician at the Guinness Brewery in Dublin, Ireland.
 \begin{center}
-\includegraphics[width=2in]{gosset.pdf}
+\includegraphics[width=2in]{figure/gosset.pdf}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -447,7 +324,7 @@ In particular, the \blue{(Student's) t-test} is one of the most widely used stat
 \frametitle{History of $t$ Distribution}
 In fact if you go to the Guinness Brewery at St James's Gate in Dublin, Ireland...
 \begin{center}
-\includegraphics[width=3in]{brewery.jpg}
+\includegraphics[width=3in]{figure/brewery.jpg}
 \end{center}
 \
 \end{frame}
@@ -458,26 +335,10 @@ In fact if you go to the Guinness Brewery at St James's Gate in Dublin, Ireland.
 \begin{frame}
 \frametitle{History of $t$ Distribution}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{guinness.jpg}
+\includegraphics[width=0.9\textwidth]{figure/guinness.jpg}
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
-
-%
-%
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Next Time}
-%
-%Same $t$-test scenario:  small sample size with normal data, but now, differences in means $\mu_1-\mu_2$
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
-
-
-
 
 
 \end{document}
@@ -491,3 +352,163 @@ In fact if you go to the Guinness Brewery at St James's Gate in Dublin, Ireland.
 
 
 
+
+
+
+% Two-sample t-test
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Question for Today}
+
+In Lecture 7.2 (Chapter 5.2) we asked:  Did men ($n_m=45$) run faster than women ($n_w=55$) in the Cherry Blossom Race?
+\begin{center}
+\includegraphics[width=0.4\textwidth]{figure/race.pdf}
+\end{center}
+
+\pause What can we say about $\mu_1 - \mu_2$ when $n_1$ and $n_2$ are both small?
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Components}
+
+Similarly to the last lecture on \blue{$t$-tests}, now we use the \blue{two sample $t$-test}: 
+
+\begin{enumerate}
+\pause \item The point estimate of $\mu_1 - \mu_2$ is $\xbar_1 - \xbar_2$
+\pause \item The standard error of the sampling distribution
+\[
+SE_{\xbar_1 - \xbar_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+\pause \item Confidence intervals using $t^*_{df}$
+\pause \item Hypothesis tests using $t$-statistic
+\end{enumerate}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Components}
+
+But what degrees of freedom $df$ do we use?  
+
+\vspace{0.25cm}
+
+\pause The true formula for degrees of freedom is
+\[
+df = \frac{(s_1^2/n_1 + s_2^2/n_2)^2}{(s_1^2/n_1)^2/(n_1-1) + (s_2^2/n_2)^2/(n_2-1)}
+\]
+
+\pause Rather, for this class, use the smaller of $n_1$ and $n_2$ minus 1 i.e.
+\[
+\min(n_1, n_2) - 1
+\]
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Conditions of Two Sample $t$-Test}
+
+\begin{itemize}
+\item Both samples meet the conditions for using the $t$ distribution
+\begin{itemize}
+\pause \item Sample observations are nearly normal
+\pause \item Sample observations are independent within their respective populations
+\end{itemize}
+\pause \item The two \blue{samples} are independent
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Pooled Standard Deviation Estimate}
+Say however, you suspect both populations have similar true population standard deviations $\sigma_1=\sigma_2=\sigma$.  
+
+\pause \vspace{0.5cm}
+
+If so, we can leverage this fact to make the $t$ distribution approach slightly more precise.
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Pooled Standard Deviation Estimate}
+The pooled standard deviation estimate is
+\[
+s^2_{pooled} = \frac{s_1^2\times(n_1 -1) + s_2^2 \times(n_2 -1)}{n_1 + n_2 - 2}
+\]
+
+\vspace{0.25cm}
+
+\pause  So use $s^2_{pooled}$ instead of $s_1^2$ and $s_2^2$ in $SE$:
+\[
+SE_{\xbar_1 - \xbar_2} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+= \sqrt{\frac{s^2_{pooled}}{n_1} + \frac{s^2_{pooled}}{n_2}} =
+\sqrt{s^2_{pooled}\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}
+\]
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Pooled Standard Deviation Estimate}
+
+You can think of $s^2_{pooled}$ as being very close to a \blue{weighted average} of the two sample standard deviations:
+
+\begin{eqnarray*}
+\pause s^2_{pooled} &=& s_1^2 \times\frac{n_1 - 1}{n_1 + n_2 - 2} + s_2^2 \times  \frac{n_2 - 1}{n_1+n_2-2}\\
+\pause \mbox{close to} &\approx& s_1^2 \times\frac{n_1}{n_1 + n_2} + s_2^2 \times  \frac{n_2}{n_1+n_2}
+\end{eqnarray*}
+
+\vspace{0.5cm}
+
+\pause The $-1$ and $-2$ are \blue{degrees of freedom} corrections.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Pooled Standard Deviation Estimate}
+
+So say $n_1=10$ and $n_2=20$, then 
+\begin{eqnarray*}
+s^2_{pooled} &\approx& s_1^2 \times\frac{10}{10 + 20} + s_2^2 \times  \frac{20}{10+20}\\
+&\approx& s_1^2 \times\frac{1}{3} + s_2^2 \times  \frac{2}{3}\\
+\end{eqnarray*}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Pooled Standard Deviation Estimate}
+\blue{Benefits}:  If $\sigma$'s are equal, we have more precise model of the sampling distribution of $\xbar_1 - \xbar_2$
+
+\vspace{0.5cm}
+
+\pause \blue{Caveats}:  Only pool when background research/intuition indicates the population $\sigma_1$ and $\sigma_2$ of the two groups are nearly equal.  
+\end{frame}
+%------------------------------------------------------------------------------

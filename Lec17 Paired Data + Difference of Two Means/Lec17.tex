@@ -311,6 +311,16 @@ Moral of the story
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
+\frametitle{Hypothesis Test}
+
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
 \frametitle{Chapter 5.1: Paired Data}
 Two sets of observations are \blue{paired} if each observation in one set has a special correspondence or connection with exactly one observation in the other data set.
 
@@ -407,5 +417,81 @@ We have
 
 
 
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Differences in Means:  Hypothesis Tests}
+Recall the Cherry Run race data.  We test
+\begin{itemize}
+\item $H_0: \mu_w - \mu_m = 0$
+\item $H_A: \mu_w - \mu_m \neq 0$
+\end{itemize}
+at the $\alpha=0.01$ significance level.
+
+\vspace{0.5cm}
+
+\pause We note
+\begin{itemize}
+\item The null states no difference in race times
+\pause \item The two sided alternative is more \blue{conservative} than the one-sided alternative $\mu_w - \mu_m > 0$.
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Hypothesis Testing Procedure}\label{ht}
+We verified the conditions when looking at confidence intervals
+
+\vspace{0.5cm}
+
+\pause The \blue{test statistic} is the z-score of the point estimate $\xbar_1 - \xbar_2$ of $\mu_w - \mu_m$ under the null hypothesis:
+\begin{eqnarray*}
+z &=& \frac{\mbox{point estimate - null value}}{SE} = \frac{\xbar_1 - \xbar_2 - 0}{SE_{\xbar_w - \xbar_m}} = \frac{14.48}{2.77}\\
+&=& 5.227
+\end{eqnarray*}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+
+
+%pdf("./7.3 Paired Data + Diff of Two Mean/pvalue.pdf", width=8, height=6)
+%x <- seq(-5.5, 5.5, by=0.01)
+%plot(x, dnorm(x), xlab="z", type='l')
+%abline(v=5.227, lwd=2, col="red")
+%abline(v=-5.227, lwd=2, lty=2)
+%legend("topleft",
+%       legend=c("observed z-score", "just as extreme z-score"),
+%       lty=c(1,2), lwd=c(2,2), col=c(2,1), bty="n"
+%)
+%dev.off()
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Hypothesis Tests}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{figure/pvalue.pdf}
+\end{center}
+
+\begin{enumerate}
+\pause \item[4.] Compute the p-value
+\begin{itemize}
+\item Since the sampling distribution is normal, we use the z-table.
+\item Since $H_A:  \mu_w - \mu_m \neq 0$, we have a two-sided p-value $2 \times 0 = 0$
+\end{itemize}
+\pause \item[5.] Since the p-value $0 < \alpha=0.01$, we reject $H_0$ and declare that men and women did not have equal mean finish times.  
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
