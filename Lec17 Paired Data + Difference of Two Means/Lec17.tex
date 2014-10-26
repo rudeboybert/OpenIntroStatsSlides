@@ -78,8 +78,7 @@ Here are the 6 broad types of questions about \blue{population parameters} we'll
 \pause\item What is the proportion $p$ of ``successes''?
 \pause\item Are the proportions of ``successes'' $p_1$ and $p_2$ of two groups different?
 \pause\item Are the means $\mu_1, \ldots, \mu_k$ of $k$ groups different?
-%\pause\item Are we observing counts that we were expected?
-%\pause\item Are two categorical variables independent?
+
 \end{enumerate}
 
 \pause Today we look at 3 and 2.
@@ -90,26 +89,29 @@ Here are the 6 broad types of questions about \blue{population parameters} we'll
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Outline}
-%We now generalize what we did in Chapter 4:
-%\begin{enumerate}
-%\pause\item Define the population parameter and determine its point estimate
-%\pause\item Show that the sampling distribution of the point estimate is Normal
-%\begin{itemize}
-%\item Verify CLT \& any additional conditions
-%\item Find the SE
-%\end{itemize}
-%\end{enumerate}
 %
-%\vspace{0.25cm}
+% Comment this
 %
-%Then we either:
-%\begin{itemize}
-%\pause\item Build a confidence interval:  $\mbox{point estimate} \pm z^* SE$
-%\pause\item Conduct a hypothesis test with test statistic:  $z$-score of the point estimate
-%\[
-%z=\frac{\mbox{point estimate} - \mbox{null value}}{SE}
-%\]
-%\end{itemize}
+We now generalize what we did in Chapter 4:
+\begin{enumerate}
+\pause\item Define the population parameter and determine its point estimate
+\pause\item Show that the sampling distribution of the point estimate is Normal
+\begin{itemize}
+\item Verify CLT \& any additional conditions
+\item Find the SE
+\end{itemize}
+\end{enumerate}
+
+\vspace{0.25cm}
+
+Then we either:
+\begin{itemize}
+\pause\item Build a confidence interval:  $\mbox{point estimate} \pm z^* SE$
+\pause\item Conduct a hypothesis test with test statistic:  $z$-score of the point estimate
+\[
+z=\frac{\mbox{point estimate} - \mbox{null value}}{SE}
+\]
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -165,19 +167,22 @@ We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 C
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Difference in Means}
-%We want the difference of two population means:
-%\pause\begin{itemize}
-%\item $\mu_w$: mean time for women
-%\item $\mu_m$: mean time for men
-%\end{itemize}
 %
-%Thus:
-%\begin{itemize}
-%\pause\item Population parameter:  $\mu_w - \mu_m$.\\
-%i.e. if men run faster, this is positive
-%\pause\item Point estimate:  $\xbar_w - \xbar_m = 102.13-87.65=14.48$\\
-%i.e. \blue{difference of sample means}
-%\end{itemize}
+% Comment this
+%
+We want the difference of two population means:
+\pause\begin{itemize}
+\item $\mu_w$: mean time for women
+\item $\mu_m$: mean time for men
+\end{itemize}
+
+Thus:
+\begin{itemize}
+\pause\item Population parameter:  $\mu_w - \mu_m$.\\
+i.e. if men run faster, this is positive
+\pause\item Point estimate:  $\xbar_w - \xbar_m = 102.13-87.65=14.48$\\
+i.e. \blue{difference of sample means}
+\end{itemize}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -185,22 +190,25 @@ We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 C
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normality of Sampling Distribution}
-%If two sample means $\xbar_1$ and $\xbar_2$ 
-%\begin{itemize}
-%\pause\item each satisfy the 3 CLT conditions
-%\pause\item Additionally: the \blue{two samples are independent from each other}
-%\end{itemize}
 %
-%\vspace{0.25cm}
+% Comment this
 %
-%\pause Then the sampling distribution of $\xbar_1 - \xbar_2$ will be approximately normal with
-%\begin{itemize}
-%\pause\item mean $\mu_1-\mu_2$
-%\pause\item estimated standard error
-%\[
-%SE_{\xbar_1 - \xbar_2} = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \approx \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
-%\]
-%\end{itemize}
+If two sample means $\xbar_1$ and $\xbar_2$ 
+\begin{itemize}
+\pause\item each satisfy the 3 CLT conditions
+\pause\item Additionally: the \blue{two samples are independent from each other}
+\end{itemize}
+
+\vspace{0.25cm}
+
+\pause Then the sampling distribution of $\xbar_1 - \xbar_2$ will be approximately normal with
+\begin{itemize}
+\pause\item mean $\mu_1-\mu_2$
+\pause\item estimated standard error
+\[
+SE_{\xbar_1 - \xbar_2} = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \approx \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+\end{itemize}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -208,20 +216,23 @@ We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 C
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normality of Sampling Distribution}
-%We verify the conditions:
-%\begin{enumerate}
-%\pause\item Each sample consists of $\leq$10\% of their respective populations.
-%\pause\item Both histograms don't look too skewed.
-%\pause\item Each sample has at least 30 observations (rule of thumb).
-%\pause\item \blue{Additionally}: the samples are independent (not paired or linked in any way).
-%\end{enumerate}
 %
-%\pause\vspace{0.25cm}
+% Comment this
 %
-%Thus the sampling distribution is Normal with mean=$\mu_w - \mu_m$ and
-%\[
-%SE_{\xbar_w - \xbar_m} = \sqrt{\frac{15.2^2}{55} + \frac{12.5^2}{45}} = 2.77
-%\]
+We verify the conditions:
+\begin{enumerate}
+\pause\item Each sample consists of $\leq$10\% of their respective populations.
+\pause\item Both histograms don't look too skewed.
+\pause\item Each sample has at least 30 observations (rule of thumb).
+\pause\item \blue{Additionally}: the samples are independent (not paired or linked in any way).
+\end{enumerate}
+
+\pause\vspace{0.25cm}
+
+Thus the sampling distribution is Normal with mean=$\mu_w - \mu_m$ and
+\[
+SE_{\xbar_w - \xbar_m} = \sqrt{\frac{15.2^2}{55} + \frac{12.5^2}{45}} = 2.77
+\]
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -229,18 +240,21 @@ We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 C
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Confidence Interval}
-%A 95\% confidence interval for $\mu_1 - \mu_2$ is
-%\begin{eqnarray*}
-%(\mbox{point estimate for } \mu_1 - \mu_2) &\pm& z^* \times SE\\
-%\pause(\xbar_1 - \xbar_2) &\pm& 1.96 \times SE_{\xbar_1 - \xbar_2}
-%\end{eqnarray*}
 %
-%\pause\vspace{0.25cm}
+% Comment this
 %
-%\pause For the Cherry Blossom Run data, a 95\% CI for $\mu_w - \mu_m$ is:
-%\begin{eqnarray*}
-%14.48 \pm 1.96 \times 2.77 =  [9.05, 19.91]
-%\end{eqnarray*}
+A 95\% confidence interval for $\mu_1 - \mu_2$ is
+\begin{eqnarray*}
+(\mbox{point estimate for } \mu_1 - \mu_2) &\pm& z^* \times SE\\
+\pause(\xbar_1 - \xbar_2) &\pm& 1.96 \times SE_{\xbar_1 - \xbar_2}
+\end{eqnarray*}
+
+\pause\vspace{0.25cm}
+
+\pause For the Cherry Blossom Run data, a 95\% CI for $\mu_w - \mu_m$ is:
+\begin{eqnarray*}
+14.48 \pm 1.96 \times 2.77 =  [9.05, 19.91]
+\end{eqnarray*}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -248,23 +262,26 @@ We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 C
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Hypothesis Test}
-%For $\alpha=0.001$ (i.e. we want reject with high confidence) we test
-%\begin{itemize}
-%\item $H_0: \mu_w - \mu_m = 0$
-%\item $H_A: \mu_w - \mu_m > 0$
-%\end{itemize}
 %
-%\pause\vspace{0.25cm}
+% Comment this
 %
-%Test statistic:  $z$-score of $\xbar_w - \xbar_m$ under $H_0$:
-%\begin{eqnarray*}
-%\frac{\mbox{point estimate} - \mbox{null value}}{SE} &=& \frac{(\xbar_w - \xbar_m) - \mbox{null value}}{SE_{\xbar_1 - \xbar_2}}\\
-%&=& \frac{14.48 - 0}{2.77} = 5.23
-%\end{eqnarray*}
-%
-%\pause\vspace{0.25cm}
-%
-%The p-value is $0$, hence we reject $H_0$ and declare that men ran significantly faster than women.  
+For $\alpha=0.001$ (i.e. we want reject with high confidence) we test
+\begin{itemize}
+\item $H_0: \mu_w - \mu_m = 0$
+\item $H_A: \mu_w - \mu_m > 0$
+\end{itemize}
+
+\pause\vspace{0.25cm}
+
+Test statistic:  $z$-score of $\xbar_w - \xbar_m$ under $H_0$:
+\begin{eqnarray*}
+\frac{\mbox{point estimate} - \mbox{null value}}{SE} &=& \frac{(\xbar_w - \xbar_m) - \mbox{null value}}{SE_{\xbar_1 - \xbar_2}}\\
+&=& \frac{14.48 - 0}{2.77} = 5.23
+\end{eqnarray*}
+
+\pause\vspace{0.25cm}
+
+The p-value is $0$, hence we reject $H_0$ and declare that men ran significantly faster than women.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -414,6 +431,8 @@ We have
 
 
 \end{document}
+
+
 
 
 

@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -220,12 +220,15 @@ Switching gears...
 \begin{frame}
 \frametitle{Principles Of Designing Experiments}
 
-%\begin{enumerate}
-%\pause\item\blue{Controlling}:  We want to control for differences between the two groups.
-%\pause\item\blue{Randomization}: We randomize individuals into treatment vs control so that any differences in uninteresting variables even out in the long run.  
-%\pause\item\blue{Replication}:  The more cases we observe, the more ``precise'' the results.
-%\pause\item\blue{Blocking}:  Researchers sometimes know or suspect that variables, other than the treatment, influence the response. In this case, they may first group individuals based on this variable into blocks and then randomize cases within each block.  
-%\end{enumerate}
+%
+% Comment this
+%
+\begin{enumerate}
+\pause\item\blue{Controlling}:  We want to control for differences between the two groups.
+\pause\item\blue{Randomization}: We randomize individuals into treatment vs control so that any differences in uninteresting variables even out in the long run.  
+\pause\item\blue{Replication}:  The more cases we observe, the more ``precise'' the results.
+\pause\item\blue{Blocking}:  Researchers sometimes know or suspect that variables, other than the treatment, influence the response. In this case, they may first group individuals based on this variable into blocks and then randomize cases within each block.  
+\end{enumerate}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -239,12 +242,15 @@ To evaluate the efficacy of a drug, they must be subject to a \blue{clinical tri
 
 \vspace{5cm}
 
-%\begin{itemize}
-%\pause\item \blue{Blinded study}: When researchers do not inform patients which group, or arm, they are in
-%\pause\item \blue{Double blinded study}:  When the person administering the treatment/control themselves do not know which group the patient is in.
-%\pause\item \blue{Placebo}: Fake treatment.  Sometimes the \blue{thought} alone of having a treatment is enough to influence behavior/results.  
-%\pause\item \blue{Phases}. In particular, \blue{pilot studies}.
-%\end{itemize}
+%
+% Comment this
+%
+\begin{itemize}
+\pause\item \blue{Blinded study}: When researchers do not inform patients which group, or arm, they are in
+\pause\item \blue{Double blinded study}:  When the person administering the treatment/control themselves do not know which group the patient is in.
+\pause\item \blue{Placebo}: Fake treatment.  Sometimes the \blue{thought} alone of having a treatment is enough to influence behavior/results.  
+\pause\item \blue{Phases}. In particular, \blue{pilot studies}.
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------

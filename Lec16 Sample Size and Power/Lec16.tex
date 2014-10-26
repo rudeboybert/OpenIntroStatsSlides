@@ -147,49 +147,57 @@ Ronald Fisher, the creator of p-values, never intended for them to be used this 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Finite Population Correction}
-%The \blue{finite population correction (FPC)} to the SE accounts for the \blue{sampling without replacement}:
-%\[
-%SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
-%\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
-%\]
-%Say we have $N=10000$.  
-%\begin{itemize}
-%\pause\item Let $n=100$ (1\%), then
-%\[
-%FPC=\sqrt{\frac{10000-100}{10000-1}} = 0.995
-%\]
-%\pause\item Let $n=5000$ (50\%), then
-%\[
-%FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
-%\]
-%\end{itemize}
+
+%
+% Comment this
+%
+The \blue{finite population correction (FPC)} to the SE accounts for the \blue{sampling without replacement}:
+\[
+SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
+\]
+Say we have $N=10000$.  
+\begin{itemize}
+\pause\item Let $n=100$ (1\%), then
+\[
+FPC=\sqrt{\frac{10000-100}{10000-1}} = 0.995
+\]
+\pause\item Let $n=5000$ (50\%), then
+\[
+FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
+\]
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Finite Population Correction}
-%\[
-%SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
-%\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
-%\]
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Finite Population Correction}
 %
-%\vspace{0.25cm}
-%\pause
-%We've been ignoring the \blue{FPC}.  So when 
-%\begin{itemize}
-%\pause\item $n$ is relatively small, the FPC $\approx$ 1, so not a problem.
-%\pause\item $n$ is relatively large, the FPC $\longrightarrow$ 0.\\
-%i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.  
-%\end{itemize}
+% Comment this
 %
-%\vspace{0.25cm}
-%\pause Conclusion:  By capping $n \leq $ 10\% of $N$, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
+
+\[
+SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
+\]
+
+\vspace{0.25cm}
+\pause
+We've been ignoring the \blue{FPC}.  So when 
+\begin{itemize}
+\pause\item $n$ is relatively small, the FPC $\approx$ 1, so not a problem.
+\pause\item $n$ is relatively large, the FPC $\longrightarrow$ 0.\\
+i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.  
+\end{itemize}
+
+\vspace{0.25cm}
+\pause Conclusion:  By capping $n \leq $ 10\% of $N$, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -323,11 +331,14 @@ Recall our formula for a 95\% confidence interval:
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Identify $n$ for a Desired Margin of Error}
-%To estimate the necessary sample size $n$ for a maximum desired margin of error $m$, we set
-%\[
-%m \geq z^* \frac{\sigma}{\sqrt{n}}
-%\]
-%and solve for $n$.  
+%
+% Comment this
+%
+To estimate the necessary sample size $n$ for a maximum desired margin of error $m$, we set
+\[
+m \geq z^* \frac{\sigma}{\sqrt{n}}
+\]
+and solve for $n$.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -336,11 +347,14 @@ Recall our formula for a 95\% confidence interval:
 \begin{frame}
 \frametitle{Identify $n$ for a Desired Margin of Error}
 Since
-%\begin{eqnarray*}
-%&&m \geq z^*\frac{\sigma}{\sqrt{n}}\\
-%&& \sqrt{n} \geq z^*\frac{\sigma}{m}\\
-%&& n \geq \left(z^*\frac{\sigma}{m}\right)^2\\
-%\end{eqnarray*}
+%
+% Comment this
+%
+\begin{eqnarray*}
+&&m \geq z^*\frac{\sigma}{\sqrt{n}}\\
+&& \sqrt{n} \geq z^*\frac{\sigma}{m}\\
+&& n \geq \left(z^*\frac{\sigma}{m}\right)^2\\
+\end{eqnarray*}
 
 \vspace{3cm}
 
@@ -370,13 +384,16 @@ For the same desired maximal margin of error $m$ and same confidence level, we n
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Type II Error Rate and Power}
-%For a hypothesis test:
 %
-%\begin{itemize}
-%\item The significance level $\alpha$ is the \blue{type I error rate}:  the rate at which we reject $H_0$ when it is true.
-%\pause\item The \blue{type II error rate $\beta$} is the rate at which we fail to reject $H_0$ when $H_A$ is true.
-%\pause\item $1-\beta$ is called the \blue{statistical power}: the rate at which we reject $H_0$ when $H_A$ is true.  
-%\end{itemize}
+% Comment this
+%
+For a hypothesis test:
+
+\begin{itemize}
+\item The significance level $\alpha$ is the \blue{type I error rate}:  the rate at which we reject $H_0$ when it is true.
+\pause\item The \blue{type II error rate $\beta$} is the rate at which we fail to reject $H_0$ when $H_A$ is true.
+\pause\item $1-\beta$ is called the \blue{statistical power}: the rate at which we reject $H_0$ when $H_A$ is true.  
+\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -386,26 +403,29 @@ For the same desired maximal margin of error $m$ and same confidence level, we n
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Type II Error Rate and Power}
-%Say we are conducting $N=A+B+C+D$ hypothesis tests.
-%\pause\begin{center}
-%  \begin{tabular}{cc|cc}
-%     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
-%     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
-%\hline
-%    \textbf{Truth} & $H_0$ true & A & B \\ 
-%     & $H_A$ true & C & D \\ 
-%    \hline
-%  \end{tabular}
-%\end{center}
 %
-%\vspace{0.25cm}
+% Comment this
 %
-%\begin{itemize}
-%\pause \item The \blue{Type I Error rate} is $\alpha = \frac{B}{A+B}$: rate at which B occurs \blue{given $H_0$ is true}.
-%\pause \item The \blue{Type II Error} is $\beta = \frac{C}{C+D}$: rate at which 
-%C occurs \blue{given $H_A$ is true}.
-%\pause \item The \blue{power} is $1-\beta = 1-\frac{C}{C+D} = \frac{D}{C+D}$: rate at which D occurs \blue{given $H_A$ is true}.
-%\end{itemize}
+Say we are conducting $N=A+B+C+D$ hypothesis tests.
+\pause\begin{center}
+  \begin{tabular}{cc|cc}
+     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
+     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
+\hline
+    \textbf{Truth} & $H_0$ true & A & B \\ 
+     & $H_A$ true & C & D \\ 
+    \hline
+  \end{tabular}
+\end{center}
+
+\vspace{0.25cm}
+
+\begin{itemize}
+\pause \item The \blue{Type I Error rate} is $\alpha = \frac{B}{A+B}$: rate at which B occurs \blue{given $H_0$ is true}.
+\pause \item The \blue{Type II Error} is $\beta = \frac{C}{C+D}$: rate at which 
+C occurs \blue{given $H_A$ is true}.
+\pause \item The \blue{power} is $1-\beta = 1-\frac{C}{C+D} = \frac{D}{C+D}$: rate at which D occurs \blue{given $H_A$ is true}.
+\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------

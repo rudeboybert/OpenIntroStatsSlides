@@ -67,17 +67,20 @@
 \begin{frame}
 \frametitle{Statistical Hypothesis Testing}
 
-%(For now) A \blue{hypothesis} is a claim about a population parameter.
 %
-%\vskip 0.25cm
+% Comment this
 %
-%\pause A \blue{hypothesis test} is a method for using sample data to decide between two competing hypotheses about the population parameter:
-%\begin{itemize}
-%\pause \item A \blue{null hypothesis $H_0$}.\\
-%i.e. the \blue{status quo} that is initially assumed to be true, but will be tested. 
-%\pause \item An \blue{alternative hypothesis $H_A$}.\\
-%i.e. the \blue{challenger}.
-%\end{itemize}
+(For now) A \blue{hypothesis} is a claim about a population parameter.
+
+\vskip 0.25cm
+
+\pause A \blue{hypothesis test} is a method for using sample data to decide between two competing hypotheses about the population parameter:
+\begin{itemize}
+\pause \item A \blue{null hypothesis $H_0$}.\\
+i.e. the \blue{status quo} that is initially assumed to be true, but will be tested. 
+\pause \item An \blue{alternative hypothesis $H_A$}.\\
+i.e. the \blue{challenger}.
+\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -99,19 +102,22 @@ We flip a coin many times and start to suspect that it is biased:
 \begin{frame}
 \frametitle{Crucial Concept: Conclusions of Hypothesis Tests}
 
-%There are two potential outcomes of a hypothesis test.  Either we
-%\pause \begin{itemize}
-%\item reject $H_0$ in favor of $H_A$
-%\item fail to reject $H_0$
-%\end{itemize}
 %
-%\vspace{0.5cm}
+% Comment this
 %
-%\pause Note the difference between \blue{accepting $H_0$} \& \blue{failing to reject $H_0$}
-%\begin{itemize}
-%\pause \item ``accepting $H_0$'' is saying we are sure $H_0$ is true
-%\pause \item ``failing to reject $H_0$'' is saying something not as strong:  \blue{we do not have enough evidence to reject $H_0$}.
-%\end{itemize}
+There are two potential outcomes of a hypothesis test.  Either we
+\pause \begin{itemize}
+\item reject $H_0$ in favor of $H_A$
+\item fail to reject $H_0$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\pause Note the difference between \blue{accepting $H_0$} \& \blue{failing to reject $H_0$}
+\begin{itemize}
+\pause \item ``accepting $H_0$'' is saying we are sure $H_0$ is true
+\pause \item ``failing to reject $H_0$'' is saying something not as strong:  \blue{we do not have enough evidence to reject $H_0$}.
+\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -202,25 +208,29 @@ Example on page 173: The average 10 mile run time for the Cherry Blossom Run in 
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Decision Errors}
-%Hypothesis tests will get things right sometimes and wrong sometimes:
-%\pause \begin{center}
-%  \begin{tabular}{cc|cc}
-%     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
-%     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
-%\hline
-%    \textbf{Truth} & $H_0$ true & OK & \blue{Type I Error} \\ 
-%     & $H_A$ true & \blue{Type II Error} & OK \\ 
-%    \hline
-%  \end{tabular}
-%\end{center}
+
 %
-%\vspace{0.25cm}
+% Comment this
 %
-%\pause Two kinds of errors:
-%\begin{itemize}
-%\item \blue{Type I Error}: a false positive
-%\item \blue{Type II Error}: a false negative
-%\end{itemize}
+Hypothesis tests will get things right sometimes and wrong sometimes:
+\pause \begin{center}
+  \begin{tabular}{cc|cc}
+     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
+     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
+\hline
+    \textbf{Truth} & $H_0$ true & OK & \blue{Type I Error} \\ 
+     & $H_A$ true & \blue{Type II Error} & OK \\ 
+    \hline
+  \end{tabular}
+\end{center}
+
+\vspace{0.25cm}
+
+\pause Two kinds of errors:
+\begin{itemize}
+\item \blue{Type I Error}: a false positive
+\item \blue{Type II Error}: a false negative
+\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------

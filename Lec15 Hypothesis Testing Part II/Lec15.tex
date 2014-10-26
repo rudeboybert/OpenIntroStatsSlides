@@ -155,17 +155,21 @@ H_A: && \mbox{passenger X has a weapon}
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Significance Level}
-%Hypothesis testing is built around rejecting or failing to reject the null hypothesis.\\
-%\pause i.e. we do not reject $H_0$ unless we have \blue{strong evidence}.
+
 %
-%\pause \vspace{0.5cm}
+% Comment this
 %
-%As a rule of thumb, when $H_0$ is true, we do not want to incorrectly reject $H_0$ more than 5\% of the time.\\
-%i.e. $\alpha = 0.05 = 5\%$ is the \blue{significance level}.  
-%
-%\pause \vspace{0.5cm}
-%
-%With 95\% confidence intervals from earlier, we expect it to miss the true population parameter 5\% of the time.  This corresponds to $\alpha=0.05$.   
+Hypothesis testing is built around rejecting or failing to reject the null hypothesis.\\
+\pause i.e. we do not reject $H_0$ unless we have \blue{strong evidence}.
+
+\pause \vspace{0.5cm}
+
+As a rule of thumb, when $H_0$ is true, we do not want to incorrectly reject $H_0$ more than 5\% of the time.\\
+i.e. $\alpha = 0.05 = 5\%$ is the \blue{significance level}.  
+
+\pause \vspace{0.5cm}
+
+With 95\% confidence intervals from earlier, we expect it to miss the true population parameter 5\% of the time.  This corresponds to $\alpha=0.05$.   
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -205,11 +209,14 @@ Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is gi
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{p-Values}
-%Definition:  The \blue{p-value} or \blue{observed significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
 %
-%\vspace{0.5cm}
+% Comment this
 %
-%\pause It is \blue{NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
+Definition:  The \blue{p-value} or \blue{observed significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
+
+\vspace{0.5cm}
+
+\pause It is \blue{NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -245,18 +252,22 @@ Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is gi
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Recall our Coin Example}
-%You have a coin that test for fairness with $n=1000$ flips.  Set $p_0 = 0.5$ and define a ``success'' as getting heads.  \pause i.e.
-%\begin{eqnarray*}
-%&& H_0: p = p_0 \mbox{ i.e. coin is fair}\\
-%vs && H_A: p \neq p_0
-%\end{eqnarray*}
+
 %
-%\begin{itemize}
-%\pause \item The point estimate $\widehat{p}$ of $p$ is $\frac{\mbox{\# of successes}}{\mbox{\# of trials}}$.
-%\pause \item Since it is based on a sample, $\widehat{p}$ has a sampling distribution
-%\pause \item The standard error is $\sqrt{\frac{p(1-p)}{n}}$ (Chapter 6).
-%\pause \item Furthermore, since conditions hold, the sampling distribution is Normal (CLT)
-%\end{itemize}
+% Comment this
+%
+You have a coin that test for fairness with $n=1000$ flips.  Set $p_0 = 0.5$ and define a ``success'' as getting heads.  \pause i.e.
+\begin{eqnarray*}
+&& H_0: p = p_0 \mbox{ i.e. coin is fair}\\
+vs && H_A: p \neq p_0
+\end{eqnarray*}
+
+\begin{itemize}
+\pause \item The point estimate $\widehat{p}$ of $p$ is $\frac{\mbox{\# of successes}}{\mbox{\# of trials}}$.
+\pause \item Since it is based on a sample, $\widehat{p}$ has a sampling distribution
+\pause \item The standard error is $\sqrt{\frac{p(1-p)}{n}}$ (Chapter 6).
+\pause \item Furthermore, since conditions hold, the sampling distribution is Normal (CLT)
+\end{itemize}
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -271,34 +282,6 @@ Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is gi
 \end{center}
 \end{frame}
 %-------------------------------------------------------------------------------
-
-
-%%-------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Intuition Behind p-Values}
-%Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is given the null hypothesis.  
-%
-%\vskip 0.5cm
-%
-%The smaller the p-value, the more \blue{extreme} the observation, where the meaning of extreme depends on the context.  
-%
-%\end{frame}
-%%-------------------------------------------------------------------------------
-%%-------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Intuition Behind p-Values}
-%You flip another coin \blue{you know is fair} (i.e. $p=0.5$) 1000 times and compute the proportion of heads.
-%
-%\vspace{0.25cm}
-%
-%Do this a bunch of times and plot a histogram.  
-%
-%\vspace{0.25cm}
-%
-%Compare this histogram to the results of your friend's coin.  
-%
-%\end{frame}
-%%-------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
@@ -331,17 +314,21 @@ Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is gi
 %-------------------------------------------------------------------------------
 
 
-%%-------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{p-Value Definition}
-%The \blue{p-value} or \blue{\textit{observed} significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{p-Value Definition}
+
 %
-%\vspace{0.5cm}
+% Comment this
 %
-%It is \blue{NOT, NOT, NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
-%
-%\end{frame}
-%%-------------------------------------------------------------------------------
+The \blue{p-value} or \blue{\textit{observed} significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
+
+\vspace{0.5cm}
+
+It is \blue{NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
+
+\end{frame}
+%-------------------------------------------------------------------------------
 
 
 %%-------------------------------------------------------------------------------
@@ -389,20 +376,6 @@ A poll found that college students sleep about 7 hours a night.  Researchers sus
 
 \end{frame}
 %-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Example about Sleep Habits}
-
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-
-
 
 
 %-------------------------------------------------------------------------------

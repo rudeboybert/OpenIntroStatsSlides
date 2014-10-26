@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -385,19 +385,6 @@ P(\textcolor{red}{\mbox{red}_5} | \textcolor{red}{\mbox{red}_1} \mbox{ and } \te
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Food for Thought: How People Perceive Randomness}
-%Compare the following streaks on a non-rigged wheel:
-%\begin{eqnarray*}
-%\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R}\textcolor{red}{R} \mbox{ vs. } \textcolor{red}{R}B\textcolor{red}{R}\textcolor{red}{R}BBB
-%\end{eqnarray*}
-%
-%\pause Both have the exact same probability $\left(\frac{1}{2}\right)^{7}$ of occurring, but people tend to somehow give different credence to the randomness of the pattern on the left vs right.
-%\end{frame}
-%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
