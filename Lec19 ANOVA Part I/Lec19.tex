@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -58,7 +58,7 @@
 We use the $t$ distribution when you have
 
 \begin{itemize}
-\pause \item $n$ is small. E.g. 3, 5, 10, 15.
+\pause \item $n$ is small.
 \pause \item \blue{Independence}: $n \leq 10\% $ rule
 %or if we have an experiment or random process we check that each observation were independent
 \pause \item \blue{Observations come from a nearly normal distribution}:
@@ -74,14 +74,36 @@ We use the $t$ distribution when you have
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{New Topic: Analysis of Variance (ANOVA)}
+\frametitle{Analysis of Variance (ANOVA)}
 A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
+\begin{center}
+\pause\includegraphics[width=0.65\textwidth]{figure/lec22-003}
+\end{center}
 
-\pause \vspace{0.5cm}
+\end{frame}
+%------------------------------------------------------------------------------
 
-We have $k=4$ groups AKA \blue{levels of a factor}: the 4 types of fertilizer.  \pause Say we:
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Analysis of Variance (ANOVA)}
+A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
+\begin{center}
+\includegraphics[width=0.65\textwidth]{figure/lec22-004}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Analysis of Variance (ANOVA)}
+
+We have $k=4$ groups AKA \blue{levels of a factor}: the 4 types of fertilizer.  
+
 \begin{itemize}
-\pause \item assign $n_i$ plants to each of the $k=4$ fertilizers as follows:
+\pause\item $n_i$ plants assigned to each of the $k=4$ fertilizers:
 \[
 \begin{array}{cccc|c}
 n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
@@ -89,7 +111,7 @@ n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
 3 & 7 & 4 & 6 & 20
 \end{array}
 \]
-\pause \item we evaluate the number of tomatoes on each plant
+\pause \item Count the number of tomatoes on each plant
 \end{itemize}
 
 \end{frame}
@@ -142,23 +164,28 @@ Say we have $k$ groups and want to compare the $k$ means:
 \mu_1, \mu_2, \ldots, \mu_k
 \]
 
-\pause \vspace{0.5cm}
+\pause \vspace{0.25cm}
 
-We could do ${k \choose 2}$ individual two-sample tests.  \pause Ex. for groups 1 \& 2:
+We could do ${k \choose 2}$ individual two-sample tests.\\
+\pause \vspace{0.25cm}
+
+Ex. for groups 1 \& 2:
 \begin{eqnarray*}
 H_0: && \mu_1 = \mu_2\\
 \mbox{vs. } H_a:  && \mu_1 \neq \mu_2
 \end{eqnarray*}
-\pause i.e. no difference in means
 
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
+%
+% Comment this
+%
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Analysis of Variance}
-Or, rather than conducting all ${k \choose 2}$ tests, we do \blue{a single overall test} via \blue{Analysis of Variance ANOVA}:
+Or we do \blue{a single overall test} via \blue{Analysis of Variance ANOVA}:
 
 \vspace{0.5cm}
 
@@ -167,14 +194,18 @@ Or, rather than conducting all ${k \choose 2}$ tests, we do \blue{a single overa
 H_0: && \mu_1 = \mu_2 = \ldots = \mu_k\\
 \mbox{vs. } H_a:  && \mbox{at least one of the $\mu_i$'s are different}\\
 \end{eqnarray*}
+
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
+%
+% Comment this
+%
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{How ANOVA Tests Work}
-ANOVA asks:  where is the overall variability of the data originating from?
+\frametitle{Analysis of Variance}
+ANOVA asks:  where is the overall variability of the observations originate from?
 
 \vspace{0.5cm}
 
@@ -213,16 +244,11 @@ Denominator: the \blue{within-group variation} refers to the variability \blue{w
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Tomato Fertilizer Example}
-Now compare the following two plots:
+Now compare the following two plots.  Which has ``more different'' means?
 \setkeys{Gin}{width=0.8\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-008}
 \end{center}
-
-\begin{itemize}
-\pause \item They have the \blue{same within-group} variability.  Call this value $W$
-\pause \item The right plot has \blue{higher between group variability}  b/c the 4 means are more different.  Call these values $B_{left}$ and $B_{right}$ with $B_{left} < B_{right}$
-\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -231,33 +257,36 @@ Now compare the following two plots:
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Tomato Fertilizer Example}
-\setkeys{Gin}{width=0.8\textwidth}
-\begin{center}
-\includegraphics{figure/lec22-008}
-\end{center}
-\[
-\pause \mbox{Recall }F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}} 
-\]
-\pause \begin{eqnarray*}
-\mbox{Since \ }\frac{B_{left}}{W} &<& \frac{B_{right}}{W}\\
-\mbox{thus \ \ \  }F_{left} &<& F_{right}
-\end{eqnarray*}
+
+%
+% Comment this
+%
+\begin{itemize}
+\pause \item They have the \blue{same within-group} variability.  Call this value $W$
+\pause \item The right plot has \blue{higher between group variability}  b/c the 4 means are more different.  Call these values $B_{left}$ and $B_{right}$ with $B_{left} < B_{right}$
+\pause \item Recall $F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}$
+\pause \item Since $\frac{B_{left}}{W} < \frac{B_{right}}{W}$, thus $F_{left} < F_{right}$
+\pause The right plot as a larger $F$-statistic
+\end{itemize}
 
 \end{frame}
-%-------------------------------------------------------------------------------\
+%-------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$F$ Distributions}
+%
+% Comment this
+%
 \blue{Assuming $H_0$ is true} (that $\mu_1 = \mu_2 = \ldots = \mu_k$), the $F$-statistic
 \[
 F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
 \]
-follows the \blue{$F$ distribution with degrees of freedom $df_1=k-1$ and $df_2=n-k$} where
+follows the \blue{$F$ distribution with $df_1=k-1$ and $df_2=n-k$ degrees of freedom } where
 \begin{itemize}
-\pause \item $n$ is the \blue{total} number of observations
-\item $k$ is the number of groups
+\pause \item $n$ = \blue{total} number of observations
+\item $k$ = number of groups
 \end{itemize}
  
 \end{frame}
@@ -267,7 +296,7 @@ follows the \blue{$F$ distribution with degrees of freedom $df_1=k-1$ and $df_2=
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$F$ Distributions}
-Much like the $t$ distribution with degrees of freedom $df$, the parameters for the $F$ distribution are $df_1=k-1$ and $df_2=n-k$.  Example with $df_1 = 4$ and $df_2=6$:
+For $df_1 = 4$ and $df_2=6$, the $F$ distribution looks like:
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-009}
@@ -279,7 +308,7 @@ Much like the $t$ distribution with degrees of freedom $df$, the parameters for 
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$F$ Distributions}
-$p$-values are computed as before where ``more extreme'' means \blue{larger}.  You can compute these in {\tt R} using {\tt pf(F,df1,df2)}.  Say the $F$-statistic is equal to $3$, the $p$-value is the \blue{area to the right of 3}.
+$p$-values are computed where ``more extreme'' means \blue{larger}.  Say the $F=3$, the $p$-value is the \blue{area to the right of 3} and is computed in {\tt R}: {\tt pf(3,df1=4,df2=6,lower.tail=FALSE)}
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-010}
@@ -313,9 +342,13 @@ Total & $n-1$ & $SST$ &  & &
 \begin{frame}
 \frametitle{Conditions}
 \begin{enumerate}
-\pause \item The observations have to be \blue{independent}.  10\% rule.  
-\pause \item If the sample sizes are small within each group, \blue{normality} of the data is important.  If not small, we can be lax about this. 
-\pause \item Each of the groups has \blue{constant variance} $\sigma_1^2 = \ldots = \sigma_k^2 = \sigma^2$.  We can check this with boxplots and by comparing the sample standard deviations $s_1, \ldots, s_k$
+\item The observations have to be \blue{independent}.  10\% rule.  
+\pause \item Trade off of $n$ and \blue{normality} of observations \blue{within each group}. 
+\pause \item Each of the groups has \blue{constant variance} $\sigma_1^2 = \ldots = \sigma_k^2 = \sigma^2$.  Check via:
+\begin{itemize}
+\item boxplots
+\item comparing the sample standard deviations $s_1, \ldots, s_k$
+\end{itemize}
 \end{enumerate}
 
 \end{frame}
@@ -324,15 +357,32 @@ Total & $n-1$ & $SST$ &  & &
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Discussion of Yesterday's Quiz}
-Question 1:  Why did 1 out of the 20 studies yield a positive/significant result i.e. that there is a link between jelly beans and acne?
+\frametitle{Discussion of Quiz}
+\blue{Question 1}:  Why did $\frac{1}{20}$ studies yield a positive/significant result i.e. that there is a link between jelly beans and acne?
 
-\vspace{0.25cm}
+\vspace{0.5cm}
 
 
-\pause Not that the p-value is 0.05, rather that \blue{$\alpha=0.05$} (significance level AKA type I error rate AKA false positive rate) \\
-\pause i.e. we expect 1 out of 20 results to be significant 
+\pause Not that the p-value is 0.05, rather that \blue{$\alpha=0.05$}:
+\begin{itemize}
+\item significance level AKA
+\item type I error rate AKA
+\item false positive rate
+\end{itemize}
+i.e. we expect 1 out of 20 results to be significant even if there is no effect.
 
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figure/jelly.png}
+\end{center}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -345,23 +395,17 @@ Question 1:  Why did 1 out of the 20 studies yield a positive/significant result
 
 \vspace{0.5cm}
 
-\pause To counter this, some prominent medical journals (incl. the New England Journal of Medicine, The Lancet, Annals of Internal Medicine, and JAMA) require registration of a trial \blue{before} it starts so that unfavorable results are not withheld from publication. 
+\pause To counter this, some prominent medical journals including
+\begin{itemize}
+\item New England Journal of Medicine
+\item The Lancet
+\item Journal of the American Medical Association
+\end{itemize}
+\pause require registration of a trial \blue{before} it starts so that unfavorable results are not withheld from publication. 
 
 \vspace{0.5cm}
 
-\pause \blue{\url{http://www.jnrbm.com/content/10/1/6}}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Publication Bias}
-
-\begin{center}
-\pause \includegraphics[width=0.5\textwidth]{figure/jelly.png}
-\end{center}
+\pause Journal of \blue{Negative Results}:  \blue{\url{http://www.jnrbm.com/}}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -381,15 +425,61 @@ From:  Sterne JA, Davey Smith G (2001) Sifting the evidence - What's wrong with 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
+\frametitle{What $\alpha$ to Use?}
+Should I use $\alpha=0.05$ as my significance level?  Before using it, put some thought into the balance between:
+\begin{itemize}
+\pause \item \blue{Type I errors}.  Setting a smaller $\alpha$ yields a more \blue{conservative} procedure: all things being equal, you will reject $H_0$ less often.  
+\pause \item \blue{Type II errors}.  Setting a bigger $\alpha$ yields a more \blue{liberal} procedure: all things being equal, you will reject $H_0$ more often.  
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
 \frametitle{Multiple Testing}
 A related issue is the statistical concept of \blue{multiple testing}.
 
 \vspace{0.5cm}
 
-\pause Say the null is true (i.e. nothing is going on).  If you repeat the experiment more and more times, you're bound to get a significant result eventually just by \blue{chance alone}.
+\pause Say we are conducting many experiments, and $H_0$ is true for all of them.  
+
+\vspace{0.5cm}
+
+\pause If you repeat experiments many times, you're bound to get a significant result eventually just by \blue{chance alone}.
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+
+What do people do?  \pause Make the $\alpha$ stricter!  i.e. 
+\begin{itemize}
+\item make the $\alpha$ smaller
+\pause \item i.e. less chance the p-value is smaller than $\alpha$
+\pause \item i.e. less chance of incorrectly rejecting $H_0$ when it is true
+\end{itemize}
+
+\vspace{0.25cm}
+
+\pause Use the \blue{Bonferroni correction} to $\alpha$:  If you are conducting $n$ tests, use $\alpha^* = \frac{\alpha}{n}$.  You'll study its properties in HW8.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+\end{document}
+
+
+
+
+
+
+% Made this a HW question:
 
 
 %------------------------------------------------------------------------------
@@ -433,25 +523,6 @@ P(\mbox{at least one sig result in 20}) &=& \pause 1 - P(\mbox{no sig results in
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Multiple Testing}
-
-What do people do?  Make the $\alpha$ stricter!  i.e. 
-\begin{itemize}
-\pause \item make the $\alpha$ smaller
-\pause \item so we have less chance the p-value is smaller than $\alpha$
-\pause \item so we have less chance of incorrectly rejecting the null when it is true
-\end{itemize}
-
-\vspace{0.25cm}
-
-\pause \blue{Bonferroni correction}:  If you are conducting $n$ tests, use $\alpha^* = \frac{\alpha}{n}$
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Multiple Testing}
 So in our case, use $\alpha^* = \frac{0.05}{20} = 0.0025$.  \pause Now
 \begin{eqnarray*}
 P(\mbox{at least one sig result in 20}) &=& \pause 1 - P(\mbox{no sig results in 20})\\
@@ -468,23 +539,6 @@ P(\mbox{at least one sig result in 20}) &=& \pause 1 - P(\mbox{no sig results in
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{What $\alpha$ To Set for Single Tests}
-About using $\alpha=0.05$ as your significance level.  Before using it, at least put \blue{some} thought into the balance between:
-\begin{itemize}
-\pause \item \blue{Type I errors}.  If type I errors matter more, set $\alpha$ small.
-\pause \item \blue{Type II errors}.  If type II errors matter more, set $\alpha$ high.
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-\end{document}
 
 
 
