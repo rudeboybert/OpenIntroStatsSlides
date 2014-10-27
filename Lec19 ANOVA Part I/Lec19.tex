@@ -51,47 +51,23 @@
 
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Previously... Conditions/Assumption for Using t Dist'n}
-The key situation to use the $t$ distribution is when you have a \blue{small sample}.
+\frametitle{Previously: Conditions for Using t Distribution}
+%
+% Comment this
+%
+We use the $t$ distribution when you have
 
 \begin{itemize}
-\item \blue{Independence of observations}: To ensure this, either
+\pause \item $n$ is small. E.g. 3, 5, 10, 15.
+\pause \item \blue{Independence}: $n \leq 10\% $ rule
+%or if we have an experiment or random process we check that each observation were independent
+\pause \item \blue{Observations come from a nearly normal distribution}:
 \begin{itemize}
-\item collect a simple random sample that is less than 10\% of the population
-\item or if it was an experiment or random process check that each observation was independent
+\item Look at a histogram of the data (difficult when $n$ is small)
+\item Consider whether any previous experiences alert us that the data may be normal
 \end{itemize}
-\item \blue{Observations come from a nearly normal distribution}:  This second condition is difficult to verify with small data sets:
-\begin{itemize}
-\item take a look at a plot of the data for obvious departures from the normal model
-\item consider whether any previous experiences alert us that the data may not be nearly normal
-\end{itemize}
-\end{itemize}  	
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Confidence Intervals and $t$-Test}
-
-We have the same two methods for inference as in Chapter 4, but:
-\begin{enumerate}
-\item Confidence intervals:  Now we use $t^*_{df}$ instead of $z^*$
-\[
-\left[\xbar - t_{df}^* SE, \mbox{  }\xbar + t_{df}^* SE\right] = 
-\left[
-\overline{x} - t_{df}^* \times\frac{s}{\sqrt n}, \mbox{  }
-\overline{x} + t_{df}^* \times\frac{s}{\sqrt n}
-\right]
-\]
-\item Hypothesis testing:  Now we use the \blue{t-test}
-\[
-t = \frac{\overline{x}-\mbox{null value}}{SE}
-\]
-using the t-table on page 410 (instead of z-table) for $df=n-1$
-\end{enumerate}
-
+\end{itemize}  
+	
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -120,23 +96,10 @@ n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{New Topic: Analysis of Variance (ANOVA)}
-%We use ANOVA to analyze \blue{differences in means} $\mu_1, \ldots, \mu_k$ for $k$ different groups.  Ex: consider the 4 fertilizers and count the number of tomatoes for different plants in two situations:
-%
-%\begin{center}
-%\includegraphics[width=\textwidth]{figure/lec22-007.pdf}
-%\end{center}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following data, where each point is one tomato plant. \textcolor{white}{Plot the sample mean of each level.} \textcolor{white}{Question: are the mean tomato yields different?}  
+We observe the following, where each point is one tomato plant. \textcolor{white}{Plot the sample mean of each level.} \textcolor{white}{Question: are the mean tomato yields different?}  
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-003}
@@ -149,7 +112,7 @@ We observe the following data, where each point is one tomato plant. \textcolor{
 \addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following data, where each point is one tomato plant.  Plot the sample mean of each level. \textcolor{white}{Question:  are the mean tomato yields different?} 
+We observe the following, where each point is one tomato plant.  Plot the sample mean of each level. \textcolor{white}{Question:  are the mean tomato yields different?} 
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-004}
@@ -162,7 +125,7 @@ We observe the following data, where each point is one tomato plant.  Plot the s
 \addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following data, where each point is one tomato plant.  Plot the sample mean of each level. \blue{Question:  are the mean tomato yields different?}
+We observe the following, where each point is one tomato plant.  Plot the sample mean of each level. \blue{Question:  are the mean tomato yields different?}
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-004}
@@ -176,12 +139,12 @@ We observe the following data, where each point is one tomato plant.  Plot the s
 \frametitle{Analysis of Variance}
 Say we have $k$ groups and want to compare the $k$ means:
 \[
-\mu_1 \mbox{ and } \mu_2 \mbox{ and } \ldots \mbox{ and } \mu_k
+\mu_1, \mu_2, \ldots, \mu_k
 \]
 
 \pause \vspace{0.5cm}
 
-We could do ${k \choose 2}$ individual two-sample tests.  Ex. for groups 1 \& 2:
+We could do ${k \choose 2}$ individual two-sample tests.  \pause Ex. for groups 1 \& 2:
 \begin{eqnarray*}
 H_0: && \mu_1 = \mu_2\\
 \mbox{vs. } H_a:  && \mu_1 \neq \mu_2
@@ -357,6 +320,168 @@ Total & $n-1$ & $SST$ &  & &
 
 \end{frame}
 %-------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Discussion of Yesterday's Quiz}
+Question 1:  Why did 1 out of the 20 studies yield a positive/significant result i.e. that there is a link between jelly beans and acne?
+
+\vspace{0.25cm}
+
+
+\pause Not that the p-value is 0.05, rather that \blue{$\alpha=0.05$} (significance level AKA type I error rate AKA false positive rate) \\
+\pause i.e. we expect 1 out of 20 results to be significant 
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+\blue{Publication bias}: people only highlight significant/positive results.  \pause From Wikipedia: ``Publication bias occurs when the publication of research results \blue{depends on their nature and direction}.''
+
+\vspace{0.5cm}
+
+\pause To counter this, some prominent medical journals (incl. the New England Journal of Medicine, The Lancet, Annals of Internal Medicine, and JAMA) require registration of a trial \blue{before} it starts so that unfavorable results are not withheld from publication. 
+
+\vspace{0.5cm}
+
+\pause \blue{\url{http://www.jnrbm.com/content/10/1/6}}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\pause \includegraphics[width=0.5\textwidth]{figure/jelly.png}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/wheel.jpg}
+\end{center}
+From:  Sterne JA, Davey Smith G (2001) Sifting the evidence - What's wrong with significance tests. BMJ 322: 226Ð231.
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+A related issue is the statistical concept of \blue{multiple testing}.
+
+\vspace{0.5cm}
+
+\pause Say the null is true (i.e. nothing is going on).  If you repeat the experiment more and more times, you're bound to get a significant result eventually just by \blue{chance alone}.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+You conduct $n=20$ tests of different jelly beans colors at the $\alpha=0.05$ significance level.  We expect 5\% of them to be significant by chance alone.  
+
+\pause \vspace{0.5cm}
+
+If the tests are independent, the number of significant tests is \blue{Binomial}$(n=20, p=\alpha=0.05)$.  
+
+\pause \vspace{0.5cm}
+
+We saw in Chapter 3 
+\[\mu = np = 20 \times 0.05 = 1 \mbox{ test}\]
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+What is
+\begin{eqnarray*}
+P(\mbox{at least one sig result in 20}) &=& \pause 1 - P(\mbox{no sig results in 20})\\
+\pause &=& 1 - {20 \choose 0} \alpha^{0} (1-\alpha)^{20} \\
+\pause &=& 1- (1-0.05)^{20}\\
+\pause &\approx& 0.64
+\end{eqnarray*}
+
+\pause We have 64\% chance of observing at least one significant result, even if ``nothing is going on.''
+
+\vspace{0.25cm}
+
+\pause Why?  Because we did so many tests!  That is a huge chance of a false positive!
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+
+What do people do?  Make the $\alpha$ stricter!  i.e. 
+\begin{itemize}
+\pause \item make the $\alpha$ smaller
+\pause \item so we have less chance the p-value is smaller than $\alpha$
+\pause \item so we have less chance of incorrectly rejecting the null when it is true
+\end{itemize}
+
+\vspace{0.25cm}
+
+\pause \blue{Bonferroni correction}:  If you are conducting $n$ tests, use $\alpha^* = \frac{\alpha}{n}$
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+So in our case, use $\alpha^* = \frac{0.05}{20} = 0.0025$.  \pause Now
+\begin{eqnarray*}
+P(\mbox{at least one sig result in 20}) &=& \pause 1 - P(\mbox{no sig results in 20})\\
+&=& 1 - {20 \choose 0} \alpha^{*0} (1-\alpha^{*})^{20} \\
+&=& 1- (1-0.0025)^{20}\\
+&\approx& 0.0488
+\end{eqnarray*}
+
+\pause Closer to \blue{true desired} $\alpha=0.05$.  
+
+\vspace{0.25cm}
+
+\pause \blue{Note}: the correction is conservative in that the overall type I error rate is $0.0488 < 0.05$.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{What $\alpha$ To Set for Single Tests}
+About using $\alpha=0.05$ as your significance level.  Before using it, at least put \blue{some} thought into the balance between:
+\begin{itemize}
+\pause \item \blue{Type I errors}.  If type I errors matter more, set $\alpha$ small.
+\pause \item \blue{Type II errors}.  If type II errors matter more, set $\alpha$ high.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
 
 
 \end{document}
