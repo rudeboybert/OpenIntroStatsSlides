@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -108,7 +108,7 @@ What is causality?  How do we establish it?
 \begin{frame}[fragile]
 \frametitle{Question for Today}
 
-According to a poll done by the New York Times/CBS News in June 2012, only about 44\% of the American public approves of the Supreme Court's performance.  
+According to a (representatively sampled) poll done by the New York Times/CBS News in June 2012, only about 44\% of the American public approved of the Supreme Court's performance.  
 
 \vspace{0.25cm}
 
@@ -116,13 +116,14 @@ According to a poll done by the New York Times/CBS News in June 2012, only about
 
 \vspace{0.25cm}
 
-\pause Let's assume the sampling procedure was representative.  What's the first thing to ask?
+\pause What are some next things to ask?
 
 \vspace{0.25cm}
 
-\begin{itemize}
+\pause\begin{itemize}
 \item What was $n$?
-\item In other words, what is the \blue{SE} of $\phat=44\%$?
+\item What is the \blue{SE} of $\phat=44\%=0.44$?
+\item What is the sampling distribution of $\phat$?
 \end{itemize}
 
 \end{frame}
@@ -140,9 +141,17 @@ Just like with $\xbar$, if we want to use the normal model to
 \end{itemize}
 we need the \blue{sampling distribution} of $\phat$ to be nearly normal.  
 
-\vspace{0.5cm}
-\pause This happens when the population distribution of 0's and 1's is not too strongly skewed.  But as before, as the sample size $n \longrightarrow \infty$, this is less of an issue by the CLT. 
+\vspace{0.25cm}
+\pause This happens when the population distribution of 0's and 1's is not too strongly skewed.  As the sample size $n \longrightarrow \infty$, this is less of an issue by the CLT. 
 
+%
+% Comment this
+%
+\vspace{0.25cm}
+\pause Note:  \[
+\phat = \frac{x_1 + \ldots + x_n}{n} = \frac{1}{n}\sum_{i=1}^{n}x_i
+\]
+where each of the $x_i$'s are 0/1 success/failure \blue{Bernoulli} random variables.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -150,12 +159,14 @@ we need the \blue{sampling distribution} of $\phat$ to be nearly normal.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Conditions for Sampling Dist'n of $\phat$ Being Nearly Normal}
-
-The sampling distribution of the \blue{sample proportion} $\phat$ based on a sample of size $n$ is nearly normal when
+%
+% Comment this
+%
+The sampling distribution of the \blue{sample proportion} $\phat$ based on sample size $n$ is nearly normal when
 
 \begin{itemize}
 \pause \item The observations are independent:  the 10\% rule
-\pause \item We expect to see at least 10 successes and 10 failures in our sample.  This is called the \blue{success-failure condition}: that both
+\pause \item We expect to see at least 10 successes and 10 failures in our sample.  This is called the \blue{success-failure condition}:
 \begin{itemize}
 \item $np \geq 10$
 \item $n(1-p) \geq 10$ 
@@ -169,6 +180,9 @@ The sampling distribution of the \blue{sample proportion} $\phat$ based on a sam
 \begin{frame}[fragile]
 \frametitle{Conditions for Sampling Dist'n of $\phat$ Being Nearly Normal}
 
+%
+% Comment this
+%
 If conditions are met, then the sampling distribution of $\phat$ is nearly normal with
 \begin{itemize}
 \item mean $p$ (the true population proportion)
@@ -189,18 +203,19 @@ SE_{\xbar} = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{\sigma^2}{n}}
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Standard Error of $\phat$}
+\frametitle{What $p$ to use?}
+
+%
+% Comment this
+%
 But we \blue{don't know} what $p$ is.  So what $p$ do we use
 \begin{itemize}
-\item to check the conditions?
+\item to check the success/failure condition?
 \item for the $SE_{\phat} = \sqrt{\frac{p(1-p)}{n}}$?
 \end{itemize}
 
-
-How do we verify success/failure conditions?
-
 \vspace{0.5cm}
-
+For
 \begin{itemize}
 \pause \item Confidence intervals: plug in the \blue{point estimate} $\phat$ of p
 \pause \item Hypothesis tests: plug in the \blue{null value} $p_0$ from $H_0: p=p_0$
@@ -221,7 +236,7 @@ Going back to the poll: $\phat=0.44$ based on $n=976$.  What is a 95\% confidenc
 \pause Check the conditions and find SE \blue{using $p=\phat$}
 
 \begin{itemize}
-\pause \item 976 $<$ 313 million $\Rightarrow$ independence
+\pause \item 976 $<$ 10\% of 313 million $\Rightarrow$ independence
 \pause \item Defining a success as a person approving of the job done by the Supreme Court:
 \pause
 \begin{itemize}
@@ -301,7 +316,7 @@ SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{p_0(1-p_0)}{n}} = \sqrt
 \[
 z = \frac{\mbox{point estimate }\phat - \mbox{ null value }p_0}{SE_{\phat}} = \frac{0.52 - 0.50}{0.022} = 0.89
 \]
-\pause p-value is 0.1867.
+\pause p-value is 0.1867.  In the original \%'age scale:
 \begin{center}
    \includegraphics[width=0.6\textwidth]{figure/pvalue.png} 
 \end{center}
@@ -317,16 +332,25 @@ z = \frac{\mbox{point estimate }\phat - \mbox{ null value }p_0}{SE_{\phat}} = \f
 \frametitle{Next Time}
 
 Same as with the jump from 
-\[\mu \mbox{ to }\mu_1-\mu_2\] 
+\[\mu \ \mbox{ to } \ \mu_1-\mu_2\] 
 i.e. from one to two-sample tests for means, 
 we make the jump from 
-\[p \mbox{ to }p_1-p_2\]
+\[p \ \mbox{ to } \ p_1-p_2\]
 i.e. from one to two-sample tests for proportions.
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 \end{document}
+
+
+
+
+
+
+
+
+
 
 
 
