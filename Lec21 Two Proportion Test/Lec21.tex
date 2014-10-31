@@ -50,48 +50,6 @@
 
 
 %------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Proportions}
-
-If
-\begin{itemize}
-\pause\item The sample observations are independent
-\pause\item The \blue{success-failure condition} holds:
-\begin{itemize}
-\item $np \geq 10$
-\item $n(1-p) \geq 10$ 
-\end{itemize}
-\end{itemize}
-\pause then the sampling distribution of $\phat$ is nearly normal and hence we can:
-\begin{itemize}
-\item construct confidence intervals using $z^*$
-\item conduct hypothesis tests and compute $p$-values using z-tables
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Proportions}
-
-Both
-\begin{itemize}
-\pause\item to verify success/failure conditions
-\pause\item in estimate of SE
-\end{itemize}
-we require an estimate of the true proportion $p$.  For
-\begin{itemize}
-\pause\item confidence intervals: use \blue{sample proportion $\phat$} in place of $p$
-\pause\item hypothesis tests: use \blue{null value $p_0$} in place of $p$
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Question for today}
 
@@ -103,13 +61,13 @@ How do we infer about a difference in proportions $p_1-p_2$?
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Confidence Interval: Example from Text}
+\frametitle{Surveys}
 
-The way a question is phrased in survey can influence a person's response.  Ex:  the Pew Research Center conducted a survey with the following question:
+The way a question is phrased in survey can influence a person's response.  Ex on p.269: the Pew Research Center conducted a survey with the following question:
 
 \pause\vspace{0.5cm}
 
-As you may know, by 2014 all Americans will be required to have health insurance.  \blue{X while Y}.  Do you approve of disapprove of this policy?
+\textit{By 2014 all Americans will be required to have health insurance.  \blue{X while Y}.  Do you approve of disapprove of this policy?}
 
 \pause\vspace{0.5cm}
 
@@ -121,7 +79,7 @@ where $X$ and $Y$ were randomly ordered between
 
 \vspace{0.5cm}
 
-\pause Build a 90\% confidence interval for the difference in proportions.  
+\pause Let's infer about the difference in proportion of people who \blue{approve}.  Any guesses which is higher?
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -155,16 +113,45 @@ where $X$ and $Y$ were randomly ordered between
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Conditions for Sampling Dist'n of $\phat_1-\phat_2$ Being Normal}
+\frametitle{Example from Text}
 
+\begin{small}
+\begin{center}
+  \begin{tabular}{l|cccc}
+     & Sample size & Approve & Don't Approve \\ 
+     &  $n_i$ & (\%) & (\%) \\   
+  \hline
+    \blue{people who do not buy it}   & 771 & 47 & 53 \\ 
+    \blue{will pay a penalty}\\ 
+    given first\\     
+    \hline
+    \blue{people who cannot afford} & 732 & 34 & 66 \\ 
+    \blue{it will receive financial}\\ 
+    \blue{help from the gov't}\\ 
+    given first\\    
+   \end{tabular}
+\end{center}
+\end{small}
+\pause So $\phat_1 - \phat_2 = 0.47 - 0.34 > 0$:  people are more likely to support Obamacare in the first scenario.
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Conditions...}
+
+%
+% Comment this
+%
 When
 \begin{itemize}
-\pause\item both sample proportions $\widehat{p}_1$ and $\widehat{p}_2$ are approximately \blue{normal}:
-\begin{itemize}
-\item are independent
-\item satisfies the success/failure condition from Lecture 9.1:  $np \geq 10$ and $n(1-p) \geq 10$
+\item Both sample proportions $\widehat{p}_1$ and $\widehat{p}_2$ are approximately \blue{normal}:
+\pause\begin{itemize}
+\item independence
+\item success/failure condition: at least 10 successes and failures
 \end{itemize}
-\pause\item the samples are independent from each other...
+\pause\item the two samples are independent from each other
 \end{itemize}
 
 \end{frame}
@@ -173,19 +160,20 @@ When
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Conditions for Sampling Dist'n of $\phat_1-\phat_2$ Being Normal}
+\frametitle{... for Sampling Dist'n of $\phat_1-\phat_2$ Being Normal}
 
-...the sampling distribution for the difference of sample proportions $\phat_1 - \phat_2$ is approximately normal with
+%
+% Comment this
+%
+The sampling distribution of $\phat_1 - \phat_2$ is approximately Normal with
 \begin{itemize}
-\pause\item mean $p_1 - p_2$
-\pause\item standard error
+\item mean $p_1 - p_2$
+\item standard error
 \[
 SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} = 
 \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
 \]
 \end{itemize}
-where $p_1, p_2$ are the true population proportions, and $n_1,n_2$ are the sample sizes.
-
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -195,7 +183,10 @@ where $p_1, p_2$ are the true population proportions, and $n_1,n_2$ are the samp
 \begin{frame}[fragile]
 \frametitle{Standard Error}
 
-Recall when looking at numerical data, we showed that the SE for $\xbar_1-\xbar_2$ was
+%
+% Comment this
+%
+Recall we showed that the SE for $\xbar_1-\xbar_2$ was
 \[
 SE_{\xbar_1-\xbar_2} = \sqrt{SE_{\xbar_1}^2 + SE_{\xbar_2}^2} = 
 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
@@ -212,19 +203,21 @@ SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} =
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Confidence Intervals}
-Check the conditions:
+\frametitle{What $p_1$ \& $p_2$?}
+
+%
+% Comment this
+%
+What $p_1$ \& $p_2$ do we
 \begin{itemize}
-\pause\item Normality for each group
-\begin{itemize}
-\pause\item Each group is a sample random sample from less than 10\% of the population
-\pause\item The success/failure condition holds for \blue{both} samples separately:
-\begin{itemize}
-\item $n_1\phat_1 \geq 10$ and $n_1(1-\phat_1) \geq 10$
-\item $n_2\phat_2 \geq 10$ and $n_2(1-\phat_2) \geq 10$
+\item Use to check success/failure condition?
+\item Use in $SE_{\phat_1 - \phat_2}$?
 \end{itemize}
-\end{itemize}
-\pause\item We assume both groups were sampled independently from each other.  
+
+For
+\begin{itemize}
+\item Confidence intervals:  plug in $\phat_1$ and $\phat_2$
+\item Hypothesis tests:  plug in \blue{pooled estimate} $\phat$
 \end{itemize}
 
 \end{frame}
@@ -234,34 +227,51 @@ Check the conditions:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Confidence Intervals}
-Point estimate is
-\[
-\phat_1 - \phat_2 = 0.47 - 0.34 = 0.13
-\]
+What is a 90\% confidence interval for the difference in proportions?
 
-\pause Plug in $\phat_1$ and $\phat_2$ into SE:
+\vspace{0.25cm}
+
+%
+% Comment this
+%
+\pause Check the conditions:
+\begin{itemize}
+\item Normality for each group
+\begin{itemize}
+\pause\item Independence:  both groups $\leq$ 10\% of respective populations
+\pause\item The success/failure condition for \blue{both} groups:
+\begin{itemize}
+\item Group 1:  $362$ successes and $771-362=409$ failures
+\item Group 2:  $249$ successes and $483$ failures
+\end{itemize}
+\end{itemize}
+\pause\item We assume both groups were sampled independently.  
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Confidence Intervals}
+%
+% Comment this
+%
+\begin{itemize}
+\item Point estimate is $\phat_1 - \phat_2 = 0.47 - 0.34 = 0.13$
+%--------
+\pause\item Plug in $\phat_1$ and $\phat_2$ into SE:
 \begin{eqnarray*}
 SE_{\phat_1 - \phat_2} &=& 
-\sqrt{\frac{\phat_1(1-\phat_1)}{n_1} + \frac{\phat_2(1-\phat_2)}{n_2}}\\
-&=& \sqrt{\frac{0.47(1-0.47)}{771} + \frac{0.34(1-0.34)}{732}} = 0.025
+\sqrt{\frac{\phat_1(1-\phat_1)}{n_1} + \frac{\phat_2(1-\phat_2)}{n_2}}= \ldots = 0.025
 \end{eqnarray*}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Confidence Intervals}
-
-A 90\% confidence interval using the normal model is, as always:
-
+%--------
+\pause\item A 90\% confidence interval for $p_1-p_2$ is:
 \pause\begin{eqnarray*}
-\mbox{point estimate} \pm z^* \times SE &=& \mbox{point estimate} \pm 1.65 \times SE\\
-0.13 \pm 1.65 \times 0.025 &\Rightarrow& (0.09, 0.17)
+\mbox{point estimate} \pm z^* \times SE &=& 0.13 \pm 1.65 \times 0.025 = (0.09, 0.17)
 \end{eqnarray*}
-
-Since the confidence interval does not contain 0, 
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -269,18 +279,45 @@ Since the confidence interval does not contain 0,
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Hypothesis Tests of $H_0: p_1=p_2$}
-We are typically interested in differences in proportions being 0 vs something else.  For example
+\frametitle{Interpretation}
+
+Two key observations:
+\begin{itemize}
+\item $(9\%, 17\%)$ does not contain 0, suggestive of a true difference.
+\item The sign of the difference: $\phat_1 - \phat_2 = 0.13 > 0$
+\end{itemize}
+
+\vspace{0.25cm}
+
+\pause More support Obamacare if stated as follows:
+
+\vspace{0.25cm}
+
+\textit{People who do not buy it will pay a penalty \blue{while} people who cannot afford it will receive financial help from the government.}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Hypothesis Tests}
+Now we are interested in testing the difference of two proportions:
 \begin{eqnarray*}
 &&H_0: p_1 - p_2 = 0\\
 \mbox{vs}&&H_1: p_1 - p_2 \neq 0
 \end{eqnarray*}
 
-\pause Note the null hypothesis can be re-expressed as $H_0: p_1 = p_2$.\\
+\pause Note this can be re-expressed as:
+\begin{eqnarray*}
+&&H_0: p_1 = p_2\\
+\mbox{vs}&&H_1: p_1 \neq p_2
+\end{eqnarray*}
 
-\vspace{0.5cm}
+\vspace{0.25cm}
 
-\pause Thus, under the null hypothesis the two proportions are equal.  i.e. $p_1=p_2=p$
+\pause i.e. under $H_0$ the two proportions are both equal to some value $p$:
+\[p_1=p_2=p\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -288,21 +325,26 @@ We are typically interested in differences in proportions being 0 vs something e
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Hypothesis Tests of $H_0: p_1=p_2$}
+\frametitle{Hypothesis Tests}
 
+%
+% Comment this
+%
 So to
 \begin{itemize}
-\item verify the success-failure conditions
-\item compute the standard SE
+\item Verify the success-failure condition
+\item Compute the standard SE
 \end{itemize}
-\pause we use a \blue{pooled estimate} $\widehat{p}$ of the proportion $p$
+\pause we use a \blue{pooled estimate} $\widehat{p}$ of the proportion $p$.  i.e. as if there were \blue{no difference} between them, so we can combine them:
 \[
-\widehat{p} = \frac{\mbox{number of successes}}{\mbox{number of cases}} = \frac{\widehat{p}_1n_1 + \widehat{p}_2n_2}{n_1+n_2}
+\widehat{p} = \frac{\mbox{total \# of successes}}{\mbox{total \# of cases}} %\left(= \frac{\widehat{p}_1n_1 + \widehat{p}_2n_2}{n_1+n_2}\right)
 \]
 
-\pause The estimate of the SE to use in for this hypothesis test is:
+\pause The SE to use is:
 \[
 SE_{\phat_1 - \phat_2} = \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n_1} + \frac{\widehat{p}(1-\widehat{p})}{n_2}}
+=
+\sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}
 \]
 
 \end{frame}
@@ -311,8 +353,8 @@ SE_{\phat_1 - \phat_2} = \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n_1} + \frac{\w
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Exercise 6.31}
-A 2010 survey asked 827 randomly sample voters in California ``Do you support/oppose/don't know drilling for oil and natural gas off the coast of California?'' The responses were:
+\frametitle{Exercise 6.31 on Page 305}
+A 2010 survey asked 827 randomly sample voters in California ``How do you feel about drilling for oil and natural gas off the coast of California?''
 
 \begin{center}
 \begin{tabular}{l|cc}
@@ -326,19 +368,54 @@ Don't Know & 104 & 131 \\
 Total & 438 & 389 \\
 \end{tabular}
 \end{center}
-\pause Conduct a hypothesis test at the $\alpha = 0.01$ significance level to determine if the proportion of college graduates who support off-shore drilling in California is different than that of non-college graduates.
+
+\pause Test at the $\alpha = 0.10$ significance level if the proportion of college graduates who support off-shore drilling is different than that of non-college graduates.
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Next Time}
+\frametitle{Exercise 6.31 on Page 305}
 
-Chi-square tests for
+%
+% Comment this
+%
+The pooled estimate is $\widehat{p} = \frac{154+132}{438+389}=0.346$.  Check the conditions:\\
+
+\begin{enumerate}
+\pause \item Normality of both point estimates
 \begin{itemize}
-\item Goodness-of-fit
-\item Independence of two variables
+\pause \item Independence
+\begin{itemize}
+\item $n_1 = 438 \leq 10\%$ of pop. of CA \blue{college grads}
+\item $n_2 = 389 \leq 10\%$ of pop. of CA \blue{non college grads}
+\end{itemize}
+\pause \item Success/failure: both groups have at least 10 successes and 10 failures.
+\end{itemize}
+\pause \item We assume that both groups are sampled independently.  
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Exercise 6.31 on Page 305}
+
+%
+% Comment this
+%
+\begin{itemize}
+\item Point estimate $\phat_1-\phat_2 = 0.352 - 0.339 = 0.013$
+\pause \item $SE_{\phat_1 - \phat_2} \approx \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)} =
+0.033$
+\pause \item Test statistic:  $z$-score of $\phat_1-\phat_2$ under $H_0:  p_1-p_2=0$
+\[
+z= \frac{\mbox{point estimate} - \mbox{null value}}{SE} = \frac{0.013-0}{0.033} = 0.392
+\]
+\pause \item $p$-value:  0.6922.  i.e. we fail to reject $H_0$.  We don't have strong evidence of a difference in support.
 \end{itemize}
 
 \end{frame}
@@ -376,11 +453,11 @@ Chi-square tests for
 \begin{frame}[fragile]
 \frametitle{Jury Selection}
 
-In both sensational trials a big issue was the \blue{racial makeup} of the jury.  
+Preview of next lecture:  In many trials a big issue is the \blue{racial makeup} of the jury.  
 
-\vspace{0.5cm}
+\vspace{0.25cm}
 
-\pause The question we ask is: is there a way to figure out if there is a \blue{racial bias} in jury selection?  
+\pause Question: is there a way to figure out if there is a \blue{racial bias} in jury selection?  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -389,7 +466,7 @@ In both sensational trials a big issue was the \blue{racial makeup} of the jury.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Jury Selection}
-Say we have a population where the racial breakdown of the juror pool (registered voters) is:
+Say we have a juror pool (registered voters) where the racial breakdown is:
 
 
 \begin{center}
@@ -401,6 +478,8 @@ Registered Voters & 72\% & 7\% & 12\% & 9\% & 100\%\\
 \end{tabular}
 \end{center}
 
+\white{blah blah}
+
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -409,7 +488,7 @@ Registered Voters & 72\% & 7\% & 12\% & 9\% & 100\%\\
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Jury Selection}
-Say we had $n=100$ people picked as jurors, we \blue{expect} the breakdown to be:
+If we pick $n=100$ jurors \blue{at random} (i.e. unbiasedly), we \blue{expect} the breakdown of counts to be:
 
 \begin{center}
 \begin{tabular}{l||cccc|c}
@@ -420,6 +499,8 @@ Representation & 72 & 7 & 12 & 9 & $n=100$ \\
 \end{tabular}
 \end{center}
 
+\white{blah blah}
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -427,7 +508,7 @@ Representation & 72 & 7 & 12 & 9 & $n=100$ \\
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Jury Selection}
-Say we \blue{observe} the following breakdown.  Fairly obvious bias in juror selection!
+Say we \blue{observe} the following counts: \white{blah blah blah blah blah blah blah blah blah blah blah blah}
 
 \begin{center}
 \begin{tabular}{l||cccc|c}
@@ -438,6 +519,8 @@ Representation & 0 & 0 & 100 & 0 & $n=100$ \\
 \end{tabular}
 \end{center}
 
+\pause Fairly obvious bias in juror selection!
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -445,7 +528,7 @@ Representation & 0 & 0 & 100 & 0 & $n=100$ \\
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Jury Selection}
-But what about the following?  We expected 72 whites, but observe 75.  Is there a bias?  i.e. a non-random mechanism at play?
+But what about the following?  Is there a bias?  i.e. a non-random mechanism at play?
 
 \begin{center}
 \begin{tabular}{l||cccc|c}
@@ -456,9 +539,28 @@ Representation & 75 & 6 & 11 & 8 & $n=100$ \\
 \end{tabular}
 \end{center}
 
+\white{blah blah}
+
 \end{frame}
 %------------------------------------------------------------------------------
 
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Next Two Lectures}
+
+Chi-square tests are used to compare \blue{expected} counts with \blue{observed} counts.
+
+\vspace{0.25cm}
+
+\pause Two tests we'll see:
+\begin{itemize}
+\item Goodness-of-fit tests:  for frequency tables
+\item Tests for independence:  for contingency/two-way tables
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 \end{document}
 
