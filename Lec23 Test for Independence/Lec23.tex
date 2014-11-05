@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+% \documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -51,26 +51,52 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Previously... Chi-Square Tests}
+\frametitle{Quiz 9}
 
-Chi-square $\chi^2$ tests allow us compare \blue{observed} counts to \blue{expected} counts.
+\blue{Question}:  While the results of the controlled experiment suggesting that women are at a disadvantage in science hiring may come as no surprise, what argument is made that this discrimination is not entirely due to overt misogyny?  Answer in one sentence.
 
 \vspace{0.5cm}
 
-\pause
-
-We compute a $\chi^2$ statistic, and then compare it to the $\chi^2$ distribution to compute $p$-values.
-\begin{eqnarray*}
-\chi^2 &=& \frac{(\mbox{obs}_1 - \mbox{exp}_1)^2}{\mbox{exp}_1} + \ldots + \frac{(\mbox{obs}_k - \mbox{exp}_k)^2}{\mbox{exp}_k}
-\end{eqnarray*}
+\pause \blue{Answer}: Women rated women candidates lower as well, suggesting not so much explicit misogyny, but rather manifestation of subtler prejudices internalized from societal stereotypes.
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Quiz 9}
+
+\blue{Question}:  Knowing nothing else about the problem (sample sizes, SE, etc), what can we conclude about the difference in means between men and women?
+
+\vspace{0.5cm}
+
+\pause\blue{Answer}: No, refer to HW8 Question 7.  We had two overlapping CIs, but the CI on the difference did not include 0.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Previously... Chi-Square Tests}
+%
+%Chi-square $\chi^2$ tests allow us compare \blue{observed} counts to \blue{expected} counts.
+%
+%\vspace{0.5cm}
+%
+%\pause We compute a $\chi^2$ statistic
+%\begin{eqnarray*}
+%\chi^2 &=& \sum_{i=1}^{k} \frac{(\mbox{obs}_i - \mbox{exp}_i)^2}{\mbox{exp}_i} 
+%\end{eqnarray*}
+%and then compare it to the $\chi^2$ distribution to compute $p$-values.
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Previously... Assumptions for Chi-Square Test}
+\frametitle{Conditions for Chi-Square Test for Goodness-of-Fit}
 \begin{enumerate}
 \item \blue{Independence}:  Each case is independent of the each other
 \item \blue{Sample size/distribution}:  We need at least 5 cases in each scenario i.e. each cell in the table
@@ -84,11 +110,11 @@ We compute a $\chi^2$ statistic, and then compare it to the $\chi^2$ distributio
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Today's Example}
-Google is always tinkering with its search ranking \blue{algorithm}.  \pause Say we want to compare the following 3 algorithms:
+Google is always tinkering with its search ranking \blue{algorithm}.  Say we want to compare the following 3 algorithms:
 \begin{enumerate}
-\pause\item The current version
-\pause\item test 1: test algorithm that boosts the search rank of sites with pictures of cats
-\pause\item test 2: test algorithm that boosts the search rank of sites with pictures of dogs
+\item the current version
+\item test algorithm 1
+\item test algorithm 2
 \end{enumerate}
 
 \end{frame}
@@ -99,10 +125,10 @@ Google is always tinkering with its search ranking \blue{algorithm}.  \pause Say
 \begin{frame}
 \frametitle{Today's Example}
 
-Among the many metrics for user satisfaction with the results for a particular \blue{query} (search term) is the \blue{{\tt new search}} variable:
+They measure user satisfaction with the results for a particular search with the \blue{{\tt new search}} variable:
 \begin{itemize}
-\pause\item No new search: User clicked on a result. User is likely satisfied with result.
-\pause\item New search: User \blue{did not} click on a result and tried a new related search.  User is likely unsatisfied with result.
+\pause\item no new search: User clicked on a result. Suggests user is satisfied with result.
+\pause\item new search: User \blue{did not} click on a result and tried a new related search.  Suggests user is dissatisfied with result.
 \end{itemize}
 
 
@@ -115,37 +141,40 @@ Among the many metrics for user satisfaction with the results for a particular \
 \frametitle{Today's Example}
 So we have two categorical variables:
 \begin{itemize}
-\item Categorial variable {\tt algorithm} (current, test 1, and test 2)
-\item Binary Categorial variable {\tt new search} (yes/no)
+\item {\tt algorithm}: current, test 1, or test 2
+\item {\tt new search}: yes or no
 \end{itemize}
 
-\pause Are they independent?  i.e. for different algorithms, do we have different levels of new search?
+\vspace{0.25cm}
 
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Today's Example}
-
-Let's select queries to evaluate each algorithm and organize them in a \blue{contingency table}:
-
-\begin{center}
-  \begin{tabular}{r|ccc|c}
-& \multicolumn{3}{c|}{{\tt algorithm}} & \\
-       {\tt new search} & Current & Test 1 & Test 2 & Total \\ 
-\hline
-    No new search & \white{4000} & \white{2000} & \white{2000} & \white{8000} \\ 
-    New search & \white{1000} & \white{500} & \white{500} & \white{2000} \\ 
-\hline
-    Total & 5000 & 2500 & 2500 & 10000 \\ 
-  \end{tabular}
-\end{center}
+\pause Are they independent?  i.e. independent of which algorithm is used, do we have the same levels of new search?
 
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Today's Example}
+%
+%Let's select queries to evaluate each algorithm and organize them in a \blue{contingency table}:
+%
+%\begin{center}
+%  \begin{tabular}{r|ccc|c}
+%& \multicolumn{3}{c|}{{\tt algorithm}} & \\
+%       {\tt new search} & Current & Test 1 & Test 2 & Total \\ 
+%\hline
+%    No new search & \white{4000} & \white{2000} & \white{2000} & \white{8000} \\ 
+%    New search & \white{1000} & \white{500} & \white{500} & \white{2000} \\ 
+%\hline
+%    Total & 5000 & 2500 & 2500 & 10000 \\ 
+%  \end{tabular}
+%\end{center}
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -166,11 +195,11 @@ Say we observed the following results:
   \end{tabular}
 \end{center}
 
-\pause We observe that for all 3 algorithms, there is no new search $\frac{4}{5}$ of the time.
+\pause For all 3 algorithms, there is a new search $\frac{1}{5}$ of the time.
 
 \vspace{0.25cm}
 
-\pause In this case, {\tt algorithm} and {\tt new search} are \blue{independent}: \blue{regardless of} which {\tt algorithm} used, the proportion of new searches \blue{stays the same}.
+\pause {\tt algorithm} and {\tt new search} are \blue{independent}: regardless of which algorithm used, the proportion of new searches stays the same.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -205,16 +234,12 @@ Now say instead we observed the following results:
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Hypothesis Test}
-How now test at the $\alpha=0.05$ significance level:
+We test at the $\alpha=0.05$ significance level:
 \begin{eqnarray*}
-H_0:&& \mbox{The algorithms each perform equally well}\\
-\mbox{vs } H_A:&& \mbox{The algorithms do not perform equally well}
+H_0:&& \mbox{the algorithms each perform equally well}\\
+\mbox{vs } H_A:&& \mbox{the algorithms do not perform equally well}
 \end{eqnarray*}
 i.e. are the categorial variables {\tt algorithm} and {\tt new search} independent? 
-
-\vspace{0.5cm}
-
-\pause We can do this via $\chi^2$ tests: \blue{comparing observed vs expected counts}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -224,12 +249,12 @@ i.e. are the categorial variables {\tt algorithm} and {\tt new search} independe
 \begin{frame}
 \frametitle{Different Names}
 
-The following all refer to the same test:
+The following all refer to the same test:  $\chi^2$ test for 
 \begin{itemize}
-\pause\item $\chi^2$ test for \blue{two-way tables}
-\pause\item $\chi^2$ test for \blue{independence} of two categorical variables
-\pause\item $\chi^2$ test for \blue{homogeneity}:  are the algorithms homogeneous in their performance?
-\pause\item $\chi^2$ test for \blue{contingency tables}
+\item \blue{two-way tables}
+\item i.e. \blue{contingency tables}
+\item \blue{independence} of two categorical variables
+\item \blue{homogeneity}:  are the algorithms homogeneous in their performance?
 \end{itemize}
 
 \end{frame}
@@ -240,7 +265,7 @@ The following all refer to the same test:
 \begin{frame}
 \frametitle{Example from Textbook}
 
-Let's make the values match the example from the textbook:
+Let's make the values match the example from the textbook on page 284:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -282,24 +307,7 @@ If all algorithms performed the same, we'd \blue{expect}
 \item \blue{0.2922} for all 3 values in the bottom row
 \end{itemize}
 
-\pause The question is: what is the degree of this deviation?
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{$\chi^2$ Statistic}
-To build the $\chi^2$ statistic, we need a notion of what's \blue{observed} vs what's \blue{expected}.
-
-\vspace{0.5cm}
-
-\pause As just shown, the overall proportions were 0.7078 and 0.2978.  
-
-\vspace{0.5cm}
-
-\pause i.e. under the null hypothesis, we \blue{expect} these proportions to hold for \blue{all} algorithms.  
-
+\pause Are we observing what we expect? i.e. What is the degree of this deviation?
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -394,7 +402,7 @@ We expect:
 \begin{frame}
 \frametitle{Observed vs. Expected}
 
-We \blue{expect}:
+Expected Counts:
 \begin{center}
   \begin{tabular}{r|rrr|r}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -407,7 +415,7 @@ We \blue{expect}:
   \end{tabular}
 \end{center}
     
-\pause We \blue{observed}:
+\pause Observed Counts:
 \begin{center}
   \begin{tabular}{r|rrr|r}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -424,20 +432,19 @@ We \blue{expect}:
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Computing Expected Counts in a Two-Way Table}
-
-
-In effect, we compute the expected count for the $i^{th}$ row and $j^{th}$ column via:
-\[
-\mbox{Expected Count for Row $i$, Col $j$} = 
-\frac{(\mbox{Row $i$ Total})\times(\mbox{Column $j$ Total})}{\mbox{Table Total}}
-\]
-
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Computing Expected Counts in a Two-Way Table}
+%
+%
+%In effect, we compute the expected count for the $i^{th}$ row and $j^{th}$ column via:
+%\[
+%\mbox{Expected Count for Row $i$, Col $j$} = 
+%\frac{(\mbox{Row $i$ Total})\times(\mbox{Column $j$ Total})}{\mbox{Table Total}}
+%\]
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -481,15 +488,19 @@ df &=& (\mbox{\# of rows - 1}) \times (\mbox{\# of columns - 1})\\
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Chi-Square Distribution}
-Looking up 6.120 in the $\chi^2$ table on page 412 on the $df=2$ row, it would be between 0.05 and 0.02.  Since our $\alpha=0.05$, we reject the null hypothesis and accept the alternative that the algorithms do not perform equally well.  
+Looking up 6.120 in the $\chi^2$ table on page 412 on the $df=2$ row, it would be between 0.05 and 0.01.  Since our $\alpha=0.05$, we reject the null hypothesis and accept the alternative that the algorithms do not perform equally well.  
 
-\begin{center}
-\includegraphics[height=3.5cm]{figure/pvalue.png}
-\end{center}
+\vspace{0.5cm}
 
-\pause
-We can also compute the p-value exactly in R by typing\\
-{\tt pchisq(6.120, df=2, lower.tail=FALSE)}.  It was 0.047.
+i.e. the {\tt algorithm} and {\tt new search} categorical variables are independent.
+
+%\begin{center}
+%\includegraphics[height=3.5cm]{figure/pvalue.png}
+%\end{center}
+
+%\pause
+%We can also compute the p-value exactly in R by typing\\
+%{\tt pchisq(6.120, df=2, lower.tail=FALSE)}.  It was 0.047.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -523,12 +534,11 @@ In the case of $\chi^2$ tests, the degrees of freedom is the number of values ne
 \begin{frame}
 \frametitle{Why Are They Called Degrees of Freedom? Rows}
 
-Each row has 2 degrees of freedom because once we've specified 2 values, all values in the row are specified.  
+Each row has $df=2$ because if we specify 2 values, all values in the row are specified.  
 
 \vspace{0.5cm}
 
-\pause
-Say in the 1st row, we specify two (arbitrarily chosen) values:  
+Example:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -552,11 +562,11 @@ i.e. the \blue{wiggle room} we have is $C-1$ two cells
 \begin{frame}
 \frametitle{Why Are They Called Degrees of Freedom? Columns}
 
-Each column has 1 degree of freedom because once we've specified 1 value, all values in the column are specified.  
+Each column has $df=1$ because if we specify 1 value, all values in the column are specified.  
 
 \vspace{0.5cm}
 
-Say in the 1st column, we specify one (arbitrarily chosen) value:  
+Example:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -580,7 +590,7 @@ i.e. the \blue{wiggle room} we have is $R-1$ one cell
 \begin{frame}
 \frametitle{Why Are They Called Degrees of Freedom? Columns}
 
-So the overall $df$ is the row degree of freedom times the column degree of freedom $(C-1)\times(R-1)$, in our case $df=2$.
+So the overall $df$ is $(C-1)\times(R-1)$, in our case $df=2$.
 
 \vspace{0.5cm}
 
@@ -596,21 +606,7 @@ So the overall $df$ is the row degree of freedom times the column degree of free
   \end{tabular}
 \end{center}
 \pause
-i.e. \blue{if we know these two values, we can fill the rest of the table.}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Lecture}
-
-We kick off Chapter 7: Introduction to Linear Regression.
-
-\begin{center}
-\includegraphics[height=6cm]{figure/lec24-003.pdf}
-\end{center}
+i.e. if we know these two values, we can fill the rest of the table.
 
 \end{frame}
 %------------------------------------------------------------------------------
