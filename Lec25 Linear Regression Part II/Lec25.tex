@@ -1,18 +1,22 @@
-
+% Uncomment this to make slides with overlays:
 \documentclass[slides]{beamer}
-\usepackage[]{graphicx, color}
 
+% Uncomment these (but comment the above \documentclass line) to make handouts:
+%\documentclass[handout]{beamer}
+
+% Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
 %\pgfpagesuselayout{2 on 1}[border shrink=5mm]
 %\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
 %\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
+\usepackage[]{graphicx, color, hyperref}
 
 \mode<presentation>
 {
 	%\usetheme[secheader]{Boadilla}
 	%\usecolortheme[rgb={.835, .102,.169}]{structure}  
-	\usetheme[width=0cm]{Goettingen}
+	\usetheme[width= 0cm]{Goettingen}
 	%\setbeamercovered{transparent}
 }
 \setbeamertemplate{navigation symbols}{}
@@ -25,13 +29,16 @@
 \newcommand{\xbar}{\overline{x}}
 \newcommand{\ybar}{\overline{y}}
 \newcommand{\phat}{\widehat{p}}
+\newcommand{\prob}{\mbox{Pr}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mbox{Var}}
+\newcommand{\cp}{\oplus}
+\newcommand{\cm}{\circleddash}
 
 
-\usepackage{hyperref}
-
-\title{Lecture 11.1: Linear Regression Part II}
+\title{Lecture 25: Linear Regression Part II}
 \author{Chapter 7.2-7.4}
-\date{2014/04/14}
+\date{}
 
 
 \begin{document}
@@ -103,13 +110,13 @@
 \begin{frame}[fragile]
 \frametitle{Questions for Today: Example From Text}
 \begin{itemize}
-\pause\item Data: random sample of 50 students in the 2011 freshman class of Elmhurst College in Illinois.
-\pause\item Explanatory variable: Family income
-\pause\item Outcome variable: Gift Aid (financial aid that is a gift, not a loan)
+\item Data: random sample of 50 students in the 2011 freshman class of Elmhurst College in Illinois.
+\pause\item Explanatory variable: family income
+\pause\item Outcome variable: gift aid
 \end{itemize}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{regression.png}
+\includegraphics[width=0.8\textwidth]{figure/regression.png}
 \end{center}
 
 \end{frame}
@@ -136,7 +143,7 @@ they fit the \blue{least-squares line}:
 \pause
 \begin{eqnarray*}
 \widehat{y} &=& b_0 + b_1 x\\
-\mbox{i.e. }\widehat{\mbox{aid}} &=& 24.3 - 0.0431 \times \mbox{family\_income}
+\widehat{\mbox{aid}} &=& 24.3 - 0.0431 \times \mbox{family\_income}
 \end{eqnarray*}
 What do $24.3$ and $-0.0431$ mean?
 
@@ -220,7 +227,7 @@ The linear model is thus
 \frametitle{Categorical Predictor $x$ With Two Levels}
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{mario_kart.png}
+\includegraphics[width=0.8\textwidth]{figure/mario_kart.png}
 \end{center}
 
 \end{frame}
@@ -251,7 +258,7 @@ This can be generalized for predictor variables $x$ with more than two levels, b
 \begin{frame}[fragile]
 \frametitle{Types of Outliers in Linear Regression}
 \begin{center}
-\includegraphics[height=0.8\textheight]{outliers.png}
+\includegraphics[height=0.8\textheight]{figure/outliers.png}
 \end{center}
 \end{frame}
 %------------------------------------------------------------------------------
