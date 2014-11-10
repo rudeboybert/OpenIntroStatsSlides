@@ -51,21 +51,6 @@
 
 %%------------------------------------------------------------------------------
 %\begin{frame}[fragile]
-%\frametitle{Announcement}
-%
-%Who here likes ``debugging'' R code?
-%\begin{itemize}
-%\pause\item Marissa Mayer: \blue{\url{http://www.crunchbase.com/person/marissa-mayer}}
-%\pause\item Eric Roberts: \blue{\url{http://www.newsweek.com/googles-marissa-mayer-girls-can-be-geeks-too-68965}}
-%\pause\item Tomorrow's math colloquium: \blue{\url{http://academic.reed.edu/math/seminars/index.html}}
-%\end{itemize}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
 %\frametitle{Quiz 9}
 %
 %\blue{\url{http://www.nature.com/news/scientific-method-statistical-errors-1.14700}}
@@ -76,30 +61,6 @@
 %%-------------
 %\pause\item \blue{Question 2}: Say a scientist obtains a p-value of 0.01.  An incorrect interpretation of this is that it is the probability of a ``false alarm'' (type I error)...  If one wants to make a statement about this being a false alarm, what additional piece of information is required?\\
 %\pause \blue{Answer 2}: The plausibility of the hypothesis being tested for.  
-%\end{itemize}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Quiz 10}
-%
-%\blue{\url{http://opinionator.blogs.nytimes.com/2013/04/25/what-do-scientific-studies-show/?_php=true&_type=blogs&_r=0}}
-%
-%\begin{itemize}
-%\pause\item \blue{Question 1}: According to the article, why do scientists even bother with correlational/observational studies, when no notions of causality can be established?\\
-%\pause \blue{Answer 1}: They are excellent starting points for deciding which hypotheses to evaluate with the more rigorous randomized controlled experiment.  
-%%-------------
-%\pause\item \blue{Question 2}: The article argues that various scientific disciplines should set professional labeling standards for material discussed in popular media.\\
-%\pause \blue{Answer 2}:
-%\begin{enumerate}
-%\item preliminary result
-%\item large-scale observational study
-%\item large-sample randomized controlled test
-%\item well-established scientific law that we know how to apply in a wide range of conditions
-%\end{enumerate}
 %\end{itemize}
 %
 %\end{frame}
@@ -167,15 +128,15 @@ In this case it is relevant since some families make no income, but the intercep
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Point Estimates of Slope}
-\blue{Point estimate of slope $b_1$}: More interesting. It describes the \blue{relationship} between $x$ and $y$
+\blue{Point estimate of slope $b_1$}: More interesting: it describes the \blue{relationship} between $x$ and $y$
 
 \vspace{0.5cm}
 \pause
-For this example, for each additional \$1000 of family income, we would \blue{expect} a student to receive a net difference of $\$1000 \times (-0.0431) = -\$43.10$ in aid on average.   
+In example: for each additional \$1000 of family income, we \blue{expect} a student to receive a difference of $\$1000 \times (-0.0431) = -\$43.10$ in aid on average.   
 
 \vspace{0.5cm}
 \pause
-Again, even though we've labeled aid as the outcome variable, we are not positing a causal relationship, just an association.  
+Even though we've labeled aid as the outcome variable, we are not positing a causal relationship; just an association.  
 
 
 \end{frame}
@@ -185,16 +146,15 @@ Again, even though we've labeled aid as the outcome variable, we are not positin
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Extrapolate with Care}
-Definition of \blue{extrapolation}:  extend the application of a method or conclusion to an unknown situation by assuming that existing trends will continue or similar methods will be applicable.
+\blue{Extrapolation}:  extend the application of a method or conclusion to an unknown situation by assuming that existing trends will continue or similar methods will be applicable.
 
 \vspace{0.5cm}
 \pause
-What would be the gift aid given to a family with one million dollars ($x=1000$) in family income?
+What would be the gift aid given to a family with \$1,000,000 (i.e. $x=1000$) in family income?
 \[
 24.3 - 0.0431 \times 1000 = -18.8
 \]
 The school will take \$18,800 dollars away from you?  
-
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -203,7 +163,7 @@ The school will take \$18,800 dollars away from you?
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Categorical Predictor $x$ With Two Levels}
-$x$ need not just be a numerical value; it can also be categorical.  
+$x$ can also be categorical.  
 
 \vspace{0.25cm}
 \pause
@@ -248,7 +208,7 @@ So when the game is
 \item New, we have $x=1$, so the fitted value is $\$42.87 + \$10.90 = \$53.77$
 \end{itemize}
 \pause
-This can be generalized for predictor variables $x$ with more than two levels, but this requires a different encoding of $x$.
+This can be generalized for predictor variables $x$ with more than two levels.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -270,8 +230,24 @@ This can be generalized for predictor variables $x$ with more than two levels, b
 Especially in cases 3 and 5, the outliers seem to be pulling the least-squares line towards them.
 
 \vspace{0.5cm}
-\pause
-Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with high \blue{leverage}, i.e. large influence.  
+
+\pause Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with high \blue{leverage}, i.e. large influence.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Concept: Regression to the Mean}
+
+Regression toward (or to) the mean is the phenomenon that if a variable is extreme on its first measurement, it will tend to be closer to the average on its second measurement.
+
+\vspace{0.5cm}
+
+Example: the Madden Curse.  Many NFL players who feature on the cover of the video game Madden end up having subpar subsequent years, leading many to believe there is a curse.
+
+
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -280,47 +256,55 @@ Points that fall horizontally away from the center of the cloud tend to pull har
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Next Example}
-
 Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made from 1980-2005?  Guesses?
 
-\vspace{0.5cm}
-
-\pause But first, are the changes from
-\begin{itemize}
-\item 100 to 200
-\item 100,100 to 100,200
-\end{itemize}
-the same?
-
-
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Next Example}
+%\pause But first, are the changes from
+%\begin{itemize}
+%\item 100 to 200
+%\item 100,100 to 100,200
+%\end{itemize}
+%the same?
+
+%We consider a $\log_{10}$ transformation:
+%
+%\begin{center}
+%  \begin{tabular}{cc|c|cc}
+%    $x$ & $y$ & $y-x$ & $\frac{y}{x}$ & $\log_{10}\left(\frac{y}{x}\right)$\\ 
+%\hline
+%    100 & 200 & 100 & 2 & 0.301\\ 
+%    100100 & 100200 & 100 & 1.000999 & $0.00004342$\\ 
+%    \pause 100000 & 200000 & 100000 & 2& \blue{0.301} \\ 
+%  \end{tabular}
+%\end{center}
+%
+%\pause Recall that $\log_{10}\left(\frac{y}{x}\right) = \log_{10}(y) - \log_{10}(x)$
+%
+%\vspace{0.5cm}
+%
+%\pause So we are considering \blue{multiplicative} changes, and not \blue{additive} changes.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Next Example}
-We consider a $\log_{10}$ transformation:
+\frametitle{Next Time}
 
-\begin{center}
-  \begin{tabular}{cc|c|cc}
-    $x$ & $y$ & $y-x$ & $\frac{y}{x}$ & $\log_{10}\left(\frac{y}{x}\right)$\\ 
-\hline
-    100 & 200 & 100 & 2 & 0.301\\ 
-    100100 & 100200 & 100 & 1.000999 & $0.00004342$\\ 
-    \pause 100000 & 200000 & 100000 & 2& \blue{0.301} \\ 
-  \end{tabular}
-\end{center}
-
-\pause Recall that $\log_{10}\left(\frac{y}{x}\right) = \log_{10}(y) - \log_{10}(x)$
-
-\vspace{0.5cm}
-
-\pause So we are considering \blue{multiplicative} changes, and not \blue{additive} changes.
-
+Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} variables $x_1, x_2, \ldots$
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+\end{document}
 
 
 %%------------------------------------------------------------------------------
@@ -413,28 +397,3 @@ We consider a $\log_{10}$ transformation:
 %\end{center}
 %\end{frame}
 %%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} variables $x_1, x_2, \ldots$
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-\end{document}
-
-
-
-
-
-
-
-
-
-
-
-
