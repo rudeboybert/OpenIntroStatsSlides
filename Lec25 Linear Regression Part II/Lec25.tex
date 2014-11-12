@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -49,22 +49,61 @@
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Quiz 9}
-%
-%\blue{\url{http://www.nature.com/news/scientific-method-statistical-errors-1.14700}}
-%
-%\begin{itemize}
-%\pause\item \blue{Question 1}: What is p-hacking?\\
-%\pause \blue{Answer 1}: Data-dredging AKA ``trying multiple things until you get the desired result'' \blue{\url{http://simplystatistics.org/2013/08/26/statistics-meme-sad-p-value-bear/}}
-%%-------------
-%\pause\item \blue{Question 2}: Say a scientist obtains a p-value of 0.01.  An incorrect interpretation of this is that it is the probability of a ``false alarm'' (type I error)...  If one wants to make a statement about this being a false alarm, what additional piece of information is required?\\
-%\pause \blue{Answer 2}: The plausibility of the hypothesis being tested for.  
-%\end{itemize}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Quiz 9}
+
+\blue{\url{http://www.nature.com/news/scientific-method-statistical-errors-1.14700}}
+
+\vspace{0.5cm}
+
+\blue{Question 1}: What is p-hacking?\\
+\pause \blue{Answer 1}: Data-dredging AKA ``trying multiple things until you get the desired result''\\ 
+\pause\blue{\url{http://simplystatistics.org/2013/08/26/statistics-meme-sad-p-value-bear/}}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Quiz 9}
+
+\blue{\url{http://www.nature.com/news/scientific-method-statistical-errors-1.14700}}
+
+\vspace{0.5cm}
+
+\blue{Question 2}: Say a scientist obtains a p-value of 0.01.  An incorrect interpretation of this is that it is the probability of a ``false alarm'' (type I error)...  If one wants to make a statement about this being a false alarm, what additional piece of information is required?\\
+\pause \blue{Answer 2}: The plausibility of the hypothesis being tested for.  
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Superpopulation}
+
+What if your sample consists of the \blue{entire} population.  Who do the results generalize to?
+
+\vspace{0.25cm}
+
+\pause Example:  Say we run a regression based everyone in this class.
+
+\vspace{0.25cm}
+
+\pause You can view this class as a random sample from a hypothetical \blue{superpopulation} of people:
+\begin{itemize}
+\pause\item Reedies who would take MATH 141 from 2010-2018?
+\pause\item Students at a liberal arts college who take an intro stats class?
+\pause\item Parallel universe?
+\end{itemize}
+
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
 
 
 %------------------------------------------------------------------------------
@@ -100,6 +139,10 @@ sd & $s_x=63.2$ & $s_y=5.46$ \\
 \hline
 \end{tabular}
 \end{center}
+
+%
+% Comment this
+%
 they fit the \blue{least-squares line}:
 \pause
 \begin{eqnarray*}
@@ -115,11 +158,14 @@ What do $24.3$ and $-0.0431$ mean?
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Point Estimates of Intercept}
+%
+% Comment this
+%
 \blue{Point estimate of intercept $b_0$}: 24.3 (in \$1000's) describes the average aid if the family had no income.  
 
 \vspace{0.25cm}
 \pause
-In this case it is relevant since some families make no income, but the intercept may have little or no practical value if there are no observations near $x=0$.  
+Here it is relevant since some families make no income, but the intercept may not make sense if there are no observations near $x=0$.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -128,6 +174,10 @@ In this case it is relevant since some families make no income, but the intercep
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Point Estimates of Slope}
+
+%
+% Comment this
+%
 \blue{Point estimate of slope $b_1$}: More interesting: it describes the \blue{relationship} between $x$ and $y$
 
 \vspace{0.5cm}
@@ -204,7 +254,7 @@ The least-squares line is
 \pause
 So when the game is
 \begin{itemize}
-\item Old, we have $x=0$, so the fitted value is $\$42.87 + \$0 = \$42.87$
+\item Used, we have $x=0$, so the fitted value is $\$42.87 + \$0 = \$42.87$
 \item New, we have $x=1$, so the fitted value is $\$42.87 + \$10.90 = \$53.77$
 \end{itemize}
 \pause
@@ -241,13 +291,32 @@ Especially in cases 3 and 5, the outliers seem to be pulling the least-squares l
 \begin{frame}[fragile]
 \frametitle{Concept: Regression to the Mean}
 
-Regression toward (or to) the mean is the phenomenon that if a variable is extreme on its first measurement, it will tend to be closer to the average on its second measurement.
+The Madden Curse.  Many NFL players who feature on the cover of the video game Madden end up having subpar subsequent years, leading many to believe there is a curse.
+
+\begin{center}
+\includegraphics[height=0.7\textheight]{figure/MaddenCurse.jpg}
+\end{center}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Concept: Regression to the Mean}
+
+%
+% Comment this.
+%
+\blue{Regression to the mean} is the phenomenon that if a variable is extreme on its first measurement, it will tend to be closer to the average on its second measurement.
+\vspace{0.5cm}
+
+\pause Madden is selecting players who had \blue{exceptional} seasons the previous year: the exceptional performance by the players who appear on the cover is \blue{not sustainable}.  
 
 \vspace{0.5cm}
 
-Example: the Madden Curse.  Many NFL players who feature on the cover of the video game Madden end up having subpar subsequent years, leading many to believe there is a curse.
-
-
+\pause So while it looks like a curse, it is just players reverting back to their ``mean'' level of performance.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -298,13 +367,14 @@ Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made fro
 \begin{frame}[fragile]
 \frametitle{Next Time}
 
-Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} variables $x_1, x_2, \ldots$
+Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} predictors $x_1, x_2, \ldots$
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 \end{document}
+
 
 
 %%------------------------------------------------------------------------------

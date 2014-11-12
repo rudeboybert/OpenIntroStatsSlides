@@ -1,7 +1,14 @@
-Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made from 1980-2005?
-========================================================
-We load the `ggplot2` R package first, then the data.
-```{r}
+---
+title: "Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made from 1980-2005?"
+author: "Albert Y. Kim"
+date: "November 12, 2014"
+output: html_document
+---
+
+
+
+We load the `ggplot2` R package first then the data.
+```{r, echo=FALSE}
 if (!is.element("ggplot2", rownames(installed.packages()))) {
   install.packages("ggplot2")
 }
@@ -12,8 +19,7 @@ options(width = 150)
 
 
 
-Data Cleaning
---------------------------------------------------------
+## Data Cleaning
 Let's only consider movies between 1980 and 2005 who have non-missing non-zero budgets.
 ```{r fig.width=6, fig.height=6}
 movies <- subset(movies, movies$budget != 0 & !is.na(movies$budget))
@@ -32,8 +38,7 @@ movies[order(movies$rating, decreasing=TRUE)[1:10], 1:6]
 
 
 
-Budgets and Ratings
---------------------------------------------------------
+## Budgets and Ratings
 Let's look at a histogram of movie budgets.  The data is extremely right skewed: 
 ```{r fig.width=6, fig.height=6}
 movies <- subset(movies, movies$budget != 0 & !is.na(movies$budget))
@@ -55,8 +60,7 @@ hist(movies$rating, xlab="IMDB rating", main="Movie Rating")
 ```
 
 
-Relationship 
---------------------------------------------------------
+## Relationship 
 And here is a scatter plot of movie budgets vs ratings, along with the regression line.  
 ```{r fig.width=6, fig.height=6}
 plot(movies$log10.budget, movies$rating, xlab="log10 of movie budget in USD", ylab="IMDB rating")
@@ -77,8 +81,7 @@ So the interpretation is: for
 we observed a decrease of -0.2170 in the IMDB rating of the movie. If the assumptions of linear regression hold, then a 95\% confidence interval of this estimate is $\mbox{point estimate} \pm 1.96 \times SE = -0.2170 \pm 1.96 \times 0.01963 = (-0.2555, -0.1785)$
 
 
-Diagnostic Plots
---------------------------------------------------------
+## Diagnostic Plots
 However, we must verify the assumptions of linear regression to be able to trust the confidence intervals and hypothesis tests. Here is a histogram of the residuals $e_i = y_i - \widehat{y}_i$.  They are not quite centered and symmetric about 0.
 ```{r fig.width=6, fig.height=6}
 residuals <- residuals(regression)
@@ -100,8 +103,7 @@ lines(lowess(movies$log10.budget, residuals), col="red", lwd=2)
 ```
 
 
-What are some issues with the analysis?
---------------------------------------------------------
+## What are some issues with the analysis?
 
 
 
