@@ -103,12 +103,15 @@ eBay price of old vs new Mario Kart using $n=141$.  On page 355:
 \end{tabular}
 \end{table}
 
-%\pause where
-%\begin{itemize}
-%\item degrees of freedom $df=n-k-1 = n -(k+1) =141-2=139$
-%\item $k$ is the \# of predictors in the model
-%\item $k+1$ is the \# of parameters in the model: $\beta_0$ and $\beta_1$
-%\end{itemize}
+%
+% Comment this
+%
+\pause where
+\begin{itemize}
+\item degrees of freedom $df=n-k-1 = n -(k+1) =141-2=139$
+\item $k$ is the \# of predictors in the model
+\item $k+1$ is the \# of parameters in the model: $\beta_0$ and $\beta_1$
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -117,20 +120,23 @@ eBay price of old vs new Mario Kart using $n=141$.  On page 355:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Confidence Interval and Hypothesis Test for $\beta_1$}
-%Looking at t-table, for $df=139$, $t^*_{df=139} = 1.98$, so a 95\% confidence interval for $\beta_1$ is
-%\begin{eqnarray*}
-%b_1 \pm 1.98 \times SE_{b_1} &=& 10.90 \pm 1.98 \times 1.26\\
-%&=& (8.40, 13.39)
-%\end{eqnarray*}
 %
-%\pause\vspace{0.5cm}
+% Comment this
 %
-%The p-value for the two-sided hypothesis test of
-%\begin{eqnarray*}
-%&& H_0: \beta_1 = 0\\
-%\mbox{vs}&& H_A: \beta_1 \neq 0 
-%\end{eqnarray*}
-%is essentially 0, so we \blue{reject the null hypothesis} and declare that there is an association between {\tt price} and {\tt cond\_new}.
+Looking at t-table, for $df=139$, $t^*_{df=139} = 1.98$, so a 95\% confidence interval for $\beta_1$ is
+\begin{eqnarray*}
+b_1 \pm 1.98 \times SE_{b_1} &=& 10.90 \pm 1.98 \times 1.26\\
+&=& (8.40, 13.39)
+\end{eqnarray*}
+
+\pause\vspace{0.5cm}
+
+The p-value for the two-sided hypothesis test of
+\begin{eqnarray*}
+&& H_0: \beta_1 = 0\\
+\mbox{vs}&& H_A: \beta_1 \neq 0 
+\end{eqnarray*}
+is essentially 0, so we \blue{reject the null hypothesis} and declare that there is an association between {\tt price} and {\tt cond\_new}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -172,15 +178,18 @@ How do we simultaneously incorporate all four predictors to model the eBay aucti
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Multiple Regression}
-%Use \blue{multiple regression} (done via computer) where
-%\begin{eqnarray*}
-%{\tt price} &=& \beta_0 + \beta_1 \times {\tt cond\_new} + \beta_2 \times {\tt stock\_photo} + \\ 
-%&&\beta_3 \times {\tt duration} + \beta_4 \times {\tt wheels}\\
-%\pause
-%\mbox{or in general...} &&\\
-%y &=& \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k
-%\end{eqnarray*}
-%for $k$ predictor variables.
+%
+% Comment this
+%
+Use \blue{multiple regression} (done via computer) where
+\begin{eqnarray*}
+{\tt price} &=& \beta_0 + \beta_1 \times {\tt cond\_new} + \beta_2 \times {\tt stock\_photo} + \\ 
+&&\beta_3 \times {\tt duration} + \beta_4 \times {\tt wheels}\\
+\pause
+\mbox{or in general...} &&\\
+y &=& \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k
+\end{eqnarray*}
+for $k$ predictor variables.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -188,14 +197,17 @@ How do we simultaneously incorporate all four predictors to model the eBay aucti
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Point Estimates, Fitted Values, and Residuals}
-%Just as with SLR, we compute \blue{point estimates} $b_0, b_1, \ldots, b_k$ of the \blue{parameters} $\beta_0, \beta_1, \ldots, \beta_k$.
 %
-%\pause\vspace{0.5cm}
+% Comment this
 %
-%For each observation $i=1,\ldots,n$ the $i^{th}$ \blue{residual} $e_i=y_i - \widehat{y}_i$.  The point estimates minimize the \blue{least squares criterion}:
-%\begin{eqnarray*}
-%\sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2
-%\end{eqnarray*}
+Just as with SLR, we compute \blue{point estimates} $b_0, b_1, \ldots, b_k$ of the \blue{parameters} $\beta_0, \beta_1, \ldots, \beta_k$.
+
+\pause\vspace{0.5cm}
+
+For each observation $i=1,\ldots,n$ the $i^{th}$ \blue{residual} $e_i=y_i - \widehat{y}_i$.  The point estimates minimize the \blue{least squares criterion}:
+\begin{eqnarray*}
+\sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2
+\end{eqnarray*}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -229,12 +241,15 @@ where $df=n-k-1=141-4-1=136$
 \begin{frame}[fragile]
 \frametitle{Interpretation of Point Estimates}
 
-%The point estimates are interpreted as follows, for example:
-%\begin{itemize}
-%\item $b_4$ of {\tt wheels}:  \blue{holding all other variables constant} (\blue{all other things being equal}), the average difference in price associated with each additional Wii wheel is \$7.29.
-%\pause
-%\item $b_3$ of {\tt duration}:  \blue{holding all other variables constant}, every additional day of auction is associated with an average decrease of \$0.03 in price.  
-%\end{itemize}
+%
+% Comment this
+%
+The point estimates are interpreted as follows, for example:
+\begin{itemize}
+\item $b_4$ of {\tt wheels}:  \blue{holding all other variables constant} (\blue{all other things being equal}), the average difference in price associated with each additional Wii wheel is \$7.29.
+\pause
+\item $b_3$ of {\tt duration}:  \blue{holding all other variables constant}, every additional day of auction is associated with an average decrease of \$0.03 in price.  
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -290,17 +305,20 @@ In general we must be wary of predictor variables that are collinear, because th
 \begin{frame}[fragile]
 \frametitle{$R^2$ to Describe the Strength of Fit}
 
-%$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model:
 %
-%\pause
-%\begin{eqnarray*}
-%R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}} =  1 - \frac{Var(e_i)}{Var(y_i)}
-%\end{eqnarray*}
-%\pause
-%Say the model fits all the data \blue{exactly} i.e. $e_i = y_i - \widehat{y}_i=0$ for all $i$, then
-%\begin{eqnarray*}
-%R^2 &=& 1 - \frac{0}{Var(y_i)} = 1
-%\end{eqnarray*}
+% Comment this
+%
+$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model:
+
+\pause
+\begin{eqnarray*}
+R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}} =  1 - \frac{Var(e_i)}{Var(y_i)}
+\end{eqnarray*}
+\pause
+Say the model fits all the data \blue{exactly} i.e. $e_i = y_i - \widehat{y}_i=0$ for all $i$, then
+\begin{eqnarray*}
+R^2 &=& 1 - \frac{0}{Var(y_i)} = 1
+\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -325,12 +343,15 @@ $R^2_{adj}$ describes the strength of fit while adhering to the following:
 \begin{frame}[fragile]
 \frametitle{Adjusted $R^2_{adj}$}
 
-%The \blue{adjusted $R^2_{adj}$} takes into account the number of predictor variables $k$ you used to fit your model:  
 %
-%\pause
-%\begin{eqnarray*}
-%R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{Var(e_i)}{Var(y_i)} \times \frac{n-1}{n-k-1}
-%\end{eqnarray*}
+% Comment this
+%
+The \blue{adjusted $R^2_{adj}$} takes into account the number of predictor variables $k$ you used to fit your model:  
+
+\pause
+\begin{eqnarray*}
+R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{Var(e_i)}{Var(y_i)} \times \frac{n-1}{n-k-1}
+\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -362,18 +383,21 @@ $R^2_{adj}$ describes the strength of fit while adhering to the following:
 \begin{frame}[fragile]
 \frametitle{Parsimony/Occam's Razor}
 
-%Say for two models applied to the same data:
-%\begin{itemize}
-%\pause\item Model 1: $\widehat{y}_i = b_0 + b_1 x_{1,i}$ \ with residuals $e_i = y_i - \widehat{y}_i$
-%\pause\item Model 2: $\widehat{y}_i^* = b_0^* + b_1^* x_{1,i} + \blue{b_2^* x_{2,i}}$ \ with residuals $e_i^* = y_i - \widehat{y}_i^*$
-%\end{itemize}
 %
-%\pause both models fit the data near identically, i.e. the residuals are similar
-%\begin{eqnarray*}
-%Var(e_i) \approx Var(e_i^{*}) \ldots
-%\end{eqnarray*}
+% Comment this
 %
-%\pause Then we should pick Model 1 over Model 2 since it is \blue{simpler}: it has fewer of predictors $k$.
+Say for two models applied to the same data:
+\begin{itemize}
+\pause\item Model 1: $\widehat{y}_i = b_0 + b_1 x_{1,i}$ \ with residuals $e_i = y_i - \widehat{y}_i$
+\pause\item Model 2: $\widehat{y}_i^* = b_0^* + b_1^* x_{1,i} + \blue{b_2^* x_{2,i}}$ \ with residuals $e_i^* = y_i - \widehat{y}_i^*$
+\end{itemize}
+
+\pause both models fit the data near identically, i.e. the residuals are similar
+\begin{eqnarray*}
+Var(e_i) \approx Var(e_i^{*}) \ldots
+\end{eqnarray*}
+
+\pause Then we should pick Model 1 over Model 2 since it is \blue{simpler}: it has fewer of predictors $k$.
 
 \end{frame}
 %------------------------------------------------------------------------------
