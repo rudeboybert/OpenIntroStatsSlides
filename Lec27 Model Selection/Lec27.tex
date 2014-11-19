@@ -36,7 +36,7 @@
 \newcommand{\cm}{\circleddash}
 
 
-\title{Lecture 27: Model Selection + Multiple Regression Assumption Verification}
+\title{Lecture 27: Model Selection + Multiple Regression Conditions}
 \author{Chapter 8.2-8.3}
 \date{}
 
@@ -58,11 +58,11 @@ Recall the Mario Kart analysis
 \begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)   41.34153    1.71167  24.153  < 2e-16 ***
-condused      -5.13056    1.05112  -4.881 2.91e-06 ***
-stockPhotoyes  1.08031    1.05682   1.022    0.308    
-duration      -0.02681    0.19041  -0.141    0.888    
-wheels         7.28518    0.55469  13.134  < 2e-16 ***
+(Intercept)      41.34       1.71   24.15  < 2e-16 ***
+condused         -5.13       1.05   -4.88 2.91e-06 ***
+stockPhotoyes     1.08       1.06    1.02    0.308    
+duration         -0.03       0.19   -0.14    0.888    
+wheels            7.29       0.55   13.13  < 2e-16 ***
 ---
 
 Residual standard error: 4.901 on 136 degrees of freedom
@@ -77,21 +77,19 @@ Multiple R-squared:  0.719,	Adjusted R-squared:  0.7108
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Question for Today}
-This was the \blue{full model}:  we included every explanatory variable provided.
-
-\pause
-\vspace{0.5cm}
-
-Recall the principle inspired by Occam's Razor: \blue{all other things being equal, simpler is better}.  In our case:  less predictor variables included in the model!
-
+This is the \blue{full model}:  every explanatory variable provided is included.
 
 \pause\vspace{0.5cm}
 
-Is there a systematic (or should I say, less unsystematic) way to pick which predictor variables to include?  
+Recall Occam's Razor: \blue{all other things being equal, simpler is better}.  
 
-\vspace{0.5cm}
+\pause\vspace{0.5cm}
 
-\pause Via \blue{model selection} techniques.  
+In our case:  simpler = less predictor variables included in the model.
+
+\pause\vspace{0.5cm}
+
+The act of choosing which predictor variables to include in your model is \blue{model selection}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -101,7 +99,7 @@ Is there a systematic (or should I say, less unsystematic) way to pick which pre
 \begin{frame}[fragile]
 \frametitle{Two Common Strategies}
 
-The following are two common \blue{stepwise regression} methods because they add/subtract one variable at a time:
+There are two \blue{stepwise regression} methods that add/subtract one variable at a time:
 \begin{itemize}
 \item Backward Elimination
 \item Forward Selection
@@ -110,7 +108,7 @@ The following are two common \blue{stepwise regression} methods because they add
 \pause
 \vspace{0.5cm}
 
-We will discuss this in terms of a p-value approach.  We can also use $R^2_{adj}$ as a criterion.  
+The criteria used will be $p$-values ($R^2_{adj}$ can be used as well).  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -137,6 +135,32 @@ We will discuss this in terms of a p-value approach.  We can also use $R^2_{adj}
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Backward Elimination}
+Starting here:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|rrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 41.3415 & 1.7117 & 24.15 & 0.0000 \\ 
+  {\tt cond\_used} & -5.1306 & 1.0511 & -4.88 & 0.0000 \\ 
+  {\tt stockPhotoyes} & 1.0803 & 1.0568 & 1.02 & 0.3085 \\ 
+  {\tt duration} & -0.0268 & 0.1904 & -0.14 & 0.8882 \\ 
+  {\tt wheels} & 7.2852 & 0.5547 & 13.13 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Backward Elimination}
+Drop {\tt duration}.
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{r|rrrr}
@@ -151,7 +175,6 @@ We will discuss this in terms of a p-value approach.  We can also use $R^2_{adj}
    \hline
 \end{tabular}
 \end{table}
-Drop {\tt duration}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -160,6 +183,8 @@ Drop {\tt duration}.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Backward Elimination}
+Drop {\tt stockPhotoyes}.
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -173,7 +198,6 @@ Drop {\tt duration}.
    \hline
 \end{tabular}
 \end{table}
-Drop {\tt stockPhotoyes}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -182,6 +206,7 @@ Drop {\tt stockPhotoyes}.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Backward Elimination}
+Done.
 
 \begin{table}[ht]
 \centering
@@ -195,7 +220,7 @@ Drop {\tt stockPhotoyes}.
    \hline
 \end{tabular}
 \end{table}
-Done. 
+ 
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -221,17 +246,12 @@ Done.
 \begin{frame}[fragile]
 \frametitle{Criticisms of the Techniques}
 
-Data dredging is the use of data mining to uncover relationships in data.
+Critics regard stepwise regression as \blue{data dredging}, where intense computation is used as a substitute for subject area expertise when deciding on a model.  
 
 \pause
 \vspace{0.5cm}
 
-Critics regard stepwise regression as a paradigmatic example of data dredging, intense computation often being an inadequate substitute for subject area expertise.
-
-\pause
-\vspace{0.5cm}
-
-The process of data mining involves automatically testing huge numbers of hypotheses about a single data set by exhaustively searching for combinations of variables that might show a correlation.  Think of multiple testing issues!
+\blue{Data mining} involves automatically testing huge numbers of hypotheses about a single data set by exhaustively searching for combinations of variables that might show a correlation.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -252,7 +272,7 @@ The process of data mining involves automatically testing huge numbers of hypoth
 \frametitle{Assumptions of Multiple Regression}
 
 \begin{itemize}
-\pause\item The residuals $e_i$ of the model 
+\item The residuals $e_i$ of the model 
 \begin{itemize}
 \pause\item are nearly normal
 \pause\item have nearly constant variance
@@ -273,10 +293,9 @@ We investigate plots for the following model:
 \widehat{{\tt price}} = b_0 + b_1 \times {\tt cond\_new} + b_2 \times {\tt wheels}
 \]
 
-\pause
 \begin{itemize}
 \pause\item Normal probability plot of residuals
-\item Absolute values of residuals against fitted values: look for non-constant variance
+\pause\item Absolute values of residuals against fitted values: look for non-constant variance
 \pause\item Residuals against each predictor variable
 \end{itemize}
 
@@ -337,7 +356,7 @@ We investigate plots for the following model:
 \frametitle{George E.P. Box}
 There was a famous statistician named Box
 \begin{center}
-\includegraphics[height=0.7\textheight]{figure/GeorgeEPBox.jpg}
+\includegraphics[height=0.5\textheight]{figure/GeorgeEPBox.jpg}
 \end{center}
 famous for the Box/Cox Transformation.  
 \end{frame}
@@ -358,7 +377,7 @@ famous for the Box/Cox Transformation.
 \begin{frame}[fragile]
 \frametitle{Caution}
 
-That being said, while we can tolerate a little leeway with model assumptions, don't report results when the assumptions are grossly violated.  If model assumptions are clearly violated
+We can tolerate a little leeway with model assumptions, but when they are grossly violated we have to be skeptical of any confidence intervals/$p$-values.  If model assumptions are clearly violated
 \pause
 \begin{itemize}
 \item consider a new model
@@ -373,12 +392,12 @@ That being said, while we can tolerate a little leeway with model assumptions, d
 \begin{frame}[fragile]
 \frametitle{Next Time}
 
-What if the outcome variable is not numerical, but rather a binary yes vs no response variable?
+What if the outcome variable is not numerical, but rather a \blue{yes/no} response variable?
 
 \pause \begin{itemize}
 \item Was an email spam or not?
 \item Will someone develop cancer or not?
-\item Will a car pass an emission test?
+\item Is a person female?
 \end{itemize}
 
 \pause We use \blue{logistic regression}.  
