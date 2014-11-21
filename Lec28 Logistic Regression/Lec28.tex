@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -25,6 +25,7 @@
 \definecolor{blue2}{rgb}{0.278,0.278,0.729} 
 \newcommand{\blue}[1]{\textcolor{blue2}{#1}}
 \newcommand{\white}[1]{\textcolor{white}{#1}}
+\newcommand{\grey}[1]{\textcolor{grey}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\xbar}{\overline{x}}
 \newcommand{\ybar}{\overline{y}}
@@ -47,7 +48,6 @@
 \titlepage
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %library(openintro)
@@ -75,19 +75,14 @@
 %ftable(spam=email$spam, class=fitted(model)>0.3)
 
 
-
-
-
-
-
-
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Binary Outcome Variables}
 
-Instead of numerical outcome variables, we have observations $Y_i$ where
+%
+% Comment this
+%
+Instead of numerical outcomes, we have observations $Y_i$ for $i=1,\ldots,n$ where
 \begin{itemize}
 \item $Y_i=1$ with probability $p_i$
 \item $Y_i=0$ with probability $1-p_i$
@@ -95,7 +90,7 @@ Instead of numerical outcome variables, we have observations $Y_i$ where
 
 \vspace{0.5cm}
 \pause
-\blue{Logistic regression}: we are modeling $p_i$, the probability associated with the $i^{th}$ observation for $i=1,\ldots,n$
+\blue{Logistic regression}: we are modeling $p_i$'s with a linear model.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -105,6 +100,9 @@ Instead of numerical outcome variables, we have observations $Y_i$ where
 \begin{frame}[fragile]
 \frametitle{Outcome Variable}
 
+%
+% Comment this
+%
 Let
 \[
 x_{1,i}, \ldots x_{k,i}
@@ -131,11 +129,13 @@ However, you may end up fitting $p_i$'s that are either
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Outcome Variable}
+
+%
+% Comment this
+%
 Rather, what is modeled is the \blue{logit transformation} or \blue{log-odds} of $p_i$
 \[
 \mbox{logit}(p_i) = \log\left(
@@ -148,11 +148,13 @@ Why this transformation?  It maps the $[0,1]$ interval to a $(-\infty, \infty)$ 
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Outcome Variable}
+
+%
+% Comment this
+%
 First, convert $p_i$ into odds:
 
 \vspace{0.25cm}
@@ -168,7 +170,8 @@ Then we take the natural log of it.  So
 %------------
 \pause\item for $p_i=0.5 \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{0.5}{0.5}\right) = 0$
 %------------
-\pause\item for $p_1=1  \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{1}{0}\right)\footnote{Not defined actually, we need to state $\lim_{p_i \rightarrow 1}\frac{p_i}{1-p_i}=\infty$} = \log(\infty) = \infty$
+\pause\item for $p_1=1  \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{1}{0}\right) = \log(\infty) = \infty$
+%\footnote{Not defined actually, we need to state $\lim_{p_i \rightarrow 1}\frac{p_i}{1-p_i}=\infty$} 
 \end{itemize}
 
 \end{frame}
@@ -188,12 +191,12 @@ Figure 8.14 from page 369
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Simple Logistic Regression Example}
+\frametitle{Simple Logistic Regression Example p.370}
 
 So say we fit a logistic regression with ($n=3921$):
 \begin{itemize}
 \item $Y_i$ is {\tt spam}:  binary variable of whether message was classified as spam (1 if spam)
-\item $x$ is {\tt to\_multiple}:  binary variable indicating if more than one recipient listed
+\item $x_i$ is {\tt to\_multiple}:  binary variable indicating if more than one recipient listed
 \end{itemize}
 \pause
 \begin{table}[ht]
@@ -208,6 +211,9 @@ So say we fit a logistic regression with ($n=3921$):
 \end{tabular}
 \end{table}
 
+%
+% Comment this
+%
 The regression equation is
 \[
 \log\left(\frac{p_i}{1-p_i}\right) = -2.12 - 1.81 \times {\tt to\_multiple} 
@@ -220,6 +226,9 @@ The regression equation is
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Inverse Logit Transformation}
+%
+% Comment this
+%
 How do we convert back into $p_i$'s?
 \pause
 \begin{eqnarray*}
@@ -241,6 +250,9 @@ p_i = \frac{\exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}{1 + \exp
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Fitted Probabilities}
+%
+% Comment this
+%
 To compute the fitted probabilities $\widehat{p}_i$:
 \begin{itemize}
 \item {\tt to\_multiple}$ = 0$ (only one recipient):
@@ -253,8 +265,7 @@ To compute the fitted probabilities $\widehat{p}_i$:
 \]
 \end{itemize}
 \pause
-Note:  11\% and 2\% are not dramatically different.  In an ideal world of binary predictors, we'd have fitted probabilities of 100\% and 0\%.  
-
+Note:  11\% and 2\% are not dramatically different.  In an ideal world of binary predictors, we'd have fitted probabilities of 100\% and 0\%.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -288,7 +299,7 @@ The following model was selected in the text using backwards selection using $\a
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Fitted Model Using Backwards Regression}
-The following variables increase the probability that the email is spam, since $\beta>0$
+The following variables increase the probability that the email is spam, since $b>0$
 
 \begin{table}[ht]
 \centering
@@ -297,12 +308,12 @@ The following variables increase the probability that the email is spam, since $
  & Estimate & Std. Error & z value & Pr($>$$|$z$|$) \\ 
   \hline
 (Intercept) & -0.8057 & 0.0880 & -9.15 & 0.0000 \\ 
-  to\_multiple? & -2.7514 & 0.3074 & -8.95 & 0.0000 \\ 
+  \white{to\_multiple?} & \white{-2.7514} & \white{0.3074} & \white{-8.95} & \white{0.0000} \\ 
   \blue{word winner used?} & \blue{1.7251} & \blue{0.3245} & \blue{5.32} & \blue{0.0000} \\ 
-  special formatting? & -1.5857 & 0.1201 & -13.20 & 0.0000 \\ 
-  `RE:' in subject? & -3.0977 & 0.3651 & -8.48 & 0.0000 \\ 
+  \white{special formatting?} & \white{-1.5857} & \white{0.1201} & \white{-13.20} & \white{0.0000} \\ 
+  \white{`RE:' in subject?} & \white{-3.0977} & \white{0.3651} & \white{-8.48} & \white{0.0000} \\ 
   \blue{attachment?} & \blue{0.2127} & \blue{0.0572} & \blue{3.72} & \blue{0.0002} \\ 
-  word password used? & -0.7478 & 0.2956 & -2.53 & 0.0114 \\ 
+  \white{word password used?} & \white{-0.7478} & \white{0.2956} & \white{-2.53} & \white{0.0114} \\ 
    \hline
 \end{tabular}
 \end{table} 
@@ -314,7 +325,7 @@ The following variables increase the probability that the email is spam, since $
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Fitted Model Using Backwards Regression}
-The following variables decrease the probability that the email is spam, since $\beta<0$
+The following variables decrease the probability that the email is spam, since $b<0$
 
 \begin{table}[ht]
 \centering
@@ -324,10 +335,10 @@ The following variables decrease the probability that the email is spam, since $
   \hline
 (Intercept) & -0.8057 & 0.0880 & -9.15 & 0.0000 \\ 
   \blue{to\_multiple?} & \blue{-2.7514} & \blue{0.3074} & \blue{-8.95} & \blue{0.0000} \\ 
-  word winner used? & 1.7251 & 0.3245 & 5.32 & 0.0000 \\ 
+  \white{word winner used?} & \white{1.7251} & \white{0.3245} & \white{5.32} & \white{0.0000} \\ 
   \blue{special formatting?} & \blue{-1.5857} & \blue{0.1201} & \blue{-13.20} & \blue{0.0000} \\ 
   \blue{`RE:' in subject?} & \blue{-3.0977} & \blue{0.3651} & \blue{-8.48} & \blue{0.0000} \\ 
-  attachment? & 0.2127 & 0.0572 & 3.72 & 0.0002 \\ 
+  \white{attachment?} & \white{0.2127} & \white{0.0572} & \white{3.72} & \white{0.0002} \\ 
   \blue{word password used?} & \blue{-0.7478} & \blue{0.2956} & \blue{-2.53} & \blue{0.0114} \\ 
    \hline
 \end{tabular}
@@ -430,7 +441,7 @@ Using a cutoff of 30\%:
 \begin{frame}[fragile]
 \frametitle{Using Cutoffs to Classify Emails as Spam}
 
-\blue{Moral of the Story}:  most classifiers (like hypothesis tests) are never perfect.  There will almost always be a trade-off between:  
+\blue{Moral of the Story}:  most classifiers are never perfect (like hypothesis tests).  There will almost always be a trade-off between:  
 \begin{itemize}
 \item Type I errors:  labeling an email spam when it is not
 \item Type II errors:  failing to label an email as spam when it is 
@@ -444,32 +455,14 @@ Using a cutoff of 30\%:
 \begin{frame}[fragile]
 \frametitle{Assumptions for Logistic Regression}
 \begin{itemize}
-\pause\item You mean to say there is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
+\item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
 \pause\item Each outcome $Y_i$ is independent of the other outcomes.  This can be verified using the residuals $e_i = Y_i - \widehat{p}_i$
 \end{itemize}
 
 \pause Please read pages 375 and 376 from the text.  
 
-
-
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-Bayes Theorem, Bayesian statistics, False Discovery Rate
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-
 
 
 
