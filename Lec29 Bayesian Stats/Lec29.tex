@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -52,15 +52,15 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Recall from Lecture 3.3: Conditional Probability}
+\frametitle{Recall Conditional Probability}
+
+%
+% Comment this
+%
 The \blue{conditional probability} of an event $A$ given the event $B$, is defined by
 \[
 P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)}
 \]  
-
-\vspace{0.5cm}
-
-This is read as ``the probability of A \blue{given} B'' or ``the probability of A \blue{conditional on} B.''
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -70,6 +70,10 @@ This is read as ``the probability of A \blue{given} B'' or ``the probability of 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Midterm: New Notation}
+
+%
+% Comment this
+%
 Two possible outcomes for hypothesis test:
 \begin{itemize}
 \item ``reject $H_0$ in favor of $H_A$'' $=$ $\cp$'ve result
@@ -93,6 +97,9 @@ with performance measures:
 \begin{frame}
 \frametitle{Back to Midterm}
 
+%
+% Comment this
+%
 Say $H_A$ is true 10\% of the time.
 
 \vspace{0.25cm}
@@ -135,6 +142,9 @@ So recall from the midterm we have the following $2 \times 2$ table of possible 
   \end{tabular}
 \end{center}
 
+%
+% Comment this
+%
 \begin{itemize}
 \pause\item Of the $\cp$'s, what prop'n was right?\\
 i.e. What is $\prob(H_A|\cp)$? \ $\frac{80}{80+45} = 64\%$?  
@@ -163,25 +173,28 @@ Now say for the same machine $H_A$ is true 40\% of the time. i.e. $P(H_A)=0.4$
   \end{tabular}
 \end{center}
 
+%
+% Comment this
+%
 \begin{itemize}
 \pause\item Of the $\cp$'s, what prop'n was right?\\
 $\prob(H_A|\cp) = \frac{320}{320+30} = 91.4\%$?  
 \pause\item Of the $\cm$'s, what prop'n was right?\\
 $\prob(H_0|\cm) = \frac{570}{570+80} = 87.7\%$
-
 \end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{How Reliable Are Your Test Results?}
 
+%
+% Comment this
+%
 For the \blue{exact same} hypothesis testing machine we get
-
 \begin{center}
   \begin{tabular}{c|cc}
     \hline
@@ -192,14 +205,29 @@ For the \blue{exact same} hypothesis testing machine we get
     \hline
   \end{tabular}
 \end{center}
-\pause
-\vspace{0.5cm}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{How Reliable Are Your Test Results?}
 
 The probability that a positive result is right depends on how likely $H_A$ is.  Same goes for negative results.  
-\pause
+
 \vspace{0.5cm}
 
-As quoted in the Economist article:  \textit{By and large, scientists want surprising results, and so they test hypotheses that are normally pretty unlikely and often very unlikely.}
+\pause\blue{Question 2 from Quiz 9}: (Nature article) Say a scientist obtains a p-value of 0.01.  An incorrect interpretation of this is that it is the probability of a ``false alarm'' (type I error)...  If one wants to make a statement about this being a false alarm, what additional piece of information is required?\\
+
+\vspace{0.5cm}
+
+\pause\blue{Answer 2}: The plausibility of the hypothesis being tested for.  
+
+%\pause\vspace{0.5cm}
+%
+%As quoted in the Economist article:  \textit{By and large, scientists want surprising results, and so they test hypotheses that are normally pretty unlikely and often very unlikely.}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -209,6 +237,10 @@ As quoted in the Economist article:  \textit{By and large, scientists want surpr
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Bayes Theorem}
+
+%
+% Comment this
+%
 This brings us to Bayes Theorem: 
 \pause\begin{itemize}
 \item Let $A_1, \ldots, A_k$ be $k$ events that are a \blue{partition} of the sample space $S$.
@@ -221,8 +253,7 @@ The Bayes Theorem states:
 \[
 \prob(A_i|B) = \frac{\prob(B|A_i)\times\prob(A_i)}{\sum_{j=1}^{k}\prob(B|A_j)\times\prob(A_j)} 
 \]
-\pause
-Notice the flip between $A_i$ and $B$.
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -249,8 +280,11 @@ Notice the flip between $A_i$ and $B$.
 \begin{frame}[fragile]
 \frametitle{Tailored to our Situation}
 
+%
+% Comment this
+%
 \begin{itemize}
-\item The sample sample $S$ is the $2\times 2$ possible outcomes
+\item The sample sample $S$ is all possible hypotheses
 \item $H_0$ and $H_A$ partition $S$.  i.e. $k=2$
 \item Let $B$ be a $\cp$ result
 \end{itemize}
@@ -269,13 +303,17 @@ Notions of \blue{both} type I error rate and power (AKA type II error rate) are 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Tailored to our Situation}
+
+%
+% Comment this
+%
 Back to initial example where $\alpha=0.05$, $1-\beta=0.8$, $\prob(H_A)=0.10$
 \pause
 \begin{eqnarray*}
 \prob(H_A|\cp) &=& \frac{0.8 \times 0.1}{0.8 \times 0.1 + 0.05\times 0.9} = 0.64
 \end{eqnarray*}
-\pause
-Similarly
+
+\pause Similarly
 \begin{eqnarray*}
 \prob(H_0|\cm) &=& \frac{\prob(\cm|H_0)\prob(H_0)}{\prob(\cm|H_A)\prob(H_A) + \prob(\cm|H_0)\prob(H_0)} \\
 &=& \frac{(1-\alpha)\times\prob(H_0)}{
@@ -283,7 +321,6 @@ Similarly
 &=& \frac{0.95 \times 0.9}{0.2\times 0.1 + 0.95 \times 0.9} = 0.977\\
 %----------
 \end{eqnarray*}
-
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -359,27 +396,14 @@ In this example, we assumed we \blue{knew} the true $P(H_A)$.  In real life howe
 Statistics is inferring about some unknown parameter $\theta$.
 
 \begin{itemize}
-\pause\item \blue{Frequentist Statistics}:  the true $\theta$ is a single value that if we had an infinite sample size, we can compute it exactly. 
+\pause\item \blue{Frequentist Statistics}:  the true $\theta$ is a single value.
 \pause\item \blue{Bayesian Statistics}:  the true $\theta$ is a \blue{distribution} of values that reflects our \blue{belief} in the plausibility of different values.
 \end{itemize}
+ 
+\pause Ex: Coin Flips
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Specific Example}
-Concrete example: the Probability of Flipping Heads
-\begin{itemize}
-\pause\item \blue{Frequentist Statistics}:  the true probability $p$ is a single value
-\pause\item \blue{Bayesian probability}:  the true probability $p$ is a distribution of values
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
