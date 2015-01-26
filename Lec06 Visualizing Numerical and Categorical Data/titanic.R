@@ -1,4 +1,4 @@
-# For Titanic data, investigation of 
+# For Titanic data, investigation of
 # 1. effect of class on survival
 # 2. effect of "women and children" first policy of the day
 
@@ -24,7 +24,7 @@ dim(Titanic)
 #------------------------------------------------
 # To get overall survival rates, we must sum over all dimensions except the 4th
 # one, which is survival.  apply() says: to the Titanic data, apply the function
-# sum to all dimensions, except the 4th.  
+# sum to all dimensions, except the 4th.
 overall <-  apply(Titanic, 4, sum)
 names(overall) <- c("Died", "Survived")
 
@@ -38,13 +38,13 @@ barplot(overall, main="Overall Titanic Survival", names.arg=c("Died", "Survived"
 #------------------------------------------------
 # Survival by class
 #------------------------------------------------
-# To get survival split by class, we must sum over all dimensions except the 
+# To get survival split by class, we must sum over all dimensions except the
 # 4th (survival) and the 1st (class)
 by.class <- apply(Titanic, c(4,1), sum)
 
 # Stacked barplot
 # pdf("barplot2.pdf", width=10, height=5)
-barplot(by.class, legend.text=c("Died", "Survived"), 
+barplot(by.class, legend.text=c("Died", "Survived"),
         args.legend=list(x="topleft", bty='n'),
         main="Titanic Survival by Class")
 # dev.off()
@@ -58,8 +58,8 @@ by.class.norm <- apply(by.class, 1, function(x){x/class.sums})
 by.class.norm <- t(by.class.norm)
 
 # pdf("norm_barplot.pdf", width=10, height=5)
-barplot(by.class.norm, 
-        legend.text=c("Died", "Survived"), 
+barplot(by.class.norm,
+        legend.text=c("Died", "Survived"),
         args.legend=list(x="topleft"),
         main="Titanic Survival Normalized by Class")
 #dev.off()
@@ -87,20 +87,21 @@ Titanic.data.frame <- as.data.frame(Titanic)
 Titanic.data.frame
 
 # pdf("titanic.pdf", width=10, height=6)
-pg.titanic <- 
-  ggplot(Titanic.data.frame, aes(Class, Freq, fill = Survived)) + 
+pg.titanic <-
+  ggplot(Titanic.data.frame, aes(Class, Freq, fill = Survived)) +
   facet_wrap(~ Age + Sex, nrow = 1) + coord_flip() +
-  ggtitle("Titanic Survival Counts by Class x Gender x Age") + 
+  ggtitle("Titanic Survival Counts by Class x Gender x Age") +
   geom_bar(stat = "identity")
 print(pg.titanic)
 # dev.off()
 
 # pdf("titanic2.pdf", width=10, height=6)
-pg.titanic.prop <- 
-  ggplot(Titanic.data.frame, aes(Class, Freq, fill = Survived)) + 
-  facet_wrap( ~ Age + Sex, nrow = 1) + coord_flip() +
-  ggtitle("Titanic Survival Proportions by Class x Gender x Age") + 
-  geom_bar(position = "fill")
+pg.titanic.prop <-
+  ggplot(Titanic.data.frame, aes(x=Class, y=Freq)) +
+  geom_bar(aes(fill = Survived), stat = "identity", position="fill") +
+  facet_wrap( ~ Age + Sex, nrow = 1) +
+  ggtitle("Titanic Survival Proportions by Class x Gender x Age") +
+  coord_flip()
 print(pg.titanic.prop)
 # dev.off()
 
