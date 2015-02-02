@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
 %\documentclass[slides]{beamer}
 
-% Uncomment these (but comment the above \documentclass line) to make handouts:
+%% Uncomment these (but comment the above \documentclass line) to make handouts:
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -85,11 +85,16 @@
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{1. Simple Random Sampling}
+
+%
+% Comment this
+%
 \begin{center}
 \includegraphics[width=0.75\textwidth]{figure/simple.png}
 \end{center}
 
-\blue{Most granular sampling}:  Where every individual in the population has the same probability of being sampled.  \pause Here, all dots are members of the population, and the bolder dots are sampled.  
+
+\blue{Most granular sampling}:  Where every individual in the population has the same probability of being sampled.  Here, all dots are members of the population, and the bolder dots are sampled.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -98,11 +103,14 @@
 \begin{frame}[fragile]
 \frametitle{2. Stratified Sampling}
 
+%
+% Comment this
+%
 \begin{center}
 \includegraphics[width=0.75\textwidth]{figure/stratified.png}
 \end{center}
 
-\blue{Divide and conquer}:  The population is divided into strata, and we sample from each strata.  \pause For example, each strata could be a census tract in Oregon, and we sample 3 individuals from each strata.  
+\blue{Divide and conquer}:  The population is divided into strata, and we sample from each strata.  For example, each strata could be a census tract in Oregon, and we sample 3 individuals from each strata.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -112,10 +120,13 @@
 \begin{frame}
 \frametitle{3. Cluster Sampling}
 
+%
+% Comment this
+%
 \begin{center}
 \includegraphics[width=0.75\textwidth]{figure/cluster.png}
 \end{center}
-\blue{Two stage sampling}:  Very similar to stratified sampling in its process, except that there is no requirement to sample from every cluster.  \pause First the clusters in red were chosen at random, and then we sample from them.
+\blue{Two stage sampling}:  Very similar to stratified sampling in its process, except that there is no requirement to sample from every cluster.  First the clusters in red were chosen at random, and then we sample from them.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -173,7 +184,7 @@ President Bill Clinton's administration planned on using sampling in the 2000 ce
 
 % \includegraphics[width=0.5\textwidth]{figure/wethepeople.jpg}
 
-However, Article I, Section 2 of the US Constitution states:  \textit{The \blue{actual Enumeration} shall be made within three Years after the first Meeting of the Congress of the US, and within every subsequent Term of ten Years...}
+However, Article I, Section 2 of the US Constitution states:  \pause \textit{The \blue{actual Enumeration} shall be made within three Years after the first Meeting of the Congress of the US, and within every subsequent Term of ten Years...}
 
 \vspace{0.25cm}
 
@@ -240,8 +251,7 @@ Switching gears...
 
 To evaluate the efficacy of a drug, they must be subject to a \blue{clinical trial}.  \pause The gold standard for a clinical trial is \blue{randomized controlled trial}.  i.e. randomized control and treatment groups.  
 
-\vspace{5cm}
-
+%\vspace{5cm}
 %
 % Comment this
 %
