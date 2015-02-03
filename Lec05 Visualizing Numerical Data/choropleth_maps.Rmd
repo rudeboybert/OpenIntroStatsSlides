@@ -10,6 +10,8 @@ The content of this document is based on a blog post by Reed College's newest me
 # and any output are not displayed
 
 # Load googleVis package while suppressing any startup messages
+if(!"googleVis" %in% installed.packages())
+  install.packages("googleVis", repos='http://cran.us.r-project.org')
 suppressPackageStartupMessages(library(googleVis))
 
 # Load data and rename columns
