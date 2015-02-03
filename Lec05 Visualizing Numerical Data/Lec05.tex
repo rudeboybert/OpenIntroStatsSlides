@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -54,10 +54,10 @@
 
 \begin{itemize}
 \item Visualizing numerical data
-\begin{itemize}
-\item Two famous historical examples of data visualization
-\item Reed's 2013 entering class
-\end{itemize}
+%\begin{itemize}
+%\item Two famous historical examples of data visualization
+%\item Reed's 2013 entering class
+%\end{itemize}
 \item Histograms
 \item Measures of Central Tendency: Mean, Median, and Mode
 \item Measure of Spread:  Sample variance and sample standard deviation
@@ -111,21 +111,17 @@ The advance and retreat on Moscow was an unmitigated disaster:
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Famous Example 1:  Napolean's March on Russia in 1812}
-Why is this visualization big deal?
+Why is this visualization big deal?  On a two-dimensional page, it displays 6 variables (i.e. \blue{dimensions} of information) at once:
+\begin{enumerate}
+\pause \item Size of the army (width of bars)
+\pause \item Latitude
+\pause \item Longitude
+\pause \item Direction of the army:  advance (brown) or retreat (black)
+\pause \item Date
+\pause \item Temperature (on the bottom)
+\end{enumerate}
 
-\vspace{0.5cm}
-
-On a two-dimensional page, it displays 6 variables (in others words, 6 \blue{dimensions} of information) at once:
-%\begin{enumerate}
-%\pause \item Size of the army (width of bars)
-%\pause \item Latitude
-%\pause \item Longitude
-%\pause \item Direction of the army:  advance (brown) or retreat (black)
-%\pause \item Date
-%\pause \item Temperature (on the bottom)
-%\end{enumerate}
-
-\vspace{5cm}
+%\vspace{5cm}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -139,7 +135,7 @@ On August 31 1854, an epidemic of cholera began in the Soho neighborhood of Lond
 
 \vspace{0.25cm}
 
-\pause Dr. John Snow, a physician, was a student of the disease.  (From Wikipedia) Snow was a skeptic of the then-dominant \blue{miasma theory} that stated that diseases such as cholera or the Black Death were caused by pollution or a noxious form of ``bad air.'' 
+\pause (Wikipedia) Dr. John Snow, a physician, was a skeptic of the then-dominant \blue{miasma theory} that diseases such as cholera/plague were caused by pollution or a noxious form of ``bad air.'' 
 
 \vspace{0.25cm}
 
@@ -184,7 +180,7 @@ He identified the source of the outbreak as water from the \blue{Broad Street Pu
 \includegraphics[height=4cm]{figure/king_cholera.jpg}
 \end{center}
 
-\pause This led to discovering that cholera was transmitted by food and water being contaminated by fecal matter and not via the air.  This was a watershed moment in the emerging field of \blue{epidemiology}.  
+\pause This led to the discovery that cholera was transmitted by food and water being contaminated by fecal matter and not via the air.  This was a watershed moment in the emerging field of \blue{epidemiology}.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -251,8 +247,8 @@ Also in the {\tt openintro} package is MLB salary data in 2010.  If we plot a hi
 \frametitle{Trick to Remembering Which Skew is Which}
 
 \begin{itemize}
-\pause\item Long tail to the right: data is \blue{right-skewed} AKA \blue{positively-skewed}
-\pause\item Long tail to the left: data is \blue{left-skewed} AKA \blue{negatively-skewed}
+\item Long tail to the right: data is \blue{right-skewed} AKA \blue{positively-skewed}
+\item Long tail to the left: data is \blue{left-skewed} AKA \blue{negatively-skewed}
 \end{itemize}
 
 \begin{center}
@@ -281,6 +277,10 @@ What can we do about skewed data?
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Mean}
+
+%
+% Comment this
+%
 The mean, AKA average, is a common way to measure the \blue{center} of the data.  So for example, the mean of 1, 2, 5, 3, and 7 is 
 \[\frac{1 + 2 + 5 + 3 + 7}{5} = 3.6\]
 
@@ -296,6 +296,9 @@ where $x_1, x_2, \ldots, x_n$ are the $n$ observed/sampled values.
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Median}
+%
+% Comment this
+%
 The \blue{median}, however, is the \blue{middle number}.
 
 \vspace{0.5cm}
@@ -306,10 +309,6 @@ The \blue{median}, however, is the \blue{middle number}.
 \item Even number of values: the median of (1, \blue{3, 5}, 8) is the average of the middle two values: $\frac{3+5}{2} = 4$
 \end{itemize}
 
-\vspace{0.5cm}
-
-\pause But why use the median at all?
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -318,6 +317,7 @@ The \blue{median}, however, is the \blue{middle number}.
 \begin{frame}
 \frametitle{Mean vs Median: Imaginary Scenario}
 
+But why use the median at all?
 
 \begin{itemize}
 \item Say at company $X$, there 5 employees:  the CEO and everyone else.  
@@ -402,7 +402,7 @@ We need a measure of \blue{spread/variability}.  The \blue{sample variance $s^2$
 
 \vspace{0.5cm}
 
-The \blue{sample standard deviation $s$} is the square root of the sample variance. The sample standard deviation is useful when considering how close the data are to the mean.
+\pause The \blue{sample standard deviation $s$} is the square root of the sample variance. The sample standard deviation is useful when considering how close the data are to the mean.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -445,9 +445,6 @@ Read section 1.6.4.  The formula really doesn't make much intuitive sense, but i
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-
 
 
 
