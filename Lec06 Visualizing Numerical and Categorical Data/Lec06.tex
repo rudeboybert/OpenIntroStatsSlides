@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -67,6 +67,9 @@
 \begin{frame}[fragile]
 \frametitle{Rule of Thumb for Standard Deviations}
 
+%
+% Comment this
+%
 If the data distribution is bell-shaped, then 
 \begin{itemize}
 \item about \blue{$\frac{2}{3}$} of the data will be within one SD of the mean (book says 70\%).
@@ -169,7 +172,11 @@ A percentile (\%'ile) indicates the value \blue{below} which a given \%'age of o
 
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Quartiles}
+\frametitle{Quartiles and IQR}
+
+%
+% Comment this
+%
 \blue{Quartiles} split up the data into 4 intervals, each with about one quarter of the data:
 
 \vspace{0.25cm}

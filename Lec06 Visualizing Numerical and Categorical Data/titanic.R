@@ -3,6 +3,12 @@
 # 2. effect of "women and children" first policy of the day
 
 # Install these two packages first
+
+if(!"ggplot2" %in% installed.packages())
+  install.packages("ggplot2", repos='http://cran.us.r-project.org')
+if(!"xtable" %in% installed.packages())
+  install.packages("xtable", repos='http://cran.us.r-project.org')
+
 library(ggplot2)
 library(xtable)
 
