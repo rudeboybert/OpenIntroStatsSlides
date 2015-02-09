@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -61,8 +61,8 @@ We often frame probability in terms of a \blue{random process} giving rise to an
 
 \pause Typical examples
 \begin{itemize}
-\pause \item Die roll: 6 outcomes
-\pause \item Coin Flip: 2 outcomes
+\item Die roll: 6 outcomes
+\item Coin Flip: 2 outcomes
 \end{itemize}
 
 \end{frame}
@@ -72,6 +72,10 @@ We often frame probability in terms of a \blue{random process} giving rise to an
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Disjoint AKA Mutually Exclusive Outcomes}
+
+%
+% Comment this
+%
 Two outcomes are \blue{disjoint (AKA mutually exclusive)} if they cannot both occur at the same time.  
 
 \vspace{0.5cm}
@@ -90,6 +94,10 @@ Two outcomes are \blue{disjoint (AKA mutually exclusive)} if they cannot both oc
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Addition Rule of Probability}
+
+%
+% Comment this
+%
 If $A_1$ and $A_2$ are disjoint outcomes, then
 \[
 P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2)
@@ -110,6 +118,9 @@ P(\mbox{rolling 1 or 2}) = P(\mbox{rolling 1}) + P(\mbox{rolling 2}) = \frac{1}{
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Addition Rule of Probability}
+%
+% Comment this
+%
 If $A_1$ and $A_2$ are two outcomes (not necessarily disjoint), then
 \[
 P(A_1 \mbox{ or } A_2) = P(A_1) + P(A_2) - \blue{P(A_1 \mbox{ and } A_2)}
@@ -125,6 +136,9 @@ Venn diagram:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Addition Rule of Probability}
+%
+% Comment this
+%
 \blue{Events} are just combinations of outcomes. Ex: Deck of cards
 \begin{itemize}
 \item $A_1 =$ event we draw a diamond
@@ -142,7 +156,9 @@ Venn diagram:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{General Addition Rule of Probability}
-
+%
+% Comment this
+%
 \begin{eqnarray*}
 P(A_1 \mbox{ or } A_2) &=& P(\mbox{diamond or a face card})\\
 &=& P(\mbox{diamond}) + P(\mbox{face card}) - \\
@@ -158,13 +174,16 @@ P(A_1 \mbox{ or } A_2) &=& P(\mbox{diamond or a face card})\\
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Sample Space and the Complement of Events}
+%
+% Comment this
+%
 A die has 6 possible outcomes.  The \blue{sample space} is the set of all possible outcomes $S = \{1, 2, \ldots, 6\}$.  
 
 \pause \vspace{0.75cm}
 Say event $A$ is the event of rolling an even number i.e $A=\{2, 4, 6\}$.  The \blue{complement of event} A is $A^c=\{1, 3, 5\}$ i.e. getting an odd number.  
 
 \pause \vspace{0.75cm}
-Thm
+We have
 \[
 P(A) + P(A^c) = 1
 \]
@@ -179,8 +198,7 @@ P(A) + P(A^c) = 1
 Two processes are \blue{independent} if knowing the outcome of one provides no useful information about the outcome of the other.  Otherwise they are dependent.
 
 \vspace{0.5cm}
-
-\pause Consider:
+Consider:
 \begin{enumerate}
 \pause \item Die rolls
 \pause \item You get a movie recommendation from your friend Robin, but then their significant other Sam also recommends it.  
@@ -194,6 +212,9 @@ Two processes are \blue{independent} if knowing the outcome of one provides no u
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Independence}
+%
+% Comment this
+%
 We say that events $A$ and $B$ are \blue{independent} if
 \[
 P(A \mbox{ and } B) = P(A) \times P(B)
@@ -214,6 +235,10 @@ P(\mbox{rolling 1 and then 6}) &=& P(\mbox{rolling 1}) \times P(\mbox{rolling 6}
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Conditional Probability}
+%
+% Comment this
+%
+
 The \blue{conditional probability} of an event $A$ \blue{given} the event $B$, is defined by
 \[
 P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)}
@@ -241,11 +266,11 @@ Total&31&69&100\\
 
 \begin{small}
 \begin{itemize}
-\item What is the probability of a randomly selected male smoking?
+\pause\item What is the probability of a randomly selected male smoking?
 \[
 P(S|M) = \frac{P(S \mbox{ and } M)}{P(M)} = \frac{19/100}{60/100} = \frac{19}{60}
 \]
-\item What is the probability that a randomly selected smoker is female?
+\pause\item What is the probability that a randomly selected smoker is female?
 \[
 P(F|S) = \frac{P(F \mbox{ and } S)}{P(S)} = \frac{12/100}{31/100} = \frac{12}{31}
 \]
@@ -259,6 +284,9 @@ P(F|S) = \frac{P(F \mbox{ and } S)}{P(S)} = \frac{12/100}{31/100} = \frac{12}{31
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Put It Together!  Independence and Conditional Prob.}
+%
+% Comment this
+%
 If $A$ and $B$ are independent events, then
 \[
 P(A \mbox{ and } B) = P(A)\times P(B)
@@ -333,7 +361,7 @@ P(A|B) = \frac{P(A \mbox{ and } B)}{P(B)} = \frac{P(A)\times P(B)}{P(B)} = P(A)
    \includegraphics[width=3in]{figure/Roulette_wheel.jpg} 
 \end{center}
 
-You can bet on individual numbers, sets of numbers, or \blue{red vs black}.  Let's assume no 0 or 00, so that $P(\mbox{red}) = P(\mbox{black}) = \frac{1}{2}$.  
+You can bet on individual numbers, sets of numbers, or \blue{red vs black}.  Let's assume no 0 or 00, so that $P(R) = P(B) = \frac{1}{2}$.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -364,8 +392,8 @@ Let's say you look at the board and see that the last 4 spins were \textcolor{re
 
 Ex. on the 5th spin people think:
 \begin{eqnarray*}
-P(\mbox{black}_5 &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) > \\
-P(\textcolor{red}{\mbox{red}_5} &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4})
+P(B_5 &|& \textcolor{red}{R_1} \mbox{ and } \textcolor{red}{R_2} \mbox{ and } \textcolor{red}{R_3} \mbox{ and } \textcolor{red}{R_4}) > \\
+P(\textcolor{red}{R_5} &|& \textcolor{red}{R_1} \mbox{ and } \textcolor{red}{R_2} \mbox{ and } \textcolor{red}{R_3} \mbox{ and } \textcolor{red}{R_4})
 \end{eqnarray*}
 
 \end{frame}
@@ -378,24 +406,10 @@ P(\textcolor{red}{\mbox{red}_5} &|& \textcolor{red}{\mbox{red}_1} \mbox{ and } \
 But assuming the wheel is not rigged, spins are independent i.e. $P(A|B) = P(A)$.  So:
 
 \pause \begin{eqnarray*}
-P(\mbox{black}_5 | \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) = P(\mbox{black}_5) &=& \frac{1}{2} \\
-P(\textcolor{red}{\mbox{red}_5} | \textcolor{red}{\mbox{red}_1} \mbox{ and } \textcolor{red}{\mbox{red}_2} \mbox{ and } \textcolor{red}{\mbox{red}_3} \mbox{ and } \textcolor{red}{\mbox{red}_4}) = P(\textcolor{red}{\mbox{red}_5}) &=& \frac{1}{2}
+P(B_5 | \textcolor{red}{R_1} \mbox{ and } \textcolor{red}{R_2} \mbox{ and } \textcolor{red}{R_3} \mbox{ and } \textcolor{red}{R_4}) = P(B_5) &=& \frac{1}{2} \\
+P(\textcolor{red}{R_5} | \textcolor{red}{R_1} \mbox{ and } \textcolor{red}{R_2} \mbox{ and } \textcolor{red}{R_3} \mbox{ and } \textcolor{red}{R_4}) = P(\textcolor{red}{R_5}) &=& \frac{1}{2}
 \end{eqnarray*}
 
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Next Week's Lab}
-
-Basketball players who make several baskets in succession are described as having a ``hot hand.''  This refutes the assumption that each shot is \blue{independent} of the next. 
-
-\vspace{0.5cm}
-
-We are going to investigate this claim with data from a particular basketball player: Kobe Bryant of the Los Angeles Lakers in the 2009 NBA finals.
 
 \end{frame}
 %------------------------------------------------------------------------------
