@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 %% Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -66,25 +66,6 @@
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normal Distribution}
-From text page 118:
-
-\vspace{0.5cm}
-
-Many variables are nearly normal, but none are exactly normal. Thus the normal
-distribution, while not perfect for any single problem, is very useful for a variety
-of problems.
-
-\vspace{0.5cm}
-
-We will use it in data exploration and to solve important problems
-in statistics.
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Normal Distribution}
 Normal distributions:
 \begin{enumerate}
 \item are symmetric
@@ -99,8 +80,9 @@ Normal distributions:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Normal Distribution}
-
+%
 % Comment this
+%
 A normal curve can be described by two \blue{parameters}:
 \begin{itemize}
 \item the \blue{mean $\mu$}. i.e. the center
@@ -235,7 +217,9 @@ SD $\sigma$ & 300 & 5\\
 
 
 %\vspace{3cm}
+%
 % Comment this
+%
 \begin{center}
 \includegraphics[height=2.5cm]{figure/ann.png}\includegraphics[height=2.5cm]{figure/tom.png}
 \end{center}
@@ -247,7 +231,9 @@ SD $\sigma$ & 300 & 5\\
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{z-scores}
+%
 % Comment this
+%
 The \blue{z-score AKA standardized observation} of an observation x is the number of SD it falls above or below the mean. 
 
 \pause\vspace{0.25cm}
@@ -264,7 +250,9 @@ z = \frac{x-\mu}{\sigma}
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{z-scores}
+%
 % Comment this
+%
 Why is the z-score $z=\frac{x-\mu}{\sigma}$ called the \blue{standardized observation}?  
 
 \begin{enumerate}
@@ -287,7 +275,9 @@ re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Example}
+%
 % Comment this
+%
 \begin{itemize}
 \item Ann scored 1800. $z=\frac{1800-1500}{300} = +1$ standard deviation from the mean
 \item Tom scored 24. $z=\frac{24-21}{5} = +0.6$ standard deviation from the mean
@@ -310,7 +300,9 @@ Recall a \blue{percentile} (\%'ile) indicates the value below which a given \%'a
 
 \blue{Question}: What \%'ile is Ann's SAT score of 1800?\\
 
+%
 % Comment this
+%
 i.e. what is the blue shaded area?  
 \begin{center}
 \includegraphics[height=3cm]{figure/ann_z.png}
@@ -373,7 +365,9 @@ A \blue{normal probability table} allows you to:
 \includegraphics[width=8cm]{figure/normal_table.png}
 \end{center}
 
+%
 % Comment this
+%
 \begin{itemize}
 \item \textcolor{red}{Red case}: Given a z-score of 0.43.  A lookup tells us the area to the left of z=0.43 is 0.6664, i.e. the 66th \%'ile
 \pause\item \textcolor{blue}{Blue case}:  We want the z-score that is the 80th \%'ile.  Reverse lookup: the closest value on the table is 0.7995, i.e. a z-score of 0.84. 
@@ -389,7 +383,9 @@ A \blue{normal probability table} allows you to:
 \begin{frame}
 \frametitle{Back to Ann and Tom}
 
+%
 % Comment this
+%
 \begin{itemize}
 \item Since Ann had a z-score of 1.0, her \%'ile is 0.8413. (1.0 row, 0.00 column)\\
 i.e. She did better than 84.13\% of SAT test takers.
