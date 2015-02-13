@@ -1,30 +1,41 @@
 ---
 title: "Alcohol Consumption and Building QQ-Plots"
+date: "February 13, 2015"
 output: html_document
 ---
 
 We need two packages first:
 
-1. `dplyr`: allows for fast, consistent, and convenient tools for workingwith data frame like objects
+1. `dplyr`: allows for fast, consistent, and convenient tools for working with data frame like objects
 2. `RCurl`: allows R to to compose general HTTP requests and provides convenient functions to fetch URIs, get & post forms, etc. and process the results returned by the Web server.
 
 ```{r, echo=FALSE}
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(RCurl))
-```
-
-We download the data used in the article [Where Do People Drink The Most Beer, Wine And Spirits?](http://fivethirtyeight.com/datalab/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) from the [data repository](https://github.com/fivethirtyeight/data):  
-```{r}
-raw.data <- getURL("https://raw.githubusercontent.com/fivethirtyeight/data/master/alcohol-consumption/drinks.csv")
+webpage <- "https://raw.githubusercontent.com/fivethirtyeight/data/master/alcohol-consumption/drinks.csv"
+raw.data <- getURL(webpage)
 booze <- read.csv(text = raw.data, header=TRUE)
 ```
 
-We look at the top 5 hard liquor, beer, wine, and total alcohol drinking countries.
+We downloaded the data used in the article [Where Do People Drink The Most Beer, Wine And Spirits?](http://fivethirtyeight.com/datalab/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) from the [data repository](https://github.com/fivethirtyeight/data) and look at the top 5 drinking countries in terms of:
 
-```{r}
+Hard liquor
+```{r, echo=FALSE}
 arrange(booze, desc(spirit_servings)) %>% select(country, spirit_servings) %>% head(n=5)
+```
+
+Beer
+```{r, echo=FALSE}
 arrange(booze, desc(beer_servings)) %>% select(country, beer_servings) %>% head(n=5)
+```
+
+Wine
+```{r, echo=FALSE}
 arrange(booze, desc(wine_servings)) %>% select(country, wine_servings) %>% head(n=5)
+```
+
+Total Alcohol
+```{r, echo=FALSE}
 arrange(booze, desc(total_litres_of_pure_alcohol)) %>% select(country, total_litres_of_pure_alcohol) %>% head(n=5)
 ```
 
@@ -42,12 +53,13 @@ par(mfrow=c(1, 2))
 hist(alcohol, xlab="litres of pure alcohol", ylab="# of counties", 
      main="Observed Annual Alcohol Consumption")
 legend("topright", bty='n', legend=c(paste("mean =", xbar), paste("sd =", s)))
-
+abline(v=xbar, col="red", lwd=2)
 theor.hist <- hist(rnorm(10^6, mean=xbar, sd=s), plot=FALSE, breaks=8)
 theor.hist$counts <- theor.hist$density * length(alcohol)
 plot(theor.hist, xlab="litres of pure alcohol", ylab="# of counties",
      main="Theoretically Normal Data")
 legend("topright", bty='n', legend=c(paste("mean = ", xbar), paste("sd = ", s)))
+abline(v=xbar, col="red", lwd=2)
 ```
 
 We compare the observed quantiles with what the quantiles would look like for theoretically normal data.  Both plots have the same number of points.  
@@ -59,7 +71,7 @@ plot(ecdf(alcohol),
      ylab="proportion less than quantile", main="Observed Quantiles")
 
 plot(ecdf(rnorm(length(alcohol), mean=xbar, sd=s)), 
-     xlab="quantiles litres of pure alcohol", 
+     xlab="quantiles of litres of pure alcohol", 
      ylab="proportion less than quantile", main="Theoretical Normal Quantiles")
 ```
 

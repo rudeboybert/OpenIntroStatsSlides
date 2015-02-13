@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -169,20 +169,6 @@ Although we stated that many processes in the physical world look bell-shaped, i
 %%------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Normal Approximation}
-%
-%Consider the MLB salary data histogram:
-%
-%\begin{center}
-%\includegraphics[width=7cm]{figure/MLB.pdf}
-%\end{center}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Normal Approximation}
@@ -200,16 +186,18 @@ What about these ones?  How well do the histograms fit to the normal curve?
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Normal Probability Plots}
+%
+% Comment this
+%
 \blue{Normal probability plots} (AKA quantile-quantile plots AKA QQ-plots) are a method for visually displaying how well data fit a normal curve.
+
 
 \vspace{0.75cm}
 
 \pause The $k^{\mbox{th}}$ \blue{$q-quantile$} is the value such that proportion $\frac{k}{q}$ of the observations fall below it.  So 
 \begin{itemize}
 \pause\item The 4-quantiles are the \blue{quartiles}.\\
-%Ex: the $k=2^{\mbox{nd}}$ 4-quantile is just the median.  
-\pause\item The 100-quantiles are the \blue{percentiles}.\\
-%Ex: the $k=76^{\mbox{th}}$ 100-quantile is just the 76th percentile
+\pause\item The 100-quantiles are the \blue{percentiles}.
 \end{itemize}
 
 \end{frame}
@@ -221,6 +209,9 @@ What about these ones?  How well do the histograms fit to the normal curve?
 \frametitle{Normal Probability Plots}
 A normal probability plot compares:
 
+%
+% Comment this
+%
 \begin{itemize}
 \item The \blue{observed} quantiles of a data set (on the $y$-axis)
 \item The \blue{theoretical} quantiles that are \blue{exactly} normal (on the $x$-axis)
@@ -244,6 +235,30 @@ The more ``normal'' the data is, the better the fit.
 %------------------------------------------------------------------------------
 
 
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Next Time}
+
+\begin{itemize}
+\item Introduce some of the more useful other distributions: Bernoulli, Geometric, Binomial, and Poisson
+\end{itemize}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
 %%library(openintro)
 %%data(MLB)
 %%pdf("./4.2 Normal Approximation/MLB_qqplot.pdf", width=6, height=6)
@@ -264,25 +279,6 @@ The more ``normal'' the data is, the better the fit.
 %qqline(MLB$salary)
 %\end{verbatim}
 %\end{frame}
-%%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-\begin{itemize}
-\item Introduce some of the more useful other distributions: Bernoulli, Geometric, Binomial, and Poisson
-\end{itemize}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-\end{document}
-
-
 
 
 
