@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -67,7 +67,7 @@ Define
 \begin{frame}
 \frametitle{Binomial Distribution}
 
-So say now, instead of $P(\mbox{1st W in 5th game}) = P(\mbox{\blue{LLLLW}})$, we want the probability that they win \blue{exactly one} out of the five games.  Five ways:
+Say instead of $P(\mbox{1st W in 5th game})$, we want the probability that they win \blue{exactly one} out of the five games.  Five ways:
 
 \pause\begin{center}
 \begin{tabular}{c|ll}
@@ -81,11 +81,26 @@ Pattern & Probability & Equals\\
 \end{tabular} 
 \end{center}
 
-\pause Each pattern (book calls it scenario) has the same probability regardless of order by independence, and there are 5 ways to \blue{choose} the pattern.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Binomial Distribution}
+
+%
+% Comment these
+%
+Each pattern has the same probability regardless of order by independence and there are 5 ways to \blue{choose} the pattern.  So
 
 \vspace{0.25cm}
 
-\pause So $P(\mbox{win exactly one out of five})$ is  $5 \times p\times(1-p)^4 = 5 \times 0.4^4 \times 0.6 = 0.0768$
+\begin{eqnarray*}
+P(\mbox{exactly one win out of five}) &=& 5 \times p\times(1-p)^4\\
+&=& 5 \times 0.4^4 \times 0.6 = 0.0768
+\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -94,36 +109,36 @@ Pattern & Probability & Equals\\
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Step Back... Example of $n$ choose $k$}
-Say I give you $n=5$ balls labeled 1 thru 5.  How many different ways can you choose $k=3$ of them?
-
-\begin{center}
-\pause\includegraphics[height=4cm]{figure/choose.png}
-\end{center}
-
-As we see, 10 ways.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Step Back... $n$ choose $k$ in General}
-Say I give you $n$ balls labeled 1 thru n.  How many different ways can you choose $k$ of them?
+\frametitle{Step Back... Example of $n$ choose $x$}
+Say I give you $n=3$ balls labeled 1 thru 3.  How many different ways can you choose $x=2$ of them?  3 ways:
 
 \[
-{n \choose k} = \frac{n!}{k!(n-k)!}
+(1, 2), \ (1, 3), \mbox{ and } \ (2, 3)
 \]
 
-This is read \blue{n choose k}.  
+\end{frame}
+%------------------------------------------------------------------------------
 
-\pause \vspace{0.5cm}
 
-In example: $n=5$ and $k=3$
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Step Back... $n$ choose $x$ in General}
+
+%
+% Comment these
+%
+Say I give you $n$ balls labeled 1 thru n.  How many different ways can you choose $x$ of them?  This is read \blue{n choose x}:
+
 \[
-{5 \choose 3} = \frac{5!}{3!(5-3)!} = \frac{5 \times 4 \times 3 \times 2 \times 1}{(3 \times 2 \times 1)(2 \times 1)} = \frac{120}{12} = 10
+{n \choose x} = \frac{n!}{x!(n-x)!}
+\] 
+
+\vspace{0.5cm}
+
+In example: $n=3$ and $x=2$
+\[
+{3 \choose 2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{(2 \times 1)(1)} = \frac{6}{2} = 3
 \]
 
 Note that $0!=1$
@@ -135,11 +150,14 @@ Note that $0!=1$
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Binomial Distribution}
-Suppose the probability of a single trial being a success is $p$.  Then the probability of observing exactly $k$ successes in $n$ independent trials is given by:
+%
+% Comment these
+%
+Suppose the probability of a single trial being a success is $p$.  Let $X$ be the random number of successes observed in $n$ independent trials.  The probability of observing $x$ successes is:
 
 \pause\begin{eqnarray*}
-P(\mbox{exactly $k$ successes}) &=& {n \choose k} p^k (1-p)^{n-k}\\
-&=& \frac{n!}{k!(n-k)!}p^k (1-p)^{n-k}
+P(X=x) &=& {n \choose x} p^x (1-p)^{n-x}\\
+&=& \frac{n!}{x!(n-x)!}p^x (1-p)^{n-x}
 \end{eqnarray*}
 
 \pause The mean, variance, and SD are:
@@ -155,6 +173,9 @@ P(\mbox{exactly $k$ successes}) &=& {n \choose k} p^k (1-p)^{n-k}\\
 \begin{frame}
 \frametitle{Conditions for Binomial Distribution}
 
+%
+% Comment these
+%
 \begin{enumerate}
 \pause\item The trials are independent.
 \pause\item The number of trials $n$ is fixed
@@ -169,9 +190,9 @@ P(\mbox{exactly $k$ successes}) &=& {n \choose k} p^k (1-p)^{n-k}\\
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Soccer Example}
-The Portland Timbers have equal probability p = 0.6 of winning any particular soccer game. We want the probability that they win \blue{exactly one} out of the five games.  Five ways:
+Probability of exactly one win?
 
-\pause\begin{center}
+\begin{center}
 \begin{tabular}{c|ll}
 Pattern & Probability & Equals\\
 \hline
@@ -183,9 +204,12 @@ Pattern & Probability & Equals\\
 \end{tabular} 
 \end{center}
 
+%
+% Comment these
+%
 \pause Letting a win be a ``success'':
 \begin{eqnarray*}
-P(\mbox{$k=1$ win}) &=& {n \choose k} p^k (1-p)^{n-k} = \frac{5!}{1!\times4!} 0.6 \times 0.4^4\\
+P(X=1) &=& {n \choose x} p^x (1-p)^{n-x} = \frac{5!}{1!\times4!} 0.6 \times 0.4^4\\
 &=& 5 \times  0.6 \times 0.4^4 = 0.0768
 \end{eqnarray*}
 
@@ -196,39 +220,43 @@ P(\mbox{$k=1$ win}) &=& {n \choose k} p^k (1-p)^{n-k} = \frac{5!}{1!\times4!} 0.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Soccer Example}
-What about the probability that they win all their games!  i.e. $k=5$:
+%
+% Comment these
+%
+What is the probability that they win all their games!  i.e. $X=5$:
 \pause \begin{eqnarray*}
-P(\mbox{$k=5$ wins}) &=& {n \choose k} p^k (1-p)^{n-k} = {5 \choose 5} 0.6^5 (1-0.6)^{0}\\
+P(X=5) &=& {n \choose x} p^x (1-p)^{n-x} = {5 \choose 5} 0.6^5 (1-0.6)^{0}\\
 &=& \frac{5!}{5!\times 0!} 0.6^5 \times 1 = 0.08
 \end{eqnarray*}
 
 \vspace{0.75cm}
 
-\pause What about the probability that they at win at least one game?
+\pause What is the probability that they at win at least one game?
 \pause \begin{eqnarray*}
-P(\mbox{at least $k=1$ wins}) &=& P(\mbox{$k=1$ win}) + \ldots + P(\mbox{$k=5$ wins}) \\
-&=& 1 - P(\mbox{k=0 wins})\\
+P(X\geq 1) &=& P(X=1) + \ldots + P(X=5) \\
+&=& 1 - P(X=0)\\
 &=& 1 -  \frac{5!}{0!\times 5!} 0.6^0 \times 0.4^5 = 1 - 0.01024\\
 &=& 0.98976
 \end{eqnarray*}
-
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%pdf("./5.1 Binomial+Poisson/bin.pdf", width=7, height=5)
-%x <- c(0:5)
-%y <- dbinom(x, size=5, prob=0.6)
-%plot(x,y, xlab="k: number of successes", ylab="P(k successes)", ylim=c(0, max(y)))
-%points(x,y, pch=19, cex=1.5)
-%dev.off()
+%values <- data.frame(
+%  x = c(0:5),
+%  y = dbinom(c(0:5), size=5, prob=0.6)
+%)
+%ggplot(values, aes(x=as.factor(x), y=y)) + geom_bar(stat="identity") +
+%  xlab("x = # of successes") +
+%  ylab("P(X=x)")
+%ggsave("./Lec11 Binomial and Poisson/figure/bin.pdf")
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Soccer Example}
 
 \begin{center}
-\includegraphics[width=8cm]{figure/bin.pdf}
+\includegraphics[width=\textwidth]{figure/bin.pdf}
 \end{center}
 
 \end{frame}
@@ -239,17 +267,16 @@ P(\mbox{at least $k=1$ wins}) &=& P(\mbox{$k=1$ win}) + \ldots + P(\mbox{$k=5$ w
 \begin{frame}
 \frametitle{Poisson Distribution}
 
-Say you want to count the number of rare events in a large population over a unit of time.  Examples:
+Say you want to count the number of rare events in a large population over a unit of time.  Ex:
 \begin{itemize}
-\pause \item the number of car accidents at a particular intersection on a given week
-\pause \item the number of ambulance calls on any given day in Portland
-\pause \item the number of soldiers in the Prussian army killed accidentally by horse kick from 1875 to 1894
+\pause \item \# of car accidents at an intersection on a given week
+\pause \item \# of ambulance calls on any given day in Portland
+\pause \item \# of soldiers in the Prussian army killed accidentally by horse kick from 1875 to 1894
 \end{itemize}
 
 \vskip 0.25cm
 
-\pause The \blue{Poisson distribution} helps us describe the number of such events that will occur in a short unit of time for a fixed population if the individuals within the population are
-independent.
+\pause The \blue{Poisson distribution} helps us model such counts.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -258,11 +285,14 @@ independent.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Poisson Distribution}
-Suppose we are watching for rare events and the number of observed events follows a Poisson distribution with rate $\lambda$
+%
+% Comment these
+%
+A random number $X$ of the count of the number of events follows a Poisson distribution with rate $\lambda$
 \[
-    P(\mbox{observe k rare events}) = \frac{\lambda^k e^{-\lambda}}{k!}
+    P(\mbox{we observe x rare events}) = P(X=x) = \frac{\lambda^x e^{-\lambda}}{x!}
 \]
-\pause where k may take a value 0, 1, 2, \ldots where $e \approx 2.718$.
+\pause where x may take a value 0, 1, 2, \ldots where $e \approx 2.718$.
 
 \vspace{0.5cm}
 
@@ -275,6 +305,10 @@ Suppose we are watching for rare events and the number of observed events follow
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Conditions for Poisson Distribution}
+
+%
+% Comment these
+%
 A random variable \blue{may} be Poisson distributed if
 
 \begin{enumerate}
@@ -290,18 +324,33 @@ A random variable \blue{may} be Poisson distributed if
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Exercise 3.47 on Page 158}
-A coffee shop serves an average of 75 customers per hour during the morning rush.  What is the probability that the coffee shop serves 70 customers in one hour during this time of the day?
+%
+% Comment these
+%
+A coffee shop serves an average of 75 customers per hour during the morning rush.  Let $X$ be the (random) number of customers that the coffee shop serves in one hour at this time of the day.  
 
 \vspace{0.5cm}
 
-\pause In this case, $\lambda=75$ is the rate
+What is the probability $X=70$?
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Exercise 3.47 on Page 158}
+%
+% Comment these
+%
+In this case, $\lambda=75$ is the rate
 \[
-P(k=70) = \frac{75^{70} e^{-75}}{70!} = 0.040
+P(X=70) = \frac{75^{70} e^{-75}}{70!} = 0.040
 \]
 
 \pause\vspace{0.25cm}
 
-Type {\tt dpois(x=70, lambda=75)} in {\tt R}
+We can do this in R via {\tt dpois(x=70, lambda=75)} in {\tt R}
 
 \end{frame}
 %------------------------------------------------------------------------------

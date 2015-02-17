@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -71,6 +71,9 @@ Start Chapter 4:  Arguably the most important chapter as it goes to the heart of
 \begin{frame}[fragile]
 \frametitle{Point Estimates}
 
+%
+% Comment this
+%
 \blue{Definition 1}: \blue{Point estimates} are functions of a random sample of $n$ observations $x_1, \ldots, x_n$.  They estimate the value of some unknown population parameter.
 
 \pause\vspace{0.5cm}
@@ -139,6 +142,9 @@ This histogram is the 1000 instances of $\xbar$, where each $\xbar$ is based on 
 \begin{frame}[fragile]
 \frametitle{Sampling Distributions}
 
+%
+% Comment this
+%
 \blue{Definition 2}: the \blue{sampling distribution} is the distribution of point estimates based on samples of fixed size $n$.  
 
 \pause \vspace{0.5cm}
@@ -176,7 +182,7 @@ We can define the sampling distributions for \blue{any} point estimate, not just
 What about spread?  $[4.6, 5.4]$ contains roughly 95\% of the data.
 
 \begin{columns}[c]
-\column{.35\textwidth} % column designated by a command
+\column{.35\textwidth}
 \includegraphics[width=5cm]{figure/lec12-001}
 \pause\column{.65\textwidth}
 \begin{eqnarray*}
@@ -197,6 +203,9 @@ What about spread?  $[4.6, 5.4]$ contains roughly 95\% of the data.
 \begin{frame}[fragile]
 \frametitle{Standard Errors}
 
+%
+% Comment this
+%
 \blue{Definition 3}: The \blue{standard error} is the standard deviation of the sampling distribution of a point estimate.  
 
 \pause \vspace{0.5cm}
@@ -216,6 +225,9 @@ It describes the uncertainty/variability associated with the point estimate.  In
 \begin{frame}[fragile]
 \frametitle{Standard Error of $\xbar$}
 
+%
+% Comment this
+%
 Given $n$ \blue{independent} observations from a population with standard deviation $\sigma$, the \blue{standard error of the sample mean} is
 \[
 SE = \frac{\sigma}{\sqrt{n}}
@@ -285,6 +297,9 @@ Compare 1000 instances of $\xbar$ when
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Repeated Sampling}
+%
+% Comment this
+%
 \blue{Popular question}:  What's up with this ``1000'' instances?  Why would you take 1000 different samples of size $n$? 
 
 \vspace{0.5cm}
@@ -303,6 +318,10 @@ Compare 1000 instances of $\xbar$ when
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Standard Error of the Sample Mean}
+
+%
+% Comment this
+%
 In this example we knew $\sigma$; typically we won't.  \pause However, when
 \begin{itemize}
 \item $n \geq 30$
