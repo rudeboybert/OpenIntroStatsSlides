@@ -1,8 +1,8 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
@@ -65,6 +65,9 @@
 \begin{frame}[fragile]
 \frametitle{Illustrative Image of Sampling Distribution}
 
+%
+% Comment this
+%
 \begin{center}
 \includegraphics[width=\textwidth]{figure/Accuracy_and_precision.png}
 \end{center}
@@ -73,24 +76,24 @@
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Central Limit Theorem}
-\begin{center}
-\includegraphics[width=\textwidth]{figure/CLT.png}
-\end{center}
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Central Limit Theorem}
+%\begin{center}
+%\includegraphics[width=\textwidth]{figure/CLT.png}
+%\end{center}
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Central Limit Theorem}
-\blue{Question}:  Why do we care about the CLT?
+\blue{Question 1}:  Why do we care about the CLT?
 
 \vspace{0.25cm}
 
-\pause\blue{Answer}:  We want the sampling distribution of $\xbar$ to be Normal \blue{irregardless} of the shape of population distribution.
+\pause\blue{Answer}:  We want the sampling distribution of $\xbar$ to be Normal \blue{regardless} of the shape of population distribution.
 
 \vspace{0.25cm}
 
@@ -107,11 +110,11 @@
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Central Limit Theorem}
-\blue{Question}:  Why do we care about the CLT?
+\blue{Question 1}:  Why do we care about the CLT?
 
 \vspace{0.25cm}
 
-\blue{Answer}:  We want the sampling distribution of $\xbar$ to be Normal \blue{irregardless} of the shape of population distribution.
+\blue{Answer}:  We want the sampling distribution of $\xbar$ to be Normal \blue{regardless} of the shape of population distribution.
 
 \vspace{0.25cm}
 
@@ -128,11 +131,11 @@
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Central Limit Theorem}
-\blue{Question}:  Why do we care that the sampling distribution of $\xbar$ is Normal?
+\blue{Question 2}:  Why do we care that the sampling distribution of $\xbar$ is Normal?
 
 \vspace{0.25cm}
 
-\pause\blue{Answer}:  So we can use the Normal table on p.409 of the book to calculate areas/percentiles/probabilities!  We call this using the \blue{normal model}.
+\pause\blue{Answer}:  So we can use the Normal table on p.409 of the book to calculate areas/percentiles!  We call this using the \blue{normal model}.
 
 \vspace{0.25cm}
 
@@ -145,10 +148,46 @@
 %------------------------------------------------------------------------------
 
 
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Central Limit Theorem}
+\blue{Question 3}:  Why do we care that we can use the Normal table?
+
+\vspace{0.25cm}
+
+So we can
+\begin{itemize}
+\item Build confidence intervals
+\item Conduct hypothesis tests
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Central Limit Theorem}
+\blue{Recap}:  By the CLT
+
+\begin{enumerate}
+\item The sampling distribution of $\xbar$ is Normal \blue{regardless} of the population distribution $\Longrightarrow$
+\item We can use the Normal table on p.409 of the book to calculate areas/percentiles $\Longrightarrow$
+\item We can build confidence intervals and conduct hypothesis tests
+\end{enumerate}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Definition}
 
+%
+% Comment this
+%
 For a sample $x_1, \ldots, x_n$ of \blue{independent} observations, if $n$ is ``large'' enough to counteract the skew of the population distribution, then the sampling distribution of $\xbar$ is approximately Normal with
 \begin{itemize}
 \item mean $\mu$
@@ -172,6 +211,9 @@ For a sample $x_1, \ldots, x_n$ of \blue{independent} observations, if $n$ is ``
 \begin{frame}
 \frametitle{Conditions for the Normal Model}
 
+%
+% Comment this
+%
 This translates to the following conditions to verify to be able to use the Normal model with $s$ in place of $\sigma$, as stated in the book:
 
 \begin{enumerate}
@@ -318,6 +360,10 @@ A plausible range of values for the population parameter is called a \blue{confi
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Intuition of a Confidence Interval}
+
+%
+% Comment this
+%
 A 95\% confidence interval for $\mu$ is (no more using rule of thumb $2 \times SD$):
 
 \begin{eqnarray*}
@@ -338,6 +384,9 @@ A 95\% confidence interval for $\mu$ is (no more using rule of thumb $2 \times S
 \begin{frame}
 \frametitle{Confidence Intervals}
 
+%
+% Comment this
+%
 In general a confidence interval for $\mu$ will be 
 \begin{eqnarray*}
 \xbar \pm z^* SE &=& \left[\xbar - z^* SE, \mbox{  }\xbar + z^* SE\right]
