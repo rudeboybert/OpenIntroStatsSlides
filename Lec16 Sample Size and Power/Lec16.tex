@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -85,9 +85,9 @@ Say instead we had a \blue{two-sided alternative hypothesis}:
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Setting $\alpha$}
+\frametitle{Pre-specifying $\alpha$}
 
-Say Dr. Quack is conducting a hypothesis tests.  They start with $\alpha=0.05$.
+Say Dr. Q is conducting a hypothesis tests.  They start with $\alpha=0.05$.
 
 \pause\vspace{0.5cm}
 
@@ -126,7 +126,7 @@ Ronald Fisher, the creator of p-values, never intended for them to be used this 
 \begin{frame}[fragile]
 \frametitle{10\% Sampling Rule}
 
-\blue{Question}: Why do we set $n$ to be less than 10\% of the population size $N?$
+\blue{Question}: Why do we set $n \leq$ 10\% of the population size $N?$
 
 \pause\vspace{0.5cm}
 
@@ -138,7 +138,7 @@ Ronald Fisher, the creator of p-values, never intended for them to be used this 
 
 \pause\vspace{0.5cm}
 
-\blue{Explanation}:  Recall from HW5 Q1, sampling without replacement from a rooms that are half male/female but with $N=10$ and $N=10000$.  
+\blue{Issue}:  Sampling without vs with replacement.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -178,7 +178,6 @@ FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
 %
 % Comment this
 %
-
 \[
 SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
 \frac{\sigma}{\sqrt{n}} \times \blue{FPC}
@@ -202,11 +201,8 @@ i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Sampling}
-We can tie the \blue{conceptual} and \blue{mathematical} notions of sampling:  
+\frametitle{Conceptual and Mathematical Notions of Sampling}
 
-\vspace{0.25cm}
-\pause
 \blue{Conceptual}:  If we sample everybody, we know the true $\mu$.
 \begin{center}
 \pause and
@@ -243,23 +239,6 @@ i.e.
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{10\% Sampling Rule} 
-%\blue{Example}:  From MATH392 where we sample $n=40,000$ without replacement from a population of size $N=60,000$
-%\begin{itemize}
-%\item The histogram represents the true sampling distribution
-%\item The red curve represents the sampling distribution with the \blue{uncorrected} $SE=\frac{s}{\sqrt{n}}$
-%\end{itemize}
-%
-%\begin{center}
-%\includegraphics[width=0.55\textwidth]{figure/FPC.pdf}
-%\end{center}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -346,19 +325,18 @@ and solve for $n$.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Identify $n$ for a Desired Margin of Error}
-Since
 %
 % Comment this
 %
+Since
 \begin{eqnarray*}
 &&m \geq z^*\frac{\sigma}{\sqrt{n}}\\
 && \sqrt{n} \geq z^*\frac{\sigma}{m}\\
-&& n \geq \left(z^*\frac{\sigma}{m}\right)^2\\
+&& n \geq \left(z^*\frac{\sigma}{m}\right)^2
 \end{eqnarray*}
+\vspace{0.25cm}\pause
 
-\vspace{3cm}
-
-\pause So
+So
 \begin{itemize}
 \pause\item As $\sigma$ goes up, you need more $n$
 \pause\item As $z^*$ goes up, i.e. higher confidence level, you need more $n$

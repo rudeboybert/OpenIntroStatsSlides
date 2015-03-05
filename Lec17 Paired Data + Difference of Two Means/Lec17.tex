@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -138,7 +138,7 @@ z=\frac{\mbox{point estimate} - \mbox{null value}}{SE}
 \begin{frame}[fragile]
 \frametitle{Chapter 5.2: Are Two Means $\mu_1$ \& $\mu_2$ Different?}
 
-We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 Cherry Blossom Run. \pause \blue{Did men run faster than women?}
+We randomly sample 45 men (of 7192) and 55 women (of 9732) runners in the 2012 Cherry Blossom Run. Did men run faster than women?
 
 \begin{columns}
 %--------------------------
@@ -282,7 +282,6 @@ Test statistic:  $z$-score of $\xbar_w - \xbar_m$ under $H_0$:
 \pause\vspace{0.25cm}
 
 The p-value is $0$, hence we reject $H_0$ and declare that men ran significantly faster than women.  
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -321,16 +320,6 @@ Moral of the story
 \pause\item Hypothesis tests with ``rejections of $H_0$'' focus almost entirely on \blue{statistical significance}.
 \pause\item Confidence intervals allow you to also focus on \blue{practical significance}.  
 \end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Hypothesis Test}
-
-
 
 \end{frame}
 %------------------------------------------------------------------------------
