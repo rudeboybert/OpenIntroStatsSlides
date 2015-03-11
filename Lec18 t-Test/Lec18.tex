@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -67,21 +67,21 @@
 %
 % Comment this
 %
-%We need a \blue{large $n$} for two reasons:
-%
-%\begin{enumerate}
-%\item CLT so sampling distribution of $\xbar$ is normal regardless of the true population distribution. 
-%\item ensure $s$ is a good point estimate of $\sigma$, so $SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$
-%\end{enumerate}
-%
-%\pause \vspace{0.5cm}
-%
-%What if $n$ is small?  We're stuck \blue{except when}: 
-%\begin{enumerate}
-%\item the sample observations are independent
-%\item the observations are from a population distribution that is normal
-%\end{enumerate}
-%the sampling distribution of $\xbar$ is nearly normal \blue{regardless} of $n$.
+We need a \blue{large $n$} for two reasons:
+
+\begin{enumerate}
+\item CLT so sampling distribution of $\xbar$ is normal regardless of the true population distribution. 
+\item ensure $s$ is a good point estimate of $\sigma$, so $SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}$
+\end{enumerate}
+
+\pause \vspace{0.5cm}
+
+What if $n$ is small?  We're stuck \blue{except when}: 
+\begin{enumerate}
+\item the sample observations are independent
+\item the observations are from a population distribution that is normal
+\end{enumerate}
+the sampling distribution of $\xbar$ is nearly normal \blue{regardless} of $n$.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -107,11 +107,11 @@ When verifying normality for small $n$, it is important to not only examine the 
 %
 % Comment this
 %
-%Let $x_1,\ldots,x_n$ be a random sample from a \blue{normal} population distribution where $\sigma$ is unknown.  \pause Then the \blue{t-statistic}
-%\[
-%t = \frac{\overline{x}-\mu}{SE} = \frac{\overline{x}-\mu}{\frac{s}{\sqrt n}}
-%\]
-%has probability distribution called a \blue{$t$ distribution with $n-1$ degrees of freedom ($df$)}.
+Let $x_1,\ldots,x_n$ be a random sample from a \blue{normal} population distribution where $\sigma$ is unknown.  \pause Then the \blue{t-statistic}
+\[
+t = \frac{\overline{x}-\mu}{SE} = \frac{\overline{x}-\mu}{\frac{s}{\sqrt n}}
+\]
+has probability distribution called a \blue{$t$ distribution with $n-1$ degrees of freedom ($df$)}.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -187,18 +187,18 @@ i.e. it has \blue{fatter tails}
 %
 % Comment this
 %
-%We use the $t$ distribution when you have
-%
-%\begin{itemize}
-%\pause \item $n$ is small. E.g. 3, 5, 10, 15.
-%\pause \item \blue{Independence}: $n \leq 10\% $ rule
-%%or if we have an experiment or random process we check that each observation were independent
-%\pause \item \blue{Observations come from a nearly normal distribution}:
-%\begin{itemize}
-%\item Look at a histogram of the data (difficult when $n$ is small)
-%\item Consider whether any previous experiences alert us that the data may be normal
-%\end{itemize}
-%\end{itemize}  
+We use the $t$ distribution when you have
+
+\begin{itemize}
+\pause \item $n$ is small. E.g. 3, 5, 10, 15.
+\pause \item \blue{Independence}: $n \leq 10\% $ rule
+%or if we have an experiment or random process we check that each observation were independent
+\pause \item \blue{Observations come from a nearly normal distribution}:
+\begin{itemize}
+\item Look at a histogram of the data (difficult when $n$ is small)
+\item Consider whether any previous experiences alert us that the data may be normal
+\end{itemize}
+\end{itemize}  
 	
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -224,19 +224,19 @@ If $n=11$, we use $df=11-1=10$ and do a look up on the $t$-table on page 410:
 %
 % Comment this
 %
-%Confidence intervals:  Use $t^*_{df}$ instead of $z^*$
-%\[
-%\xbar \pm t_{df}^* SE = 
-%\left[
-%\overline{x} - t_{df}^* \times\frac{s}{\sqrt n}, \mbox{  }
-%\overline{x} + t_{df}^* \times\frac{s}{\sqrt n}
-%\right]
-%\]
-%
-%So for example, to get a 95\% C.I. based on
-%\begin{eqnarray*}
-%n=11 \Rightarrow df=10 \Rightarrow t_{10}^*=2.23
-%\end{eqnarray*}
+Confidence intervals:  Use $t^*_{df}$ instead of $z^*$
+\[
+\xbar \pm t_{df}^* SE = 
+\left[
+\overline{x} - t_{df}^* \times\frac{s}{\sqrt n}, \mbox{  }
+\overline{x} + t_{df}^* \times\frac{s}{\sqrt n}
+\right]
+\]
+
+So for example, to get a 95\% C.I. based on
+\begin{eqnarray*}
+n=11 \Rightarrow df=10 \Rightarrow t_{10}^*=2.23
+\end{eqnarray*}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -267,19 +267,19 @@ $n$ & $\xbar$ & $s$ & min & max\\
 %
 % Comment this
 %
-%Conditions:
-%\begin{itemize}
-%\item \blue{Independence}: 25 is obviously less than 10\% of the population of NYC
-%\item \blue{Normality}: Not an exact science.  The halfway point of the min and max is 7.975, which is fairly close to $\xbar=7.73$.  So symmetric enough? 
-%\end{itemize}
-%
-%\vspace{0.25cm}
-%
-%The test statistic is the $t$-statistic:
-%\[
-%t = \frac{\overline{x}-\mbox{null value}}{SE} = \frac{\overline{x}-\mbox{null value}}{\frac{s}{\sqrt n}} = \frac{7.73 - 8}{\frac{0.77}{\sqrt{25}}} = -1.75
-%\]
-%Since $n=25$, $df=25-1=24$.
+Conditions:
+\begin{itemize}
+\item \blue{Independence}: 25 is obviously less than 10\% of the population of NYC
+\item \blue{Normality}: Not an exact science.  The halfway point of the min and max is 7.975, which is fairly close to $\xbar=7.73$.  So symmetric enough? 
+\end{itemize}
+
+\vspace{0.25cm}
+
+The test statistic is the $t$-statistic:
+\[
+t = \frac{\overline{x}-\mbox{null value}}{SE} = \frac{\overline{x}-\mbox{null value}}{\frac{s}{\sqrt n}} = \frac{7.73 - 8}{\frac{0.77}{\sqrt{25}}} = -1.75
+\]
+Since $n=25$, $df=25-1=24$.
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -301,13 +301,14 @@ df = 24 & 1.32 & 1.71 & 2.06 & 2.49 & 2.80\\
 \end{center}
 
 
-%\pause Since 
-%\begin{itemize}
-%\item 1.75 is in $[1.71, 2.06]$
-%\item by symmetry -1.75 is in $[-2.06, -1.71]$
-%\item the one-sided p-value is in between $[0.025, 0.05]$
-%\end{itemize}
-\vspace{3cm}
+\pause Since 
+\begin{itemize}
+\item 1.75 is in $[1.71, 2.06]$
+\item by symmetry -1.75 is in $[-2.06, -1.71]$
+\item the one-sided p-value is in between $[0.025, 0.05]$
+\end{itemize}
+\vspace{0.5cm}
+
 
 \pause Decision: Since the p-value $< \alpha=0.10$, we reject $H_0$ that NY'ers sleep 8 hours a night at the $\alpha=0.10$ significance level in favor of the hypothesis they sleep more.
 \end{frame}
