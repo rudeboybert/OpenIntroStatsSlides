@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -49,27 +49,27 @@
 %------------------------------------------------------------------------------
 
 
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously: Conditions for Using t Distribution}
+%%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Previously: Conditions for Using t Distribution}
+%%
+%% Comment this
+%%
+%We use the $t$ distribution when you have
 %
-% Comment this
-%
-We use the $t$ distribution when you have
-
-\begin{itemize}
-\pause \item $n$ is small.
-\pause \item \blue{Independence}: $n \leq 10\% $ rule
-%or if we have an experiment or random process we check that each observation were independent
-\pause \item \blue{Observations come from a nearly normal distribution}:
-\begin{itemize}
-\item Look at a histogram of the data (difficult when $n$ is small)
-\item Consider whether any previous experiences alert us that the data may be normal
-\end{itemize}
-\end{itemize}  
-	
-\end{frame}
-%-------------------------------------------------------------------------------
+%\begin{itemize}
+%\pause \item $n$ is small.
+%\pause \item \blue{Independence}: $n \leq 10\% $ rule
+%%or if we have an experiment or random process we check that each observation were independent
+%\pause \item \blue{Observations come from a nearly normal distribution}:
+%\begin{itemize}
+%\item Look at a histogram of the data (difficult when $n$ is small)
+%\item Consider whether any previous experiences alert us that the data may be normal
+%\end{itemize}
+%\end{itemize}  
+%	
+%\end{frame}
+%%-------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -159,6 +159,10 @@ We observe the following, where each point is one tomato plant.  Plot the sample
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Analysis of Variance}
+%
+% Comment this
+%
+
 Say we have $k$ groups and want to compare the $k$ means:
 \[
 \mu_1, \mu_2, \ldots, \mu_k
@@ -174,17 +178,18 @@ Ex. for groups 1 \& 2:
 H_0: && \mu_1 = \mu_2\\
 \mbox{vs. } H_a:  && \mu_1 \neq \mu_2
 \end{eqnarray*}
-
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
-%
-% Comment this
-%
+
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Analysis of Variance}
+%
+% Comment this
+%
+
 Or we do \blue{a single overall test} via \blue{Analysis of Variance ANOVA}:
 
 \vspace{0.5cm}
@@ -199,12 +204,14 @@ H_0: && \mu_1 = \mu_2 = \ldots = \mu_k\\
 %-------------------------------------------------------------------------------
 
 
-%
-% Comment this
-%
+
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Analysis of Variance}
+%
+% Comment this
+%
+
 ANOVA asks:  where is the overall variability of the observations originate from?
 
 \vspace{0.5cm}
@@ -213,6 +220,7 @@ ANOVA asks:  where is the overall variability of the observations originate from
 \[
 F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
 \]
+
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -341,6 +349,7 @@ Total & $n-1$ & $SST$ &  & &
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Conditions}
+
 \begin{enumerate}
 \item The observations have to be \blue{independent}.  10\% rule.  
 \pause \item Trade off of $n$ and \blue{normality} of observations \blue{within each group}. 
@@ -353,6 +362,22 @@ Total & $n-1$ & $SST$ &  & &
 
 \end{frame}
 %-------------------------------------------------------------------------------
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
 
 
 %------------------------------------------------------------------------------
@@ -472,7 +497,10 @@ What do people do?  \pause Make the $\alpha$ stricter!  i.e.
 %------------------------------------------------------------------------------
 
 
-\end{document}
+
+
+
+
 
 
 
