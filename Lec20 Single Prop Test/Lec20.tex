@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -21,7 +21,7 @@
 }
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
-
+q
 \definecolor{blue2}{rgb}{0.278,0.278,0.729} 
 \newcommand{\blue}[1]{\textcolor{blue2}{#1}}
 \newcommand{\white}[1]{\textcolor{white}{#1}}
@@ -51,68 +51,143 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Quiz 8}
-
-\blue{Question 1}: According to the article, why do scientists even bother with correlational/observational studies, when no notions of causality can be established?
-
-\vspace{0.5cm}
-
-\pause\blue{Answer}:  One reason is that correlational studies are excellent starting points for deciding which hypotheses to evaluate with the more rigorous randomized controlled experiment.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Quiz 8}
-
-\blue{Question 2}: The article argues that various scientific disciplines should set professional labeling standards for material discussed in the media...  Rank the four possible labels in order of how much creedence the public should give them, from lowest to highest.  
+\frametitle{Discussion of Quiz}
+\blue{Question 1}:  Why did $\frac{1}{20}$ studies yield a positive/significant result i.e. that there is a link between jelly beans and acne?
 
 \vspace{0.5cm}
 
-\pause\blue{Answer}:
-\begin{enumerate}
-\item[3.] preliminary result
-\item[1.] large-scale observational study
-\item[4.] large-sample randomized controlled test
-\item[2.] well-established scientific law that we know how to apply in a wide range of conditions
-\end{enumerate}
 
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Causality}
-
-What is causality?  How do we establish it?  
-
+\pause Not that the p-value is 0.05, rather that \blue{$\alpha=0.05$}:
 \begin{itemize}
-\item \blue{\url{http://nfs.unipv.it/nfs/minf/dispense/patgen/lectures/files/disease_causality.html}}
-\item \blue{\url{http://bayes.cs.ucla.edu/BOOK-2K/}}
+\item significance level AKA
+\item type I error rate AKA
+\item false positive rate
+\end{itemize}
+i.e. we expect 1 out of 20 results to be significant even if there is no effect.
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figure/jelly.png}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+\blue{Publication bias}: people only highlight significant/positive results.  \pause From Wikipedia: ``Publication bias occurs when the publication of research results \blue{depends on their nature and direction}.''
+
+\vspace{0.5cm}
+
+\pause To counter this, some prominent medical journals including
+\begin{itemize}
+\item New England Journal of Medicine
+\item The Lancet
+\item Journal of the American Medical Association
+\end{itemize}
+\pause require registration of a trial \blue{before} it starts so that unfavorable results are not withheld from publication. 
+
+\vspace{0.5cm}
+
+\pause Journal of \blue{Negative Results}:  \blue{\url{http://www.jnrbm.com/}}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/wheel.jpg}
+\end{center}
+From:  Sterne JA, Davey Smith G (2001) Sifting the evidence - What's wrong with significance tests. BMJ 322: 226Ð231.
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{What $\alpha$ to Use?}
+%Should I use $\alpha=0.05$ as my significance level?  Before using it, put some thought into the balance between:
+%\begin{itemize}
+%\pause \item \blue{Type I errors}.  Setting a smaller $\alpha$ yields a more \blue{conservative} procedure: all things being equal, you will reject $H_0$ less often.  
+%\pause \item \blue{Type II errors}.  Setting a bigger $\alpha$ yields a more \blue{liberal} procedure: all things being equal, you will reject $H_0$ more often.  
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+A related issue is the statistical concept of \blue{multiple testing}.
+
+\vspace{0.5cm}
+
+\pause Say we are conducting many experiments, and $H_0$ is true for all of them.  If you repeat experiments many times, you're bound to get a significant result eventually just by \blue{chance alone}.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Multiple Testing}
+
+What do people do? Make the $\alpha$ stricter!  i.e. 
+\pause \begin{itemize}
+\item make the $\alpha$ smaller
+\item i.e. less chance the p-value is smaller than $\alpha$
+\item i.e. less chance of incorrectly rejecting $H_0$ when it is true
 \end{itemize}
 
+\vspace{0.25cm}
+
+\pause Use the \blue{Bonferroni correction} to $\alpha$:  If you are conducting $n$ tests, use $\alpha^* = \frac{\alpha}{n}$. More later...
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Discussion of Quiz}
+\blue{Question 2}:  Say a very successful entrepreneur named Jamie puts out an autobiography called "How to be a success in life."  In it, Jamie details a plan to become a success along the various dimensions of life.  Jamie states "I followed these steps, and look at me now!  You should do the same!"  Critique this statement keeping the comic in mind.  
 
+\vspace{0.25cm}
 
+There might have been 9999 people who did the same things but perhaps aren't as successful.  Those people generally don't get book deals so we don't know about them.
 
+\vspace{0.25cm}
+
+Relatedly \blue{\url{http://bit.ly/1EvIMOG}}
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Question for Today}
 
-According to a (representatively sampled) poll done by the New York Times/CBS News in June 2012, only about 44\% of the American public approved of the Supreme Court's performance.  
+According to a poll done by the New York Times/CBS News in June 2012, only about 44\% of the American public approved of the Supreme Court's performance.  
 
 \vspace{0.25cm}
 
-\pause The sample proportion $\phat=0.44$ is \blue{point estimate} of $p$: the true (population) proportion of the American public who approves.  
+\pause The sample proportion $\phat=0.44$ is \blue{point estimate} of $p$: the true proportion of the American public who approves.  
 
 \vspace{0.25cm}
 
@@ -172,6 +247,7 @@ The sampling distribution of the \blue{sample proportion} $\phat$ based on sampl
 \item $n(1-p) \geq 10$ 
 \end{itemize}
 \end{itemize}
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -229,6 +305,9 @@ For
 \begin{frame}[fragile]
 \frametitle{Confidence Intervals}
 
+%
+% Comment this
+%
 Going back to the poll: $\phat=0.44$ based on $n=976$.  What is a 95\% confidence interval?
 
 \vspace{0.25cm}
@@ -256,6 +335,9 @@ SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{\phat(1-\phat)}{n}} = \
 \begin{frame}[fragile]
 \frametitle{Confidence Intervals}
 
+%
+% Comment this
+%
 A 95\% confidence interval using the normal model has $z^*=1.96$, thus:
 \[
 \mbox{point estimate} \pm 1.96 \times SE
@@ -286,6 +368,10 @@ Thomas Carcetti is running for mayor of Baltimore.  His campaign manager \blue{c
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Hypothesis Tests}
+
+%
+% Comment this
+%
 The hypothesis test is, with the null value $p_0=0.5$
 \begin{eqnarray*}
 && H_0: p = p_0\\
@@ -313,6 +399,10 @@ SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{p_0(1-p_0)}{n}} = \sqrt
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Hypothesis Tests}
+
+%
+% Comment this
+%
 \[
 z = \frac{\mbox{point estimate }\phat - \mbox{ null value }p_0}{SE_{\phat}} = \frac{0.52 - 0.50}{0.022} = 0.89
 \]
@@ -362,6 +452,56 @@ i.e. from one to two-sample tests for proportions.
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
+\frametitle{Quiz 8}
+
+\blue{Question 1}: According to the article, why do scientists even bother with correlational/observational studies, when no notions of causality can be established?
+
+\vspace{0.5cm}
+
+\pause\blue{Answer}:  One reason is that correlational studies are excellent starting points for deciding which hypotheses to evaluate with the more rigorous randomized controlled experiment.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Quiz 8}
+
+\blue{Question 2}: The article argues that various scientific disciplines should set professional labeling standards for material discussed in the media...  Rank the four possible labels in order of how much creedence the public should give them, from lowest to highest.  
+
+\vspace{0.5cm}
+
+\pause\blue{Answer}:
+\begin{enumerate}
+\item[3.] preliminary result
+\item[1.] large-scale observational study
+\item[4.] large-sample randomized controlled test
+\item[2.] well-established scientific law that we know how to apply in a wide range of conditions
+\end{enumerate}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Causality}
+
+What is causality?  How do we establish it?  
+
+\begin{itemize}
+\item \blue{\url{http://nfs.unipv.it/nfs/minf/dispense/patgen/lectures/files/disease_causality.html}}
+\item \blue{\url{http://bayes.cs.ucla.edu/BOOK-2K/}}
+\end{itemize}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
 \frametitle{Last Semester's MATH 141}
 Class looked like this:
 \begin{center}
@@ -389,7 +529,6 @@ I wanted to answer the following questions using data:
 
 \end{frame}
 %------------------------------------------------------------------------------
-
 
 
 %------------------------------------------------------------------------------
