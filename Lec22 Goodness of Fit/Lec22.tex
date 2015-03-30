@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -136,8 +136,6 @@ Representation & 75 & 6 & 11 & 8 & $n=100$ \\
 
 \pause i.e. What is the \blue{``goodness''} of the fit of the observed counts to the expected counts?
 
-
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -146,7 +144,7 @@ Representation & 75 & 6 & 11 & 8 & $n=100$ \\
 \begin{frame}[fragile]
 \frametitle{The Data}
 
-Let's use $n=275$ people.  Assuming the same proportions as above,  we compute the \blue{expected} counts.  Ex: $198 = 275 \times 0.72$.  \white{Now say we observe the following counts:}
+Let's use $n=275$ people.  Assuming the same proportions as above,  we compute the \blue{expected} counts.  Ex: $198 = 275 \times 0.72$. 
 
 \begin{center}
 \begin{tabular}{l||cccc|c}
@@ -165,7 +163,7 @@ Expected Counts & 198 & 19.25 & 33 & 24.75 & 275\\
 \begin{frame}[fragile]
 \frametitle{The Data}
 
-Let's use $n=275$ people.  Assuming the same proportions as above,  we compute the \blue{expected} counts.  Ex: $198 = 275 \times 0.72$.  Now say we observe the following counts:
+Let's use $n=275$ people.  Assuming the same proportions as above,  we compute the \blue{expected} counts.  Ex: $198 = 275 \times 0.72$. 
 
 \begin{center}
 \begin{tabular}{l||cccc|c}
@@ -192,6 +190,7 @@ Observed Counts & 205 & 26 & 25 & 19 & 275\\
 \end{eqnarray*}
 
 \pause $H_0$ can also be stated: the data are a random sample from the distribution and any differences of observed vs expected reflect natural sampling variation.  
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -206,6 +205,7 @@ Observed Counts & 205 & 26 & 25 & 19 & 275\\
 && H_0:\mbox{the jurors are randomly sampled i.e. there is no racial bias}\\
 \mbox{vs}&& H_A:\mbox{the jurors are not randomly sampled i.e. there is racial bias}
 \end{eqnarray*}
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -263,7 +263,7 @@ Z = \frac{\mbox{observed} - \mbox{expected}}{\sqrt{\mbox{expected}}}
 \item observed $<$ expected $\Rightarrow$ $Z<0$
 \end{itemize}
 
- The $Z$'s measure deviations.
+The $Z$'s measure deviations.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -281,6 +281,7 @@ Z^2 &=& \left(\frac{\mbox{observed} - \mbox{expected}}{\sqrt{\mbox{expected}}}\r
 \end{eqnarray*}
 
 \pause Why square it and not absolute value it?  It's easier to do \blue{calculus} on $x^2$ than $|x|$.
+
 \end{frame}
 %------------------------------------------------------------------------------
 
