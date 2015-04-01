@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-% \documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -49,63 +49,6 @@
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Quiz 9}
-
-\blue{Question}:  While the results of the controlled experiment suggesting that women are at a disadvantage in science hiring may come as no surprise, what argument is made that this discrimination is not entirely due to overt misogyny?  Answer in one sentence.
-
-\vspace{0.5cm}
-
-\pause \blue{Answer}: Women rated women candidates lower as well, suggesting not so much explicit misogyny, but rather manifestation of subtler prejudices internalized from societal stereotypes.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Quiz 9}
-
-\blue{Question}:  Knowing nothing else about the problem (sample sizes, SE, etc), what can we conclude about the difference in means between men and women?
-
-\vspace{0.5cm}
-
-\pause\blue{Answer}: No, refer to HW8 Question 7.  We had two overlapping CIs, but the CI on the difference did not include 0.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Previously... Chi-Square Tests}
-%
-%Chi-square $\chi^2$ tests allow us compare \blue{observed} counts to \blue{expected} counts.
-%
-%\vspace{0.5cm}
-%
-%\pause We compute a $\chi^2$ statistic
-%\begin{eqnarray*}
-%\chi^2 &=& \sum_{i=1}^{k} \frac{(\mbox{obs}_i - \mbox{exp}_i)^2}{\mbox{exp}_i} 
-%\end{eqnarray*}
-%and then compare it to the $\chi^2$ distribution to compute $p$-values.
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Conditions for Chi-Square Test for Goodness-of-Fit}
-\begin{enumerate}
-\item \blue{Independence}:  Each case is independent of the each other
-\item \blue{Sample size/distribution}:  We need at least 5 cases in each scenario i.e. each cell in the table
-\item \blue{Degrees of freedom}:  We need at least $df=2$, i.e. $k\geq 3$
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
 
 %------------------------------------------------------------------------------
 \begin{frame}
@@ -128,7 +71,7 @@ Google is always tinkering with its search ranking \blue{algorithm}.  Say we wan
 They measure user satisfaction with the results for a particular search with the \blue{{\tt new search}} variable:
 \begin{itemize}
 \pause\item no new search: User clicked on a result. Suggests user is satisfied with result.
-\pause\item new search: User \blue{did not} click on a result and tried a new related search.  Suggests user is dissatisfied with result.
+\pause\item new search: User did not click on a result and tried a new related search.  Suggests user is \blue{dissatisfied} with result.
 \end{itemize}
 
 
@@ -154,34 +97,11 @@ So we have two categorical variables:
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Today's Example}
-%
-%Let's select queries to evaluate each algorithm and organize them in a \blue{contingency table}:
-%
-%\begin{center}
-%  \begin{tabular}{r|ccc|c}
-%& \multicolumn{3}{c|}{{\tt algorithm}} & \\
-%       {\tt new search} & Current & Test 1 & Test 2 & Total \\ 
-%\hline
-%    No new search & \white{4000} & \white{2000} & \white{2000} & \white{8000} \\ 
-%    New search & \white{1000} & \white{500} & \white{500} & \white{2000} \\ 
-%\hline
-%    Total & 5000 & 2500 & 2500 & 10000 \\ 
-%  \end{tabular}
-%\end{center}
-%
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Today's Example}
 
-Say we observed the following results:
+Say we observe the following contingency table:
 
 \begin{center}
   \begin{tabular}{r|ccc|c}
@@ -199,7 +119,7 @@ Say we observed the following results:
 
 \vspace{0.25cm}
 
-\pause {\tt algorithm} and {\tt new search} are \blue{independent}: regardless of which algorithm used, the proportion of new searches stays the same.
+\pause They are \blue{independent}: regardless of which algorithm used, the proportion of new searches stays the same.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -225,7 +145,7 @@ Now say instead we observed the following results:
 
 \vspace{0.25cm}
 
-\pause In this case, {\tt algorithm} and {\tt new search} are \blue{not independent}: \blue{depending on} which {\tt algorithm} used, the proportion of new searches \blue{is different}.
+\pause In this case, they are \blue{dependent}: \blue{depending on} which {\tt algorithm} used, the proportion of new searches \blue{is different}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -339,6 +259,7 @@ We expect:
 \frametitle{What's Expected}
 
 We expect:
+
 \begin{center}
   \begin{tabular}{r|ccr|r}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -432,21 +353,6 @@ Expected Counts:
 %------------------------------------------------------------------------------
 
 
-%%------------------------------------------------------------------------------
-%\begin{frame}
-%\frametitle{Computing Expected Counts in a Two-Way Table}
-%
-%
-%In effect, we compute the expected count for the $i^{th}$ row and $j^{th}$ column via:
-%\[
-%\mbox{Expected Count for Row $i$, Col $j$} = 
-%\frac{(\mbox{Row $i$ Total})\times(\mbox{Column $j$ Total})}{\mbox{Table Total}}
-%\]
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
-
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Chi-Square Statistic}
@@ -492,15 +398,7 @@ Looking up 6.120 in the $\chi^2$ table on page 412 on the $df=2$ row, it would b
 
 \vspace{0.5cm}
 
-i.e. the {\tt algorithm} and {\tt new search} categorical variables are independent.
-
-%\begin{center}
-%\includegraphics[height=3.5cm]{figure/pvalue.png}
-%\end{center}
-
-%\pause
-%We can also compute the p-value exactly in R by typing\\
-%{\tt pchisq(6.120, df=2, lower.tail=FALSE)}.  It was 0.047.
+i.e. the {\tt algorithm} and {\tt new search} categorical variables are dependent.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -515,7 +413,6 @@ Nearly identical to conditions/assumptions for $\chi^2$ tests for goodness-of-fi
 \pause\item \blue{Sample size/distribution}:  We need at least 5 cases in each scenario i.e. each cell in the table
 \pause\item \blue{Degrees of freedom}: (Different than before)  We need $df=(R-1)\times(C-1) \geq 2$.
 \end{enumerate}
-
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -534,11 +431,11 @@ In the case of $\chi^2$ tests, the degrees of freedom is the number of values ne
 \begin{frame}
 \frametitle{Why Are They Called Degrees of Freedom? Rows}
 
-Each row has $df=2$ because if we specify 2 values, all values in the row are specified.  
+\pause Each row has $df=2$ because if we specify 2 values, all values in the row are specified.  
 
 \vspace{0.5cm}
 
-Example:
+\pause Example:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -566,7 +463,7 @@ Each column has $df=1$ because if we specify 1 value, all values in the column a
 
 \vspace{0.5cm}
 
-Example:
+\pause Example:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -610,6 +507,63 @@ i.e. if we know these two values, we can fill the rest of the table.
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Real-Life Example}
+
+For 59,946 OkCupid users in San Francisco CA in June 2012, consider the cross-classification of their \blue{sex} and \blue{sexual orientation} via a contingency table:
+
+\pause
+\begin{center}
+  \begin{tabular}{r|ccr|r}
+& \multicolumn{3}{c|}{Orientation} & \\
+       Sex & Bisexual & Gay & Straight & Total \\ 
+\hline
+    Female & 1996 & 1588 & 20533 & 24117 \\ 
+    Male & 771 & 3985 & 31073 & 35829 \\ 
+\hline
+    Total & 2767 & 5573 & 51606 & 59946 \\ 
+  \end{tabular}
+\end{center}
+
+\pause This is better visualized with a mosaic plot:
+           
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Real-Life Example}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figure/sex_by_orientation-1.pdf}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Real-Life Example}
+
+Sex and sexual orientation are \blue{not independent}:  knowing one variable provides information about the other. 
+
+\vspace{0.5cm}
+
+\pause $\chi^2=1495$ and degrees of freedom $(3-1)\times(2-1) =2$.  The p-value = 0.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 \end{document}
