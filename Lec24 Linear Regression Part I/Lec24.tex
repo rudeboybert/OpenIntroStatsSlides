@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -324,11 +324,11 @@ e_1^2 + e_2^2 + \ldots + e_n^2
 This is called \blue{minimizing the least squares criterion}.
 
 
-%\pause Why not minimize
-%\[
-%|e_1| + |e_2| + \ldots + |e_n| \mbox{ ?}
-%\]
-%It's easier to do calculus on $x^2$ than $|x|$
+\pause Why not minimize
+\[
+|e_1| + |e_2| + \ldots + |e_n| \mbox{ ?}
+\]
+It's easier to do calculus on $x^2$ than $|x|$
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -431,32 +431,6 @@ $R^2$ of a linear model describes the \blue{proportion of the total variation in
 
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Height vs Weight Output in R}
-%\begin{verbatim}
-%lm(formula = height ~ weight)
-%
-%Residuals:
-%    Min      1Q  Median      3Q     Max 
-%-3.8231 -1.1495 -0.2926  1.0207  4.5872 
-%
-%Coefficients:
-%            Estimate Std. Error t value Pr(>|t|)    
-%(Intercept) 99.39105    5.81100   17.10   <2e-16 ***
-%weight       1.01130    0.08131   12.44   <2e-16 ***
-%---
-%Signif. codes:  0 Ô***Õ 0.001 Ô**Õ 0.01 Ô*Õ 0.05 Ô.Õ 0.1 Ô Õ 1
-%
-%Residual standard error: 1.859 on 48 degrees of freedom
-%Multiple R-squared:  0.7632,	Adjusted R-squared:  0.7582 
-%F-statistic: 154.7 on 1 and 48 DF,  p-value: < 2.2e-16
-%\end{verbatim}
-%
-%\end{frame}
-%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
