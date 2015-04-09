@@ -267,41 +267,6 @@ Especially in cases 3 and 5, the outliers seem to be pulling the least-squares l
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Concept: Regression to the Mean}
-
-The Madden Curse.  Many NFL players who feature on the cover of the video game Madden end up having subpar subsequent years, leading many to believe there is a curse.
-
-\begin{center}
-\includegraphics[height=0.7\textheight]{figure/MaddenCurse.jpg}
-\end{center}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Concept: Regression to the Mean}
-
-%
-% Comment this.
-%
-\blue{Regression to the mean} is the phenomenon that if a variable is extreme on its first measurement, it will tend to be closer to the average on its second measurement.
-\vspace{0.5cm}
-
-\pause Madden is selecting players who had \blue{exceptional} seasons the previous year: the exceptional performance by the players who appear on the cover is \blue{not sustainable}.  
-
-\vspace{0.5cm}
-
-\pause So while it looks like a curse, it is just players reverting back to their ``mean'' level of performance.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
 %%------------------------------------------------------------------------------
 %\begin{frame}[fragile]
 %\frametitle{Next Example}
@@ -341,6 +306,99 @@ The Madden Curse.  Many NFL players who feature on the cover of the video game M
 %
 %\end{frame}
 %%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Simple Linear Regression Regression Table}
+
+eBay price of old vs new Mario Kart using $n=141$.  On page 355:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|rrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 42.87 & 0.81 & 52.67 & 0.0000 \\ 
+{\tt cond\_new} & 10.90 & 1.26 & 8.66 & 0.0000 \\ 
+   \hline
+   & & & & $df=139$\\
+\end{tabular}
+\end{table}
+
+%
+% Comment this
+%
+\pause where
+\begin{itemize}
+\item degrees of freedom $df=n-k-1 = n -(k+1) =141-2=139$
+\item $k$ is the \# of predictors in the model
+\item $k+1$ is the \# of parameters in the model: $\beta_0$ and $\beta_1$
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Confidence Interval and Hypothesis Test for $\beta_1$}
+%
+% Comment this
+%
+Looking at t-table, for $df=139$, $t^*_{df=139} = 1.98$, so a 95\% confidence interval for $\beta_1$ is
+\begin{eqnarray*}
+b_1 \pm 1.98 \times SE_{b_1} &=& 10.90 \pm 1.98 \times 1.26\\
+&=& (8.40, 13.39)
+\end{eqnarray*}
+
+\pause\vspace{0.5cm}
+
+The p-value for the two-sided hypothesis test of
+\begin{eqnarray*}
+&& H_0: \beta_1 = 0\\
+\mbox{vs}&& H_A: \beta_1 \neq 0 
+\end{eqnarray*}
+is essentially 0, so we \blue{reject the null hypothesis} and declare that there is an association between {\tt price} and {\tt cond\_new}.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Concept: Regression to the Mean}
+
+The Madden Curse.  Many NFL players who feature on the cover of the video game Madden end up having subpar subsequent years, leading many to believe there is a curse.
+
+\begin{center}
+\includegraphics[height=0.7\textheight]{figure/MaddenCurse.jpg}
+\end{center}
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Concept: Regression to the Mean}
+
+%
+% Comment this.
+%
+\blue{Regression to the mean} is the phenomenon that if a variable is extreme on its first measurement, it will tend to be closer to the average on its second measurement.
+\vspace{0.5cm}
+
+\pause Madden is selecting players who had \blue{exceptional} seasons the previous year: the exceptional performance by the players who appear on the cover is \blue{not sustainable}.  
+
+\vspace{0.5cm}
+
+\pause So while it looks like a curse, it is just players reverting back to their ``mean'' level of performance.  
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
