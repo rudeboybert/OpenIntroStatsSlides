@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -49,29 +49,29 @@
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Superpopulation}
-
-What if your sample consists of the \blue{entire} population.  Who do the results generalize to?
-
-\vspace{0.25cm}
-
-\pause Example:  Say we run a regression based everyone in this class.
-
-\vspace{0.25cm}
-
-\pause You can view this class as a random sample from a hypothetical \blue{superpopulation} of people:
-\begin{itemize}
-\pause\item Reedies who would take MATH 141 from 2010-2018?
-\pause\item Students at a liberal arts college who take an intro stats class?
-\pause\item Parallel universe?
-\end{itemize}
-
-
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Superpopulation}
+%
+%What if your sample consists of the \blue{entire} population.  Who do the results generalize to?
+%
+%\vspace{0.25cm}
+%
+%\pause Example:  Say we run a regression based everyone in this class.
+%
+%\vspace{0.25cm}
+%
+%\pause You can view this class as a random sample from a hypothetical \blue{superpopulation} of people:
+%\begin{itemize}
+%\pause\item Reedies who would take MATH 141 from 2010-2018?
+%\pause\item Students at a liberal arts college who take an intro stats class?
+%\pause\item Parallel universe?
+%\end{itemize}
+%
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 
@@ -167,7 +167,11 @@ Even though we've labeled aid as the outcome variable, we are not positing a cau
 \frametitle{Extrapolate with Care}
 \blue{Extrapolation}:  extend the application of a method or conclusion to an unknown situation by assuming that existing trends will continue or similar methods will be applicable.
 
+%
+% Comment this
+%
 \vspace{0.5cm}
+
 \pause
 What would be the gift aid given to a family with \$1,000,000 (i.e. $x=1000$) in family income?
 \[
@@ -182,6 +186,10 @@ The school will take \$18,800 dollars away from you?
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Categorical Predictor $x$ With Two Levels}
+
+%
+% Comment this
+%
 $x$ can also be categorical.  
 
 \vspace{0.25cm}
@@ -216,6 +224,9 @@ The linear model is thus
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Categorical Predictor $x$ With Two Levels}
+%
+% Comment this
+%
 The least-squares line is
 \[
 \widehat{\mbox{price}} = 42.87 + 10.90 \times \mbox{cond\_new}
@@ -291,13 +302,13 @@ The Madden Curse.  Many NFL players who feature on the cover of the video game M
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Example}
-Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made from 1980-2005?  Guesses?
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Next Example}
+%Are Higher Movie Budgets Associated with Higher IMDB Ratings for Movies Made from 1980-2005?  Guesses?
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %%------------------------------------------------------------------------------
