@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -47,29 +47,6 @@
 \titlepage
 \end{frame}
 %------------------------------------------------------------------------------
-
-
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{Previously... Categorical Predictor $x$ With Two Levels}
-%
-%Example from text: Ebay auctions for a video game \blue{Mario Kart for the Nintendo Wii}.
-%\pause
-%\vspace{0.25cm}
-%
-%We convert our categorical predictor $x$ into a \blue{indicator variable} $\mbox{cond\_new}$ which has two possible \blue{levels}:
-%\begin{enumerate}
-%\item $x=0$:  when the game is used. This is the \blue{baseline} level.
-%\item $x=1$:  when the game is new.
-%\end{enumerate}
-%\pause
-%The linear model is thus
-%\[
-%\widehat{{\tt price}} = b_0 + b_1 \times {\tt cond\_new}
-%\]
-%There where $n=141$ pairs of observations.  
-%\end{frame}
-%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -132,6 +109,7 @@ Use \blue{multiple regression} (done via computer) where
 y &=& \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k
 \end{eqnarray*}
 for $k$ predictor variables.
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -150,6 +128,7 @@ For each observation $i=1,\ldots,n$ the $i^{th}$ \blue{residual} $e_i=y_i - \wid
 \begin{eqnarray*}
 \sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2
 \end{eqnarray*}
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -246,21 +225,75 @@ In general we must be wary of predictor variables that are collinear, because th
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{$R^2$ to Describe the Strength of Fit}
-
 %
 % Comment this
 %
-$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model:
+$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model i.e. the least squares line:
 
-\pause
+\vspace{0.25cm}
+
 \begin{eqnarray*}
-R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}} =  1 - \frac{Var(e_i)}{Var(y_i)}
+R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}}\\
+&=& 1 - \frac{Var(e_i)}{Var(y_i)}
 \end{eqnarray*}
-\pause
-Say the model fits all the data \blue{exactly} i.e. $e_i = y_i - \widehat{y}_i=0$ for all $i$, then
-\begin{eqnarray*}
-R^2 &=& 1 - \frac{0}{Var(y_i)} = 1
-\end{eqnarray*}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Data Set Example 1}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/plot1}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Data Set Example 1}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/plot2}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Data Set Example 2}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/plot3}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Data Set Example 2}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/plot4}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{$R^2$ vs $R$}
+
+Special case:  \blue{Only for linear regression}:  $R^2$ is the correlation coefficient $R$ squared.  The correlation coefficient \blue{does not exist} for multiple regression.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -290,7 +323,6 @@ $R^2_{adj}$ describes the strength of fit while adhering to the following:
 %
 The \blue{adjusted $R^2_{adj}$} takes into account the number of predictor variables $k$ you used to fit your model:  
 
-\pause
 \begin{eqnarray*}
 R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{Var(e_i)}{Var(y_i)} \times \frac{n-1}{n-k-1}
 \end{eqnarray*}
@@ -324,7 +356,6 @@ R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Parsimony/Occam's Razor}
-
 %
 % Comment this
 %
