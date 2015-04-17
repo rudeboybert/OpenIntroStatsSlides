@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -77,6 +77,10 @@ Multiple R-squared:  0.719,	Adjusted R-squared:  0.7108
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Question for Today}
+
+%
+% Comment this
+%
 This is the \blue{full model}:  every explanatory variable provided is included.
 
 \pause\vspace{0.5cm}
@@ -108,7 +112,7 @@ There are two \blue{stepwise regression} methods that add/subtract one variable 
 \pause
 \vspace{0.5cm}
 
-The criteria used will be $p$-values ($R^2_{adj}$ can be used as well).  
+The criteria used will be $p$-values.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -279,6 +283,7 @@ Critics regard stepwise regression as \blue{data dredging}, where intense comput
 \pause\item are independent
 \end{itemize}
 \pause\item Each variable is linearly related to the outcome
+\pause\item No pattern in residuals relative to dependent variables.  
 \end{itemize}
 
 \end{frame}
@@ -407,6 +412,18 @@ What if the outcome variable is not numerical, but rather a \blue{yes/no} respon
 
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

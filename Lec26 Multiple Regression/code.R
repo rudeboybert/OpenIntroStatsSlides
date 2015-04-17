@@ -38,3 +38,5 @@ title(expression(paste("Residuals: ",  y[i], " - ", hat(y)[i], " = ", e[i])))
 text(18, 10, paste("Var(e) = ", round(var(e),3)))
 summary(model2)
 dev.off()
+
+1 - var(e)/var(y)
