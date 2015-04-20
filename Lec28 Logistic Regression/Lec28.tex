@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -144,6 +144,7 @@ Rather, what is modeled is the \blue{logit transformation} or \blue{log-odds} of
 \]
 \pause
 Why this transformation?  It maps the $[0,1]$ interval to a $(-\infty, \infty)$ interval.  
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -240,9 +241,12 @@ is the \blue{inverse logit transformation}.
 \pause
 So to convert the regression equation to probabilities, we compute
 
-\[
-p_i = \frac{\exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}{1 + \exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}
-\]
+\begin{eqnarray*}
+%p_i &=& \frac{\exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}{1 + \exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}
+p_i &=& \frac{1}{1 + \exp(-(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}))}
+\end{eqnarray*}
+
+
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -257,11 +261,13 @@ To compute the fitted probabilities $\widehat{p}_i$:
 \begin{itemize}
 \item {\tt to\_multiple}$ = 0$ (only one recipient):
 \[
-\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 0)}{1 + \exp(-2.12 - 1.81 \times 0)} = 0.11
+%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 0)}{1 + \exp(-2.12 - 1.81 \times 0)} = 0.11
+\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 0))} = 0.11
 \]
 \item {\tt to\_multiple}$ = 1$ (many recipients):
 \[
-\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 1)}{1 + \exp(-2.12 - 1.81 \times 1)} = 0.02
+%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 1)}{1 + \exp(-2.12 - 1.81 \times 1)} = 0.02
+\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 1))} = 0.02
 \]
 \end{itemize}
 \pause
@@ -388,6 +394,9 @@ Using a cutoff of 65\%:
     \hline
   \end{tabular}
 \end{center}
+%
+% Comment this
+%
 \pause
 \begin{itemize}
 \item Of the emails classified as spam:  $\frac{10}{10+3} = 76\%$ correct
@@ -427,6 +436,9 @@ Using a cutoff of 30\%:
     \hline
   \end{tabular}
 \end{center}
+%
+% Comment this
+%
 \pause
 \begin{itemize}
 \item Of the emails classified as spam:  $\frac{201}{201+416} = 32.6\%$ correct
@@ -441,6 +453,9 @@ Using a cutoff of 30\%:
 \begin{frame}[fragile]
 \frametitle{Using Cutoffs to Classify Emails as Spam}
 
+%
+% Comment this
+%
 \blue{Moral of the Story}:  most classifiers are never perfect (like hypothesis tests).  There will almost always be a trade-off between:  
 \begin{itemize}
 \item Type I errors:  labeling an email spam when it is not
@@ -454,6 +469,10 @@ Using a cutoff of 30\%:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Assumptions for Logistic Regression}
+
+%
+% Comment this
+%
 \begin{itemize}
 \item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
 \pause\item Each outcome $Y_i$ is independent of the other outcomes.  This can be verified using the residuals $e_i = Y_i - \widehat{p}_i$
