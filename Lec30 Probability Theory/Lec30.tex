@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -53,7 +53,10 @@
 \begin{frame}[fragile]
 \frametitle{Random Variable}
 
-%A random process or variable with a numerical outcome is called a \blue{random variable}, and is typically denoted by an upper case letter.  E.g. $X, Y, \mbox{or } Z$
+%
+% Comment this
+%
+A random process or variable with a numerical outcome is called a \blue{random variable}, and is typically denoted by an upper case letter.  E.g. $X, Y, \mbox{or } Z$
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -63,16 +66,19 @@
 \begin{frame}
 \frametitle{Intuitively Thinking: Expected Value}
  
-%Easy example:  Coin flips.  Say we flip a fair coin $n=10$ times with probability $p=\frac{1}{2}$ of heads.
 %
-%\pause
-%\vspace{0.5cm}
-%
-%How many heads do you \blue{expect} to get?
-%
-%\vspace{0.5cm}
-%
-%$n \times p = 10 \times \frac{1}{2} = 5$
+% Comment this
+% 
+Easy example:  Coin flips.  Say we flip a fair coin $n=10$ times with probability $p=\frac{1}{2}$ of heads.
+
+\pause
+\vspace{0.5cm}
+
+How many heads do you \blue{expect} to get?
+
+\vspace{0.5cm}
+
+$n \times p = 10 \times \frac{1}{2} = 5$
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -146,12 +152,15 @@ For each $x$, we assign different \blue{weights} $\prob(X=x)$ and not $\frac{1}{
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Expected Value}
-%The \blue{expected value} is a \blue{weighted average} of all possible values $x$.  This can be thought of as a measure of \blue{center}:
-%\[
-%\E[X] = \sum_{i=1}^k x_i \cdot \prob(X=x_i) 
-%\]
 %
-%This is also called the \blue{mean} and \blue{expectation} of $X$.  Typically denoted by $\mu$.
+% Comment this
+%
+The \blue{expected value} is a \blue{weighted average} of all possible values $x$.  This can be thought of as a measure of \blue{center}:
+\[
+\E[X] = \sum_{i=1}^k x_i \cdot \prob(X=x_i) 
+\]
+
+This is also called the \blue{mean} and \blue{expectation} of $X$.  Typically denoted by $\mu$.
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -272,16 +281,19 @@ Note $P(X=x) = 0.011$.
 \begin{frame}
 \frametitle{Intuitively Thinking:  Measures of Spread}
 
-%\begin{center}
-%\begin{tabular}{c|cc}
-% & Abs Deviation & Weight \\
-%x& $|x-\mu|$  & $P(X=x)$\\
-%\hline
-%-3.0 & $|-3.0 - 0|=3.0$  & 0.066\\
-%7.0 & $|7.0-0|=7.0$ & 0.030\\
-%10.0 & $|10.0-0| = 10.0$ & 0.011\\
-%\end{tabular}
-%\end{center}
+%
+% Comment this
+%
+\begin{center}
+\begin{tabular}{c|cc}
+ & Abs Deviation & Weight \\
+x& $|x-\mu|$  & $P(X=x)$\\
+\hline
+-3.0 & $|-3.0 - 0|=3.0$  & 0.066\\
+7.0 & $|7.0-0|=7.0$ & 0.030\\
+10.0 & $|10.0-0| = 10.0$ & 0.011\\
+\end{tabular}
+\end{center}
 
 So say we do this for \blue{all} $x$ and take a \blue{weighted average} of the $|x-\mu|$ where the weights are $P(X=x)$.
 
@@ -296,20 +308,23 @@ Voil\`{a}:  Our notion of \blue{expected spread}.
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Variance}
-%The variance $\sigma^2$ AKA Var(X) of a distribution is
-%\begin{eqnarray*}
-%\E\left[(X-\mu)^2\right] = \sum_{i=1}^k (x_i-\mu)^2 \cdot P(X=x_i)
-%\end{eqnarray*}
 %
-%\pause\vspace{0.5cm}
+% Comment this
 %
-%It is the expected \blue{squared} deviation from the mean, and not \blue{absolute} deviation (like in our example).  i.e. not
-%\begin{eqnarray*}
-%\E\left[|X-\mu|\right] = \sum_{i=1}^k |x_i-\mu| \cdot P(X=x_i)
-%\end{eqnarray*}
-%
-%\pause \vspace{0.5cm}
-%Why square?  Treats $+$'ve and $-$'ve deviations as the same, but also easier to do calculus on $x^2$ than $|x|$.
+The variance $\sigma^2$ AKA Var(X) of a distribution is
+\begin{eqnarray*}
+\E\left[(X-\mu)^2\right] = \sum_{i=1}^k (x_i-\mu)^2 \cdot P(X=x_i)
+\end{eqnarray*}
+
+\pause\vspace{0.5cm}
+
+It is the expected \blue{squared} deviation from the mean, and not \blue{absolute} deviation (like in our example).  i.e. not
+\begin{eqnarray*}
+\E\left[|X-\mu|\right] = \sum_{i=1}^k |x_i-\mu| \cdot P(X=x_i)
+\end{eqnarray*}
+
+\pause \vspace{0.5cm}
+Why square?  Treats $+$'ve and $-$'ve deviations as the same, but also easier to do calculus on $x^2$ than $|x|$.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -319,12 +334,15 @@ Voil\`{a}:  Our notion of \blue{expected spread}.
 \begin{frame}
 \frametitle{Estimators}
 
-%$\xbar$ is a point \textit{estimate} of $\mu$.   $\xbar$ is based on \blue{observed data}.
 %
-%\pause
-%\vspace{0.25cm}
+% Comment this
 %
-%Before we've observed the data, $\overline{X}$ is still random and is the \textit{estimator} of $\mu$.
+$\xbar$ is a point \textit{estimate} of $\mu$.   $\xbar$ is based on \blue{observed data}.
+
+\pause
+\vspace{0.25cm}
+
+Before we've observed the data, $\overline{X}$ is still random and is the \textit{estimator} of $\mu$.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -334,23 +352,27 @@ Voil\`{a}:  Our notion of \blue{expected spread}.
 \begin{frame}
 \frametitle{Sample Mean as an Estimator}
 
-%So whereas, for a single $X$
-%\begin{itemize}
-%\item $\E[X] = \mu$
-%\item $\Var[X] = \sigma^2$
-%\end{itemize}
 %
-%\vspace{0.25cm}
+% Comment this
 %
-%\pause we have for $\overline{X}$
-%
-%\vspace{0.25cm}
-%
-%\begin{itemize}
-%\item $\E\left[ \ \overline{X} \ \right] = \mu$
-%\item $\Var\left[ \ \overline{X} \ \right] = \frac{\sigma^2}{n}$
-%\end{itemize}
-%i.e. as $n \longrightarrow \infty$ the variance goes to 0.  
+So whereas, for a single $X$
+\begin{itemize}
+\item $\E[X] = \mu$
+\item $\Var[X] = \sigma^2$
+\end{itemize}
+
+\vspace{0.25cm}
+
+\pause we have for $\overline{X}$
+
+\vspace{0.25cm}
+
+\begin{itemize}
+\item $\E\left[ \ \overline{X} \ \right] = \mu$
+\item $\Var\left[ \ \overline{X} \ \right] = \frac{\sigma^2}{n}$
+\end{itemize}
+i.e. as $n \longrightarrow \infty$ the variance goes to 0.  
+
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -358,13 +380,17 @@ Voil\`{a}:  Our notion of \blue{expected spread}.
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Bias}
-%One property we want our estimators to have is \blue{unbiasedness}.  i.e.
+
 %
-%\begin{eqnarray*}
-%\E[\widehat{\theta} - \theta] = 0 &\Rightarrow & \E[\widehat{\theta}] = \theta
-%\end{eqnarray*}
+% Comment this
 %
-%\pause i.e. we expected the estimator's value to be the unknown parameter.  
+One property we want our estimators to have is \blue{unbiasedness}.  i.e.
+
+\begin{eqnarray*}
+\E[\widehat{\theta} - \theta] = 0 &\Rightarrow & \E[\widehat{\theta}] = \theta
+\end{eqnarray*}
+
+\pause i.e. we expected the estimator's value to be the unknown parameter.  
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -402,6 +428,9 @@ One example of a non-representative sample is a \blue{biased sample}. For exampl
 
 
 \end{document}
+
+
+
 
 
 
