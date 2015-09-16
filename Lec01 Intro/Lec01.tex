@@ -1,14 +1,17 @@
+% Set boolean flags
+\newif\ifslides
+\slidesfalse
+
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
-
-% Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
-
-% Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\ifslides
+ 	\documentclass[slides]{beamer}
+\else
+	\documentclass[handout]{beamer}
+	\usepackage{pgfpages}
+	\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+	\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+	\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}	
+\fi
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -36,6 +39,7 @@
 \newcommand{\cm}{\circleddash}
 
 
+
 \title{Lecture 1: Laying the Foundations + Terminology}
 \author{Chapters 1.1-1.2}
 \date{}
@@ -54,7 +58,7 @@
 \frametitle{Goals for Today}
 \begin{itemize}
   \item Go over the syllabus 
-  \item Show some fun examples 
+  \item Show some examples of statistics
   \item Discuss how to evaluate the efficacy of a \blue{treatment}
   \item Describe the different kinds of \blue{variables} we'll consider
 \end{itemize}
@@ -67,40 +71,17 @@
 \begin{frame}
 \frametitle{What is statistics?}
 
-(Direct from text) The general scientific process of investigation can be summed up as follows:
+The general scientific process of investigation can be summed up as follows:
 
 \begin{enumerate}
 \pause\item Identify the scientific question or problem
 \pause\item Collect relevant data on the topic
 \pause\item Analyze the data
-\pause\item Form a conclusion \pause and communicate it
+\pause\item Form a conclusion and communicate it
 \end{enumerate}
 
 \pause Statistics concerns itself with points 2 through 4.
 
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Your Majors}
-\begin{small}
-\begin{verbatim}
-                      Biology Biochem and Molecular Biology 
-                            8                             4 
-                   Psychology                     Economics 
-                            3                             2 
-        Environmental Studies            Biology/Psychology 
-                            2                             1 
-                      English    Environmental Studies-Biol 
-                            1                             1 
-   Environmental Studies-Hist                       Physics 
-                            1                             1 
-            Political Science 
-                            1 
-\end{verbatim}
-\end{small}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -121,13 +102,11 @@
 \begin{frame}[fragile]
 \frametitle{Example: Brain \& Breast Cancer in Western Washington}
 
-My PhD dissertation involved detecting cancer ``clusters'': areas of residual spatial variation of disease risk.
+My PhD dissertation involved detecting cancer ``clusters'': areas of \blue{residual spatial variation} of disease risk.
 
-\vspace{1cm}
+\vspace{0.5cm}
 
-We modeled the (Bayesian) probability of cluster membership for each of the $n=887$ census tracts in Western Washington in 2000, using cancer data from 1995--2005, controlling for age, race, and gender.  
-
-
+\pause We modeled the (Bayesian) probability of cluster membership for each of the $n=887$ census tracts in Western Washington in 2000, using cancer data from 1995--2005, controlling for age, race, and gender.  
 
 
 \end{frame}
@@ -185,24 +164,11 @@ We modeled the (Bayesian) probability of cluster membership for each of the $n=8
 
 
 %------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Math Colloquium}
-\begin{itemize}
-\item What: ``Mathematical Models for HIV Transmission Networks''
-\item Who: UW Statistics and Sociology Prof. Martina Morris (Reed '80 sociology alum)
-\item Where: Physics 123
-\item When: Thursday January 29th
-\end{itemize}
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Say we want answer the following questions:}
 \begin{itemize}
-\pause\item Does a new kind of cognitive therapy alter levels of depression in patients?
-\pause\item Or you question the effectiveness of antioxidants in preventing cancer.
+\item Does a new kind of cognitive therapy alter levels of depression in patients?
+\pause\item You question the effectiveness of antioxidants in preventing cancer.
 \pause\item Will reassuring potential new users to a gambling website that we won't spam them increase the sign-up rate?
 \end{itemize}
 
@@ -214,12 +180,15 @@ We modeled the (Bayesian) probability of cluster membership for each of the $n=8
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Evaluating the efficacy of a `treatment'}
-In all the above cases, you are questioning the efficacy of a \blue{treatment/intervention}.  One way to evaluate the efficacy is via an \blue{experiment} where you define
-\begin{itemize}
-\pause\item A \blue{control} group: the ``business as usual'' baseline group
-\pause\item A \blue{treatment} group:  the group that receives/is subject to the treatment/intervention
-\end{itemize}
-\pause and make comparisons.
+
+%
+% Comment this
+%
+%In all the above cases, you are studying a \blue{treatment/intervention}.  We use \blue{experiments} to compare them them where you define
+%\begin{itemize}
+%\pause\item A \blue{control} group: the ``business as usual'' baseline group
+%\pause\item A \blue{treatment} group:  the group that receives/is subject to the treatment/intervention
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -254,35 +223,36 @@ Two other examples in the media of late
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Variables}
-A \blue{variable} is a description of any characteristic whose value may change from one unit in the population to the next:
 
 %
 % Comment this
 %
+\ifslides
+\else
+A \blue{variable} is a description of any characteristic whose value may change from one unit in the population to the next:
 \begin{center}
 \includegraphics[width=\linewidth]{figure/flow-chart} 
 \end{center}
-\vspace{3in}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Variables}
-
+\fi
 %
-% Comment this
+%\end{frame}
+%%------------------------------------------------------------------------------
 %
-A \blue{variable} is a description of any characteristic whose value may change from one unit in the population to the next:
-\begin{enumerate}
-\pause\item gender of an engineer:  \blue{categorical} variable
-\pause\item level of education (high school/GED, college, grad school): \blue{ordinal} variable
-\pause\item number of major defects on a newly manufactured phone: \blue{discrete} variable i.e. something you can count
-\pause\item temperature of the battery in a phone after 1 hour of use: \blue{continuous} variable; its possible values consist of an interval on the number line
-\end{enumerate}
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Variables}
+%
+%Examples:
+%
+%\begin{itemize}
+%\item gender of an engineer:  \blue{categorical} variable
+%\item level of education (high school/GED, college, grad school): \blue{ordinal} variable
+%\item number of students per class: \blue{discrete} variable i.e. something you can count
+%\item temperature: \blue{continuous} variable; its possible values consist of an interval on the number line i.e. something you can measure
+%\end{itemize}
+
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -293,19 +263,17 @@ A \blue{variable} is a description of any characteristic whose value may change 
 \begin{frame}
 \frametitle{Data}
 
-At its simplest, data are presented in a data table or matrix where (almost always) each
+At its simplest, data values are presented in a data table/frame where each
 \begin{itemize}
-\pause\item row corresponds to \blue{cases} or \blue{units of observation/analysis}
-\pause\item column represents the variables corresponding to a particular observation
+\pause\item row corresponds to \blue{cases} or \blue{observations}
+\pause\item column corresponds to \blue{variables}
 \end{itemize}
 
-\pause It is almost always the case that 
+\begin{center}
+\pause\includegraphics[width=\linewidth]{figure/tidy} 
+\end{center}
 
-\begin{itemize}
-  \pause\item $n$ is the number of observations
-  \pause\item $p$ is the number of variables
-\end{itemize}
-
+\pause This is also called \blue{long/tidy} format. 
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -339,7 +307,7 @@ Consider the variable "federal spending per capita" in each of the 3,143 countie
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Data Summaries}
-We can't interpret all the data at once; we need to boil it down via \blue{summary statistics}, single numbers summarizing a large amount of data.
+We boil them down via \blue{summary statistics}: single values summarizing a large amount of data.
 
 \vspace{0.5cm}
 
@@ -377,7 +345,7 @@ Almost always we are interested in the relationship between two or more variable
 
 \vspace{0.25cm}
 
-\pause A pair of variables are either related in some way (\blue{associated}) or not (\blue{independent}).  No pair of variables are both associated and independent.   
+\pause A pair of variables are either related in some way (\blue{associated}) or not (\blue{independent}).
 
 \vspace{0.25cm}
 
