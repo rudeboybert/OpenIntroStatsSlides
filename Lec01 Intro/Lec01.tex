@@ -7,11 +7,12 @@
  	\documentclass[slides]{beamer}
 \else
 	\documentclass[handout]{beamer}
-	\usepackage{pgfpages}
-	\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-	\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-	\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}	
 \fi
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}	
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -227,13 +228,11 @@ Two other examples in the media of late
 %
 % Comment this
 %
-\ifslides
-\else
-A \blue{variable} is a description of any characteristic whose value may change from one unit in the population to the next:
-\begin{center}
-\includegraphics[width=\linewidth]{figure/flow-chart} 
-\end{center}
-\fi
+%
+%A \blue{variable} is a description of any characteristic whose value may change from one unit in the population to the next:
+%\begin{center}
+%\includegraphics[width=\linewidth]{figure/flow-chart} 
+%\end{center}
 %
 %\end{frame}
 %%------------------------------------------------------------------------------
