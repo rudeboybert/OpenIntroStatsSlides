@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -53,9 +53,29 @@
 \begin{frame}
 \frametitle{Goals for Today}
 \begin{itemize}
-  \item Understand important considerations about data collection, in particular \blue{sampling}.
+  \item Understand important considerations about data collection in particular \blue{sampling}.
+  \item Two real-world examples.
   \item Food for thought about the next lecture: explanatory/response variables and causality.  
 \end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Recall:  What is statistics?}
+
+The general scientific process of investigation can be summed up as follows:
+
+\begin{enumerate}
+\item Identify the scientific question or problem
+\item Collect relevant data on the topic
+\item Analyze the data
+\item Form a conclusion and communicate it
+\end{enumerate}
+
+\pause Point 2 is just as, if not, more important than point 3.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -67,10 +87,8 @@
 We want to make statements about some aspect of a \blue{study/target population}.  
 
 \begin{enumerate}
-\item What proportion of Oregonians smoke?
+\item What proportion of Vermonters smoke?
 \item What are the sexual behaviors of males and female Americans in 1948?
-\item What proportion of the Reed community believes they have personally 
-experienced offensive, hostile, or intimidating conduct on campus?
 \end{enumerate}
 
 \end{frame}
@@ -87,29 +105,30 @@ It is often not feasible to collect data for every case in the population.  If s
 \pause\includegraphics[width=3in]{./figure/target-population.jpg} 
 \end{center}
 
+\pause 
 
-\pause If the sample is \blue{representative} of the desired population then our results will be \blue{generalizabile}.  
+Important:
+%
+% Comment this
+%
+%\begin{itemize}
+%\item If the sample is \blue{representative} of the target population, then the sample's results will be \blue{generalizable}.  
+%\item If you want your sample to be \blue{representative}, you need to \blue{randomly} sample from the entire target population.  
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-
-
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Populations and Samples}
-So say we take a representative sample of 1000 Oregonians and poll their smoking habits.  We can then generalize the results to the \blue{entire} population of Oregon.
+So say we take we collect a sample of 100 Vermonters and poll their smoking habits in two ways:
 
-\vspace{0.5cm}
-
-\pause One example of a non-representative sample is a \blue{biased sample}.
-
-\vspace{0.5cm}
-
-\pause \blue{How do we take a representative sample}?  In its simplest form, you need to \blue{randomly} sample from the entire population.  But this is easier said than done.
-
-
+\begin{itemize}
+\pause\item We stand outside a tobacco store and randomly select 100 people walking nearby.  This is a non-representative sample AKA a \blue{biased sample}.
+\pause\item We have a list of all citizens of the state and randomly select 100 people from this list.  This sample is representative and hence the poll's results can generalize to all of VT.  
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -249,19 +268,19 @@ The American Statistical Association criticized the sampling procedure.  In part
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Reed Campus Climate Survey}
-
-During the 2012-2013 academic year Reed contracted Rankin \& Associates Consulting to conduct the Campus Climate Survey to ``examine the learning, living, and working environment at Reed College.''
-
-\vspace{0.5cm}
-
-\pause On page v and iii of the Executive Summary: \blue{\href{http://www.reed.edu/institutional\_diversity/campus\_climate.html}{http://www.reed.edu/institutional\_diversity/campus\_climate.html}}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Reed Campus Climate Survey}
+%
+%During the 2012-2013 academic year Reed contracted Rankin \& Associates Consulting to conduct the Campus Climate Survey to ``examine the learning, living, and working environment at Reed College.''
+%
+%\vspace{0.5cm}
+%
+%\pause On page v and iii of the Executive Summary: \blue{\href{http://www.reed.edu/institutional\_diversity/campus\_climate.html}{http://www.reed.edu/institutional\_diversity/campus\_climate.html}}
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -271,12 +290,13 @@ During the 2012-2013 academic year Reed contracted Rankin \& Associates Consulti
 %
 % Comment this
 %
-\begin{enumerate}
-\item \blue{Volunteer bias}:  individuals who are more willing to participate have a higher chance of being sampled.
-\item \blue{Survival bias}:  large segments of the population who ``died'' are not sampled.
-\item \blue{Convenience sample bias}:  individuals who are easily accessible are more likely to be included.
-\item \blue{Selection bias}:  (all the above) some individuals are more likely to be selected for study than others.
-\end{enumerate}
+%\begin{enumerate}
+%\item \blue{Volunteer bias}:  individuals who are more willing to participate have a higher chance of being sampled.
+%\item \blue{Survival bias}:  large segments of the population who ``died'' are not sampled.
+%\item \blue{Convenience sample bias}:  individuals who are easily accessible are more likely to be included.
+%\end{enumerate}
+%
+%All the above are instances of \blue{selection bias}: some individuals are more likely to be selected for study than others.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -293,12 +313,85 @@ For you:
 \item Who is the study population?
 \item Who are the respondents and how were they selected?
 \end{itemize}
-\pause \item \blue{the producer of statistics}:  think about \blue{how} you will collect your data beforehand. If you want your results to generalize \blue{beyond} just your sample to your study population, your sampling scheme has to as representative as feasible.
+\pause \item \blue{the producer of statistics}:  If you want your results to generalize \blue{beyond} just your sample to your study population, your sampling scheme has to as representative as feasible.
 \end{enumerate}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Another Example: Facebook}
+
+In the news
+\begin{itemize}
+\item NPR's story on younger users \blue{\href{http://www.npr.org/2014/01/09/261108836/many-younger-facebook-users-unfriend-the-network}{(link)}}
+\item Facebook Envy \blue{\href{http://psychcentral.com/blog/archives/2015/04/09/the-psychology-of-facebook-depression-avoid-social-comparisons-envy/}{(link)}}
+\end{itemize}
+
+\pause \vspace{1cm}
+
+Let's consider a hypothetical scenario where we compare 15 life occurrences between you and your friend rated between 0 (lowest) and 5 (highest).
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Another Example: Facebook}
+
+\begin{center}
+\includegraphics[width=\textwidth]{./figure/FB1}
+\end{center}
+
+\textcolor{white}{The selective ``Facebook image curation'' your friend performed is a form of selection bias!}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Another Example: Facebook}
+
+\begin{center}
+\includegraphics[width=\textwidth]{./figure/FB2}
+\end{center}
+
+\textcolor{white}{The selective ``Facebook image curation'' your friend performed is a form of selection bias!}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Another Example: Facebook}
+
+\begin{center}
+\includegraphics[width=\textwidth]{./figure/FB3}
+\end{center}
+
+\textcolor{white}{The selective ``Facebook image curation'' your friend performed is a form of selection bias!}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Another Example: Facebook}
+
+\begin{center}
+\includegraphics[width=\textwidth]{./figure/FB4}
+\end{center}
+
+\pause The selective ``Facebook image curation'' your friend performed is a form of selection bias!
+
+\end{frame}
+%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -317,7 +410,7 @@ $\Longrightarrow$
 \pause He then posits the following \blue{causal} relationship:
 \begin{itemize}
   \pause \item \blue{Explanatory variable}: sleeping with shoes on 
-  \pause \item \blue{Response variable}: waking up with headaches
+ \item \blue{Response variable}: waking up with headaches
 \end{itemize}
 
 \pause What's wrong with hypotheses?
