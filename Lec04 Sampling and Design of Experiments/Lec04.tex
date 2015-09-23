@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 %% Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -86,15 +86,14 @@
 \begin{frame}
 \frametitle{1. Simple Random Sampling}
 
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figure/simple.pdf}
+\end{center}
+
 %
 % Comment this
 %
-\begin{center}
-\includegraphics[width=0.75\textwidth]{figure/simple.png}
-\end{center}
-
-
-\blue{Most granular sampling}:  Where every individual in the population has the same probability of being sampled.  Here, all dots are members of the population, and the bolder dots are sampled.  
+%\blue{Most granular sampling}:  Where every individual in the population has the same probability of being sampled.  Here, all dots are members of the population, and the red dots are sampled.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -103,14 +102,14 @@
 \begin{frame}[fragile]
 \frametitle{2. Stratified Sampling}
 
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figure/stratified.pdf}
+\end{center}
+
 %
 % Comment this
 %
-\begin{center}
-\includegraphics[width=0.75\textwidth]{figure/stratified.png}
-\end{center}
-
-\blue{Divide and conquer}:  The population is divided into strata, and we sample from each strata.  For example, each strata could be a census tract in Vermont, and we sample individuals from each strata.  
+%\blue{Divide and conquer}:  The population is divided into strata, and we sample from each strata.  For example, each strata could be a census tract in Vermont, and we sample individuals from each strata.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -120,30 +119,41 @@
 \begin{frame}
 \frametitle{3. Cluster Sampling}
 
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figure/cluster.pdf}
+\end{center}
+
 %
 % Comment this
 %
-\begin{center}
-\includegraphics[width=0.75\textwidth]{figure/cluster.png}
-\end{center}
-\blue{Two stage sampling}:  Very similar to stratified sampling in its process, except that there is no requirement to sample from every cluster.  First the clusters in red were chosen at random, and then we sample from them.
+%Similar to stratified sampling: Sample a fixed number of clusters (in red) and then include all observations from each of those clusters in the sample.
 \end{frame}
 %------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Three Different Types of Sampling}
+\frametitle{4. Multistage Sampling}
 
-\begin{enumerate}
-\item Simple random sampling: most granular sampling
-\item Stratified sampling:  divide and conquer
-\item Cluster sampling: two-stage sampling
-\end{enumerate}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{figure/multistage.pdf}
+\end{center}
 
-\vspace{0.5cm}
+%
+% Comment this
+%
+%Similar to multistage sampling: Sample a fixed number of clusters (in red) and then sample observations from each of those clusters.
 
-\pause The mathematics behind the stratified and cluster sampling are more complicated to account for the hierarchies involved.  Ex: for stratified sampling use the Horvitz-Thompson estimator.  
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Four Different Types of Sampling}
+
+
+The mathematics behind the stratified, cluster, and multistage sampling are more complicated to account for the hierarchies involved. 
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -182,8 +192,6 @@ President Bill Clinton's administration planned on using sampling in the 2000 ce
 \begin{frame}
 \frametitle{Statistics in Society:  The US Census}
 
-% \includegraphics[width=0.5\textwidth]{figure/wethepeople.jpg}
-
 However, Article I, Section 2 of the US Constitution states:  \pause \textit{The \blue{actual Enumeration} shall be made within three Years after the first Meeting of the Congress of the US, and within every subsequent Term of ten Years...}
 
 \vspace{0.25cm}
@@ -209,22 +217,22 @@ However, Article I, Section 2 of the US Constitution states:  \pause \textit{The
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Principles Of Designing Experiments}
-
-Switching gears...
-
-\vspace{0.5cm}
-
-(Wikipedia) In general usage, \blue{design of experiments (DOE) or experimental design} is the design of any information-gathering exercises where variation is present, whether under the full control of the experimenter or not. 
-
-\vspace{0.5cm}
-
-\pause However, in statistics, these terms are usually used for \blue{controlled experiments}: experiments where there is a control and treatment group.
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Principles Of Designing Experiments}
+%
+%Switching gears...
+%
+%\vspace{0.5cm}
+%
+%(Wikipedia) In general usage, \blue{design of experiments (DOE) or experimental design} is the design of any information-gathering exercises where variation is present, whether under the full control of the experimenter or not. 
+%
+%\vspace{0.5cm}
+%
+%\pause However, in statistics, these terms are usually used for \blue{controlled experiments}: experiments where there is a control and treatment group.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -234,12 +242,12 @@ Switching gears...
 %
 % Comment this
 %
-\begin{enumerate}
-\pause\item\blue{Controlling}:  We want to control for differences between the two groups.
-\pause\item\blue{Randomization}: We randomize individuals into treatment vs control so that any differences in uninteresting variables even out in the long run.  
-\pause\item\blue{Replication}:  The more cases we observe, the more ``precise'' the results.
-\pause\item\blue{Blocking}:  Researchers sometimes know or suspect that variables, other than the treatment, influence the response. In this case, they may first group individuals based on this variable into blocks and then randomize cases within each block.  
-\end{enumerate}
+%\begin{enumerate}
+%\pause\item\blue{Controlling}:  We want to control for differences between the two groups.
+%\pause\item\blue{Randomization}: We randomize individuals into treatment vs control so that any differences in variables that are not of interest even out in the long run.  
+%\pause\item\blue{Replication}:  The more cases we observe, the more ``precise'' the results.
+%\pause\item\blue{Blocking}:  Researchers sometimes know or suspect that variables, other than the treatment, influence the response. In this case, they may first group individuals based on this variable into blocks and then randomize cases within each block.  
+%\end{enumerate}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -247,20 +255,19 @@ Switching gears...
 
 %------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Clinical Trials}
+\frametitle{Example Clinical Trials}
 
-To evaluate the efficacy of a drug, they must be subject to a \blue{clinical trial}.  \pause The gold standard for a clinical trial is \blue{randomized controlled trial}.  i.e. randomized control and treatment groups.  
-
-%\vspace{5cm}
 %
 % Comment this
 %
-\begin{itemize}
-\pause\item \blue{Blinded study}: When researchers do not inform patients which group, or arm, they are in
-\pause\item \blue{Double blinded study}:  When the person administering the treatment/control themselves do not know which group the patient is in.
-\pause\item \blue{Placebo}: Fake treatment.  Sometimes the \blue{thought} alone of having a treatment is enough to influence behavior/results.  
-\pause\item \blue{Phases}. In particular, \blue{pilot studies}.
-\end{itemize}
+%To evaluate the efficacy of a drug, they must be subject to a \blue{clinical trial}.  \pause The gold standard for a clinical trial is \blue{randomized controlled trial}. 
+%
+%\begin{itemize}
+%\pause\item \blue{Blinded study}: When researchers do not inform patients which group, or arm, they are in
+%\pause\item \blue{Double blinded study}:  When the person administering the treatment/control themselves do not know which group the patient is in.
+%\pause\item \blue{Placebo}: Fake treatment.  Sometimes the thought alone of having a treatment is enough to influence behavior/results.  
+%\pause\item \blue{Phases}. In particular, \blue{pilot studies}.
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
