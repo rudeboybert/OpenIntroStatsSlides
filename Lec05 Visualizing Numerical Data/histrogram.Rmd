@@ -1,0 +1,41 @@
+---
+title: "Histograms"
+author: "Albert Y. Kim"
+date: "September 25, 2015"
+output: html_document
+---
+
+* A distribution indicates the frequency with which values occur.
+* A histogram is a visualization of the distribution.
+
+We load the `mosaic` and `openintro` packages, load the `county` data set, and plot this histogram for `income`.
+
+```{r, message=FALSE}
+library(mosaic)
+library(openintro)
+data(county)
+histogram(~income, data = county)
+```
+
+What is density? Instead let's change the y-axis to reflect counts by adding the argument `type="count"`. We see the histogram has the same shape; just different values on the y-axis now.  
+
+```{r}
+histogram(~income, data = county, type="count")
+```
+
+What this is saying that about
+
+* about 200 counties (out of 3143) have per capita income between about 12K and 16K.
+* about 400 counties have per capita income between about 27K and 30K.
+
+We can also change the y-axis to reflect percentages of the data set by adding the argument `type="percent"`. Once again, we see the histogram has the same shape.
+
+```{r}
+histogram(~income, data = county, type="percent")
+```
+
+The default `type` for `histogram` is density. Using the density values, the areas of the all the boxes sum to 1.  
+
+```{r}
+histogram(~income, data = county)
+```

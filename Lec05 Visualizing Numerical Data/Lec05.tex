@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -54,10 +54,6 @@
 
 \begin{itemize}
 \item Visualizing numerical data
-%\begin{itemize}
-%\item Two famous historical examples of data visualization
-%\item Reed's 2013 entering class
-%\end{itemize}
 \item Histograms
 \item Measures of Central Tendency: Mean, Median, and Mode
 \item Measure of Spread:  Sample variance and sample standard deviation
@@ -107,24 +103,26 @@ The advance and retreat on Moscow was an unmitigated disaster:
 %------------------------------------------------------------------------------
 
 
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Famous Example 1:  Napolean's March on Russia in 1812}
-Why is this visualization big deal?  On a two-dimensional page, it displays 6 variables (i.e. \blue{dimensions} of information) at once:
-\begin{enumerate}
-\pause \item Size of the army (width of bars)
-\pause \item Latitude
-\pause \item Longitude
-\pause \item Direction of the army:  advance (brown) or retreat (black)
-\pause \item Date
-\pause \item Temperature (on the bottom)
-\end{enumerate}
-
-%\vspace{5cm}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%
+% Comment this.
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Famous Example 1:  Napolean's March on Russia in 1812}
+%On a two-dimensional page, it displays 6 dimensions of information (i.e. variables) at once:
+%
+%\begin{enumerate}
+%\pause \item Size of the army (width of bars)
+%\pause \item Latitude
+%\pause \item Longitude
+%\pause \item Direction of the army:  advance (brown) or retreat (black)
+%\pause \item Date
+%\pause \item Temperature (on the bottom)
+%\end{enumerate}
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -135,7 +133,7 @@ On August 31 1854, an epidemic of cholera began in the Soho neighborhood of Lond
 
 \vspace{0.25cm}
 
-\pause (Wikipedia) Dr. John Snow, a physician, was a skeptic of the then-dominant \blue{miasma theory} that diseases such as cholera/plague were caused by pollution or a noxious form of ``bad air.'' 
+\pause (Wikipedia) Dr. John Snow was skeptical of the then-dominant \blue{miasma theory} that diseases like cholera/plague were caused by  ``bad air.'' 
 
 \vspace{0.25cm}
 
@@ -189,37 +187,8 @@ He identified the source of the outbreak as water from the \blue{Broad Street Pu
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Histograms}
-In the {\tt openintro} package, the {\tt email50} dataset contains a random sample of 50 emails, in which researchers try to identify emails as spam.  One variable is the \# of characters:
 
-\vspace{0.25cm}
-
-\begin{tiny}
-\begin{verbatim}
-Characters |  0-4.999  5-9.999  10-14.999  ...  60-64.999
-(in 1000's)|
----------------------------------------------------------
-Count      |       19       12          6  ...          1
-\end{verbatim}
-\end{tiny}
-
-\vspace{0.25cm}
-
-\pause So each of the intervals 0-5, 5-10, 10-15, etc. are \blue{buckets/bins} and we count the number of emails in each bucket/bin.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Histograms}
-
-Histograms provide a description of the shape of the \blue{distribution} of data.  
-
-\begin{center}
-\includegraphics[height=0.7\textheight]{figure/hist.pdf}
-\end{center}
+\blue{\url{http://rpubs.com/moonstomper/histograms}} 
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -229,7 +198,7 @@ Histograms provide a description of the shape of the \blue{distribution} of data
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Skew and Long Tail}
-Also in the {\tt openintro} package is MLB salary data in 2010.  If we plot a histogram:
+In the {\tt openintro} package is MLB salary data in 2010.  The histogram:
 
 \begin{center}
 \includegraphics[height=5.5cm]{figure/MLB.pdf}
@@ -246,10 +215,13 @@ Also in the {\tt openintro} package is MLB salary data in 2010.  If we plot a hi
 \begin{frame}[fragile]
 \frametitle{Trick to Remembering Which Skew is Which}
 
-\begin{itemize}
-\item Long tail to the right: data is \blue{right-skewed} AKA \blue{positively-skewed}
-\item Long tail to the left: data is \blue{left-skewed} AKA \blue{negatively-skewed}
-\end{itemize}
+%
+% Comment this
+%
+%\begin{itemize}
+%\item Long tail to the right: data is \blue{right-skewed} AKA \blue{positively-skewed}
+%\item Long tail to the left: data is \blue{left-skewed} AKA \blue{negatively-skewed}
+%\end{itemize}
 
 \begin{center}
 \pause\includegraphics[width=10cm]{figure/skew.png}
@@ -261,34 +233,31 @@ Also in the {\tt openintro} package is MLB salary data in 2010.  If we plot a hi
 
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Reed's 2013 US-Originating Entering Class}
-What can we do about skewed data?  
-
-\vspace{1cm}
-
-\blue{\url{http://rpubs.com/rudeboybert/reed2013}}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Reed's 2013 US-Originating Entering Class}
+%What can we do about skewed data?  
+%
+%\vspace{1cm}
+%
+%\blue{\url{http://rpubs.com/rudeboybert/reed2013}}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Mean}
-
 %
 % Comment this
 %
-The mean, AKA average, is a common way to measure the \blue{center} of the data.  So for example, the mean of 1, 2, 5, 3, and 7 is 
-\[\frac{1 + 2 + 5 + 3 + 7}{5} = 3.6\]
+%The mean, AKA average, is a common way to measure the \blue{center} of the data. The \blue{sample mean} of $n$ observations $x_1, x_2, \ldots, x_n$ is
+%
+%\[
+%\overline{x} = \frac{x_1 + x_2 + \ldots + x_n}{n} = \frac{1}{n}\sum_{i=1}^{n}x_i
+%\]
 
-\pause We label the \blue{sample mean} $\overline{x}$ (pronounced ``x bar''):
-\[
-\overline{x} = \frac{x_1 + x_2 + \ldots + x_n}{n}
-\]
-where $x_1, x_2, \ldots, x_n$ are the $n$ observed/sampled values.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -299,15 +268,15 @@ where $x_1, x_2, \ldots, x_n$ are the $n$ observed/sampled values.
 %
 % Comment this
 %
-The \blue{median}, however, is the \blue{middle number}.
-
-\vspace{0.5cm}
-
-\pause Two cases:
-\begin{itemize}
-\item Odd number of values: the median of (1, 3, \blue{5}, 8, 10) is 5.
-\item Even number of values: the median of (1, \blue{3, 5}, 8) is the average of the middle two values: $\frac{3+5}{2} = 4$
-\end{itemize}
+%The \blue{median}, however, is the \blue{middle number}.
+%
+%\vspace{0.5cm}
+%
+%\pause Two cases:
+%\begin{itemize}
+%\item Odd number of values: the median of (1, 3, \blue{5}, 8, 10) is 5.
+%\item Even number of values: the median of (1, \blue{3, 5}, 8) is the average of the middle two values: $\frac{3+5}{2} = 4$
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -337,11 +306,14 @@ The CEO's extreme salary is inflating the mean.  A more appropriate measure is t
 
 \vspace{0.5cm}
 
-\pause Medians are less sensitive to (i.e. more \blue{robust} to) \blue{outliers} than the mean.
+\pause Ex: \blue{\url{http://www.zillow.com/home-values/}}
 
-\vspace{0.5cm}
+%
+% Comment this
+%
+%\vspace{0.5cm}
+%\pause Medians are less sensitive to (i.e. more \blue{robust} to) \blue{outliers} than the mean.
 
-\pause Ex: the ``median home price'' is typically used, because it isn't as sensitive as the mean to the few very expensive houses.
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -365,11 +337,7 @@ A \blue{mode} is the value that appears the most often in a data set.  So out of
 
 \vspace{0.25cm}
 
-\pause Modes also describe \blue{peaks}, but this can get subjective. 
-
-\vspace{0.25cm}
-
-\pause A distribution can be \blue{unimodal}, \blue{bimodal}, or \blue{multimodal}:
+\pause Modes also describe \blue{peaks}, but this can get subjective. A distribution can be \blue{unimodal}, \blue{bimodal}, or \blue{multimodal}:
 
 \begin{center}
 \includegraphics[height=3cm]{figure/modes.png}
@@ -398,11 +366,14 @@ Next, consider the following two histograms:  Both have mean of about 20.  What 
 \begin{frame}[fragile]
 \frametitle{Measure of Spread}
 
-We need a measure of \blue{spread/variability}.  The \blue{sample variance $s^2$} is roughly the average squared distance from the mean.
-
-\vspace{0.5cm}
-
-\pause The \blue{sample standard deviation $s$} is the square root of the sample variance. The sample standard deviation is useful when considering how close the data are to the mean.
+%
+% Comment this
+%
+%We need a measure of \blue{spread/variability}.  The \blue{sample variance $s^2$} is roughly the average squared distance from the mean.
+%
+%\vspace{0.5cm}
+%
+%\pause The \blue{sample standard deviation $s$} is the square root of the sample variance. The sample standard deviation is useful when considering how close the data are to the mean.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -426,7 +397,7 @@ Back to example:
 \begin{frame}[fragile]
 \frametitle{How to Compute the Sample Standard Deviation}
 
-Read section 1.6.4.  The formula really doesn't make much intuitive sense, but is the way it is due to mathematical convenience.  Fortunately there is an {\tt R} command that computes it for you: {\tt sd()}
+Read section 1.6.4.  The formula really doesn't make much intuitive sense, but is the way it is due to mathematical convenience.  Fortunately there is an {\tt R} command: {\tt sd()}
 
 \end{frame}
 %------------------------------------------------------------------------------
