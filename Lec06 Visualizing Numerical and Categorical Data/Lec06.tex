@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -70,11 +70,11 @@
 %
 % Comment this
 %
-If the data distribution is bell-shaped, then 
-\begin{itemize}
-\item about \blue{$\frac{2}{3}$} of the data will be within one SD of the mean (book says 70\%).
-\item about \blue{95\%} of the data will be within two SD.
-\end{itemize}
+%If the data distribution is bell-shaped, then 
+%\begin{itemize}
+%\item about \blue{$\frac{2}{3}$} of the data will be within one SD of the mean.
+%\item about \blue{95\%} of the data will be within two SD.
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -92,8 +92,8 @@ If the data distribution is bell-shaped, then
 \column{.5\textwidth}
 \begin{itemize}
 \item black line is mean $\overline{x}$
-\item red lines mark about $\frac{2}{3}$:  $[\overline{x} - s, \overline{x} + s] = [20 - 3, 20 + 3] = [17, 23]$.  
-\item blue lines mark about 95\%: $[\overline{x} - 2s, \overline{x} + 2s] = [20 - 6, 20 + 6] = [14, 26]$.
+\item red lines mark about $\frac{2}{3}$:  $[\overline{x} - s, \overline{x} + s] = [17, 23]$.  
+\item blue lines mark about 95\%: $[\overline{x} - 2s, \overline{x} + 2s] = [14, 26]$.
 \end{itemize}
 \end{columns}
 
@@ -121,11 +121,12 @@ Recall the notion of taking a \blue{representative sample} from a \blue{study/ta
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Population vs Sample Mean/Variance/Standard Deviation}
-\begin{itemize}
-\item The \blue{sample mean $\overline{x}$} is the mean income of the 4 sampled people.
-\pause\item The \blue{population mean $\mu$} is the mean income of all 24 people in the target population.
-\pause\item We say $\overline{x}$ \blue{estimates} $\mu$.  If the sample is representative, then $\overline{x}$ estimates $\mu$ with high \blue{accuracy} i.e. it is unbiased.
-\end{itemize}
+
+%\begin{itemize}
+%\item The \blue{sample mean $\overline{x}$} is the mean income of the 4 sampled people.
+%\pause\item The \blue{population mean $\mu$} is the mean income of all 24 people in the target population.
+%\pause\item We say $\overline{x}$ \blue{estimates} $\mu$.  If the sample is representative, then $\overline{x}$ estimates $\mu$ with high \blue{accuracy} i.e. it is unbiased.
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -135,19 +136,19 @@ Recall the notion of taking a \blue{representative sample} from a \blue{study/ta
 \begin{frame}[fragile]
 \frametitle{Population vs Sample Mean/Variance/Standard Deviation}
 
-\begin{center}
-  \begin{tabular}{r|cc}
-	\hline	
-     & True Population Value & Sample Value \\ 
-	\hline	
-    Mean & $\mu$ & $\overline{x}$ \\ 
-    Variance & $\sigma^2$ & $s^2$ \\ 
-    Standard Deviation & $\sigma$ & $s$ \\ 
-	\hline	
-  \end{tabular}
-\end{center}
-
-\pause The sample value is used to \blue{estimate} the (true) population value.  
+%\begin{center}
+%  \begin{tabular}{r|cc}
+%	\hline	
+%     & True Population Value & Sample Value \\ 
+%	\hline	
+%    Mean & $\mu$ & $\overline{x}$ \\ 
+%    Variance & $\sigma^2$ & $s^2$ \\ 
+%    Standard Deviation & $\sigma$ & $s$ \\ 
+%	\hline	
+%  \end{tabular}
+%\end{center}
+%
+%\pause The sample value is used to \blue{estimate} the (true) population value.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -156,15 +157,15 @@ Recall the notion of taking a \blue{representative sample} from a \blue{study/ta
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Percentiles}
-A percentile (\%'ile) indicates the value \blue{below} which a given \%'age of observations fall.  
-
-\vspace{0.5cm}
-
-\pause SAT Scores from 2012 \blue{\url{http://media.collegeboard.com/digitalServices/pdf/research/SAT-Percentile-Ranks-2012.pdf}}
-
-\vspace{0.5cm}
-
-\pause So for example, if you scored 700 in critical reading, 95\% of college-bound seniors who took the test did worse.
+%A percentile (\%'ile) indicates the value \blue{below} which a given \%'age of observations fall.  
+%
+%\vspace{0.5cm}
+%
+%\pause SAT Scores from 2012 \blue{\url{http://media.collegeboard.com/digitalServices/pdf/research/SAT-Percentile-Ranks-2012.pdf}}
+%
+%\vspace{0.5cm}
+%
+%\pause So for example, if you scored 700 in critical reading, 95\% of college-bound seniors who took the test did worse.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -177,22 +178,22 @@ A percentile (\%'ile) indicates the value \blue{below} which a given \%'age of o
 %
 % Comment this
 %
-\blue{Quartiles} split up the data into 4 intervals, each with about one quarter of the data:
-
-\vspace{0.25cm}
-
-\begin{itemize}
-\pause \item The lower quartile is the 25th \%'ile
-\pause \item The median is the 50th \%'ile
-\pause \item The upper quartile is the 75th \%'ile
-\end{itemize}
-
-\vspace{0.25cm}
-
-\pause The \blue{interquartile range (IQR)} is another measure of the spread of a sample:
-\[
-\mbox{IQR} = \mbox{upper quartile} - \mbox{lower quartile}
-\]
+%\blue{Quartiles} split up the data into 4 intervals, each with about one quarter of the data:
+%
+%\vspace{0.25cm}
+%
+%\begin{itemize}
+%\pause \item The lower quartile is the 25th \%'ile
+%\pause \item The median is the 50th \%'ile
+%\pause \item The upper quartile is the 75th \%'ile
+%\end{itemize}
+%
+%\vspace{0.25cm}
+%
+%\pause The \blue{interquartile range (IQR)} is another measure of the spread of a sample:
+%\[
+%\mbox{IQR} = \mbox{upper quartile} - \mbox{lower quartile}
+%\]
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -204,21 +205,32 @@ A percentile (\%'ile) indicates the value \blue{below} which a given \%'age of o
 %legend("topright", legend=c("1st quartile", "2nd quartile", "3rd quartile"), 
 %       col=c("red", "green", "blue"), lty=c(1,1, 1), lwd=2, bty='n')
 %dev.off()
+%%-------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{MLB Data Quartiles}
+%
+%\begin{verbatim}
+% Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+%400.0   418.3  1094.0  3282.0  4250.0 33000.0
+%\end{verbatim}
+%
+%\begin{center}
+%\includegraphics[height=5.5cm]{figure/MLB_quartiles.pdf}
+%\end{center}
+%
+%The IQR is (3rd Quartile - 1st Quartile) = 4250.0 - 418.3 = 3831.7\\
+%i.e the distance between the red and blue line.  
+%
+%\end{frame}
+%%-------------------------------------------------------------------------------
+
+
 %-------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{MLB Data Quartiles}
+\begin{frame}
+\frametitle{Quartiles and IQR}
 
-\begin{verbatim}
- Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
-400.0   418.3  1094.0  3282.0  4250.0 33000.0
-\end{verbatim}
-
-\begin{center}
-\includegraphics[height=5.5cm]{figure/MLB_quartiles.pdf}
-\end{center}
-
-The IQR is (3rd Quartile - 1st Quartile) = 4250.0 - 418.3 = 3831.7\\
-i.e the distance between the red and blue line.  
+Example: 
+\blue{\url{http://www.npr.org/sections/money/2015/03/19/394057221/how-much-or-little-the-middle-class-makes-in-30-u-s-cities}}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -227,28 +239,28 @@ i.e the distance between the red and blue line.
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Robust Statistics (Chapter 1.6.6)}
-\blue{Robust estimates} are statistics where extreme observations (outliers) have less effect on their values, i.e. are more resistant to their effect.  The median and IQR are two examples.  
-
-\vspace{0.25cm}
-
-\pause Example:  Old scoring system in figure skating: \blue{drop the highest \& lowest scores} and then take the average.  
-
-\vspace{0.25cm}
-
-\pause Say we have a figure skater who gets judged by countries V-Z:
-\begin{center}
-\begin{tabular}{r||ccccc}
-\hline
-Country & V & W & X & Y & Z \\ 
-\hline
-Score & 4.0 & 5.2 & 5.2 & 5.3 & 6.0 \\ 
-\hline
-\end{tabular}
-\end{center}
-
-\vspace{0.25cm}
-
-\pause Drop the 4.0 and 6.0, then the final score is: $\frac{5.2 + 5.2 + 5.3}{3} = 5.23$
+%\blue{Robust estimates} are statistics where extreme observations (outliers) have less effect on their values, i.e. are more resistant to their effect.  The median and IQR are two examples.  
+%
+%\vspace{0.25cm}
+%
+%\pause Example:  Old scoring system in figure skating: \blue{drop the highest \& lowest scores} and then take the average.  
+%
+%\vspace{0.25cm}
+%
+%\pause Say we have a figure skater who gets judged by countries V-Z:
+%\begin{center}
+%\begin{tabular}{r||ccccc}
+%\hline
+%Country & V & W & X & Y & Z \\ 
+%\hline
+%Score & 4.0 & 5.2 & 5.2 & 5.3 & 6.0 \\ 
+%\hline
+%\end{tabular}
+%\end{center}
+%
+%\vspace{0.25cm}
+%
+%\pause Drop the 4.0 and 6.0, then the final score is: $\frac{5.2 + 5.2 + 5.3}{3} = 5.23$
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -256,7 +268,7 @@ Score & 4.0 & 5.2 & 5.2 & 5.3 & 6.0 \\
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Boxplots}
-\blue{Boxplots} are visual summaries of a sample $x_1,\ldots,x_n$ that bring to light unusual values (potential outliers):
+\blue{Boxplots} are an alternative visualization of a sample $x_1,\ldots,x_n$, but draw attention to outliers.
 
 \vspace{0.5cm}
 
@@ -271,22 +283,25 @@ Score & 4.0 & 5.2 & 5.2 & 5.3 & 6.0 \\
 %-------------------------------------------------------------------------------
 
 
-pdf("afghanistan.pdf", width=8, height=4)
-casualties <- c(7, 1, 7, 5, 16, 28, 20, 22, 27, 16, 1, 3, 14, 15, 13, 6, 12, 24, 44, 51, 37, 59, 17, 17)
-boxplot(casualties, horizontal=TRUE, xlab="US Forces casualties in Afghanistan for each month 2008-2009")
-dev.off()
-summary(casualties)
+%pdf("afghanistan.pdf", width=8, height=4)
+%casualties <- c(7, 1, 7, 5, 16, 28, 20, 22, 27, 16, 1, 3, 14, 15, 13, 6, 12, 24, 44, 51, 37, 59, 17, 17)
+%boxplot(casualties, horizontal=TRUE, xlab="US Forces casualties in Afghanistan for each month 2008-2009")
+%dev.off()
+%summary(casualties)
 %-------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Boxplots}
+
+The summary values:
 \begin{verbatim}
 Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 1.00    7.00   16.00   19.25   24.75   59.00 
 \end{verbatim}
-\begin{center}
+
+\pause \begin{center}
 \includegraphics[height=4cm]{figure/afghanistan.pdf}
 \end{center}
-\pause Page 29 of text describes the length of the \blue{whiskers}: they capture data that is no more than $1.5 \times IQR$ of both ends of the box.  
+\pause Length of \blue{whiskers}: they capture data that is no more than $1.5 \times IQR$ of both ends of the box.  
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -315,7 +330,7 @@ An \blue{outlier} is an observation that appears extreme relative to the rest of
 \frametitle{Piecharts}
 Say we have the following piecharts represent the polling from a local election with five candidates (1-5) at three different time points A, B, an C:
 
-\begin{center}
+\pause\begin{center}
 \includegraphics[width=\textwidth]{figure/piecharts.png}
 \end{center}
 
@@ -376,14 +391,14 @@ Typing {\tt data(Titanic)} in R loads the survival and death counts, split by ea
 \item Age: Child or adult (2 levels)
 \end{itemize}
 
-i.e. $4 \times 2 \times 2 = 16$ possible groups to consider.
+\pause i.e. $4 \times 2 \times 2 = 16$ possible groups to consider.
 
 \vspace{0.25cm}
 
-Questions 
+\pause Questions 
 
 \begin{itemize}
-\pause \item What was the effect of class (1st, 2nd, 3rd, crew) on your chances of survival?
+\item What was the effect of class (1st, 2nd, 3rd, crew) on your chances of survival?
 \pause \item Did the ``women and children'' first lifeboat policy hold?
 \end{itemize} 
 
