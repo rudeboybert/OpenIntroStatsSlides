@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -69,34 +69,20 @@
 %
 % Comment this
 %
-Normal distributions:
-\begin{enumerate}
-\item are symmetric
-\item are unimodal and bell-shaped
-\item have area under the curve 1
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Normal Distribution}
+%A normal curve (AKA the normal distribution) can be described by two \blue{parameters}:
+%\begin{itemize}
+%\item the \blue{mean $\mu$}. i.e. the center
+%\item the \blue{standard deviation (SD) $\sigma$}. i.e. the measure of spread
+%\end{itemize}
+%\pause\vspace{0.25cm}
+%\[
+%f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left( -\frac{1}{2\sigma^2}(x-\mu)^2 \right)
+%\]
+%\pause\vspace{0.25cm}
+%Recall these were the \blue{population mean} and the \blue{population SD}.\\
 %
-% Comment this
-%
-A normal curve can be described by two \blue{parameters}:
-\begin{itemize}
-\item the \blue{mean $\mu$}. i.e. the center
-\item the \blue{standard deviation (SD) $\sigma$}. i.e. the measure of spread
-\end{itemize}
-\pause\vspace{0.25cm}
-\[
-f(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left( -\frac{1}{2\sigma^2}(x-\mu)^2 \right)
-\]
-\pause\vspace{0.25cm}
-Recall these were the \blue{population mean} and the \blue{population SD}.
+% Normal curves are symmetric and have area under the curve of 1.  
+
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -157,11 +143,11 @@ If $\mu=0$ and $\sigma=1$, this is the \blue{standard normal distribution}:
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Rules of Thumb}
-Recall if a distribution is normal, then:  
+Recall if a distribution is bell-shaped i.e. normal, then: \pause 
 \begin{enumerate}
 \item Approx. $\frac{2}{3}$'s of the data are within $\pm 1$ SD of the mean
 \item Approx. $95\%$ of the data are within $\pm 2$ SD of the mean
-\pause\item Also approx. $99.7\%$ of the data are within $\pm 3$ SD of the mean
+\pause\item Approx. $99.7\%$ of the data are within $\pm 3$ SD of the mean
 \end{enumerate}
 
 \end{frame}
@@ -204,7 +190,13 @@ Recall if a distribution is normal, then:
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Motivating Example}
-From text:  Say Ann scores 1800 on the SAT and Tom scores 24 on the ACT.  \pause Say both tests scores were normally distributed with:
+From text:  Say
+
+\begin{itemize}
+\item Ann scores 1800 on the SAT
+\item Tom scores 24 on the ACT 
+\end{itemize}
+\pause Say both tests scores were normally distributed with:
 \begin{small}
 \begin{center}
 \begin{tabular}{l|rr}
@@ -216,16 +208,16 @@ SD $\sigma$ & 300 & 5\\
 \end{center}
 \end{small}
 
-\blue{Question}:  Who did relatively better?  
+\pause \blue{Question}:  Who did relatively better?  
 
 
 %\vspace{3cm}
 %
 % Comment this
 %
-\begin{center}
-\includegraphics[height=2.5cm]{figure/ann.png}\includegraphics[height=2.5cm]{figure/tom.png}
-\end{center}
+%\begin{center}
+%\includegraphics[height=2.5cm]{figure/ann.png}\includegraphics[height=2.5cm]{figure/tom.png}
+%\end{center}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -237,40 +229,38 @@ SD $\sigma$ & 300 & 5\\
 %
 % Comment this
 %
-The \blue{z-score AKA standardized observation} of an observation x is the number of SD it falls above or below the mean. 
-
-\pause\vspace{0.25cm}
-
-The z-score for an observation x that follows a distribution with mean $\mu$ and SD $\sigma$:
-\[
-z = \frac{x-\mu}{\sigma}
-\]
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{z-scores}
+%The \blue{z-score AKA standardized observation} of an observation x is the number of SD it falls above or below the mean. 
 %
-% Comment this
+%\pause\vspace{0.25cm}
 %
-Why is the z-score $z=\frac{x-\mu}{\sigma}$ called the \blue{standardized observation}?  
-
-\begin{enumerate}
-\pause\item The observations are \blue{centered} at $\mu$.\\
-re-center the $x$ observations to 0 by subtracting $\mu$.
-\pause\item The observations have \blue{spread} $\sigma$.\\
-re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$.
-\end{enumerate}
-
-
-\pause So we can compare observations from \blue{any} normally distributed data with $(\mu,\sigma)$
-
-\vspace{0.25cm}
-
-\pause i.e. we've \blue{standardized the observations} to make them comparable.
+%The z-score for an observation x that follows a distribution with mean $\mu$ and SD $\sigma$:
+%\[
+%z = \frac{x-\mu}{\sigma}
+%\]
+%
+%\end{frame}
+%%-------------------------------------------------------------------------------
+%
+%
+%%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{z-scores}
+%
+%Why is the z-score $z=\frac{x-\mu}{\sigma}$ called the \blue{standardized observation}?  
+%
+%\begin{enumerate}
+%\pause\item The observations are \blue{centered} at $\mu$.\\
+%re-center the $x$ observations to 0 by subtracting $\mu$.
+%\pause\item The observations have \blue{spread} $\sigma$.\\
+%re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$.
+%\end{enumerate}
+%
+%
+%\pause So we can compare observations from \blue{any} normally distributed data with $(\mu,\sigma)$
+%
+%\vspace{0.25cm}
+%
+%\pause i.e. we've \blue{standardized the observations} to make them comparable.
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -281,12 +271,12 @@ re-scale the \blue{spread} of the $x-\mu$ values to be 1 by dividing by $\sigma$
 %
 % Comment this
 %
-\begin{itemize}
-\item Ann scored 1800. $z=\frac{1800-1500}{300} = +1$ standard deviation from the mean
-\item Tom scored 24. $z=\frac{24-21}{5} = +0.6$ standard deviation from the mean
-\end{itemize}
-
-So Ann did relatively better.  
+%\begin{itemize}
+%\item Ann scored 1800. $z=\frac{1800-1500}{300} = +1$ standard deviation from the mean
+%\item Tom scored 24. $z=\frac{24-21}{5} = +0.6$ standard deviation from the mean
+%\end{itemize}
+%
+%So Ann did relatively better.  
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -297,15 +287,9 @@ So Ann did relatively better.
 \begin{frame}
 \frametitle{Percentiles}
 
-Recall a \blue{percentile} (\%'ile) indicates the value below which a given \%'age of observations fall below.
-
-\vspace{0.5cm}
-
 \blue{Question}: What \%'ile is Ann's SAT score of 1800?\\
 
-%
-% Comment this
-%
+\pause 
 i.e. what is the blue shaded area?  
 \begin{center}
 \includegraphics[height=3cm]{figure/ann_z.png}
@@ -322,16 +306,11 @@ i.e. what is the blue shaded area?
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Percentiles}
-Because the total area under the curve is 1, the area to the left of z represents the \%'ile of the observation:
+Because the area under the curve is 1, the area to the left of z is the \%'ile.
 
 \begin{center}
 \includegraphics[width=\textwidth]{figure/pos_neg_z.png}
 \end{center}
-
-\begin{itemize}
-\pause\item The blue shaded area on the left plot will be less than 0.5.  We have \%'iles less than the 50th \%'ile.    
-\pause\item The blue shaded area on the right plot will be greater than 0.5.  We have \%'iles greater than the 50th \%'ile.
-\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -351,7 +330,7 @@ A \blue{normal probability table} allows you to:
 
 \vspace{0.5cm}
 
-\pause The normal probability tables on page 409 represent z-scores and \%'iles corresponding to area to the left:
+\pause The normal probability tables on page 429 represent z-scores and \%'iles corresponding to area to the left:
 \begin{center}
 \includegraphics[width=5cm]{figure/area_left.png}
 \end{center}
@@ -371,10 +350,10 @@ A \blue{normal probability table} allows you to:
 %
 % Comment this
 %
-\begin{itemize}
-\item \textcolor{red}{Red case}: Given a z-score of 0.43.  A lookup tells us the area to the left of z=0.43 is 0.6664, i.e. the 66th \%'ile
-\pause\item \textcolor{blue}{Blue case}:  We want the z-score that is the 80th \%'ile.  Reverse lookup: the closest value on the table is 0.7995, i.e. a z-score of 0.84. 
-\end{itemize}
+%\begin{itemize}
+%\item \textcolor{red}{Red case}: Given a z-score of 0.43.  A lookup tells us the area to the left of z=0.43 is 0.6664, i.e. the 66th \%'ile
+%\pause\item \textcolor{blue}{Blue case}:  We want the z-score that is the 80th \%'ile.  Reverse lookup: the closest value on the table is 0.7995, i.e. a z-score of 0.84. 
+%\end{itemize}
 
 
 \end{frame}
@@ -389,12 +368,12 @@ A \blue{normal probability table} allows you to:
 %
 % Comment this
 %
-\begin{itemize}
-\item Since Ann had a z-score of 1.0, her \%'ile is 0.8413. (1.0 row, 0.00 column)\\
-i.e. She did better than 84.13\% of SAT test takers.
-\pause \item Since Tom had a z-score of 0.6, his \%'ile is 0.7257. (0.6 row, 0.00 column)\\
-i.e. He did better than 72.57\% of ACT test takers
-\end{itemize}
+%\begin{itemize}
+%\item Since Ann had a z-score of 1.0, her \%'ile is 0.8413. (1.0 row, 0.00 column)\\
+%i.e. She did better than 84.13\% of SAT test takers.
+%\pause \item Since Tom had a z-score of 0.6, his \%'ile is 0.7257. (0.6 row, 0.00 column)\\
+%i.e. He did better than 72.57\% of ACT test takers
+%\end{itemize}
 
 
 \end{frame}
