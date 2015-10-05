@@ -1,6 +1,6 @@
 ---
 title: "Alcohol Consumption and Building QQ-Plots"
-date: "February 13, 2015"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -17,26 +17,34 @@ raw.data <- getURL(webpage)
 booze <- read.csv(text = raw.data, header=TRUE)
 ```
 
-We downloaded the data used in the article [Where Do People Drink The Most Beer, Wine And Spirits?](http://fivethirtyeight.com/datalab/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) from the [data repository](https://github.com/fivethirtyeight/data) and look at the top 5 drinking countries in terms of:
+We downloaded the data used in the article [Where Do People Drink The Most Beer, Wine And Spirits?](http://fivethirtyeight.com/datalab/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) from the [data repository](https://github.com/fivethirtyeight/data/tree/master/alcohol-consumption) and look at the top 5 drinking countries in terms of:
 
 Hard liquor
 ```{r, echo=FALSE}
-arrange(booze, desc(spirit_servings)) %>% select(country, spirit_servings) %>% head(n=5)
+arrange(booze, desc(spirit_servings)) %>% 
+  select(country, spirit_servings) %>% 
+  head(n=5)
 ```
 
 Beer
 ```{r, echo=FALSE}
-arrange(booze, desc(beer_servings)) %>% select(country, beer_servings) %>% head(n=5)
+arrange(booze, desc(beer_servings)) %>% 
+  select(country, beer_servings) %>% 
+  head(n=5)
 ```
 
 Wine
 ```{r, echo=FALSE}
-arrange(booze, desc(wine_servings)) %>% select(country, wine_servings) %>% head(n=5)
+arrange(booze, desc(wine_servings)) %>% 
+  select(country, wine_servings) %>% 
+  head(n=5)
 ```
 
 Total Alcohol
 ```{r, echo=FALSE}
-arrange(booze, desc(total_litres_of_pure_alcohol)) %>% select(country, total_litres_of_pure_alcohol) %>% head(n=5)
+arrange(booze, desc(total_litres_of_pure_alcohol)) %>% 
+  select(country, total_litres_of_pure_alcohol) %>% 
+  head(n=5)
 ```
 
 
