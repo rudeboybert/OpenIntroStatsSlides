@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
 %\documentclass[slides]{beamer}
 
-%% Uncomment these (but comment the above \documentclass line) to make handouts:
+% Uncomment these (but comment the above \documentclass line) to make handouts:
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -80,12 +80,12 @@ Whenever solving questions of this sort \blue{ALWAYS} draw a rough picture first
 \frametitle{Normal Probability Tables}
 Alternatively, whereas 
 \begin{itemize}
-\item table on P.409 gives areas to the left of positive values of $z$.
-\item table on P.408 gives areas to the left of negative values of $z$.
+\item table on P.429 gives areas to the left of positive values of $z$.
+\item table on P.428 gives areas to the left of negative values of $z$.
 \end{itemize}
 
 \vspace{0.5cm}
-I'm only going to give you P.409 table for exams.
+I'm only going to give you P.429 table for exams.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -189,16 +189,16 @@ What about these ones?  How well do the histograms fit to the normal curve?
 %
 % Comment this
 %
-\blue{Normal probability plots} (AKA quantile-quantile plots AKA QQ-plots) are a method for visually displaying how well data fit a normal curve.
-
-
-\vspace{0.75cm}
-
-\pause The $k^{\mbox{th}}$ \blue{$q-quantile$} is the value such that proportion $\frac{k}{q}$ of the observations fall below it.  So 
-\begin{itemize}
-\pause\item The 4-quantiles are the \blue{quartiles}.\\
-\pause\item The 100-quantiles are the \blue{percentiles}.
-\end{itemize}
+%\blue{Normal probability plots} (AKA quantile-quantile plots AKA QQ-plots) are a method for visually displaying how well data fit a normal curve.
+%
+%
+%\vspace{0.75cm}
+%
+%\pause The $k^{\mbox{th}}$ \blue{$q-quantile$} is the value such that proportion $\frac{k}{q}$ of the observations fall below it.  So 
+%\begin{itemize}
+%\pause\item The 4-quantiles are the \blue{quartiles}.\\
+%\pause\item The 100-quantiles are the \blue{percentiles}.
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -207,19 +207,20 @@ What about these ones?  How well do the histograms fit to the normal curve?
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Normal Probability Plots}
-A normal probability plot compares:
 
 %
 % Comment this
 %
-\begin{itemize}
-\item The \blue{observed} quantiles of a data set (on the $y$-axis)
-\item The \blue{theoretical} quantiles that are \blue{exactly} normal (on the $x$-axis)
-\end{itemize}
-
-\pause\vspace{0.5cm}
-
-The more ``normal'' the data is, the better the fit.  
+%A normal probability plot compares:
+%
+%\begin{itemize}
+%\item The \blue{observed} quantiles of a data set (on the $y$-axis)
+%\item The \blue{theoretical} quantiles that are \blue{exactly} normal (on the $x$-axis)
+%\end{itemize}
+%
+%\pause\vspace{0.5cm}
+%
+%The more ``normal'' the data is, the better the fit.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -248,38 +249,9 @@ The more ``normal'' the data is, the better the fit.
 %------------------------------------------------------------------------------
 
 
+
+
 \end{document}
-
-
-
-
-
-
-
-
-
-
-%%library(openintro)
-%%data(MLB)
-%%pdf("./4.2 Normal Approximation/MLB_qqplot.pdf", width=6, height=6)
-%%qqnorm(MLB$salary)
-%%qqline(MLB$salary, lwd=1.5)
-%%dev.off()
-%%------------------------------------------------------------------------------
-%\begin{frame}[fragile]
-%\frametitle{MLB Salary Normal Probability Plot}
-%
-%\begin{center}
-%\includegraphics[width=5cm]{figure/MLB_qqplot.pdf}
-%\end{center}
-%\begin{verbatim}
-%library(openintro)
-%data(MLB)
-%qqnorm(MLB$salary)
-%qqline(MLB$salary)
-%\end{verbatim}
-%\end{frame}
-
 
 
 
