@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -68,11 +68,9 @@ Define
 \begin{frame}[fragile]
 \frametitle{Mathematical Definition of a Bernoulli Random Variable}
 
-A \blue{random variable $X$} is a random process or variable with a numerical outcome.  
+A \blue{random variable $X$} is a random process or variable with a numerical outcome.  The behavior of 
+random variables is described in terms of their \blue{distribution}.
 
-\vspace{5cm}
-
-\pause Random variables are described in terms of their \blue{distribution}.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -80,7 +78,8 @@ A \blue{random variable $X$} is a random process or variable with a numerical ou
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Bernoulli Distribution}
-Say we have an experiment where we define each \blue{trial} (or instance) to have two possible outcomes of interest.  Examples
+
+Say we have an experiment where each \blue{trial} (or instance) has two possible outcomes.  Examples:
 \pause\begin{itemize}
 \item Coin flips:  heads vs tails
 \item Medical test (for a disease):  positive vs negative
@@ -89,7 +88,7 @@ Say we have an experiment where we define each \blue{trial} (or instance) to hav
 
 \vspace{0.5cm}
 
-\pause In each case we can \blue{define} the outcomes to be \blue{success} vs \blue{failure}.  No moral judgement; just labels.
+\pause In each case we can \blue{define} the outcomes to be a \blue{success} or a \blue{failure}.  No moral judgement; just labels.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -99,14 +98,17 @@ Say we have an experiment where we define each \blue{trial} (or instance) to hav
 \begin{frame}
 \frametitle{Bernoulli Distribution}
 
-Say we have trials where we have two outcomes:  either a ``success'' or a ``failure''.  Classic example:  coin flips have $p=0.5$ of heads, if we define heads as the success.
-
-\vspace{0.5cm}
-
-\begin{itemize}
-\item probability $p$ of a ``success.''  Denote successes with a ``1.''
-\item probability $1-p$ of a ``failure.''  Denote failures with a ``0.''
-\end{itemize}
+%
+% Comment this
+%
+%Say we have trials where we have two outcomes:  either a ``success'' or a ``failure''.  Classic example:  coin flips have $p=0.5$ of heads, if we define heads as the success.
+%
+%\vspace{0.5cm}
+%
+%\begin{itemize}
+%\item probability $p$ of a ``success.''  Denote successes with a ``1.''
+%\item probability $1-p$ of a ``failure.''  Denote failures with a ``0.''
+%\end{itemize}
 
 
 \end{frame}
@@ -117,17 +119,35 @@ Say we have trials where we have two outcomes:  either a ``success'' or a ``fail
 \begin{frame}[fragile]
 \frametitle{Definition of a Bernoulli Random Variable}
 
-If $X$ is a random variable that takes value
-\begin{itemize}
-\item 1 with probability of success $p$
-\item 0 with probability of failure $1-p$
-\end{itemize}
+%
+% Comment this
+%
+%If $X$ is a random variable that takes value
+%\begin{itemize}
+%\item 1 with probability of success $p$
+%\item 0 with probability of failure $1-p$
+%\end{itemize}
+%
+%then $X$ is a \blue{Bernoulli random variable} with mean and standard deviation:
+%\begin{eqnarray*}
+%\mu &=& p\\
+%\sigma &=& \sqrt{p(1-p)}
+%\end{eqnarray*}
 
-then $X$ is a \blue{Bernoulli random variable} with mean and standard deviation:
-\begin{eqnarray*}
-\mu &=& p\\
-\sigma &=& \sqrt{p(1-p)}
-\end{eqnarray*}
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Example of Bernoulli Distribution}
+
+\begin{itemize}
+\item A success as rolling a 6.\\
+So $P(X=1) = P(\mbox{success}) = p =  \frac{1}{6}$.
+\item A failure as rolling anything else\\
+So $P(X=0) = P(\mbox{failure}) = 1-p = \frac{5}{6}$.
+\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -145,28 +165,17 @@ then $X$ is a \blue{Bernoulli random variable} with mean and standard deviation:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Sample Proportion}
-Say you repeat $n$ instances of a Bernoulli random variable.  You end up with a sample $x_1, \ldots, x_{n}$
 
-\vspace{0.5cm}
-
-The \blue{sample proportion $\widehat{p}$} (p-hat) is the sample mean of these observations.  i.e. \[
-\widehat{p} = \frac{\mbox{\# of successes}}{\mbox{\# of trials}} = \frac{1}{n}\sum_{i=1}^{n}x_i
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Example of Bernoulli Distribution}
-
-\begin{itemize}
-\pause\item A success as rolling a 6.\\
-So $P(X=1) = P(\mbox{success}) = p =  \frac{1}{6}$.
-\pause\item A failure as rolling anything else.\\
-So $P(X=0) = P(\mbox{failure}) = 1-p = \frac{5}{6}$.
-\end{itemize}
+%
+% Comment this
+%
+%Say you repeat $n$ instances of a Bernoulli random variable.  You end up with a sample $x_1, \ldots, x_{n}$
+%
+%\vspace{0.5cm}
+%
+%The \blue{sample proportion $\widehat{p}$} (p-hat) is the sample mean of these observations.  i.e. \[
+%\widehat{p} = \frac{\mbox{\# of successes}}{\mbox{\# of trials}} = \frac{1}{n}\sum_{i=1}^{n}x_i
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -201,24 +210,26 @@ So $P(X=0) = P(\mbox{failure}) = 1-p = \frac{5}{6}$.
 \begin{frame}[fragile]
 \frametitle{Scenario}
 
-\blue{Question}:  Say
-\begin{itemize}
-\item the San Francisco Giants have equal probability $p=0.6$ of winning any game
-\item games are independent
-\end{itemize}
-
-It's the beginning of the season.  What is the probability that they don't win their first game until the 5th game of the season?
-
-\vspace{0.5cm}
-
-\pause For this to happen, there must be 4 loses in the first 4 games AND a win in the 5th game:
-\begin{eqnarray*}
-P(\mbox{1st W in 5th game}) &=& P(\mbox{4 loses}) \times P(\mbox{win})\\
-&=& (P(\mbox{loss}))^4 \times P(\mbox{win})\\
-&=& (1-p)^4 \times p\\
-&=& 0.4^4 \times 0.6 = 0.01536.
-\end{eqnarray*}
-
+%
+% Comment this
+%
+%\blue{Question}:  Say
+%\begin{itemize}
+%\item the San Francisco Giants have equal probability $p=0.6$ of winning any game
+%\item games are independent
+%\end{itemize}
+%
+%It's the beginning of the season.  What is the probability that they don't win their first game until the 5th game of the season?
+%
+%\vspace{0.5cm}
+%
+%\pause For this to happen, there must be 4 loses in the first 4 games AND a win in the 5th game:
+%\begin{eqnarray*}
+%P(\mbox{1st W in 5th game}) &=& P(\mbox{4 loses}) \times P(\mbox{win})\\
+%&=& (P(\mbox{loss}))^4 \times P(\mbox{win})\\
+%&=& (1-p)^4 \times p\\
+%&=& 0.4^4 \times 0.6 = 0.01536.
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------	
@@ -228,18 +239,21 @@ P(\mbox{1st W in 5th game}) &=& P(\mbox{4 loses}) \times P(\mbox{win})\\
 \begin{frame}[fragile]
 \frametitle{Geometric Random Variables}
 
-\blue{Geometric Distribution}: If the probability of a success in any trial is $p$, the trials are independent,
-then the probability of finding the first success on the $n^{\mbox{th}}$ trial is given by
-\[
-(1-p)^{n-1}p
-\]
-
-\pause Also
-\begin{eqnarray*}
-\mu &=& \frac{1}{p}\\
-\sigma^2 &=& \frac{1-p}{p^2}\\
-\sigma &=& \frac{\sqrt{1-p}}{p}
-\end{eqnarray*}
+%
+% Comment this
+%
+%\blue{Geometric Distribution}: If the probability of a success in any trial is $p$, the trials are independent,
+%then the probability of finding the first success on the $n^{\mbox{th}}$ trial is given by
+%\[
+%(1-p)^{n-1}p
+%\]
+%
+%\pause Also
+%\begin{eqnarray*}
+%\mu &=& \frac{1}{p}\\
+%\sigma^2 &=& \frac{1-p}{p^2}\\
+%\sigma &=& \frac{\sqrt{1-p}}{p}
+%\end{eqnarray*}
 
 
 \end{frame}
@@ -250,19 +264,22 @@ then the probability of finding the first success on the $n^{\mbox{th}}$ trial i
 \begin{frame}[fragile]
 \frametitle{Intuition Behind $\mu$}
 
-Think about $\mu$:  $\frac{1}{p}$ is the average number of trials we need until the \blue{first} success.
-
-\vspace{0.5cm}
-
-\pause So compare:
-\begin{itemize}
-\item Say $p=0.5$.  Then $\mu = \frac{1}{0.5} = 2$
-\item Say $p=0.001$.  Then $\mu = \frac{1}{0.001} = 1000$
-\end{itemize}
-
-\vspace{0.5cm}
-
-\pause In the first case, the probability of a success is \blue{lower}, so we expect on average it will take more trials until the \blue{first} success.  
+%
+% Comment this
+%
+%Think about $\mu$:  $\frac{1}{p}$ is the average number of trials we need until the \blue{first} success.
+%
+%\vspace{0.5cm}
+%
+%\pause So compare:
+%\begin{itemize}
+%\item Say $p=0.5$.  Then $\mu = \frac{1}{0.5} = 2$
+%\item Say $p=0.001$.  Then $\mu = \frac{1}{0.001} = 1000$
+%\end{itemize}
+%
+%\vspace{0.5cm}
+%
+%\pause In the first case, the probability of a success is \blue{lower}, so we expect on average it will take more trials until the \blue{first} success.  
 
 \end{frame}
 %------------------------------------------------------------------------------	
@@ -275,34 +292,4 @@ Think about $\mu$:  $\frac{1}{p}$ is the average number of trials we need until 
 
 
 
-
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Yesterday's Quiz: Placebos}
-
-\blue{Question 1}: Was Dr. Irving Kirsch arguing that anti-depressants are no better than placebos for everyone with depression?
-
-\vspace{0.5cm}
-
-\pause\blue{Solution}: No, while he argued that anti-depressants were no better than placebo for those with mild to moderate depression, he is of the opinion that there is clinical benefit for those who are severely depressed.  
-
-
-\end{frame}
-%------------------------------------------------------------------------------	
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Yesterday's Quiz: Placebos}
-\blue{Question 2}: What is Dr. Walter Brown's (bald guy from Yale) criticism of the way the FDA approves anti-depressants?
-
-\vspace{0.5cm}
-
-\pause\blue{Solution}:  That all that is required are two clinical trials where the drug performs better than placebo, regardless of the number of trials with ``negative results.''  Ex:  say a drug performs better than placebo in 2 trials, but fails in 998 trials, it will still be approved by the FDA.  
-
-\end{frame}
-%------------------------------------------------------------------------------	
 
