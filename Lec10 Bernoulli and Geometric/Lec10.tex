@@ -1,14 +1,22 @@
+%
+%
+% -Better explain values on x and y axis on QQplot
+% -Cut down write up? A little lengthy.
+%
+%
+
+
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -79,7 +87,7 @@ random variables is described in terms of their \blue{distribution}.
 \begin{frame}
 \frametitle{Bernoulli Distribution}
 
-Say we have an experiment where each \blue{trial} (or instance) has two possible outcomes.  Examples:
+Say we have an experiment where each \blue{trial} (or instance) has two possible outcomes:
 \pause\begin{itemize}
 \item Coin flips:  heads vs tails
 \item Medical test (for a disease):  positive vs negative
