@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -67,19 +67,22 @@ Define
 \begin{frame}
 \frametitle{Binomial Distribution}
 
-Say instead of $P(\mbox{1st W in 5th game})$, we want the probability that they win \blue{exactly one} out of the five games.  Five ways:
-
-\pause\begin{center}
-\begin{tabular}{c|ll}
-Pattern & Probability & Equals\\
-\hline
-\blue{WLLLL} & $p \times (1-p)^4$ & $=p\times(1-p)^4$\\
-\blue{LWLLL} & $(1-p) \times p \times (1-p)^3$ & $=p\times(1-p)^4$\\
-\blue{LLWLL} & $(1-p)^2 \times p \times (1-p)^2$& $=p\times(1-p)^4$\\
-\blue{LLLWL} & $(1-p)^3 \times p \times (1-p)$& $=p\times(1-p)^4$\\
-\blue{LLLLW} & $(1-p)^4 \times p$& $=p\times(1-p)^4$\\
-\end{tabular} 
-\end{center}
+%
+% Comment these
+%
+%Say instead of $P(\mbox{1st W in 5th game})$, we want the probability that they win \blue{exactly one} out of the five games.  Five ways:
+%
+%\pause\begin{center}
+%\begin{tabular}{c|ll}
+%Pattern & Probability & Equals\\
+%\hline
+%\blue{WLLLL} & $p \times (1-p)^4$ & $=p\times(1-p)^4$\\
+%\blue{LWLLL} & $(1-p) \times p \times (1-p)^3$ & $=p\times(1-p)^4$\\
+%\blue{LLWLL} & $(1-p)^2 \times p \times (1-p)^2$& $=p\times(1-p)^4$\\
+%\blue{LLLWL} & $(1-p)^3 \times p \times (1-p)$& $=p\times(1-p)^4$\\
+%\blue{LLLLW} & $(1-p)^4 \times p$& $=p\times(1-p)^4$\\
+%\end{tabular} 
+%\end{center}
 
 
 \end{frame}
@@ -93,14 +96,14 @@ Pattern & Probability & Equals\\
 %
 % Comment these
 %
-Each pattern has the same probability regardless of order by independence and there are 5 ways to \blue{choose} the pattern.  So
-
-\vspace{0.25cm}
-
-\begin{eqnarray*}
-P(\mbox{exactly one win out of five}) &=& 5 \times p\times(1-p)^4\\
-&=& 5 \times 0.4^4 \times 0.6 = 0.0768
-\end{eqnarray*}
+%Each pattern has the same probability regardless of order by independence and there are 5 ways to \blue{choose} the pattern.  So
+%
+%\vspace{0.25cm}
+%
+%\begin{eqnarray*}
+%P(\mbox{exactly one win out of five}) &=& 5 \times p\times(1-p)^4\\
+%&=& 5 \times 0.4^4 \times 0.6 = 0.0768
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -128,20 +131,20 @@ Say I give you $n=3$ balls labeled 1 thru 3.  How many different ways can you ch
 %
 % Comment these
 %
-Say I give you $n$ balls labeled 1 thru n.  How many different ways can you choose $x$ of them?  This is read \blue{n choose x}:
-
-\[
-{n \choose x} = \frac{n!}{x!(n-x)!}
-\] 
-
-\vspace{0.5cm}
-
-In example: $n=3$ and $x=2$
-\[
-{3 \choose 2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{(2 \times 1)(1)} = \frac{6}{2} = 3
-\]
-
-Note that $0!=1$
+%Say I give you $n$ balls labeled 1 thru n.  How many different ways can you choose $x$ of them?  This is read \blue{n choose x}:
+%
+%\[
+%{n \choose x} = \frac{n!}{x!(n-x)!}
+%\] 
+%
+%\vspace{0.5cm}
+%
+%In example: $n=3$ and $x=2$
+%\[
+%{3 \choose 2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{(2 \times 1)(1)} = \frac{6}{2} = 3
+%\]
+%
+%Note that $0!=1$
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -153,94 +156,96 @@ Note that $0!=1$
 %
 % Comment these
 %
-Suppose the probability of a single trial being a success is $p$.  Let $X$ be the random number of successes observed in $n$ independent trials.  The probability of observing $x$ successes is:
-
-\pause\begin{eqnarray*}
-P(X=x) &=& {n \choose x} p^x (1-p)^{n-x}\\
-&=& \frac{n!}{x!(n-x)!}p^x (1-p)^{n-x}
-\end{eqnarray*}
-
-\pause The mean, variance, and SD are:
-\[
-\mu = np \hspace{1cm} \sigma^2 = np(1-p) \hspace{1cm} \sigma = \sqrt{np(1-p)}
-\]
+%Suppose the probability of a single trial being a success is $p$.  Let $X$ be the random number of successes observed in $n$ independent trials.  The probability of observing $x$ successes is:
+%
+%\pause\begin{eqnarray*}
+%P(X=x) &=& {n \choose x} p^x (1-p)^{n-x}\\
+%&=& \frac{n!}{x!(n-x)!}p^x (1-p)^{n-x}
+%\end{eqnarray*}
+%
+%\pause The mean, variance, and SD are:
+%\[
+%\mu = np \hspace{1cm} \sigma^2 = np(1-p) \hspace{1cm} \sigma = \sqrt{np(1-p)}
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Conditions for Binomial Distribution}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Conditions for Binomial Distribution}
 %
-% Comment these
+%%
+%% Comment these
+%%
+%\begin{enumerate}
+%\pause\item The trials are independent.
+%\pause\item The number of trials $n$ is fixed
+%\pause\item Each trial outcome can be classified as a failure or a success
+%\pause\item The probability of a success $p$ is the same for each trial
+%\end{enumerate}
 %
-\begin{enumerate}
-\pause\item The trials are independent.
-\pause\item The number of trials $n$ is fixed
-\pause\item Each trial outcome can be classified as a failure or a success
-\pause\item The probability of a success $p$ is the same for each trial
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Back to Soccer Example}
-Probability of exactly one win?
-
-\begin{center}
-\begin{tabular}{c|ll}
-Pattern & Probability & Equals\\
-\hline
-\blue{WLLLL} & $p \times (1-p)^4$ & $=p\times(1-p)^4$\\
-\blue{LWLLL} & $(1-p) \times p \times (1-p)^3$ & $=p\times(1-p)^4$\\
-\blue{LLWLL} & $(1-p)^2 \times p \times (1-p)^2$& $=p\times(1-p)^4$\\
-\blue{LLLWL} & $(1-p)^3 \times p \times (1-p)$& $=p\times(1-p)^4$\\
-\blue{LLLLW} & $(1-p)^4 \times p$& $=p\times(1-p)^4$\\
-\end{tabular} 
-\end{center}
-
-%
-% Comment these
-%
-\pause Letting a win be a ``success'':
-\begin{eqnarray*}
-P(X=1) &=& {n \choose x} p^x (1-p)^{n-x} = \frac{5!}{1!\times4!} 0.6 \times 0.4^4\\
-&=& 5 \times  0.6 \times 0.4^4 = 0.0768
-\end{eqnarray*}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Soccer Example}
+
 %
 % Comment these
 %
-What is the probability that they win all their games!  i.e. $X=5$:
-\pause \begin{eqnarray*}
-P(X=5) &=& {n \choose x} p^x (1-p)^{n-x} = {5 \choose 5} 0.6^5 (1-0.6)^{0}\\
-&=& \frac{5!}{5!\times 0!} 0.6^5 \times 1 = 0.08
-\end{eqnarray*}
-
-\vspace{0.75cm}
-
-\pause What is the probability that they at win at least one game?
-\pause \begin{eqnarray*}
-P(X\geq 1) &=& P(X=1) + \ldots + P(X=5) \\
-&=& 1 - P(X=0)\\
-&=& 1 -  \frac{5!}{0!\times 5!} 0.6^0 \times 0.4^5 = 1 - 0.01024\\
-&=& 0.98976
-\end{eqnarray*}
+%Probability of exactly one win?
+%
+%\begin{center}
+%\begin{tabular}{c|ll}
+%Pattern & Probability & Equals\\
+%\hline
+%\blue{WLLLL} & $p \times (1-p)^4$ & $=p\times(1-p)^4$\\
+%\blue{LWLLL} & $(1-p) \times p \times (1-p)^3$ & $=p\times(1-p)^4$\\
+%\blue{LLWLL} & $(1-p)^2 \times p \times (1-p)^2$& $=p\times(1-p)^4$\\
+%\blue{LLLWL} & $(1-p)^3 \times p \times (1-p)$& $=p\times(1-p)^4$\\
+%\blue{LLLLW} & $(1-p)^4 \times p$& $=p\times(1-p)^4$\\
+%\end{tabular} 
+%\end{center}
+%
+%
+%\pause Letting a win be a ``success'':
+%\begin{eqnarray*}
+%P(X=1) &=& {n \choose x} p^x (1-p)^{n-x} = \frac{5!}{1!\times4!} 0.6 \times 0.4^4\\
+%&=& 5 \times  0.6 \times 0.4^4 = 0.0768
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Back to Soccer Example}
+%%
+%% Comment these
+%%
+%What is the probability that they win all their games!  i.e. $X=5$:
+%\pause \begin{eqnarray*}
+%P(X=5) &=& {n \choose x} p^x (1-p)^{n-x} = {5 \choose 5} 0.6^5 (1-0.6)^{0}\\
+%&=& \frac{5!}{5!\times 0!} 0.6^5 \times 1 = 0.08
+%\end{eqnarray*}
+%
+%\vspace{0.75cm}
+%
+%\pause What is the probability that they at win at least one game?
+%\pause \begin{eqnarray*}
+%P(X\geq 1) &=& P(X=1) + \ldots + P(X=5) \\
+%&=& 1 - P(X=0)\\
+%&=& 1 -  \frac{5!}{0!\times 5!} 0.6^0 \times 0.4^5 = 1 - 0.01024\\
+%&=& 0.98976
+%\end{eqnarray*}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %values <- data.frame(
@@ -248,14 +253,16 @@ P(X\geq 1) &=& P(X=1) + \ldots + P(X=5) \\
 %  y = dbinom(c(0:5), size=5, prob=0.6)
 %)
 %ggplot(values, aes(x=as.factor(x), y=y)) + geom_bar(stat="identity") +
-%  xlab("x = # of successes") +
-%  ylab("P(X=x)")
+%  xlab("k = # of successes") +
+%  ylab("P(X=k)")
 %ggsave("./Lec11 Binomial and Poisson/figure/bin.pdf")
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Back to Soccer Example}
 
-\begin{center}
+With $n=5$ and $p=0.6$, we plot the probability of each of $k=0, \ldots, 5$ wins:
+
+\pause\begin{center}
 \includegraphics[width=\textwidth]{figure/bin.pdf}
 \end{center}
 
@@ -270,13 +277,13 @@ P(X\geq 1) &=& P(X=1) + \ldots + P(X=5) \\
 Say you want to count the number of rare events in a large population over a unit of time.  Ex:
 \begin{itemize}
 \pause \item \# of car accidents at an intersection on a given week
-\pause \item \# of ambulance calls on any given day in Portland
+\pause \item \# of ambulance calls on any given day in Burlington
 \pause \item \# of soldiers in the Prussian army killed accidentally by horse kick from 1875 to 1894
 \end{itemize}
 
 \vskip 0.25cm
 
-\pause The \blue{Poisson distribution} helps us model such counts.
+\pause The \blue{Poisson distribution} allows us to model such counts.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -288,45 +295,43 @@ Say you want to count the number of rare events in a large population over a uni
 %
 % Comment these
 %
-A random number $X$ of the count of the number of events follows a Poisson distribution with rate $\lambda$
-\[
-    P(\mbox{we observe x rare events}) = P(X=x) = \frac{\lambda^x e^{-\lambda}}{x!}
-\]
-\pause where x may take a value 0, 1, 2, \ldots where $e \approx 2.718$.
-
-\vspace{0.5cm}
-
-\pause The mean and SD are $\lambda$ and $\sqrt{\lambda}$.
+%A random number $X$ of the count of the number of (rare) events follows a Poisson distribution with rate $\lambda$
+%\[
+%    P(\mbox{we observe x rare events}) = P(X=x) = \frac{\lambda^x e^{-\lambda}}{x!}
+%\]
+%\pause where x may take a value 0, 1, 2, \ldots where $e \approx 2.718$.
+%
+%\vspace{0.5cm}
+%
+%\pause The mean and SD are $\lambda$ and $\sqrt{\lambda}$.
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Conditions for Poisson Distribution}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Conditions for Poisson Distribution}
 %
-% Comment these
+%%
+%% Comment these
+%%
+%A random variable \blue{may} be Poisson distributed if
 %
-A random variable \blue{may} be Poisson distributed if
-
-\begin{enumerate}
-\pause\item The event in question is rare
-\pause\item The population is large
-\pause\item The events occur independently of each other
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%\begin{enumerate}
+%\pause\item The event in question is rare
+%\pause\item The population is large
+%\pause\item The events occur independently of each other
+%\end{enumerate}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Exercise 3.47 on Page 158}
-%
-% Comment these
-%
+
 A coffee shop serves an average of 75 customers per hour during the morning rush.  Let $X$ be the (random) number of customers that the coffee shop serves in one hour at this time of the day.  
 
 \vspace{0.5cm}
@@ -343,14 +348,14 @@ What is the probability $X=70$?
 %
 % Comment these
 %
-In this case, $\lambda=75$ is the rate
-\[
-P(X=70) = \frac{75^{70} e^{-75}}{70!} = 0.040
-\]
-
-\pause\vspace{0.25cm}
-
-We can do this in R via {\tt dpois(x=70, lambda=75)} in {\tt R}
+%In this case, $\lambda=75$ is the rate
+%\[
+%P(X=70) = \frac{75^{70} e^{-75}}{70!} = 0.040
+%\]
+%
+%\pause\vspace{0.25cm}
+%
+%We can do this in R via {\tt dpois(x=70, lambda=75)} in {\tt R}
 
 \end{frame}
 %------------------------------------------------------------------------------
