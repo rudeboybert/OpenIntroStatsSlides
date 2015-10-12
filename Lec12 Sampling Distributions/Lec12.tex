@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -52,7 +52,7 @@
 \begin{frame}[fragile]
 \frametitle{Goals for Today}
 
-Start Chapter 4:  Arguably the most important chapter as it goes to the heart of what statistical inference is.  Three important definitions today:
+Chapter 4:  Arguably the most important chapter as it goes to the heart of statistical inference.  Three important definitions:
 
 \vspace{0.5cm}
 
@@ -74,15 +74,15 @@ Start Chapter 4:  Arguably the most important chapter as it goes to the heart of
 %
 % Comment this
 %
-\blue{Definition 1}: \blue{Point estimates} are functions of a random sample of $n$ observations $x_1, \ldots, x_n$.  They estimate the value of some unknown population parameter.
-
-\pause\vspace{0.5cm}
-
-Ex:  the sample mean 
-\[
-\xbar=\frac{1}{n}\sum_{i=1}^{n}x_i = \frac{x_1 + \ldots + x_n}{n}
-\] 
-is a point estimate of the true population mean $\mu$
+%\blue{Definition 1}: \blue{Point estimates} are functions of a random sample of $n$ observations $x_1, \ldots, x_n$.  They estimate the value of some unknown population parameter.
+%
+%\pause\vspace{0.5cm}
+%
+%Ex:  the sample mean 
+%\[
+%\xbar=\frac{1}{n}\sum_{i=1}^{n}x_i = \frac{x_1 + \ldots + x_n}{n}
+%\] 
+%is a point estimate of the true population mean $\mu$
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -91,17 +91,19 @@ is a point estimate of the true population mean $\mu$
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Behavior of Point Estimates}
-Ex:  Say we draw a random sample of size $n=100$ from a large population that is normally distributed with $\mu=5$ and $\sigma=2$.
+Ex:  Say we draw samples of size $n=100$ from a large population with $\mu=5$ and $\sigma=2$.
 
 \pause \vskip 0.5cm
 
 \blue{Two Important Questions}:
 \begin{enumerate}
 \pause \item Is $\xbar$ going to be exactly 5?
-\pause \item Say we get $\overline{x}=5.025$.  If we repeat this procedure: i.e. generate a \blue{new} sample of size $n=100$ and compute $\overline{x}$), will we get $\overline{x} = 5.025$?
+\pause \item Say we get $\overline{x}=5.025$.  If we repeat this procedure, will we get $\overline{x} = 5.025$ again?
 \end{enumerate}
 
-\pause We need to characterize this random error.
+\pause \vskip 0.5cm
+
+We need to characterize the random error.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -129,7 +131,7 @@ Let's repeat this procedure, say, 1000 times:
 %-------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Sampling Distribution}
-This histogram is the 1000 instances of $\xbar$, where each $\xbar$ is based on a sample of $n=100$.  This is the \blue{sampling distribution} of $\xbar$:
+This histogram is the 1000 instances of $\xbar$ i.e. the \blue{sampling distribution} of $\xbar$:
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec12-001}
@@ -145,15 +147,15 @@ This histogram is the 1000 instances of $\xbar$, where each $\xbar$ is based on 
 %
 % Comment this
 %
-\blue{Definition 2}: the \blue{sampling distribution} is the distribution of point estimates based on samples of fixed size $n$.  
-
-\pause \vspace{0.5cm}
-
-Every instance of a point estimate can be thought of as a draw from the sampling distribution.
-
-\pause \vspace{0.5cm}
-
-If the sampling is \blue{representative} (unbiased) then the sampling distribution will be centered around the true population parameter (in our case $\mu$).  
+%\blue{Definition 2}: the \blue{sampling distribution} is the distribution of point estimates based on samples of fixed size $n$.  
+%
+%\pause \vspace{0.5cm}
+%
+%Every instance of a point estimate can be thought of as a draw from the sampling distribution.
+%
+%\pause \vspace{0.5cm}
+%
+%If the sampling is \blue{representative} (unbiased) then the sampling distribution will be centered around the true population parameter (in our case $\mu$).  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -166,14 +168,14 @@ If the sampling is \blue{representative} (unbiased) then the sampling distributi
 %
 % Comment this
 %
-%We can define the sampling distributions for \blue{any} point estimate, not just $\xbar$:
-%\pause \begin{itemize}
-%\item $s$
-%\item the sample median
-%\item etc.
-%\end{itemize}
-%
-%\pause We will only focus on sample means, including the sample proportion $\widehat{p}$.
+We can define the sampling distributions for \blue{any} point estimate, not just $\xbar$:
+\pause \begin{itemize}
+\item $s$
+\item the sample median
+\item etc.
+\end{itemize}
+
+\pause We will only focus on sample means, including the sample proportion $\widehat{p}$.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -187,12 +189,12 @@ What about spread?  $[4.6, 5.4]$ contains roughly 95\% of the data.
 \begin{columns}[c]
 \column{.35\textwidth}
 \includegraphics[width=5cm]{figure/lec12-001}
-\pause\column{.65\textwidth}
-\begin{eqnarray*}
-&& [\mu - 2 SD, \mu + 2SD] = [4.6, 5.4]\\
-&\Rightarrow& \mbox{length of interval is } 4SD = 5.4-4.6\\
-&\Rightarrow& SD = 0.2
-\end{eqnarray*}
+%\pause\column{.65\textwidth}
+%\begin{eqnarray*}
+%&& [\mu - 2 SD, \mu + 2SD] = [4.6, 5.4]\\
+%&\Rightarrow& \mbox{length of interval is } 4SD = 5.4-4.6\\
+%&\Rightarrow& SD = 0.2
+%\end{eqnarray*}
 \end{columns}
 
 
@@ -209,15 +211,15 @@ What about spread?  $[4.6, 5.4]$ contains roughly 95\% of the data.
 %
 % Comment this
 %
-\blue{Definition 3}: The \blue{standard error} is the standard deviation of the sampling distribution of a point estimate.  
-
-\pause \vspace{0.5cm}
-
-It describes the uncertainty/variability associated with the point estimate.  In other words, the ``typical'' error.  
-
-\pause \vspace{0.5cm}
-
-\blue{Confusing}:  the \blue{standard error} is a specific kind of standard deviation.
+%\blue{Definition 3}: The \blue{standard error} is the standard deviation of the sampling distribution of a point estimate.  
+%
+%\pause \vspace{0.5cm}
+%
+%It describes the uncertainty/variability associated with the point estimate.  In other words, the ``typical'' error.  
+%
+%\pause \vspace{0.5cm}
+%
+%\blue{Confusing}:  the \blue{standard error} is a specific kind of standard deviation.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -231,15 +233,15 @@ It describes the uncertainty/variability associated with the point estimate.  In
 %
 % Comment this
 %
-Given $n$ \blue{independent} observations from a population with standard deviation $\sigma$, the \blue{standard error of the sample mean} is
-\[
-SE = \frac{\sigma}{\sqrt{n}}
-\]
-
-\pause \blue{Rule of thumb for independence}:  You need a simple random sample consisting of less than 10\% of the population.  
-
-\vspace{0.5cm}
-\blue{Notice}: $\sqrt{n}$ in the denominator: as $n$ increases, SE decreases! This is why sample size matters.
+%Given $n$ \blue{independent} observations from a population with standard deviation $\sigma$, the \blue{standard error of the sample mean} is
+%\[
+%SE = \frac{\sigma}{\sqrt{n}}
+%\]
+%
+%\pause \blue{Rule of thumb for independence}:  You need a simple random sample consisting of less than 10\% of the population.  
+%
+%\vspace{0.5cm}
+%\blue{Notice}: $\sqrt{n}$ in the denominator: as $n$ increases, SE decreases! This is why sample size matters.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -248,14 +250,15 @@ SE = \frac{\sigma}{\sqrt{n}}
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Back to Histogram}
-Samples were of size $n=100$ with $\sigma=2$.  We estimated that the SD of the sampling distribution was 0.2.  Using the formula:
-\[
-SE = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{100}} = \frac{2}{10} = 0.2
-\]
+Samples were of size $n=100$ with $\sigma=2$.  We estimated that the SD was 0.2. 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{figure/lec12-001}
 \end{center}
 
+\pause Using the formula:
+\[
+SE = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{100}} = \frac{2}{10} = 0.2
+\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -284,14 +287,14 @@ SE = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{100}} = \frac{2}{10} = 0.2
 \frametitle{Standard Error of the Sample Mean $\xbar$}
 Compare 1000 instances of $\xbar$ when 
 \begin{itemize}
-\pause \item $n=100$. $SE = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{100}} = 0.2$
-\pause \item $n=1000$. $SE = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{1000}} = 0.0632$.  \blue{Smaller}!
+\pause \item $n=100$. $SE = \frac{2}{\sqrt{100}} = 0.2$
+\pause \item $n=1000$. $SE = \frac{2}{\sqrt{1000}} = 0.0632$.  \blue{Smaller}!
 \end{itemize}
 
 \begin{center}
 \pause \includegraphics[width=0.8\textwidth]{figure/compare}
 \end{center}
-\pause Both are ``accurate'', but the estimates on the right are ``more precise.''
+\pause Both are ``accurate'', but estimates on the right are ``more precise.''
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -303,15 +306,15 @@ Compare 1000 instances of $\xbar$ when
 %
 % Comment this
 %
-\blue{Popular question}:  What's up with this ``1000'' instances?  Why would you take 1000 different samples of size $n$? 
-
-\vspace{0.5cm}
-
-\pause\blue{Answer}: No, in practice you would \blue{not} sample repeatedly:  you do this only \blue{once} for the largest $n$ possible.  
-
-\vspace{0.5cm}
-
-\pause Rather the 1000 instances of $\xbar$ is a theoretical exercise to illustrate that $\xbar$'s are random and we characterize its randomness by its sampling distribution and its standard error.  
+%\blue{Popular question}:  Why would you take 1000 different samples of size $n$? 
+%
+%\vspace{0.5cm}
+%
+%\pause\blue{Answer}: No, in practice you would \blue{not} do this:  you do this only \blue{once} for the largest $n$ possible.  
+%
+%\vspace{0.5cm}
+%
+%\pause The 1000 instances of $\xbar$ is a rhetorical exercise to illustrate the random behavior of $\xbar$'s.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -325,43 +328,47 @@ Compare 1000 instances of $\xbar$ when
 %
 % Comment this
 %
-In this example we knew $\sigma$; typically we won't.  \pause However, when
-\begin{itemize}
-\item $n \geq 30$
-\pause \item the distribution of the population is \blue{not} strongly skewed
-\end{itemize}
-
-\vspace{0.5cm}
-
-\pause we can use the point estimate of $\sigma$.  i.e. plug in $s$ in place of $\sigma$:
-\[
-SE = \frac{s}{\sqrt{n}}
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Example}
-
-Say in you take a simple random sample of 100 runners in a race and you are interested in their ages:
-\begin{itemize}
-\item $\xbar = 35.05$
-\item $s=8.97$
-\end{itemize}
-
-\vspace{0.5cm}
-
-\pause Assuming that the 100 runners consist of less than 10\% of the population, the standard error of $\xbar$ is 
-\[
-SE = \frac{s}{\sqrt{100}} = \frac{8.97}{10} = 0.897
-\]
-
+%In this example we knew $\sigma$; typically we won't.  
+%
+%\pause \vspace{0.25cm}
+%
+%However, when
+%\begin{itemize}
+%\item $n \geq 30$
+%\pause \item the distribution of the population is \blue{not} strongly skewed
+%\end{itemize}
+%
+%\vspace{0.25cm}
+%
+%\pause we can use the point estimate of $\sigma$.  i.e. plug in $s$ in place of $\sigma$:
+%\[
+%SE = \frac{s}{\sqrt{n}}
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Example}
+%
+%Say in you take a simple random sample of 100 runners in a race and you are interested in their ages:
+%\begin{itemize}
+%\item $\xbar = 35.05$
+%\item $s=8.97$
+%\end{itemize}
+%
+%\vspace{0.5cm}
+%
+%\pause Assuming that the 100 runners consist of less than 10\% of the population, the standard error of $\xbar$ is 
+%\[
+%SE = \frac{s}{\sqrt{100}} = \frac{8.97}{10} = 0.897
+%\]
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
