@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -48,53 +48,18 @@
 %------------------------------------------------------------------------------
 
 
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Statistical Hypothesis Testing}
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Goals for Today}
 
-A \blue{hypothesis test} is a method for using sample data to decide between two competing hypotheses about the population parameter:
-\pause \begin{itemize}
-\item A \blue{null hypothesis $H_0$}.\\
-i.e. the \blue{status quo} that is initially assumed to be true, but will be tested. 
-\item An \blue{alternative hypothesis $H_A$}. i.e. the \blue{challenger}.
-\end{itemize}
-
-\vspace{0.25cm}
-
-\pause There are two potential outcomes of a hypothesis test.  Either we
 \begin{itemize}
-\item reject $H_0$  
-\item fail to reject $H_0$
-\end{itemize}
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Previously... Decision Errors}
-Hypothesis tests will get things right sometimes and wrong sometimes:
-\pause \begin{center}
-  \begin{tabular}{cc|cc}
-     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
-     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
-\hline
-    \textbf{Truth} & $H_0$ true & OK & \blue{Type I Error} \\ 
-     & $H_A$ true & \blue{Type II Error} & OK \\ 
-    \hline
-  \end{tabular}
-\end{center}
-
-\pause\vspace{0.25cm}
-
-Two kinds of errors:
-\begin{itemize}
-\item \blue{Type I Error}: a false positive (test result)
-\item \blue{Type II Error}: a false negative (test result)
+\item Define significance level
+\item Tie-in p-Values with sampling distributions
+\item Example
 \end{itemize}
 
 \end{frame}
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 
 
 %-------------------------------------------------------------------------------
@@ -114,9 +79,8 @@ Defendants must be ``guilty beyond a reasonable doubt'': better to let a guilty 
 
 \pause In this case:
 \begin{itemize}
-\item Type I error is putting an innocent person in jail\\
-(considered worse)
-\item Type II error is letting a guilty person go free.  
+\item Type I error = jailing an innocent person (worse)
+\item Type II error = letting a guilty person go free.  
 \end{itemize}
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -126,7 +90,6 @@ Defendants must be ``guilty beyond a reasonable doubt'': better to let a guilty 
 \begin{frame}
 \frametitle{Type II Errors: Airport Screening}
 An example of where Type II errors are more serious:  \blue{airport screening}. 
-
 \pause \begin{eqnarray*}
 H_0: && \mbox{passenger X does not have a weapon}\\
 H_A: && \mbox{passenger X has a weapon}
@@ -138,20 +101,6 @@ H_A: && \mbox{passenger X has a weapon}
 %-------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Goals for Today}
-
-\begin{itemize}
-\item Define significance level
-\item Tie-in p-Values with sampling distributions
-\item Example
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Significance Level}
@@ -159,17 +108,11 @@ H_A: && \mbox{passenger X has a weapon}
 %
 % Comment this
 %
- Hypothesis testing is built around rejecting or failing to reject the null hypothesis.\\
-\pause i.e. we do not reject $H_0$ unless we have \blue{strong evidence}.
-
-\pause \vspace{0.5cm}
-
-As a rule of thumb, when $H_0$ is true, we do not want to incorrectly reject $H_0$ more than 5\% of the time.\\
-i.e. $\alpha = 0.05 = 5\%$ is the \blue{significance level}.  
-
-\pause \vspace{0.5cm}
-
-With 95\% confidence intervals from earlier, we expect it to miss the true population parameter 5\% of the time.  This corresponds to $\alpha=0.05$.   
+%The philosophy of hypothesis testing is to not reject $H_0$ unless we have strong evidence.  i.e. control Type I errors.
+%
+%\pause \vspace{0.5cm}
+%
+%Example: when $H_0$ is true, if we do not want to incorrectly reject $H_0$ more than 5\% of the time, set $\alpha = 0.05 = 5\%$. $\alpha$ is the \blue{significance level}.    
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -192,16 +135,18 @@ Say you flip a coin you think is fair 1000 times.  Say you observe
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Thought experiment: p-Values}
-
-Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is given the null hypothesis.  
-  
-\vskip 0.25cm
-
-\pause The smaller the p-value, the more \blue{extreme} the observation, where the meaning of extreme depends on the context.  
-
-\vskip 0.25cm
-
-\pause Note the p-value is different than the population proportion $p$ (bad historical choice).
+%
+% Comment this
+%
+%Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is given the null hypothesis.  
+%  
+%\vskip 0.25cm
+%
+%\pause The smaller the p-value, the more \blue{extreme} the observation, where the meaning of extreme depends on the context.  
+%
+%\vskip 0.25cm
+%
+%\pause Note the p-value is different than the population proportion $p$.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -213,11 +158,11 @@ Intuitively, a \blue{p-value} quantifies how \blue{extreme} an observation is gi
 %
 % Comment this
 %
-Definition:  The \blue{p-value} or \blue{observed significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
-
-\vspace{0.5cm}
-
-\pause It is \blue{NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
+%Definition:  The \blue{p-value} or \blue{observed significance level} is the probability of observing a test statistic as extreme or more extreme (in favor of the alternative) as the one observed, assuming $H_0$ is true.
+%
+%\vspace{0.5cm}
+%
+%\pause It is \blue{NOT} the probability of $H_0$ being true.  This is the most common misinterpretation of the $p$-value.
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -229,18 +174,18 @@ Definition:  The \blue{p-value} or \blue{observed significance level} is the pro
 %
 % Comment this
 %
-You have a coin that test for fairness with $n=1000$ flips.  Set $p_0 = 0.5$ (coin is fair) and define a ``success'' as getting heads.
-\begin{eqnarray*}
-&& H_0: p = p_0\\
-vs && H_A: p \neq p_0
-\end{eqnarray*}
-
-\begin{itemize}
-\pause \item The point estimate $\widehat{p}$ of $p$ is $\frac{\mbox{\# of successes}}{\mbox{\# of trials}}$.
-\pause \item Since it is based on a sample, $\widehat{p}$ has a sampling distribution
-\pause \item The standard error is $\sqrt{\frac{p(1-p)}{n}}$ (Chapter 6).
-\pause \item Furthermore, since conditions hold, the sampling distribution is Normal (CLT)
-\end{itemize}
+%You have a coin that test for fairness with $n=1000$ flips.  Set $p_0 = 0.5$ (coin is fair) and define a ``success'' as getting heads.
+%\begin{eqnarray*}
+%&& H_0: p = p_0\\
+%vs && H_A: p \neq p_0
+%\end{eqnarray*}
+%
+%\begin{itemize}
+%\pause \item The point estimate $\widehat{p}$ of $p$ is $\frac{\mbox{\# of successes}}{n}$.
+%\pause \item Since it is based on a sample, $\widehat{p}$ has a sampling distribution
+%\pause \item The standard error is $\sqrt{\frac{p(1-p)}{n}}$ (Chapter 6).
+%\pause \item Furthermore, since conditions hold, the sampling distribution is Normal (CLT)
+%\end{itemize}
 \end{frame}
 %-------------------------------------------------------------------------------
 
@@ -273,7 +218,7 @@ vs && H_A: p \neq p_0
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Sampling Distribution of $\widehat{p}$}
-\blue{Under $H_0$ that the coin is fair}, i.e. $p=p_0=0.5$, the sampling distribution of $\widehat{p}$ when $n=1000$ is:
+\blue{Under $H_0$} the sampling distribution of $\widehat{p}$ when $n=1000$ is:
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{figure/hist1}
@@ -318,11 +263,11 @@ $\widehat{p} = \frac{900}{1000}$
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Example about Sleep Habits}
-A poll found that college students sleep about 7 hours a night.  Researchers suspect that Reedies sleep more.   They want to investigate this claim at a pre-specified $\alpha=0.05$ level.  
+A US-wide poll found that college students sleep about 7 hours a night. You suspect that Midd Kids sleep more and investigate this claim at a pre-specified $\alpha=0.01$ level.  
 
 \vspace{0.5cm}
 
-\pause They sample $n=110$ Reedies and find that $\xbar = 7.42$ and $s=1.75$ and the histogram looks like:
+\pause You sample $n=110$ Midd Kids and find that $\xbar = 7.42$ and $s=1.75$ with a histogram that looks like:
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{figure/sleep.png}
@@ -339,16 +284,70 @@ A poll found that college students sleep about 7 hours a night.  Researchers sus
 %
 % Comment this
 %
-\vspace{0.5cm}
-
-Let $\mu = $ \blue{true population mean} \# of hours Reedies sleep a night.  Then $\mu_0=7$ and: 
-\begin{itemize}
-\item $H_0: \mu = \mu_0= 7$
-\item $H_A: \mu > 7$
-\end{itemize}
-
+%\vspace{0.5cm}
+%
+%Let $\mu = $ \blue{true population mean} \# of hours Midd Kids sleep a night.  Then $\mu_0=7$ and: 
+%\begin{itemize}
+%\item $H_0: \mu = \mu_0= 7$
+%\item $H_A: \mu > 7$
+%\end{itemize}
 
 \end{frame}
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Example about Sleep Habits}
+%
+%
+%%
+%% Comment this
+%%
+%We check the 3 conditions to use the Normal model:
+%\begin{enumerate}
+%\pause \item Independence: $n=110 \leq$ 10\% of 2,400 (Middlebury enrollment)
+%\pause \item $n \geq 30$
+%\pause \item The distribution of the $n=110$ observations (Figure 4.14) is not too skewed.
+%\end{enumerate}
+%
+%If $H_0$ is true, then $\xbar$ has mean $\mu_0$.  So in our case for $\xbar$
+%\[
+%z = \frac{\xbar - \mbox{null value}}{SE} = \frac{7.42 - 7}{\frac{1.75}{\sqrt{110}}} = 2.47
+%\]
+%
+%\end{frame}
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Example about Sleep Habits}
+%
+%%
+%% Comment this
+%%
+%In our case, since $H_A: \mu > 7$, \blue{more extreme} means \blue{to the right} of $z=2.47$.  
+%
+%\vspace{0.5cm}
+%
+%If $H_0$ is true, then the \blue{null distribution} looks like this:  
+%
+%\begin{center}
+%\includegraphics[width=\textwidth]{figure/pvalue.png}
+%\end{center}
+%
+%Hence, the p-value is 0.007.
+%\end{frame}
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Example about Sleep Habits}
+%Since the p-value $0.007 < 0.01=\alpha$, the pre-specified significance level, it has a high degree of extremeness, and thus we reject $H_0$.
+%
+%\end{frame}
 %-------------------------------------------------------------------------------
 
 
@@ -356,84 +355,30 @@ Let $\mu = $ \blue{true population mean} \# of hours Reedies sleep a night.  The
 \begin{frame}
 \frametitle{Example about Sleep Habits}
 
-
-%
-% Comment this
-%
-We check the 3 conditions to use the Normal model:
-\begin{enumerate}
-\pause \item Independence: $n=110 \leq$ 10\% of 1,453 (Reed enrollment)
-\pause \item $n \geq 30$
-\pause \item The distribution of the $n=110$ observations (Figure 4.14) is not too skewed.
-\end{enumerate}
-
-If $H_0$ is true, then $\xbar$ has mean $\mu_0$.  So in our case for $\xbar$
-\[
-z = \frac{\xbar - \mbox{null value}}{SE} = \frac{7.42 - 7}{\frac{1.75}{\sqrt{110}}} = 2.47
-\]
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Example about Sleep Habits}
-
-%
-% Comment this
-%
-In our case, since $H_A: \mu > 7$, \blue{more extreme} means \blue{to the right} of $z=2.47$.  
+\blue{Conclusion}: we reject at the $\alpha=0.01$ significance level the hypothesis that the average \# of hours Midd Kids sleep is 7, in favor of the hypothesis that they sleep more.  
 
 \vspace{0.5cm}
 
-If $H_0$ is true, then the \blue{null distribution} looks like this:  
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/pvalue.png}
-\end{center}
-
-Hence, the p-value is 0.007.
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Example about Sleep Habits}
-Since the p-value $0.007 < 0.05=\alpha$, the pre-specified significance level, it has a high degree of extremeness, and thus we reject $H_0$.
+\pause\blue{Correct interpretation of the p-value}:  If the null hypothesis is true ($\mu=7$), the probability of observing a sample mean $\xbar=7.42$ or greater is 0.007 (small).  
 
 \vspace{0.5cm}
 
-\pause\blue{Conclusion}: we reject (at the $\alpha=0.05$ significance level) the hypothesis that the average \# of hours of Reedies sleep is 7, in favor of the hypothesis that sleep more.    
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Example about Sleep Habits}
-\blue{Correct interpretation of the p-value}:  If the null hypothesis is true ($\mu=7$), the probability of observing a sample mean $\xbar=7.42$ or greater is 0.007.  
-
-\vspace{0.5cm}
-
-\pause \blue{Incorrect interpretation of the p-value}:  The probability that the null hypothesis ($\mu=7$) is true is 0.007.  
+\pause\blue{Incorrect interpretation of the p-value}:  The probability that the null hypothesis ($\mu=7$) is true is 0.007.  
 
 \end{frame}
 %-------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-\begin{itemize}
-\item How big a sample size to I need? i.e. power calculations
-\item Statistical vs practical significance
-\end{itemize}
-
-\end{frame}
+%\begin{frame}[fragile]
+%\frametitle{Next Time}
+%
+%\begin{itemize}
+%\item How big a sample size to I need? i.e. power calculations
+%\item Statistical vs practical significance
+%\end{itemize}
+%
+%\end{frame}
 %------------------------------------------------------------------------------
 
 
