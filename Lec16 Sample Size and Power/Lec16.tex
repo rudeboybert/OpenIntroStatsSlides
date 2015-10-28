@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -50,34 +50,24 @@
 
 %-------------------------------------------------------------------------------
 \begin{frame}
-\frametitle{Last Time:  Reedie Sleep Example}
-Tested number of hours of sleep:
-\begin{itemize}
-\item $H_0: \mu = 7$
-\item $H_A: \mu > 7$
-\end{itemize}
-
-\vspace{3cm}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
 \frametitle{Two-Sided Alternative Hypothesis}
-Say instead we had a \blue{two-sided alternative hypothesis}:
 
-\begin{itemize}
-\item $H_0: \mu = 7$
-\item $H_A: \mu \neq 7$
-\end{itemize}
-
-\pause The the p-value would be double: $2 \times 0.007= 0.014$.  Picture:
-
-\begin{center}
-\includegraphics[width=\textwidth]{figure/two-sided.png}
-\end{center}
+%
+% Comment this
+%
+%Say instead we had a \blue{two-sided alternative hypothesis}. 
+%\begin{itemize}
+%\item $H_0: \mu = 7$
+%\item $H_A: \mu \neq 7$
+%\end{itemize}
+%
+%i.e. We have $H_A: \mu \neq 7$ instead of $H_A: \mu > 7$ like last time.
+%
+%\pause The the p-value would be double: $2 \times 0.007= 0.014$.  Picture:
+%
+%\begin{center}
+%\includegraphics[width=0.6\textwidth]{figure/two-sided.png}
+%\end{center}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -103,183 +93,187 @@ Ronald Fisher, the creator of p-values, never intended for them to be used this 
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Goals for Today}
-
-\begin{itemize}
-\item More in depth discussion of 
-\begin{itemize}
-\item 10\% sampling rule
-\item Skew condition to check to use the normal model
-\end{itemize}
-\item How big a sample size do I need?
-\item Statistical power
-\item Statistical vs practical significance
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{10\% Sampling Rule}
-
-\blue{Question}: Why do we set $n \leq$ 10\% of the population size $N?$
-
-\pause\vspace{0.5cm}
-
-\blue{Intuition}: Shouldn't we always sample as many people as we can?
-
-\pause\vspace{0.5cm}
-
-\blue{Answer}: Yes, if we only care about the mean.  If we also care about the SE, then we need to be careful.  
-
-\pause\vspace{0.5cm}
-
-\blue{Issue}:  Sampling without vs with replacement.
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Finite Population Correction}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Goals for Today}
 %
-% Comment this
+%\begin{itemize}
+%\item More in depth discussion of 
+%\begin{itemize}
+%\item 10\% sampling rule
+%\item Skew condition to check to use the normal model
+%\end{itemize}
+%\item How big a sample size do I need?
+%\item Statistical power
+%\item Statistical vs practical significance
+%\end{itemize}
 %
-The \blue{finite population correction (FPC)} to the SE accounts for the \blue{sampling without replacement}:
-\[
-SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
-\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
-\]
-Say we have $N=10000$.  
-\begin{itemize}
-\pause\item Let $n=100$ (1\%), then
-\[
-FPC=\sqrt{\frac{10000-100}{10000-1}} = 0.995
-\]
-\pause\item Let $n=5000$ (50\%), then
-\[
-FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
-\]
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Finite Population Correction}
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{10\% Sampling Rule}
 %
-% Comment this
+%\blue{Question}: Why do we set $n \leq$ 10\% of the population size $N?$
 %
-\[
-SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
-\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
-\]
+%\pause\vspace{0.5cm}
+%
+%\blue{Intuition}: Shouldn't we always sample as many people as we can?
+%
+%\pause\vspace{0.5cm}
+%
+%\blue{Answer}: Yes, if we only care about the mean.  If we also care about the SE, then we need to be careful.  
+%
+%\pause\vspace{0.5cm}
+%
+%\blue{Issue}:  Sampling without vs with replacement.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Finite Population Correction}
+%
+%%
+%% Comment this
+%%
+%The \blue{finite population correction (FPC)} to the SE accounts for the \blue{sampling without replacement}:
+%\[
+%SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+%\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
+%\]
+%Say we have $N=10000$.  
+%\begin{itemize}
+%\pause\item Let $n=100$ (1\%), then
+%\[
+%FPC=\sqrt{\frac{10000-100}{10000-1}} = 0.995
+%\]
+%\pause\item Let $n=5000$ (50\%), then
+%\[
+%FPC=\sqrt{\frac{10000-5000}{10000-1}} = 0.707
+%\]
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Finite Population Correction}
+%%
+%% Comment this
+%%
+%\[
+%SE = \frac{\sigma}{\sqrt{n}} \times \blue{\sqrt{\frac{N-n}{N-1}}} =
+%\frac{\sigma}{\sqrt{n}} \times \blue{FPC}
+%\]
+%
+%\vspace{0.25cm}
+%\pause
+%We've been ignoring the \blue{FPC}.  So when 
+%\begin{itemize}
+%\pause\item $n$ is relatively small, the FPC $\approx$ 1, so not a problem.
+%\pause\item $n$ is relatively large, the FPC $\longrightarrow$ 0.\\
+%i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.  
+%\end{itemize}
+%
+%\vspace{0.25cm}
+%\pause Conclusion:  By capping $n \leq $ 10\% of $N$, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Conceptual and Mathematical Notions of Sampling}
+%
+%\blue{Conceptual}:  If we sample everybody, we know the true $\mu$.
+%\begin{center}
+%\pause and
+%\end{center}
+%\blue{Mathematical}:  
+%If $n=N$ then $FPC = \sqrt{\frac{N-n}{N-1}} = 0$ then $SE = \frac{\sigma}{\sqrt{n}}\times FPC = 0$
+%
+%
+%\vspace{0.25cm}
+%\pause
+%i.e. 
+%\begin{itemize}
+%\item the sampling distribution is just one point: the true $\mu$.
+%\item if we repeat this procedure many times, we get the same value each time: 0 variability.
+%\end{itemize}
+%
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Sampling and the SE}
+%\blue{Question}:  Why do we care that our SE is correct?
+%
+%\pause\vspace{0.5cm}
+%
+%\blue{Answer}:  If not
+%\begin{itemize}
+%\item the $SE$ in confidence intervals is off
+%\item the $z$-scores of $\xbar$ have the wrong denominator
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
-\vspace{0.25cm}
-\pause
-We've been ignoring the \blue{FPC}.  So when 
-\begin{itemize}
-\pause\item $n$ is relatively small, the FPC $\approx$ 1, so not a problem.
-\pause\item $n$ is relatively large, the FPC $\longrightarrow$ 0.\\
-i.e. $\frac{\sigma}{\sqrt{n}}$ is not the true SE.  
-\end{itemize}
-
-\vspace{0.25cm}
-\pause Conclusion:  By capping $n \leq $ 10\% of $N$, we have a \blue{rule of thumb} for keeping the FPC ``close'' to 1.  
-
-\end{frame}
-%------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Conceptual and Mathematical Notions of Sampling}
 
-\blue{Conceptual}:  If we sample everybody, we know the true $\mu$.
-\begin{center}
-\pause and
-\end{center}
-\blue{Mathematical}:  
-If $n=N$ then $FPC = \sqrt{\frac{N-n}{N-1}} = 0$ then $SE = \frac{\sigma}{\sqrt{n}}\times FPC = 0$
-
-
-\vspace{0.25cm}
-\pause
-i.e. 
-\begin{itemize}
-\item the sampling distribution is just one point: the true $\mu$.
-\item if we repeat this procedure many times, we get the same value each time: 0 variability.
-\end{itemize}
-
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Sampling and the SE}
-\blue{Question}:  Why do we care that our SE is correct?
-
-\pause\vspace{0.5cm}
-
-\blue{Answer}:  If not
-\begin{itemize}
-\item the $SE$ in confidence intervals is off
-\item the $z$-scores of $\xbar$ have the wrong denominator
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Skew Condition to Check to Use Normal Model}
-Throughout the book, they talk about the condition for $\xbar$ being nearly normal and using $s$ in place of $\sigma$ in $SE=\frac{\sigma}{\sqrt{n}}$:
-
-\vspace{0.25cm}
-
-\begin{itemize}
-\pause\item On page 164: the population distribution is not strongly skewed
-\pause\item On page 167: the data are not strongly skewed
-\pause\item On page 168: the distribution of sample observations is not strongly skewed
-\pause\item On page 185: the population data are not strongly skewed
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Skew Condition to Check to Use Normal Model}
-However, they all mean the same thing:
-
-\begin{enumerate}
-\pause\item The \blue{true population} distribution from which you are drawing your sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
-\pause\item The histogram (visual estimate) of the sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Skew Condition to Check to Use Normal Model}
+%Throughout the book, they talk about the condition for $\xbar$ being nearly normal and using $s$ in place of $\sigma$ in $SE=\frac{\sigma}{\sqrt{n}}$:
+%
+%\vspace{0.25cm}
+%
+%\begin{itemize}
+%\pause\item On page 164: the population distribution is not strongly skewed
+%\pause\item On page 167: the data are not strongly skewed
+%\pause\item On page 168: the distribution of sample observations is not strongly skewed
+%\pause\item On page 185: the population data are not strongly skewed
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Skew Condition to Check to Use Normal Model}
+%However, they all mean the same thing:
+%
+%\begin{enumerate}
+%\pause\item The \blue{true population} distribution from which you are drawing your sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
+%\pause\item The histogram (visual estimate) of the sample observations/data $x_1, \ldots, x_n$ is not too skewed.  
+%\end{enumerate}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Sample Size:  Thought Experiment}
-Say you have two distributions with $\mu=15$ but different $\sigma$.
+Say we have 2 population distributions with $\mu=15$ but different $\sigma$:
+
 \begin{center}
 \includegraphics[width=0.75\textwidth]{figure/norm.pdf}
 \end{center}
+
 \pause Which of the two distributions do you think will require a bigger $n$ to estimate $\mu$ ``well''?
 \end{frame}
 %------------------------------------------------------------------------------
@@ -288,60 +282,60 @@ Say you have two distributions with $\mu=15$ but different $\sigma$.
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Margin of Error}
-Recall our formula for a 95\% confidence interval:
-\[\left[
-\overline{x} - 1.96 \frac{s}{\sqrt n}, \mbox{  }
-\overline{x} + 1.96 \frac{s}{\sqrt n}
-\right]\]
-
-\pause The \blue{margin of error} is half the width of the CI.\\
-
-\vspace{0.25cm}
-
-\pause Say we knew the \blue{true} standard deviation $\sigma$, then
-\[
-\mbox{Margin of Error = } 1.96 \frac{\sigma}{\sqrt n} 
-\]
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Identify $n$ for a Desired Margin of Error}
+%Recall our formula for a 95\% confidence interval:
+%\[\left[
+%\overline{x} - 1.96 \frac{s}{\sqrt n}, \mbox{  }
+%\overline{x} + 1.96 \frac{s}{\sqrt n}
+%\right]\]
 %
-% Comment this
+%\pause The \blue{margin of error} is half the width of the CI.\\
 %
-To estimate the necessary sample size $n$ for a maximum desired margin of error $m$, we set
-\[
-m \geq z^* \frac{\sigma}{\sqrt{n}}
-\]
-and solve for $n$.  
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Identify $n$ for a Desired Margin of Error}
+%\vspace{0.25cm}
 %
-% Comment this
+%\pause Say we knew the \blue{true} standard deviation $\sigma$, then
+%\[
+%\mbox{Margin of Error = } 1.96 \frac{\sigma}{\sqrt n} 
+%\]
+%\end{frame}
+%%------------------------------------------------------------------------------
 %
-Since
-\begin{eqnarray*}
-&&m \geq z^*\frac{\sigma}{\sqrt{n}}\\
-&& \sqrt{n} \geq z^*\frac{\sigma}{m}\\
-&& n \geq \left(z^*\frac{\sigma}{m}\right)^2
-\end{eqnarray*}
-\vspace{0.25cm}\pause
-
-So
-\begin{itemize}
-\pause\item As $\sigma$ goes up, you need more $n$
-\pause\item As $z^*$ goes up, i.e. higher confidence level, you need more $n$
-\pause\item As the desired margin of error goes down, you need more $n$
-\end{itemize}
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Identify $n$ for a Desired Margin of Error}
+%%
+%% Comment this
+%%
+%To estimate the necessary sample size $n$ for a maximum desired margin of error $m$, we set
+%\[
+%m \geq z^* \frac{\sigma}{\sqrt{n}}
+%\]
+%and solve for $n$.  
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Identify $n$ for a Desired Margin of Error}
+%%
+%% Comment this
+%%
+%Since
+%\begin{eqnarray*}
+%&&m \geq z^*\frac{\sigma}{\sqrt{n}}\\
+%&& \sqrt{n} \geq z^*\frac{\sigma}{m}\\
+%&& n \geq \left(z^*\frac{\sigma}{m}\right)^2
+%\end{eqnarray*}
+%\vspace{0.25cm}\pause
+%
+%So
+%\begin{itemize}
+%\pause\item As $\sigma$ goes up, you need more $n$
+%\pause\item As $z^*$ goes up, i.e. higher confidence level, you need more $n$
+%\pause\item As the desired margin of error goes down, you need more $n$
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -365,45 +359,45 @@ For the same desired maximal margin of error $m$ and same confidence level, we n
 %
 % Comment this
 %
-For a hypothesis test:
-
-\begin{itemize}
-\item The significance level $\alpha$ is the \blue{type I error rate}:  the rate at which we reject $H_0$ when it is true.
-\pause\item The \blue{type II error rate $\beta$} is the rate at which we fail to reject $H_0$ when $H_A$ is true.
-\pause\item $1-\beta$ is called the \blue{statistical power}: the rate at which we reject $H_0$ when $H_A$ is true.  
-\end{itemize}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Type II Error Rate and Power}
+%For a hypothesis test:
+%
+%\begin{itemize}
+%\item The significance level $\alpha$ is the \blue{type I error rate}:  the rate at which we reject $H_0$ when it is true.
+%\pause\item The \blue{type II error rate $\beta$} is the rate at which we fail to reject $H_0$ when $H_A$ is true.
+%\pause\item $1-\beta$ is called the \blue{statistical power}: the rate at which we reject $H_0$ when $H_A$ is true.  
+%\end{itemize}
+%
+%\end{frame}
+%%-------------------------------------------------------------------------------
+%
+%
+%
+%%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Type II Error Rate and Power}
 %
 % Comment this
 %
-Say we are conducting $N=A+B+C+D$ hypothesis tests.
-\pause\begin{center}
-  \begin{tabular}{cc|cc}
-     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
-     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
-\hline
-    \textbf{Truth} & $H_0$ true & A & B \\ 
-     & $H_A$ true & C & D \\ 
-    \hline
-  \end{tabular}
-\end{center}
-
-\vspace{0.25cm}
-
-\begin{itemize}
-\pause \item The \blue{Type I Error rate} is $\alpha = \frac{B}{A+B}$: rate at which B occurs \blue{given $H_0$ is true}.
-\pause \item The \blue{Type II Error} is $\beta = \frac{C}{C+D}$: rate at which 
-C occurs \blue{given $H_A$ is true}.
-\pause \item The \blue{power} is $1-\beta = 1-\frac{C}{C+D} = \frac{D}{C+D}$: rate at which D occurs \blue{given $H_A$ is true}.
-\end{itemize}
+%Say we are conducting $N=A+B+C+D$ hypothesis tests.
+%\pause\begin{center}
+%  \begin{tabular}{cc|cc}
+%     \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Test conclusion}} \\ 
+%     &  & do not reject $H_0$ & reject $H_0$ in favor of $H_A$ \\ 
+%\hline
+%    \textbf{Truth} & $H_0$ true & A & B \\ 
+%     & $H_A$ true & C & D \\ 
+%    \hline
+%  \end{tabular}
+%\end{center}
+%
+%\vspace{0.25cm}
+%
+%\begin{itemize}
+%\pause \item The \blue{Type I Error rate} is $\alpha = \frac{B}{A+B}$: rate at which B occurs \blue{given $H_0$ is true}.
+%\pause \item The \blue{Type II Error} is $\beta = \frac{C}{C+D}$: rate at which 
+%C occurs \blue{given $H_A$ is true}.
+%\pause \item The \blue{power} is $1-\beta = 1-\frac{C}{C+D} = \frac{D}{C+D}$: rate at which D occurs \blue{given $H_A$ is true}.
+%\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
