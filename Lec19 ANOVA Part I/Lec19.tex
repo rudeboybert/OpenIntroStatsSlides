@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -49,6 +49,148 @@
 %------------------------------------------------------------------------------
 
 
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Discussion of Quiz}
+\blue{Question 1}:  Why did $\frac{1}{20}$ studies yield a positive/significant result i.e. that there is a link between jelly beans and acne?
+
+\vspace{0.5cm}
+
+
+\pause Not that the p-value is 0.05, rather that \blue{$\alpha=0.05$}:
+\pause\begin{itemize}
+\item (pre-specified) significance level AKA
+\item type I error rate AKA
+\item false positive rate
+\end{itemize}
+\pause i.e. we expect 1 out of 20 results to be significant even if there is no effect by chance alone.
+
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figure/jelly.png}
+\end{center}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+\blue{Publication bias}: people only highlight significant/positive results.  \pause Wikipedia: ``occurs when the publication of research results \blue{depends on their nature and direction}.''
+
+\vspace{0.5cm}
+
+\pause To counter this, some medical journals like
+\begin{itemize}
+\item New England Journal of Medicine
+\item The Lancet
+\item Journal of the American Medical Association
+\end{itemize}
+\pause require registration of a trial \blue{before} it starts so that unfavorable results are not withheld from publication. 
+
+\vspace{0.5cm}
+
+\pause Journal of \blue{Negative Results}:  \blue{\url{http://www.jnrbm.com/}}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Publication Bias}
+
+\begin{center}
+\includegraphics[width=\textwidth]{figure/wheel.jpg}
+\end{center}
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{What $\alpha$ to Use?}
+%Should I use $\alpha=0.05$ as my significance level?  Before using it, put some thought into the balance between:
+%\begin{itemize}
+%\pause \item \blue{Type I errors}.  Setting a smaller $\alpha$ yields a more \blue{conservative} procedure: all things being equal, you will reject $H_0$ less often.  
+%\pause \item \blue{Type II errors}.  Setting a bigger $\alpha$ yields a more \blue{liberal} procedure: all things being equal, you will reject $H_0$ more often.  
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Multiple Testing}
+%A related issue is the statistical concept of \blue{multiple testing}.
+%
+%\vspace{0.5cm}
+%
+%\pause Say we are conducting many experiments, and $H_0$ is true for all of them.  If you repeat experiments many times, you're bound to get a significant result eventually just by \blue{chance alone}.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Multiple Testing}
+%
+%What do people do? Make the $\alpha$ stricter!  i.e. 
+%\pause \begin{itemize}
+%\item make the $\alpha$ smaller
+%\item i.e. less chance the p-value is smaller than $\alpha$
+%\item i.e. less chance of incorrectly rejecting $H_0$ when it is true
+%\end{itemize}
+%
+%\vspace{0.25cm}
+%
+%\pause Use the \blue{Bonferroni correction} to $\alpha$:  If you are conducting $n$ tests, use $\alpha^* = \frac{\alpha}{n}$. More later...
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Discussion of Quiz}
+\blue{Question 2}:  Say a very successful entrepreneur named Jamie puts out an autobiography called ``How to win at life.''  In it, Jamie details a plan to "win" at the various dimensions of life.  Jamie states "I followed these steps, and look at me now!  You should do the same!"  Critique this statement keeping the comic in mind. 
+
+\vspace{0.25cm}
+
+\pause There might have been 9999 people who did the same things but perhaps aren't as successful.  Those people generally don't get book deals so we don't know about them.
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Interpreting Confidence Intervals}
+
+Page 180: They use the term ``we are \blue{95\% confident} that the population parameter is between \ldots''.
+
+\begin{itemize}
+\pause\item This is shorthand for ``if we repeat this procedure 100 times, then we expect 95 \ldots''
+\pause\item and not ``there is a 95\% probability the CI contains the population parameter.''
+\pause\item Think as ``using a procedure that is 95\% reliable, this interval is where we think the population parameter is.''
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+
 %%-------------------------------------------------------------------------------
 %\begin{frame}
 %\frametitle{Previously: Conditions for Using t Distribution}
@@ -72,38 +214,38 @@
 %%-------------------------------------------------------------------------------
 
 
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Analysis of Variance (ANOVA)}
+%A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
+%\begin{center}
+%\pause\includegraphics[width=0.65\textwidth]{figure/lec22-003}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Analysis of Variance (ANOVA)}
+%A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
+%\begin{center}
+%\includegraphics[width=0.65\textwidth]{figure/lec22-004}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+
+
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Analysis of Variance (ANOVA)}
-A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
-\begin{center}
-\pause\includegraphics[width=0.65\textwidth]{figure/lec22-003}
-\end{center}
 
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Analysis of Variance (ANOVA)}
-A farmer has the choice of four tomato fertilizers and wants to compare their performance in terms of crop yield.
-\begin{center}
-\includegraphics[width=0.65\textwidth]{figure/lec22-004}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Analysis of Variance (ANOVA)}
-
-We have $k=4$ groups AKA \blue{levels of a factor}: the 4 types of fertilizer.  
+A farmer wants to compare the performance of 4 fertilizers in terms of tomato yield.   We have $k=4$ groups AKA \blue{levels of a factor}.
 
 \begin{itemize}
-\pause\item $n_i$ plants assigned to each of the $k=4$ fertilizers:
+\pause\item They assign $n_i$ plants to each of the $k=4$ fertilizers:
 \[
 \begin{array}{cccc|c}
 n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
@@ -111,7 +253,7 @@ n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
 3 & 7 & 4 & 6 & 20
 \end{array}
 \]
-\pause \item Count the number of tomatoes on each plant
+\pause\item They count the number of tomatoes on each plant
 \end{itemize}
 
 \end{frame}
@@ -121,8 +263,8 @@ n_1 & n_2 & n_3 & n_4 &\mbox{total }n\\
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following, where each point is one tomato plant. \textcolor{white}{Plot the sample mean of each level.} \textcolor{white}{Question: are the mean tomato yields different?}  
-\setkeys{Gin}{width=0.65\textwidth}
+They compare the performance in terms of \# of tomatoes yielded. \textcolor{white}{Plot the sample mean of each level.} \textcolor{white}{Question: are the mean tomato yields different?}  
+\setkeys{Gin}{width=0.55\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-003}
 \end{center}
@@ -134,8 +276,8 @@ We observe the following, where each point is one tomato plant. \textcolor{white
 \addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following, where each point is one tomato plant.  Plot the sample mean of each level. \textcolor{white}{Question:  are the mean tomato yields different?} 
-\setkeys{Gin}{width=0.65\textwidth}
+They compare the performance in terms of \# of tomatoes yielded. Plot the sample mean of each level. \textcolor{white}{Question:  are the mean tomato yields different?} 
+\setkeys{Gin}{width=0.55\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-004}
 \end{center}
@@ -147,8 +289,8 @@ We observe the following, where each point is one tomato plant.  Plot the sample
 \addtocounter{framenumber}{-1}
 \begin{frame}
 \frametitle{Tomato Fertilizer}
-We observe the following, where each point is one tomato plant.  Plot the sample mean of each level. \blue{Question:  are the mean tomato yields different?}
-\setkeys{Gin}{width=0.65\textwidth}
+They compare the performance in terms of \# of tomatoes yielded. Plot the sample mean of each level. \blue{Question:  are the mean tomato yields different?}
+\setkeys{Gin}{width=0.55\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-004}
 \end{center}
@@ -163,63 +305,63 @@ We observe the following, where each point is one tomato plant.  Plot the sample
 % Comment this
 %
 
-Say we have $k$ groups and want to compare the $k$ means:
-\[
-\mu_1, \mu_2, \ldots, \mu_k
-\]
-
-\pause \vspace{0.25cm}
-
-We could do ${k \choose 2}$ individual two-sample tests.\\
-\pause \vspace{0.25cm}
-
-Ex. for groups 1 \& 2:
-\begin{eqnarray*}
-H_0: && \mu_1 = \mu_2\\
-\mbox{vs. } H_a:  && \mu_1 \neq \mu_2
-\end{eqnarray*}
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Analysis of Variance}
+%Say we have $k$ groups and want to compare the $k$ means:
+%\[
+%\mu_1, \mu_2, \ldots, \mu_k
+%\]
 %
-% Comment this
+%\pause \vspace{0.25cm}
 %
-
-Or we do \blue{a single overall test} via \blue{Analysis of Variance ANOVA}:
-
-\vspace{0.5cm}
-
-\pause The hypothesis test is:
-\begin{eqnarray*}
-H_0: && \mu_1 = \mu_2 = \ldots = \mu_k\\
-\mbox{vs. } H_a:  && \mbox{at least one of the $\mu_i$'s are different}\\
-\end{eqnarray*}
-
-\end{frame}
-%-------------------------------------------------------------------------------
-
-
-
-%-------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Analysis of Variance}
+%We could do ${k \choose 2}$ individual two-sample tests.\\
+%\pause \vspace{0.25cm}
 %
-% Comment this
+%Ex. for groups 1 \& 2:
+%\begin{eqnarray*}
+%H_0: && \mu_1 = \mu_2\\
+%\mbox{vs. } H_a:  && \mu_1 \neq \mu_2
+%\end{eqnarray*}
+%\end{frame}
+%%-------------------------------------------------------------------------------
 %
-
-ANOVA asks:  where is the overall variability of the observations originate from?
-
-\vspace{0.5cm}
-
-\pause The \blue{test statistic} used to compute a $p$-value is now the \blue{F-statistic}:
-\[
-F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
-\]
+%
+%
+%%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Analysis of Variance}
+%%
+%% Comment this
+%%
+%
+%Or we do \blue{a single overall test} via \blue{Analysis of Variance ANOVA}:
+%
+%\vspace{0.5cm}
+%
+%\pause The hypothesis test is:
+%\begin{eqnarray*}
+%H_0: && \mu_1 = \mu_2 = \ldots = \mu_k\\
+%\mbox{vs. } H_a:  && \mbox{at least one of the $\mu_i$'s are different}\\
+%\end{eqnarray*}
+%
+%\end{frame}
+%%-------------------------------------------------------------------------------
+%
+%
+%
+%%-------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Analysis of Variance}
+%%
+%% Comment this
+%%
+%
+%ANOVA asks:  where is the overall variability of the observations originate from?
+%
+%\vspace{0.5cm}
+%
+%\pause The \blue{test statistic} used to compute a $p$-value is now the \blue{F-statistic}:
+%\[
+%F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
+%\]
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -269,13 +411,13 @@ Now compare the following two plots.  Which has ``more different'' means?
 %
 % Comment this
 %
-\begin{itemize}
-\pause \item They have the \blue{same within-group} variability.  Call this value $W$
-\pause \item The right plot has \blue{higher between group variability}  b/c the 4 means are more different.  Call these values $B_{left}$ and $B_{right}$ with $B_{left} < B_{right}$
-\pause \item Recall $F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}$
-\pause \item Since $\frac{B_{left}}{W} < \frac{B_{right}}{W}$, thus $F_{left} < F_{right}$
-\pause The right plot as a larger $F$-statistic
-\end{itemize}
+%\begin{itemize}
+%\item They have the \blue{same within-group} variability.  Call this value $W$
+%\pause \item The right plot has \blue{higher between group variability}  b/c the 4 means are more different.  Call these values $B_{left}$ and $B_{right}$ with $B_{left} < B_{right}$
+%\pause \item Recall $F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}$
+%\pause \item Since $\frac{B_{left}}{W} < \frac{B_{right}}{W}$, thus $F_{left} < F_{right}$
+%\pause The right plot as a larger $F$-statistic
+%\end{itemize}
 
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -287,15 +429,15 @@ Now compare the following two plots.  Which has ``more different'' means?
 %
 % Comment this
 %
-\blue{Assuming $H_0$ is true} (that $\mu_1 = \mu_2 = \ldots = \mu_k$), the $F$-statistic
-\[
-F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
-\]
-follows the \blue{$F$ distribution with $df_1=k-1$ and $df_2=n-k$ degrees of freedom } where
-\begin{itemize}
-\pause \item $n$ = \blue{total} number of observations
-\item $k$ = number of groups
-\end{itemize}
+%\blue{Assuming $H_0$ is true} (that $\mu_1 = \mu_2 = \ldots = \mu_k$), the $F$-statistic
+%\[
+%F = \frac{\mbox{measure of between-group variability}}{\mbox{measure of within-group variability}}
+%\]
+%follows the \blue{$F$ distribution with $df_1=k-1$ and $df_2=n-k$ degrees of freedom } where
+%\begin{itemize}
+%\pause \item $n$ = \blue{total} number of observations
+%\item $k$ = number of groups
+%\end{itemize}
  
 \end{frame}
 %-------------------------------------------------------------------------------
@@ -316,7 +458,7 @@ For $df_1 = 4$ and $df_2=6$, the $F$ distribution looks like:
 %-------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{$F$ Distributions}
-$p$-values are computed where ``more extreme'' means \blue{larger}.  Say the $F=3$, the $p$-value is the \blue{area to the right of 3} and is computed in {\tt R}: {\tt pf(3,df1=4,df2=6,lower.tail=FALSE)}
+$p$-values are computed where ``more extreme'' means \blue{larger}.  Say the $F=3$, the $p$-value is the \blue{area to the right of 3}. %and is computed in {\tt R}: {\tt pf(3,df1=4,df2=6,lower.tail=FALSE)}
 \setkeys{Gin}{width=0.65\textwidth}
 \begin{center}
 \includegraphics{figure/lec22-010}
