@@ -77,24 +77,24 @@ According to a poll done by the New York Times/CBS News in June 2012, only about
 \begin{frame}[fragile]
 \frametitle{Question for Today}
 
-Just like with $\xbar$, if we want to use the normal model to
-\begin{itemize}
-\item build confidence intervals via $z^*$
-\item conduct hypothesis tests via the normal tables
-\end{itemize}
-we need the \blue{sampling distribution} of $\phat$ to be nearly normal.  
-
-\vspace{0.25cm}
-\pause This happens when the population distribution of 0's and 1's is not too strongly skewed.  As the sample size $n \longrightarrow \infty$, this is less of an issue by the CLT. 
-
 %
 % Comment this
 %
-\vspace{0.25cm}
-\pause Note:  \[
-\phat = \frac{x_1 + \ldots + x_n}{n} = \frac{1}{n}\sum_{i=1}^{n}x_i
-\]
-where each of the $x_i$'s are 0/1 success/failure \blue{Bernoulli} random variables.  
+%Just like with $\xbar$, if we want to use the normal model to
+%\begin{itemize}
+%\item build confidence intervals via $z^*$
+%\item conduct hypothesis tests via the normal tables
+%\end{itemize}
+%we need the \blue{sampling distribution} of $\phat$ to be nearly normal.  
+%
+%\vspace{0.25cm}
+%\pause This happens when the population distribution of 0's and 1's is not too strongly skewed/the sample size $n \longrightarrow \infty$. 
+%
+%\vspace{0.25cm}
+%\pause Note:  \[
+%\phat = \frac{1}{n}\sum_{i=1}^{n}x_i
+%\]
+%where each of the $x_i$'s are 0/1 success/failure \blue{Bernoulli} random variables.  
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -105,41 +105,41 @@ where each of the $x_i$'s are 0/1 success/failure \blue{Bernoulli} random variab
 %
 % Comment this
 %
-The sampling distribution of the \blue{sample proportion} $\phat$ based on sample size $n$ is nearly normal when
-
-\begin{itemize}
-\pause \item The observations are independent:  the 10\% rule
-\pause \item We expect to see at least 10 successes and 10 failures in our sample.  This is called the \blue{success-failure condition}:
-\begin{itemize}
-\item $np \geq 10$
-\item $n(1-p) \geq 10$ 
-\end{itemize}
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Conditions for Sampling Dist'n of $\phat$ Being Nearly Normal}
-
+%The sampling distribution of the \blue{sample proportion} $\phat$ based on sample size $n$ is nearly normal when
 %
-% Comment this
+%\begin{itemize}
+%\pause \item The observations are independent:  the 10\% rule
+%\pause \item We expect to see at least 10 successes and 10 failures.  This is the \blue{success-failure condition}:
+%\begin{itemize}
+%\item $np \geq 10$
+%\item $n(1-p) \geq 10$ 
+%\end{itemize}
+%\end{itemize}
 %
-If conditions are met, then the sampling distribution of $\phat$ is nearly normal with
-\begin{itemize}
-\item mean $p$ (the true population proportion)
-\item standard error
-\[
-SE_{\phat} = \sqrt{\frac{p(1-p)}{n}}
-\]
-\end{itemize}
-
-\pause Note the similarity of the previous formula for the sample mean $\xbar$: 
-\[
-SE_{\xbar} = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{\sigma^2}{n}}
-\]
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Conditions for Sampling Dist'n of $\phat$ Being Nearly Normal}
+%
+%%
+%% Comment this
+%%
+%If conditions are met, then the sampling distribution of $\phat$ is nearly normal with
+%\begin{itemize}
+%\item mean $p$ (the true population proportion)
+%\item standard error
+%\[
+%SE_{\phat} = \sqrt{\frac{p(1-p)}{n}}
+%\]
+%\end{itemize}
+%
+%\pause Note the similarity of the previous formula for the sample mean $\xbar$: 
+%\[
+%SE_{\xbar} = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{\sigma^2}{n}}
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -152,49 +152,32 @@ SE_{\xbar} = \frac{\sigma}{\sqrt{n}} = \sqrt{\frac{\sigma^2}{n}}
 %
 % Comment this
 %
-But we \blue{don't know} what $p$ is.  So what $p$ do we use
-\begin{itemize}
-\item to check the success/failure condition?
-\item for the $SE_{\phat} = \sqrt{\frac{p(1-p)}{n}}$?
-\end{itemize}
-
-\vspace{0.5cm}
-For
-\begin{itemize}
-\pause \item Confidence intervals: plug in the \blue{point estimate} $\phat$ of p
-\pause \item Hypothesis tests: plug in the \blue{null value} $p_0$ from $H_0: p=p_0$
-\end{itemize}
+%But we \blue{don't know} what $p$ is.  So what $p$ do we use
+%\begin{itemize}
+%\item to check the success/failure condition?
+%\item for the $SE_{\phat} = \sqrt{\frac{p(1-p)}{n}}$?
+%\end{itemize}
+%
+%\vspace{0.5cm}
+%For
+%\begin{itemize}
+%\pause \item Confidence intervals: plug in the \blue{point estimate} $\phat$ of p
+%\pause \item Hypothesis tests: plug in the \blue{null value} $p_0$ from $H_0: p=p_0$
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
-
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Confidence Intervals}
+\frametitle{Back to Poll}
 
-%
-% Comment this
-%
-Going back to the poll: $\phat=0.44$ based on $n=976$.  What is a 95\% confidence interval?
+According to a poll done by the New York Times/CBS News in June 2012, only about 44\% of the American public approved of the Supreme Court's performance.  
 
 \vspace{0.25cm}
 
-\pause Check the conditions and find SE \blue{using $p=\phat$}
+The sample proportion $\phat=0.44$ is \blue{point estimate} of $p$: the true proportion of the American public who approves.  
 
-\begin{itemize}
-\pause \item 976 $<$ 10\% of 313 million $\Rightarrow$ independence
-\pause \item Defining a success as a person approving of the job done by the Supreme Court:
-\pause
-\begin{itemize}
-\item $976 \times \phat = 976 \times .44 = 429$ successes $\geq 10$
-\item $976 \times (1-\phat) = 976 \times .56 = 547$ failures $\geq 10$
-\end{itemize}
-\end{itemize}
-\pause
-\[
-SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{\phat(1-\phat)}{n}} = \sqrt{\frac{0.44(1-0.44)}{976}} = 0.016
-\]
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -206,15 +189,46 @@ SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{\phat(1-\phat)}{n}} = \
 %
 % Comment this
 %
-A 95\% confidence interval using the normal model has $z^*=1.96$, thus:
-\[
-\mbox{point estimate} \pm 1.96 \times SE
-\]
-
-\pause In our case
-\[
-\phat \pm 1.96\times SE_{\phat} = 0.44 \pm 1.96 \times 0.016 = (0.409, 0.471)
-\]
+%Going back to the poll: $\phat=0.44$ based on $n=976$.  What is a 95\% confidence interval?
+%
+%\vspace{0.25cm}
+%
+%\pause Check the conditions and find SE \blue{using $p=\phat$}
+%
+%\begin{itemize}
+%\pause \item 976 $<$ 10\% of 313 million $\Rightarrow$ independence
+%\pause \item Defining a success as a person approving of the job done by the Supreme Court:
+%\pause
+%\begin{itemize}
+%\item $976 \times \phat = 976 \times .44 = 429$ successes $\geq 10$
+%\item $976 \times (1-\phat) = 976 \times .56 = 547$ failures $\geq 10$
+%\end{itemize}
+%\end{itemize}
+%\pause
+%\[
+%SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{\phat(1-\phat)}{n}} = \sqrt{\frac{0.44(1-0.44)}{976}} = 0.016
+%\]
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Confidence Intervals}
+%
+%%
+%% Comment this
+%%
+%A 95\% confidence interval using the normal model has $z^*=1.96$, thus:
+%\[
+%\mbox{point estimate} \pm 1.96 \times SE
+%\]
+%
+%\pause In our case
+%\[
+%\phat \pm 1.96\times SE_{\phat} = 0.44 \pm 1.96 \times 0.016 = (0.409, 0.471)
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -240,45 +254,45 @@ Thomas Carcetti is running for mayor of Baltimore.  His campaign manager \blue{c
 %
 % Comment this
 %
-The hypothesis test is, with the null value $p_0=0.5$
-\begin{eqnarray*}
-&& H_0: p = p_0\\
-\mbox{vs}&& H_A: p > p_0 
-\end{eqnarray*}
-
-\pause Check the conditions and find SE \blue{using $p=p_0$}
-\begin{itemize}
-\pause \item 500 $<$ 10\% of the population of Baltimore $\Rightarrow$ independence
-\pause \item Success-failure condition 
-\begin{itemize}
-\item $np_0 = 500 \times 0.5 = 250 \geq 10$
-\item $n(1-p_0) = 500 \times (1-0.5) = 250 \geq 10$
-\end{itemize}
-\end{itemize}
-\pause
-\[
-SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{p_0(1-p_0)}{n}} = \sqrt{\frac{0.5(1-0.5)}{500}} = 0.022
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Hypothesis Tests}
-
+%The hypothesis test is, with the null value $p_0=0.5$
+%\begin{eqnarray*}
+%&& H_0: p = p_0\\
+%\mbox{vs}&& H_A: p > p_0 
+%\end{eqnarray*}
 %
-% Comment this
+%\pause Check the conditions and find SE \blue{using $p=p_0$}
+%\begin{itemize}
+%\pause \item 500 $<$ 10\% of the population of Baltimore $\Rightarrow$ independence
+%\pause \item Success-failure condition 
+%\begin{itemize}
+%\item $np_0 = 500 \times 0.5 = 250 \geq 10$
+%\item $n(1-p_0) = 500 \times (1-0.5) = 250 \geq 10$
+%\end{itemize}
+%\end{itemize}
+%\pause
+%\[
+%SE_{\phat} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{p_0(1-p_0)}{n}} = \sqrt{\frac{0.5(1-0.5)}{500}} = 0.022
+%\]
 %
-\[
-z = \frac{\mbox{point estimate }\phat - \mbox{ null value }p_0}{SE_{\phat}} = \frac{0.52 - 0.50}{0.022} = 0.89
-\]
-\pause p-value is 0.1867.  In the original \%'age scale:
-\begin{center}
-   \includegraphics[width=0.6\textwidth]{figure/pvalue.png} 
-\end{center}
-\pause Hence we do \blue{not} reject the null hypothesis, and we do not find convincing evidence to support the campaign manager's claim.  
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Hypothesis Tests}
+%
+%%
+%% Comment this
+%%
+%\[
+%z = \frac{\mbox{point estimate }\phat - \mbox{ null value }p_0}{SE_{\phat}} = \frac{0.52 - 0.50}{0.022} = 0.89
+%\]
+%\pause p-value is 0.1867.  In the original \%'age scale:
+%\begin{center}
+%   \includegraphics[width=0.6\textwidth]{figure/pvalue.png} 
+%\end{center}
+%\pause Hence we do \blue{not} reject the null hypothesis, and we do not find convincing evidence to support the campaign manager's claim.  
 
 \end{frame}
 %------------------------------------------------------------------------------
