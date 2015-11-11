@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -63,7 +63,7 @@ How do we infer about a difference in proportions $p_1-p_2$?
 \begin{frame}[fragile]
 \frametitle{Surveys}
 
-The way a question is phrased in survey can influence a person's response.  Ex on p.269: the Pew Research Center conducted a survey with the following question:
+The way a question is phrased in survey can influence a person's response.  Ex on p.281: the Pew Research Center conducted a survey with the following question:
 
 \pause\vspace{0.5cm}
 
@@ -79,7 +79,7 @@ where $X$ and $Y$ were randomly ordered between
 
 \vspace{0.5cm}
 
-\pause Let's infer about the difference in proportion of people who \blue{approve}.  Any guesses which is higher?
+\pause Let's infer about the difference in proportion of people who \blue{approve}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -115,6 +115,8 @@ where $X$ and $Y$ were randomly ordered between
 \begin{frame}[fragile]
 \frametitle{Example from Text}
 
+Lump in Other and Disapprove into ``Don't Approve''
+
 \begin{small}
 \begin{center}
   \begin{tabular}{l|cccc}
@@ -139,66 +141,66 @@ where $X$ and $Y$ were randomly ordered between
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Conditions...}
+\frametitle{Conditions for Using Normal Model}
 
 %
 % Comment this
 %
-When
-\begin{itemize}
-\item Both sample proportions $\widehat{p}_1$ and $\widehat{p}_2$ are approximately \blue{normal}:
-\pause\begin{itemize}
-\item independence
-\item success/failure condition: at least 10 successes and failures
-\end{itemize}
-\pause\item the two samples are independent from each other
-\end{itemize}
+%When
+%\begin{itemize}
+%\item Both sample proportions $\widehat{p}_1$ and $\widehat{p}_2$ are approximately \blue{normal}:
+%\pause\begin{itemize}
+%\item independence
+%\item success/failure condition: at least 10 successes and failures
+%\end{itemize}
+%\pause\item the two samples are independent from each other
+%\end{itemize}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{... for Sampling Dist'n of $\phat_1-\phat_2$ Being Normal}
+%
+%%
+%% Comment this
+%%
+%The sampling distribution of $\phat_1 - \phat_2$ is approximately Normal with
+%\begin{itemize}
+%\item mean $p_1 - p_2$
+%\item standard error
+%\[
+%SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} = 
+%\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+%\]
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{... for Sampling Dist'n of $\phat_1-\phat_2$ Being Normal}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Standard Error}
 %
-% Comment this
+%%
+%% Comment this
+%%
+%Recall we showed that the SE for $\xbar_1-\xbar_2$ was
+%\[
+%SE_{\xbar_1-\xbar_2} = \sqrt{SE_{\xbar_1}^2 + SE_{\xbar_2}^2} = 
+%\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
+%\]
+%\pause Compare this to 
+%\[
+%SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} = 
+%\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+%\]
 %
-The sampling distribution of $\phat_1 - \phat_2$ is approximately Normal with
-\begin{itemize}
-\item mean $p_1 - p_2$
-\item standard error
-\[
-SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} = 
-\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
-\]
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Standard Error}
-
-%
-% Comment this
-%
-Recall we showed that the SE for $\xbar_1-\xbar_2$ was
-\[
-SE_{\xbar_1-\xbar_2} = \sqrt{SE_{\xbar_1}^2 + SE_{\xbar_2}^2} = 
-\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
-\]
-\pause Compare this to 
-\[
-SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} = 
-\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -208,17 +210,17 @@ SE_{\phat_1 - \phat_2} = \sqrt{SE_{\phat_1}^2 + SE_{\phat_2}^2} =
 %
 % Comment this
 %
-What $p_1$ \& $p_2$ do we
-\begin{itemize}
-\item Use to check success/failure condition?
-\item Use in $SE_{\phat_1 - \phat_2}$?
-\end{itemize}
-
-For
-\begin{itemize}
-\item Confidence intervals:  plug in $\phat_1$ and $\phat_2$
-\item Hypothesis tests:  plug in \blue{pooled estimate} $\phat$
-\end{itemize}
+%What $p_1$ \& $p_2$ do we
+%\begin{itemize}
+%\item Use to check success/failure condition?
+%\item Use in $SE_{\phat_1 - \phat_2}$?
+%\end{itemize}
+%
+%For
+%\begin{itemize}
+%\item Confidence intervals:  plug in $\phat_1$ and $\phat_2$
+%\item Hypothesis tests:  plug in \blue{pooled estimate} $\phat$
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -229,49 +231,49 @@ For
 \frametitle{Confidence Intervals}
 What is a 90\% confidence interval for the difference in proportions?
 
-\vspace{0.25cm}
-
+%\vspace{0.25cm}
 %
-% Comment this
+%%
+%% Comment this
+%%
+%\pause Check the conditions:
+%\begin{itemize}
+%\item Normality for each group
+%\begin{itemize}
+%\pause\item Independence:  both groups $\leq$ 10\% of respective populations
+%\pause\item The success/failure condition for \blue{both} groups:
+%\begin{itemize}
+%\item Group 1:  $362$ successes and $771-362=409$ failures
+%\item Group 2:  $249$ successes and $483$ failures
+%\end{itemize}
+%\end{itemize}
+%\pause\item We assume both groups were sampled independently.  
+%\end{itemize}
 %
-\pause Check the conditions:
-\begin{itemize}
-\item Normality for each group
-\begin{itemize}
-\pause\item Independence:  both groups $\leq$ 10\% of respective populations
-\pause\item The success/failure condition for \blue{both} groups:
-\begin{itemize}
-\item Group 1:  $362$ successes and $771-362=409$ failures
-\item Group 2:  $249$ successes and $483$ failures
-\end{itemize}
-\end{itemize}
-\pause\item We assume both groups were sampled independently.  
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Confidence Intervals}
+%\end{frame}
+%%------------------------------------------------------------------------------
 %
-% Comment this
 %
-\begin{itemize}
-\item Point estimate is $\phat_1 - \phat_2 = 0.47 - 0.34 = 0.13$
-%--------
-\pause\item Plug in $\phat_1$ and $\phat_2$ into SE:
-\begin{eqnarray*}
-SE_{\phat_1 - \phat_2} &=& 
-\sqrt{\frac{\phat_1(1-\phat_1)}{n_1} + \frac{\phat_2(1-\phat_2)}{n_2}}= \ldots = 0.025
-\end{eqnarray*}
-%--------
-\pause\item A 90\% confidence interval for $p_1-p_2$ is:
-\pause\begin{eqnarray*}
-\mbox{point estimate} \pm z^* \times SE &=& 0.13 \pm 1.65 \times 0.025 = (0.09, 0.17)
-\end{eqnarray*}
-\end{itemize}
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Confidence Intervals}
+%%
+%% Comment this
+%%
+%\begin{itemize}
+%\item Point estimate is $\phat_1 - \phat_2 = 0.47 - 0.34 = 0.13$
+%%--------
+%\pause\item Plug in $\phat_1$ and $\phat_2$ into SE:
+%\begin{eqnarray*}
+%SE_{\phat_1 - \phat_2} &=& 
+%\sqrt{\frac{\phat_1(1-\phat_1)}{n_1} + \frac{\phat_2(1-\phat_2)}{n_2}}= \ldots = 0.025
+%\end{eqnarray*}
+%%--------
+%\pause\item A 90\% confidence interval for $p_1-p_2$ is:
+%\pause\begin{eqnarray*}
+%\mbox{point estimate} \pm z^* \times SE &=& 0.13 \pm 1.65 \times 0.025 = (0.09, 0.17)
+%\end{eqnarray*}
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -281,13 +283,13 @@ SE_{\phat_1 - \phat_2} &=&
 \begin{frame}[fragile]
 \frametitle{Interpretation}
 
-Two key observations:
-\begin{itemize}
-\item $(9\%, 17\%)$ does not contain 0, suggestive of a true difference.
-\item The sign of the difference: $\phat_1 - \phat_2 = 0.13 > 0$
-\end{itemize}
-
-\vspace{0.25cm}
+%Two key observations:
+%\begin{itemize}
+%\item $(9\%, 17\%)$ does not contain 0, suggestive of a true difference.
+%\item The sign of the difference: $\phat_1 - \phat_2 = 0.13 > 0$
+%\end{itemize}
+%
+%\vspace{0.25cm}
 
 \pause More support Obamacare if stated as follows:
 
@@ -302,22 +304,50 @@ Two key observations:
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Hypothesis Tests}
-Now we are interested in testing the difference of two proportions:
-\begin{eqnarray*}
-&&H_0: p_1 - p_2 = 0\\
-\mbox{vs}&&H_1: p_1 - p_2 \neq 0
-\end{eqnarray*}
-
-\pause Note this can be re-expressed as:
-\begin{eqnarray*}
-&&H_0: p_1 = p_2\\
-\mbox{vs}&&H_1: p_1 \neq p_2
-\end{eqnarray*}
-
-\vspace{0.25cm}
-
-\pause i.e. under $H_0$ the two proportions are both equal to some value $p$:
-\[p_1=p_2=p\]
+%Now we are interested in testing the difference of two proportions:
+%\begin{eqnarray*}
+%&&H_0: p_1 - p_2 = 0\\
+%\mbox{vs}&&H_1: p_1 - p_2 \neq 0
+%\end{eqnarray*}
+%
+%\pause Note this can be re-expressed as:
+%\begin{eqnarray*}
+%&&H_0: p_1 = p_2\\
+%\mbox{vs}&&H_1: p_1 \neq p_2
+%\end{eqnarray*}
+%
+%\vspace{0.25cm}
+%
+%\pause i.e. under $H_0$ the two proportions are both equal to some value $p$:
+%\[p_1=p_2=p\]
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Hypothesis Tests}
+%
+%%
+%% Comment this
+%%
+%So to
+%\begin{itemize}
+%\item Verify the success-failure condition
+%\item Compute the standard SE
+%\end{itemize}
+%\pause we use a \blue{pooled estimate} $\widehat{p}$ of the proportion $p$.  i.e. as if there were \blue{no difference} between them, so we can combine them:
+%\[
+%\widehat{p} = \frac{\mbox{total \# of successes}}{\mbox{total \# of cases}} %\left(= \frac{\widehat{p}_1n_1 + \widehat{p}_2n_2}{n_1+n_2}\right)
+%\]
+%
+%\pause The SE to use is:
+%\[
+%SE_{\phat_1 - \phat_2} = \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n_1} + \frac{\widehat{p}(1-\widehat{p})}{n_2}}
+%=
+%\sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -325,35 +355,7 @@ Now we are interested in testing the difference of two proportions:
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Hypothesis Tests}
-
-%
-% Comment this
-%
-So to
-\begin{itemize}
-\item Verify the success-failure condition
-\item Compute the standard SE
-\end{itemize}
-\pause we use a \blue{pooled estimate} $\widehat{p}$ of the proportion $p$.  i.e. as if there were \blue{no difference} between them, so we can combine them:
-\[
-\widehat{p} = \frac{\mbox{total \# of successes}}{\mbox{total \# of cases}} %\left(= \frac{\widehat{p}_1n_1 + \widehat{p}_2n_2}{n_1+n_2}\right)
-\]
-
-\pause The SE to use is:
-\[
-SE_{\phat_1 - \phat_2} = \sqrt{\frac{\widehat{p}(1-\widehat{p})}{n_1} + \frac{\widehat{p}(1-\widehat{p})}{n_2}}
-=
-\sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}
-\]
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Exercise 6.31 on Page 305}
+\frametitle{Exercise 6.31 on Page 319}
 A 2010 survey asked 827 randomly sample voters in California ``How do you feel about drilling for oil and natural gas off the coast of California?''
 
 \begin{center}
@@ -370,53 +372,53 @@ Total & 438 & 389 \\
 \end{center}
 
 \pause Test at the $\alpha = 0.10$ significance level if the proportion of college graduates who support off-shore drilling is different than that of non-college graduates.
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Exercise 6.31 on Page 305}
-
+%\end{frame}
+%%------------------------------------------------------------------------------
 %
-% Comment this
 %
-The pooled estimate is $\widehat{p} = \frac{154+132}{438+389}=0.346$.  Check the conditions:\\
-
-\begin{enumerate}
-\pause \item Normality of both point estimates
-\begin{itemize}
-\pause \item Independence
-\begin{itemize}
-\item $n_1 = 438 \leq 10\%$ of pop. of CA \blue{college grads}
-\item $n_2 = 389 \leq 10\%$ of pop. of CA \blue{non college grads}
-\end{itemize}
-\pause \item Success/failure: both groups have at least 10 successes and 10 failures.
-\end{itemize}
-\pause \item We assume that both groups are sampled independently.  
-\end{enumerate}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Exercise 6.31 on Page 305}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Exercise 6.31 on Page 319}
 %
-% Comment this
+%%
+%% Comment this
+%%
+%The pooled estimate is $\widehat{p} = \frac{154+132}{438+389}=0.346$.  Check the conditions:\\
 %
-\begin{itemize}
-\item Point estimate $\phat_1-\phat_2 = 0.352 - 0.339 = 0.013$
-\pause \item $SE_{\phat_1 - \phat_2} \approx \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)} =
-0.033$
-\pause \item Test statistic:  $z$-score of $\phat_1-\phat_2$ under $H_0:  p_1-p_2=0$
-\[
-z= \frac{\mbox{point estimate} - \mbox{null value}}{SE} = \frac{0.013-0}{0.033} = 0.392
-\]
-\pause \item $p$-value:  0.6922.  i.e. we fail to reject $H_0$.  We don't have strong evidence of a difference in support.
-\end{itemize}
+%\begin{enumerate}
+%\pause \item Normality of both point estimates
+%\begin{itemize}
+%\pause \item Independence
+%\begin{itemize}
+%\item $n_1 = 438 \leq 10\%$ of pop. of CA \blue{college grads}
+%\item $n_2 = 389 \leq 10\%$ of pop. of CA \blue{non college grads}
+%\end{itemize}
+%\pause \item Success/failure: both groups have at least 10 successes and 10 failures.
+%\end{itemize}
+%\pause \item We assume that both groups are sampled independently.  
+%\end{enumerate}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Exercise 6.31 on Page 319}
+%
+%%
+%% Comment this
+%%
+%\begin{itemize}
+%\item Point estimate $\phat_1-\phat_2 = 0.352 - 0.339 = 0.013$
+%\pause \item $SE_{\phat_1 - \phat_2} \approx \sqrt{\widehat{p}(1-\widehat{p})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)} =
+%0.033$
+%\pause \item Test statistic:  $z$-score of $\phat_1-\phat_2$ under $H_0:  p_1-p_2=0$
+%\[
+%z= \frac{\mbox{point estimate} - \mbox{null value}}{SE} = \frac{0.013-0}{0.033} = 0.392
+%\]
+%\pause \item $p$-value:  0.6922.  i.e. we fail to reject $H_0$.  We don't have strong evidence of a difference in support.
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
