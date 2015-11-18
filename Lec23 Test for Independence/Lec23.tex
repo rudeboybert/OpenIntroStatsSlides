@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -53,11 +53,11 @@
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Today's Example}
-Google is always tinkering with its search ranking \blue{algorithm}.  Say we want to compare the following 3 algorithms:
+Example from Chapter 6.4 page 297: Google is always tinkering with its search ranking algorithm.  Say we want to compare the following 3 algorithms:
 \begin{enumerate}
 \item the current version
-\item test algorithm 1
-\item test algorithm 2
+\item new test algorithm 1
+\item new test algorithm 2
 \end{enumerate}
 
 \end{frame}
@@ -68,7 +68,7 @@ Google is always tinkering with its search ranking \blue{algorithm}.  Say we wan
 \begin{frame}
 \frametitle{Today's Example}
 
-They measure user satisfaction with the results for a particular search with the \blue{{\tt new search}} variable:
+User satisfaction is measured with the \blue{{\tt new search}} variable:
 \begin{itemize}
 \pause\item no new search: User clicked on a result. Suggests user is satisfied with result.
 \pause\item new search: User did not click on a result and tried a new related search.  Suggests user is \blue{dissatisfied} with result.
@@ -82,16 +82,22 @@ They measure user satisfaction with the results for a particular search with the
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Today's Example}
-So we have two categorical variables:
-\begin{itemize}
-\item {\tt algorithm}: current, test 1, or test 2
-\item {\tt new search}: yes or no
-\end{itemize}
-
-\vspace{0.25cm}
-
-\pause Are they independent?  i.e. independent of which algorithm is used, do we have the same levels of new search?
-
+%
+% Comment this
+%
+%We have two categorical variables:
+%\begin{itemize}
+%\item $X$: {\tt algorithm}: current, test 1, or test 2
+%\item $Y$: {\tt new search}: yes or no
+%\end{itemize}
+%
+%\vspace{0.25cm}
+%
+%\pause Questions:
+%\begin{itemize}
+%\item Are they independent? If $Y$ is independent from $X$, then different algorithm used does not affect the levels of new search
+%\pause\item Are they dependent? If $Y$ is dependent on $X$, then different algorithms used lead to different levels of new search
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -119,7 +125,7 @@ Say we observe the following contingency table:
 
 \vspace{0.25cm}
 
-\pause They are \blue{independent}: regardless of which algorithm used, the proportion of new searches stays the same.
+\pause The two levels of {\tt new search} are \blue{independent} of {\tt algorithm}: regardless of which algorithm used, the proportion of new searches stays the same.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -145,7 +151,7 @@ Now say instead we observed the following results:
 
 \vspace{0.25cm}
 
-\pause In this case, they are \blue{dependent}: \blue{depending on} which {\tt algorithm} used, the proportion of new searches \blue{is different}.
+\pause In this case, they are \blue{dependent}: \blue{depending on} which {\tt algorithm} used, the proportion of {\tt new search} \blue{is different}.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -154,12 +160,16 @@ Now say instead we observed the following results:
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Hypothesis Test}
-We test at the $\alpha=0.05$ significance level:
-\begin{eqnarray*}
-H_0:&& \mbox{the algorithms each perform equally well}\\
-\mbox{vs } H_A:&& \mbox{the algorithms do not perform equally well}
-\end{eqnarray*}
-i.e. are the categorial variables {\tt algorithm} and {\tt new search} independent? 
+
+%
+% Comment this
+%
+%We test at the $\alpha=0.05$ significance level:
+%\begin{eqnarray*}
+%H_0:&& \mbox{the algorithms each perform equally well}\\
+%\mbox{vs } H_A:&& \mbox{the algorithms do not perform equally well}
+%\end{eqnarray*}
+%i.e. are the categorial variables {\tt algorithm} and {\tt new search} independent? 
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -169,13 +179,16 @@ i.e. are the categorial variables {\tt algorithm} and {\tt new search} independe
 \begin{frame}
 \frametitle{Different Names}
 
-The following all refer to the same test:  $\chi^2$ test for 
-\begin{itemize}
-\item \blue{two-way tables}
-\item i.e. \blue{contingency tables}
-\item \blue{independence} of two categorical variables
-\item \blue{homogeneity}:  are the algorithms homogeneous in their performance?
-\end{itemize}
+%
+% Comment this
+%
+%The following all refer to the same test:  $\chi^2$ test for 
+%\begin{itemize}
+%\item \blue{two-way tables}
+%\item i.e. \blue{contingency tables}
+%\item \blue{independence} of two categorical variables
+%\item \blue{homogeneity}:  are the algorithms homogeneous in their performance?
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -185,7 +198,7 @@ The following all refer to the same test:  $\chi^2$ test for
 \begin{frame}
 \frametitle{Example from Textbook}
 
-Let's make the values match the example from the textbook on page 284:
+Let's make the values match the example from the textbook on page 299:
 \begin{center}
   \begin{tabular}{r|ccc|c}
 & \multicolumn{3}{c|}{{\tt algorithm}} & \\
@@ -356,21 +369,24 @@ Expected Counts:
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Chi-Square Statistic}
-We compute $\chi^2$ test statistic: for all $i = 1, \ldots, 6$ cells
-\[
-\frac{(\mbox{observed count}_i - \mbox{expected count}_i)^2}{\mbox{expected count}_i}
-\]
-\pause
-\begin{eqnarray*}
-\mbox{Row 1, Col 1} &=& \frac{(3511-3539)^2}{3539} = 0.222 \\
-\vdots && \vdots\\
-\mbox{Row 2, Col 3} &=& \frac{(682-730.5)^2}{730.5} = 3.220
-\end{eqnarray*}
-\pause So
-\begin{eqnarray*}
-\chi^2 &=& 0.222 + 0.237 + \ldots + 3.220\\
-&=& \blue{6.120}
-\end{eqnarray*}
+%
+% Comment this
+%
+%We compute $\chi^2$ test statistic: for all $i = 1, \ldots, 6$ cells
+%\[
+%\frac{(\mbox{observed count}_i - \mbox{expected count}_i)^2}{\mbox{expected count}_i}
+%\]
+%\pause
+%\begin{eqnarray*}
+%\mbox{Row 1, Col 1} &=& \frac{(3511-3539)^2}{3539} = 0.222 \\
+%\vdots && \vdots\\
+%\mbox{Row 2, Col 3} &=& \frac{(682-730.5)^2}{730.5} = 3.220
+%\end{eqnarray*}
+%\pause So
+%\begin{eqnarray*}
+%\chi^2 &=& 0.222 + 0.237 + \ldots + 3.220\\
+%&=& \blue{6.120}
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -379,13 +395,16 @@ We compute $\chi^2$ test statistic: for all $i = 1, \ldots, 6$ cells
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Chi-Square Distribution}
-We compare this to a $\chi^2$ distribution to get the p-value.  What are the degrees of freedom?
-
-\pause \begin{eqnarray*}
-df &=& (\mbox{\# of rows - 1}) \times (\mbox{\# of columns - 1})\\
-&=& (R-1) \times (C-1)\\
-&=& (2-1) \times (3-1) = 2 \mbox{ in our case}
-\end{eqnarray*}
+%
+% Comment this
+%
+%We compare this to a $\chi^2$ distribution to get the p-value.  What are the degrees of freedom?
+%
+%\pause \begin{eqnarray*}
+%df &=& (\mbox{\# of rows - 1}) \times (\mbox{\# of columns - 1})\\
+%&=& (R-1) \times (C-1)\\
+%&=& (2-1) \times (3-1) = 2 \mbox{ in our case}
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -394,11 +413,14 @@ df &=& (\mbox{\# of rows - 1}) \times (\mbox{\# of columns - 1})\\
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Chi-Square Distribution}
-Looking up 6.120 in the $\chi^2$ table on page 412 on the $df=2$ row, it would be between 0.05 and 0.01.  Since our $\alpha=0.05$, we reject the null hypothesis and accept the alternative that the algorithms do not perform equally well.  
-
-\vspace{0.5cm}
-
-i.e. the {\tt algorithm} and {\tt new search} categorical variables are dependent.
+%
+% Comment this
+%
+%Looking up 6.120 in the $\chi^2$ table on page 432 on the $df=2$ row, it would be between 0.05 and 0.01.  Since our $\alpha=0.05$, we reject the null hypothesis and accept the alternative that the algorithms do not perform equally well.  
+%
+%\vspace{0.5cm}
+%
+%i.e. the {\tt algorithm} and {\tt new search} categorical variables are dependent.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -407,12 +429,15 @@ i.e. the {\tt algorithm} and {\tt new search} categorical variables are dependen
 %------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Conditions/Assumptions}
-Nearly identical to conditions/assumptions for $\chi^2$ tests for goodness-of-fit:
-\begin{enumerate}
-\pause\item \blue{Independence}:  Each case is independent of the other
-\pause\item \blue{Sample size/distribution}:  We need at least 5 cases in each scenario i.e. each cell in the table
-\pause\item \blue{Degrees of freedom}: (Different than before)  We need $df=(R-1)\times(C-1) \geq 2$.
-\end{enumerate}
+%
+% Comment this
+%
+%Nearly identical to conditions/assumptions for $\chi^2$ tests for goodness-of-fit:
+%\begin{enumerate}
+%\pause\item \blue{Independence}:  Each case is independent of the other
+%\pause\item \blue{Sample size/distribution}:  We need at least 5 cases in each scenario i.e. each cell in the table
+%\pause\item \blue{Degrees of freedom}: (Different than before)  We need $df=(R-1)\times(C-1) \geq 2$.
+%\end{enumerate}
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -509,55 +534,55 @@ i.e. if we know these two values, we can fill the rest of the table.
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Real-Life Example}
-
-For 59,946 OkCupid users in San Francisco CA in June 2012, consider the cross-classification of their \blue{sex} and \blue{sexual orientation} via a contingency table:
-
-\pause
-\begin{center}
-  \begin{tabular}{r|ccr|r}
-& \multicolumn{3}{c|}{Orientation} & \\
-       Sex & Bisexual & Gay & Straight & Total \\ 
-\hline
-    Female & 1996 & 1588 & 20533 & 24117 \\ 
-    Male & 771 & 3985 & 31073 & 35829 \\ 
-\hline
-    Total & 2767 & 5573 & 51606 & 59946 \\ 
-  \end{tabular}
-\end{center}
-
-\pause This is better visualized with a mosaic plot:
-           
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Real-Life Example}
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{figure/sex_by_orientation-1.pdf}
-\end{center}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Real-Life Example}
-
-Sex and sexual orientation are \blue{not independent}:  knowing one variable provides information about the other. 
-
-\vspace{0.5cm}
-
-\pause $\chi^2=1495$ and degrees of freedom $(3-1)\times(2-1) =2$.  The p-value = 0.
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Real-Life Example}
+%
+%For 59,946 OkCupid users in San Francisco CA in June 2012, consider the cross-classification of their \blue{sex} and \blue{sexual orientation} via a contingency table:
+%
+%\pause
+%\begin{center}
+%  \begin{tabular}{r|ccr|r}
+%& \multicolumn{3}{c|}{Orientation} & \\
+%       Sex & Bisexual & Gay & Straight & Total \\ 
+%\hline
+%    Female & 1996 & 1588 & 20533 & 24117 \\ 
+%    Male & 771 & 3985 & 31073 & 35829 \\ 
+%\hline
+%    Total & 2767 & 5573 & 51606 & 59946 \\ 
+%  \end{tabular}
+%\end{center}
+%
+%\pause This is better visualized with a mosaic plot:
+%           
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Real-Life Example}
+%
+%\begin{center}
+%\includegraphics[width=0.8\textwidth]{figure/sex_by_orientation-1.pdf}
+%\end{center}
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
+%
+%
+%%------------------------------------------------------------------------------
+%\begin{frame}
+%\frametitle{Real-Life Example}
+%
+%Sex and sexual orientation are \blue{not independent}:  knowing one variable provides information about the other. 
+%
+%\vspace{0.5cm}
+%
+%\pause $\chi^2=1495$ and degrees of freedom $(3-1)\times(2-1) =2$.  The p-value = 0.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 
