@@ -1,8 +1,8 @@
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
 %\usepackage{pgfpages}
@@ -77,7 +77,7 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Questions for Today: Example From Text}
+\frametitle{Questions for Today: Example From Text p.342}
 \begin{itemize}
 \item Data: random sample of 50 students in the 2011 freshman class of Elmhurst College in Illinois.
 \pause\item Explanatory variable: family income
@@ -94,7 +94,7 @@
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Questions for Today: Example From Text}
+\frametitle{Questions for Today: Example From Text p.342}
 Using these values,
 \begin{center}
 \begin{tabular}{l|rr}
@@ -112,13 +112,13 @@ sd & $s_x=63.2$ & $s_y=5.46$ \\
 %
 % Comment this
 %
-they fit the \blue{least-squares line}:
-\pause
-\begin{eqnarray*}
-\widehat{y} &=& b_0 + b_1 x\\
-\widehat{\mbox{aid}} &=& 24.3 - 0.0431 \times \mbox{family\_income}
-\end{eqnarray*}
-What do $24.3$ and $-0.0431$ mean?
+%they fit the \blue{least-squares line}:
+%\pause
+%\begin{eqnarray*}
+%\widehat{y} &=& b_0 + b_1 x\\
+%\widehat{\mbox{aid}} &=& 24.3 - 0.0431 \times \mbox{family\_income}
+%\end{eqnarray*}
+%What do $24.3$ and $-0.0431$ mean?
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -130,11 +130,11 @@ What do $24.3$ and $-0.0431$ mean?
 %
 % Comment this
 %
-\blue{Point estimate of intercept $b_0$}: 24.3 (in \$1000's) describes the average aid if the family had no income.  
-
-\vspace{0.25cm}
-\pause
-Here it is relevant since some families make no income, but the intercept may not make sense if there are no observations near $x=0$.  
+%\blue{Point estimate of intercept $b_0$}: 24.3 (in \$1000's) describes the average aid if the family had no income.  
+%
+%\vspace{0.25cm}
+%\pause
+%Here it is relevant since some families make no income, but the intercept may not make sense if there are no observations near $x=0$.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -147,15 +147,15 @@ Here it is relevant since some families make no income, but the intercept may no
 %
 % Comment this
 %
-\blue{Point estimate of slope $b_1$}: More interesting: it describes the \blue{relationship} between $x$ and $y$
-
-\vspace{0.5cm}
-\pause
-In example: for each additional \$1000 of family income, we \blue{expect} a student to receive a difference of $\$1000 \times (-0.0431) = -\$43.10$ in aid on average.   
-
-\vspace{0.5cm}
-\pause
-Even though we've labeled aid as the outcome variable, we are not positing a causal relationship; just an association.  
+%\blue{Point estimate of slope $b_1$}: More interesting: it describes the \blue{relationship} between $x$ and $y$
+%
+%\vspace{0.5cm}
+%\pause
+%In example: for each additional \$1000 of family income, we \blue{expect} a student to receive a difference of $\$1000 \times (-0.0431) = -\$43.10$ in aid on average.   
+%
+%\vspace{0.5cm}
+%\pause
+%Even though we've labeled aid as the outcome variable, we are not positing a causal relationship; just an association.  
 
 
 \end{frame}
@@ -170,14 +170,14 @@ Even though we've labeled aid as the outcome variable, we are not positing a cau
 %
 % Comment this
 %
-\vspace{0.5cm}
-
-\pause
-What would be the gift aid given to a family with \$1,000,000 (i.e. $x=1000$) in family income?
-\[
-24.3 - 0.0431 \times 1000 = -18.8
-\]
-The school will take \$18,800 dollars away from you?  
+%\vspace{0.5cm}
+%
+%\pause
+%What would be the gift aid given to a family with \$1,000,000 (i.e. $x=1000$) in family income?
+%\[
+%24.3 - 0.0431 \times 1000 = -18.8
+%\]
+%The school will take \$18,800 dollars away from you?  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -190,20 +190,20 @@ The school will take \$18,800 dollars away from you?
 %
 % Comment this
 %
-$x$ can also be categorical.  
-
-\vspace{0.25cm}
-\pause
-Ex: Ebay price for the video game Mario Kart. We convert the categorical $x$ into a \blue{indicator variable} $\mbox{cond\_new}$ which has 2 \blue{levels}:
-\begin{enumerate}
-\item $x=0$:  game is used. This is the \blue{baseline} level.
-\item $x=1$:  game is new.
-\end{enumerate}
-\pause
-The linear model is thus
-\[
-\widehat{\mbox{price}} = b_0 + b_1 \times \mbox{cond\_new}
-\]
+%$x$ can also be categorical.  
+%
+%\vspace{0.25cm}
+%\pause
+%Ex: Ebay price for the video game Mario Kart. We convert the categorical $x$ into a \blue{indicator variable} $\mbox{cond\_new}$ which has 2 \blue{levels}:
+%\begin{enumerate}
+%\item $x=0$:  game is used. This is the \blue{baseline} level.
+%\item $x=1$:  game is new.
+%\end{enumerate}
+%\pause
+%The linear model is thus
+%\[
+%\widehat{\mbox{price}} = b_0 + b_1 \times \mbox{cond\_new}
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -227,18 +227,18 @@ The linear model is thus
 %
 % Comment this
 %
-The least-squares line is
-\[
-\widehat{\mbox{price}} = 42.87 + 10.90 \times \mbox{cond\_new}
-\]
-\pause
-So when the game is
-\begin{itemize}
-\item Used, we have $x=0$, so the fitted value is $\$42.87 + \$0 = \$42.87$
-\item New, we have $x=1$, so the fitted value is $\$42.87 + \$10.90 = \$53.77$
-\end{itemize}
-\pause
-This can be generalized for predictor variables $x$ with more than two levels.
+%The least-squares line is
+%\[
+%\widehat{\mbox{price}} = 42.87 + 10.90 \times \mbox{cond\_new}
+%\]
+%\pause
+%So when the game is
+%\begin{itemize}
+%\item Used, we have $x=0$, so the fitted value is $\$42.87 + \$0 = \$42.87$
+%\item New, we have $x=1$, so the fitted value is $\$42.87 + \$10.90 = \$53.77$
+%\end{itemize}
+%\pause
+%This can be generalized for predictor variables $x$ with more than two levels.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -401,14 +401,14 @@ The Madden Curse.  Many NFL players who feature on the cover of the video game M
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Next Time}
-
-Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} predictors $x_1, x_2, \ldots$
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Next Time}
+%
+%Multiple Regression:  As opposed to \blue{simple linear regression} where there is only one predictor/explanatory variable $x$, we now consider \blue{many} predictors $x_1, x_2, \ldots$
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 \end{document}
