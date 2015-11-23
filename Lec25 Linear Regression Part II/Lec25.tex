@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-\documentclass[slides]{beamer}
+%\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -312,7 +312,7 @@ Especially in cases 3 and 5, the outliers seem to be pulling the least-squares l
 \begin{frame}[fragile]
 \frametitle{Simple Linear Regression Regression Table}
 
-eBay price of old vs new Mario Kart using $n=141$.  On page 355:
+eBay price of old vs new Mario Kart using $n=141$.  On page 348:
 
 \begin{table}[ht]
 \centering
@@ -330,12 +330,12 @@ eBay price of old vs new Mario Kart using $n=141$.  On page 355:
 %
 % Comment this
 %
-\pause where
-\begin{itemize}
-\item degrees of freedom $df=n-k-1 = n -(k+1) =141-2=139$
-\item $k$ is the \# of predictors in the model
-\item $k+1$ is the \# of parameters in the model: $\beta_0$ and $\beta_1$
-\end{itemize}
+%\pause where
+%\begin{itemize}
+%\item degrees of freedom $df=n-k-1 = n -(k+1) =141-2=139$
+%\item $k$ is the \# of predictors in the model
+%\item $k+1$ is the \# of parameters in the model: $\beta_0$ and $\beta_1$
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -347,20 +347,20 @@ eBay price of old vs new Mario Kart using $n=141$.  On page 355:
 %
 % Comment this
 %
-Looking at t-table, for $df=139$, $t^*_{df=139} = 1.98$, so a 95\% confidence interval for $\beta_1$ is
-\begin{eqnarray*}
-b_1 \pm 1.98 \times SE_{b_1} &=& 10.90 \pm 1.98 \times 1.26\\
-&=& (8.40, 13.39)
-\end{eqnarray*}
-
-\pause\vspace{0.5cm}
-
-The p-value for the two-sided hypothesis test of
-\begin{eqnarray*}
-&& H_0: \beta_1 = 0\\
-\mbox{vs}&& H_A: \beta_1 \neq 0 
-\end{eqnarray*}
-is essentially 0, so we \blue{reject the null hypothesis} and declare that there is an association between {\tt price} and {\tt cond\_new}.
+%Looking at t-table, for $df=139$, $t^*_{df=139} = 1.98$, so a 95\% confidence interval for $\beta_1$ is
+%\begin{eqnarray*}
+%b_1 \pm 1.98 \times SE_{b_1} &=& 10.90 \pm 1.98 \times 1.26\\
+%&=& (8.40, 13.39)
+%\end{eqnarray*}
+%
+%\pause\vspace{0.5cm}
+%
+%The p-value for the two-sided hypothesis test of
+%\begin{eqnarray*}
+%&& H_0: \beta_1 = 0\\
+%\mbox{vs}&& H_A: \beta_1 \neq 0 
+%\end{eqnarray*}
+%is essentially 0, so we \blue{reject the null hypothesis} and declare that there is an association between {\tt price} and {\tt cond\_new}.
 
 \end{frame}
 %------------------------------------------------------------------------------
