@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -67,11 +67,10 @@
 
 
 Say on top of {\tt cond\_new} we are given three additional predictors:
-\begin{center}
-\includegraphics[height=3cm]{figure/mario_kart_action.png}
-\includegraphics[height=3cm]{figure/wheel.png}
+\pause\begin{center}
+\includegraphics[height=2cm]{figure/mario_kart_action.png}
+\includegraphics[height=2cm]{figure/wheel.png}
 \end{center}
-\pause
 
 \begin{itemize}
 \item {\tt stock\_photo}: is there a stock photo?
@@ -88,7 +87,7 @@ Say on top of {\tt cond\_new} we are given three additional predictors:
 \begin{frame}[fragile]
 \frametitle{Questions for Today}
 
-How do we simultaneously incorporate all four predictors to model the eBay auction {\tt price}?
+How do we simultaneously incorporate \blue{all} four predictors to model the eBay auction {\tt price}?
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -100,15 +99,15 @@ How do we simultaneously incorporate all four predictors to model the eBay aucti
 %
 % Comment this
 %
-Use \blue{multiple regression} (done via computer) where
-\begin{eqnarray*}
-{\tt price} &=& \beta_0 + \beta_1 \times {\tt cond\_new} + \beta_2 \times {\tt stock\_photo} + \\ 
-&&\beta_3 \times {\tt duration} + \beta_4 \times {\tt wheels}\\
-\pause
-\mbox{or in general...} &&\\
-y &=& \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k
-\end{eqnarray*}
-for $k$ predictor variables.
+%Use \blue{multiple regression} (done via computer) where
+%\begin{eqnarray*}
+%{\tt price} &=& \beta_0 + \beta_1 \times {\tt cond\_new} + \beta_2 \times {\tt stock\_photo} + \\ 
+%&&\beta_3 \times {\tt duration} + \beta_4 \times {\tt wheels}\\
+%\pause
+%\mbox{or in general...} &&\\
+%y &=& \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_k x_k
+%\end{eqnarray*}
+%for $k$ predictor variables.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -120,14 +119,14 @@ for $k$ predictor variables.
 %
 % Comment this
 %
-Just as with SLR, we compute \blue{point estimates} $b_0, b_1, \ldots, b_k$ of the \blue{parameters} $\beta_0, \beta_1, \ldots, \beta_k$.
-
-\pause\vspace{0.5cm}
-
-For each observation $i=1,\ldots,n$ the $i^{th}$ \blue{residual} $e_i=y_i - \widehat{y}_i$.  The point estimates minimize the \blue{least squares criterion}:
-\begin{eqnarray*}
-\sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2
-\end{eqnarray*}
+%Just as with SLR, we compute \blue{point estimates} $b_0, b_1, \ldots, b_k$ of the \blue{parameters} $\beta_0, \beta_1, \ldots, \beta_k$.
+%
+%\pause\vspace{0.5cm}
+%
+%For each observation $i=1,\ldots,n$ the $i^{th}$ \blue{residual} $e_i=y_i - \widehat{y}_i$.  The point estimates minimize the \blue{least squares criterion}:
+%\begin{eqnarray*}
+%\sum_{i=1}^{n} e_i^2 = \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -158,22 +157,22 @@ where $df=n-k-1=141-4-1=136$
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Interpretation of Point Estimates}
-
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Interpretation of Point Estimates}
 %
-% Comment this
+%%
+%% Comment this
+%%
+%The point estimates are interpreted as follows, for example:
+%\begin{itemize}
+%\item $b_4$ of {\tt wheels}:  \blue{holding all other variables constant} (\blue{all other things being equal}), the average difference in price associated with each additional Wii wheel is \$7.29.
+%\pause
+%\item $b_3$ of {\tt duration}:  \blue{holding all other variables constant}, every additional day of auction is associated with an average decrease of \$0.03 in price.  
+%\end{itemize}
 %
-The point estimates are interpreted as follows, for example:
-\begin{itemize}
-\item $b_4$ of {\tt wheels}:  \blue{holding all other variables constant} (\blue{all other things being equal}), the average difference in price associated with each additional Wii wheel is \$7.29.
-\pause
-\item $b_3$ of {\tt duration}:  \blue{holding all other variables constant}, every additional day of auction is associated with an average decrease of \$0.03 in price.  
-\end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -200,26 +199,30 @@ For multiple regression:
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
 {\tt cond\_new} & 5.13 & 1.05 & 4.88 & 0.00 \\ 
+\ldots & \ldots & \ldots & \ldots & \ldots \\   
    \hline
 \end{tabular}
 \end{table}
-Why the different point estimate?
 \end{frame}
 %------------------------------------------------------------------------------
 
 
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Comparison of Result}
-
-Because {\tt cond\_new} is linearly correlated with {\tt wheels}.  We say that two predictor variables are \blue{collinear} when they are correlated, and this complicates model estimation.
-
-\pause\vspace{0.5cm}
-
-In general we must be wary of predictor variables that are collinear, because the coefficient estimates may change erratically in response to small changes in the model or the data.
-
-\end{frame}
-%------------------------------------------------------------------------------
+%%------------------------------------------------------------------------------
+%\begin{frame}[fragile]
+%\frametitle{Comparison of Result}
+%
+%Why the different point estimate for SLR vs multiple?
+%
+%\pause\vspace{0.5cm}
+%
+%Because {\tt cond\_new} is linearly correlated with {\tt wheels}.  We say that two predictor variables are \blue{collinear} when they are correlated, and this complicates model estimation.
+%
+%\pause\vspace{0.5cm}
+%
+%In general we must be wary of predictor variables that are collinear, because the coefficient estimates may change erratically in response to small changes in the model or the data.
+%
+%\end{frame}
+%%------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------------------
@@ -228,14 +231,14 @@ In general we must be wary of predictor variables that are collinear, because th
 %
 % Comment this
 %
-$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model i.e. the least squares line:
-
-\vspace{0.25cm}
-
-\begin{eqnarray*}
-R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}}\\
-&=& 1 - \frac{Var(e_i)}{Var(y_i)}
-\end{eqnarray*}
+%$R^2$ is a measure (between 0 and 1) of how well the model fits the data.  It measures the proportion of the total variability in $y$ explained by the model i.e. the least squares line:
+%
+%\vspace{0.25cm}
+%
+%\begin{eqnarray*}
+%R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outcome}}\\
+%&=& 1 - \frac{Var(e_i)}{Var(y_i)}
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -293,7 +296,7 @@ R^2 &=& 1 - \frac{\mbox{variability in residuals}}{\mbox{variability in the outc
 \begin{frame}[fragile]
 \frametitle{$R^2$ vs $R$}
 
-Special case:  \blue{Only for linear regression}:  $R^2$ is the correlation coefficient $R$ squared.  The correlation coefficient \blue{does not exist} for multiple regression.  
+%Special case:  \blue{Only for linear regression}:  $R^2$ is the correlation coefficient $R$ squared.  The correlation coefficient \blue{does not exist} for multiple regression.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -321,11 +324,11 @@ $R^2_{adj}$ describes the strength of fit while adhering to the following:
 %
 % Comment this
 %
-The \blue{adjusted $R^2_{adj}$} takes into account the number of predictor variables $k$ you used to fit your model:  
-
-\begin{eqnarray*}
-R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{Var(e_i)}{Var(y_i)} \times \frac{n-1}{n-k-1}
-\end{eqnarray*}
+%The \blue{adjusted $R^2_{adj}$} takes into account the number of predictor variables $k$ you used to fit your model:  
+%
+%\begin{eqnarray*}
+%R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{Var(e_i)}{Var(y_i)} \times \frac{n-1}{n-k-1}
+%\end{eqnarray*}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -359,18 +362,18 @@ R^2_{adj} = 1 - \frac{\frac{Var(e_i)}{n-k-1}}{\frac{Var(y_i)}{n-1}} = 1 - \frac{
 %
 % Comment this
 %
-Say for two models applied to the same data:
-\begin{itemize}
-\pause\item Model 1: $\widehat{y}_i = b_0 + b_1 x_{1,i}$ \ with residuals $e_i = y_i - \widehat{y}_i$
-\pause\item Model 2: $\widehat{y}_i^* = b_0^* + b_1^* x_{1,i} + \blue{b_2^* x_{2,i}}$ \ with residuals $e_i^* = y_i - \widehat{y}_i^*$
-\end{itemize}
-
-\pause both models fit the data near identically, i.e. the residuals are similar
-\begin{eqnarray*}
-Var(e_i) \approx Var(e_i^{*}) \ldots
-\end{eqnarray*}
-
-\pause Then we should pick Model 1 over Model 2 since it is \blue{simpler}: it has fewer of predictors $k$.
+%Say for:
+%\begin{itemize}
+%\pause\item Model 1: $\widehat{y}_i = b_0 + b_1 x_{1,i}$ \ with $e_i = y_i - \widehat{y}_i$
+%\pause\item Model 2: $\widehat{y}_i^* = b_0^* + b_1^* x_{1,i} + \blue{b_2^* x_{2,i}}$ \ with $e_i^* = y_i - \widehat{y}_i^*$
+%\end{itemize}
+%
+%\pause both models' fit is near identical, i.e.
+%\begin{eqnarray*}
+%Var(e_i) \approx Var(e_i^{*}) \ldots
+%\end{eqnarray*}
+%
+%\pause Then pick Model 1 over Model 2 since it is \blue{simpler}: it has fewer of predictors $k$.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -431,7 +434,7 @@ Multiple R-squared:  0.719,	Adjusted R-squared:  0.7128
 
 Is there a systematic way to pick which predictor variables to include?
 
-\pause\vspace{0.5cm}
+\vspace{0.5cm}
 
 Checking model assumptions as well.  
 
