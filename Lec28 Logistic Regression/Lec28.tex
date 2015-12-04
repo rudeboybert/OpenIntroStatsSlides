@@ -5,10 +5,10 @@
 \documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -82,15 +82,15 @@
 %
 % Comment this
 %
-Instead of numerical outcomes, we have observations $Y_i$ for $i=1,\ldots,n$ where
-\begin{itemize}
-\item $Y_i=1$ with probability $p_i$
-\item $Y_i=0$ with probability $1-p_i$
-\end{itemize}
-
-\vspace{0.5cm}
-\pause
-\blue{Logistic regression}: we are modeling $p_i$'s with a linear model.
+%Instead of numerical outcomes, we have observations $Y_i$ for $i=1,\ldots,n$ where
+%\begin{itemize}
+%\item $Y_i=1$ with probability $p_i$
+%\item $Y_i=0$ with probability $1-p_i$
+%\end{itemize}
+%
+%\vspace{0.5cm}
+%\pause
+%\blue{Logistic regression}: we are modeling $p_i$'s with a linear model.
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -103,27 +103,27 @@ Instead of numerical outcomes, we have observations $Y_i$ for $i=1,\ldots,n$ whe
 %
 % Comment this
 %
-Let
-\[
-x_{1,i}, \ldots x_{k,i}
-\]
-be the $k$ predictor variables associated with the $i^{th}$ observation
-
-\vspace{0.5cm}
-\pause
-One's first thought might be to model the $p_i$'s using linear regression:
-
-\[
-p_i = \beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}
-\]
-
-\vspace{0.5cm}
-\pause
-However, you may end up fitting $p_i$'s that are either
-\begin{itemize}
-\item less than 0
-\item greater than 1
-\end{itemize}
+%Let
+%\[
+%x_{1,i}, \ldots x_{k,i}
+%\]
+%be the $k$ predictor variables associated with the $i^{th}$ observation
+%
+%\vspace{0.5cm}
+%\pause
+%One's first thought might be to model the $p_i$'s using linear regression:
+%
+%\[
+%p_i = \beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}
+%\]
+%
+%\vspace{0.5cm}
+%\pause
+%However, you may end up fitting $p_i$'s that are either
+%\begin{itemize}
+%\item less than 0
+%\item greater than 1
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -131,19 +131,19 @@ However, you may end up fitting $p_i$'s that are either
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Outcome Variable}
+\frametitle{Logit Transformation}
 
 %
 % Comment this
 %
-Rather, what is modeled is the \blue{logit transformation} or \blue{log-odds} of $p_i$
-\[
-\mbox{logit}(p_i) = \log\left(
-\frac{p_i}{1-p_i}
-\right) = \beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}
-\]
-\pause
-Why this transformation?  It maps the $[0,1]$ interval to a $(-\infty, \infty)$ interval.  
+%Rather, what is modeled is the \blue{logit transformation} or \blue{log-odds} of $p_i$
+%\[
+%\mbox{logit}(p_i) = \log\left(
+%\frac{p_i}{1-p_i}
+%\right) = \beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}
+%\]
+%\pause
+%Why this transformation?  It maps the $[0,1]$ interval to a $(-\infty, \infty)$ interval.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -151,29 +151,29 @@ Why this transformation?  It maps the $[0,1]$ interval to a $(-\infty, \infty)$ 
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Outcome Variable}
+\frametitle{Odds}
 
 %
 % Comment this
 %
-First, convert $p_i$ into odds:
-
-\vspace{0.25cm}
-
-``Two to one odds for event X'' $\equiv$ ``There is a 66\% chance of event X occurring.''
-
-\pause \vspace{0.25cm}
-
-
-Then we take the natural log of it.  So
-\begin{itemize}
-\pause\item for $p_i=0 \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{0}{1}\right) = -\infty$
-%------------
-\pause\item for $p_i=0.5 \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{0.5}{0.5}\right) = 0$
-%------------
-\pause\item for $p_1=1  \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{1}{0}\right) = \log(\infty) = \infty$
-%\footnote{Not defined actually, we need to state $\lim_{p_i \rightarrow 1}\frac{p_i}{1-p_i}=\infty$} 
-\end{itemize}
+%First, convert $p_i$ into odds:
+%
+%\vspace{0.25cm}
+%
+%``Two to one odds for event X'' $\equiv$ ``There is a 66\% chance of event X occurring.''
+%
+%\pause \vspace{0.25cm}
+%
+%
+%Then we take the natural log of it.  So
+%\begin{itemize}
+%\pause\item for $p_i=0 \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{0}{1}\right) = -\infty$
+%%------------
+%\pause\item for $p_i=0.5 \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{0.5}{0.5}\right) = 0$
+%%------------
+%\pause\item for $p_1=1  \Rightarrow \log\left(\frac{p_i}{1-p_i}\right) = \log\left(\frac{1}{0}\right) = \log(\infty) = \infty$
+%%\footnote{Not defined actually, we need to state $\lim_{p_i \rightarrow 1}\frac{p_i}{1-p_i}=\infty$} 
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ Then we take the natural log of it.  So
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Outcome Variable}
-Figure 8.14 from page 369
+Figure 8.13 from page 388
 
 \vspace{6cm}
 
@@ -192,12 +192,12 @@ Figure 8.14 from page 369
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Simple Logistic Regression Example p.370}
+\frametitle{Simple Logistic Regression Example p.388}
 
-So say we fit a logistic regression with ($n=3921$):
+So say we fit a logistic regression with:
 \begin{itemize}
 \item $Y_i$ is {\tt spam}:  binary variable of whether message was classified as spam (1 if spam)
-\item $x_i$ is {\tt to\_multiple}:  binary variable indicating if more than one recipient listed
+\pause\item $x_i$ is {\tt to\_multiple}:  binary variable indicating if more than one recipient listed
 \end{itemize}
 \pause
 \begin{table}[ht]
@@ -215,10 +215,10 @@ So say we fit a logistic regression with ($n=3921$):
 %
 % Comment this
 %
-The regression equation is
-\[
-\log\left(\frac{p_i}{1-p_i}\right) = -2.12 - 1.81 \times {\tt to\_multiple} 
-\]
+%The regression equation is
+%\[
+%\log\left(\frac{p_i}{1-p_i}\right) = -2.12 - 1.81 \times {\tt to\_multiple} 
+%\]
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -230,21 +230,21 @@ The regression equation is
 %
 % Comment this
 %
-How do we convert back into $p_i$'s?
-\pause
-\begin{eqnarray*}
-\mbox{Say } x = \log\left(\frac{p_i}{1-p_i}\right) \mbox{ then } p_i = \frac{\exp(x)}{1 + \exp(x)}
-\end{eqnarray*}
-is the \blue{inverse logit transformation}.
-
-\vspace{0.5cm}
-\pause
-So to convert the regression equation to probabilities, we compute
-
-\begin{eqnarray*}
-%p_i &=& \frac{\exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}{1 + \exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}
-p_i &=& \frac{1}{1 + \exp(-(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}))}
-\end{eqnarray*}
+%How do we convert back into $p_i$'s?
+%\pause
+%\begin{eqnarray*}
+%\mbox{Say } x = \log\left(\frac{p_i}{1-p_i}\right) \mbox{ then } p_i = \frac{\exp(x)}{1 + \exp(x)}
+%\end{eqnarray*}
+%is the \blue{inverse logit transformation}.
+%
+%\vspace{0.5cm}
+%\pause
+%So to convert the regression equation to probabilities, we compute
+%
+%\begin{eqnarray*}
+%%p_i &=& \frac{\exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}{1 + \exp(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i})}
+%p_i &=& \frac{1}{1 + \exp(-(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}))}
+%\end{eqnarray*}
 
 
 \end{frame}
@@ -257,21 +257,21 @@ p_i &=& \frac{1}{1 + \exp(-(\beta_0 + \beta_1 x_{1,i} + \ldots + \beta_k x_{k,i}
 %
 % Comment this
 %
-To compute the fitted probabilities $\widehat{p}_i$:
-\begin{itemize}
-\item {\tt to\_multiple}$ = 0$ (only one recipient):
-\[
-%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 0)}{1 + \exp(-2.12 - 1.81 \times 0)} = 0.11
-\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 0))} = 0.11
-\]
-\item {\tt to\_multiple}$ = 1$ (many recipients):
-\[
-%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 1)}{1 + \exp(-2.12 - 1.81 \times 1)} = 0.02
-\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 1))} = 0.02
-\]
-\end{itemize}
-\pause
-Note:  11\% and 2\% are not dramatically different.  In an ideal world of binary predictors, we'd have fitted probabilities of 100\% and 0\%.
+%To compute the fitted probabilities $\widehat{p}_i$:
+%\begin{itemize}
+%\item {\tt to\_multiple}$ = 0$ (only one recipient):
+%\[
+%%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 0)}{1 + \exp(-2.12 - 1.81 \times 0)} = 0.11
+%\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 0))} = 0.11
+%\]
+%\item {\tt to\_multiple}$ = 1$ (many recipients):
+%\[
+%%\widehat{p}_i = \frac{\exp(-2.12 - 1.81 \times 1)}{1 + \exp(-2.12 - 1.81 \times 1)} = 0.02
+%\widehat{p}_i = \frac{1}{1 + \exp(-(-2.12 - 1.81 \times 1))} = 0.02
+%\]
+%\end{itemize}
+%\pause
+%Note:  11\% and 2\% are not dramatically different.  In an ideal world of binary predictors, we'd have fitted probabilities of 100\% and 0\%.
 \end{frame}
 %------------------------------------------------------------------------------
 
@@ -349,6 +349,24 @@ The following variables decrease the probability that the email is spam, since $
    \hline
 \end{tabular}
 \end{table} 
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Assumptions for Logistic Regression}
+
+%
+% Comment this
+%
+%\begin{itemize}
+%\item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
+%\pause\item Each outcome $Y_i$ is independent of the other outcomes.
+%\end{itemize}
+%
+%\pause Please read pages 375 and 376 from the text.  
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -461,24 +479,6 @@ Using a cutoff of 30\%:
 \item Type I errors:  labeling an email spam when it is not
 \item Type II errors:  failing to label an email as spam when it is 
 \end{itemize}
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
-\frametitle{Assumptions for Logistic Regression}
-
-%
-% Comment this
-%
-\begin{itemize}
-\item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
-\pause\item Each outcome $Y_i$ is independent of the other outcomes.  This can be verified using the residuals $e_i = Y_i - \widehat{p}_i$
-\end{itemize}
-
-\pause Please read pages 375 and 376 from the text.  
 
 \end{frame}
 %------------------------------------------------------------------------------
