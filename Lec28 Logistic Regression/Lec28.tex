@@ -1,14 +1,14 @@
 % Uncomment this to make slides with overlays:
-%\documentclass[slides]{beamer}
+\documentclass[slides]{beamer}
 
 % Uncomment these (but comment the above \documentclass line) to make handouts:
-\documentclass[handout]{beamer}
+%\documentclass[handout]{beamer}
 
 % Uncomment these to have more than one slide per page
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[border shrink=5mm]
+%\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+%\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
 
 \usepackage[]{graphicx, color, hyperref}
 
@@ -356,26 +356,8 @@ The following variables decrease the probability that the email is spam, since $
 
 %------------------------------------------------------------------------------
 \begin{frame}[fragile]
-\frametitle{Assumptions for Logistic Regression}
-
-%
-% Comment this
-%
-%\begin{itemize}
-%\item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
-%\pause\item Each outcome $Y_i$ is independent of the other outcomes.
-%\end{itemize}
-%
-%\pause Please read pages 375 and 376 from the text.  
-
-\end{frame}
-%------------------------------------------------------------------------------
-
-
-%------------------------------------------------------------------------------
-\begin{frame}[fragile]
 \frametitle{Fitted Probabilities}
-These are all 3921 fitted probabilities:
+These are all 3921 fitted probabilities $\widehat{p}$:
 \begin{center}
 \includegraphics[width=3in]{figure/fitted.pdf}
 \end{center}
@@ -403,23 +385,24 @@ Say we use a cutoff of 65\% to \blue{classify} an email spam or not:
 
 Using a cutoff of 65\%:
 \begin{center}
-  \begin{tabular}{cc|cc}
+  \begin{tabular}{cr|cc}
      \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Classification}} \\ 
      &  & Not Spam & Spam \\ 
+     &  & $\widehat{p}_i < .65$ & $\widehat{p}_i \geq .65$ \\ 
 \hline
-    \textbf{Truth} & Not Spam & 3351 & 3\\
-     & Spam & 357 & 10\\ 
+    \textbf{Truth} & Not Spam: $Y_i=0$ & 3351 & 3\\
+     & Spam: $Y_i=1$ & 357 & 10\\ 
     \hline
   \end{tabular}
 \end{center}
 %
 % Comment this
 %
-\pause
-\begin{itemize}
-\item Of the emails classified as spam:  $\frac{10}{10+3} = 76\%$ correct
-\item Of the emails classified not as spam:  $\frac{3351}{3351+357} = 90.3\%$ correct
-\end{itemize}
+%\pause
+%\begin{itemize}
+%\item Of the emails classified as spam:  $\frac{10}{10+3} = 76\%$ correct
+%\item Of the emails classified not as spam:  $\frac{3351}{3351+357} = 90.3\%$ correct
+%\end{itemize}
 
 
 \end{frame}
@@ -445,23 +428,24 @@ Now say we use a cutoff of 30\% to \blue{classify} an email spam or not:
 
 Using a cutoff of 30\%:
 \begin{center}
-  \begin{tabular}{cc|cc}
+  \begin{tabular}{cr|cc}
      \multicolumn{2}{c}{}  & \multicolumn{2}{c}{\textbf{Classification}} \\ 
      &  & Not Spam & Spam \\ 
+     &  & $\widehat{p}_i < .30$ & $\widehat{p}_i \geq .30$ \\      
 \hline
-    \textbf{Truth} & Not Spam & 3138 & 416\\
-     & Spam & 166 & 201\\ 
+    \textbf{Truth} & Not Spam: $Y_i=0$ & 3138 & 416\\
+     & Spam: $Y_i=1$ & 166 & 201\\ 
     \hline
   \end{tabular}
 \end{center}
 %
 % Comment this
 %
-\pause
-\begin{itemize}
-\item Of the emails classified as spam:  $\frac{201}{201+416} = 32.6\%$ correct
-\item Of the emails classified not as spam:  $\frac{3138}{3138+166} = 95.0\%$ correct
-\end{itemize}
+%\pause
+%\begin{itemize}
+%\item Of the emails classified as spam:  $\frac{201}{201+416} = 32.6\%$ correct
+%\item Of the emails classified not as spam:  $\frac{3138}{3138+166} = 95.0\%$ correct
+%\end{itemize}
 
 \end{frame}
 %------------------------------------------------------------------------------
@@ -474,11 +458,29 @@ Using a cutoff of 30\%:
 %
 % Comment this
 %
-\blue{Moral of the Story}:  most classifiers are never perfect (like hypothesis tests).  There will almost always be a trade-off between:  
-\begin{itemize}
-\item Type I errors:  labeling an email spam when it is not
-\item Type II errors:  failing to label an email as spam when it is 
-\end{itemize}
+%\blue{Moral of the Story}:  most classifiers are never perfect (like hypothesis tests).  There will almost always be a trade-off between:  
+%\begin{itemize}
+%\item Type I errors:  labeling an email spam when it is not
+%\item Type II errors:  failing to label an email as spam when it is 
+%\end{itemize}
+
+\end{frame}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Conditions for Logistic Regression}
+
+%
+% Comment this
+%
+%\begin{itemize}
+%\item There is a roughly linear relationship between each of the predictors and $\log\left(\frac{p}{1-p}\right)$.
+%\pause\item Each outcome $Y_i$ is independent of the other outcomes.
+%\end{itemize}
+%
+%\pause Please read pages 375 and 376 from the text.  
 
 \end{frame}
 %------------------------------------------------------------------------------
